@@ -872,18 +872,19 @@ Deligne's differential $d$.
 \newpage
 \newgeometry{bottom=2cm,left=2cm,right=2cm}
 \begin{landscape}\begin{small}
-\begin{ceqn}\begin{equation*}\begin{tikzcd}[cramped,column sep=small,ampersand replacement=\&]
-	\&\;\arrow[d]\&\;\arrow[d]\&\;\arrow[d] \\
-	0\arrow[r]\&\Gr^{p+1}(\Hom(L^i,M^i))\arrow[r]\arrow[d]
-	\&F^p/F^{p+2}(\Hom(L^i,M^i))\arrow[r]\arrow[d,"d^0=d_L-d_M"]
-	\&\Gr^p(\Hom(L^i,M^i))\arrow[r]\arrow[d]
-	\&0 \\
+\begin{ceqn}\begin{equation*}\begin{tikzcd}[column sep=small]
+	&\;\arrow[d]&\;\arrow[d]&\;\arrow[d] \\
 	0\arrow[r]
-	\&\Gr^{p+1}(\Hom(L^{i-1},M^i)\oplus\Hom(L^i,M^{i+1}))\arrow[r,"\alpha"]\arrow[d]
-	\&F^p/F^{p+2}(\Hom(L^{i-1},M^i)\oplus\Hom(L^i,M^{i+1}))\arrow[r]\arrow[d]
-	\&\Gr^p(\Hom(L^{i-1},M^i)\oplus\Hom(L^i,M^{i+1}))\arrow[r]\arrow[d]
-	\&0\\
-	\&\;\&\;\&\;
+	&\Gr^{p+1}(\Hom(L^i,M^i))\arrow[r]\arrow[d]
+	&F^p/F^{p+2}(\Hom(L^i,M^i))\arrow[r]\arrow[d,"d^0=d_L-d_M"]
+	&\Gr^p(\Hom(L^i,M^i))\arrow[r]\arrow[d]
+	&0 \\
+	0\arrow[r]
+	&\Gr^{p+1}(\Hom(L^{i-1},M^i)\oplus\Hom(L^i,M^{i+1}))\arrow[r,"\alpha"]\arrow[d]
+	&F^p/F^{p+2}(\Hom(L^{i-1},M^i)\oplus\Hom(L^i,M^{i+1}))\arrow[r]\arrow[d]
+	&\Gr^p(\Hom(L^{i-1},M^i)\oplus\Hom(L^i,M^{i+1}))\arrow[r]\arrow[d]
+	&0\\
+	&\;&\;&\;
 \end{tikzcd}\end{equation*}
 \end{ceqn}\end{small}
 Let $a,b\in\ZZ$ (we care about $(a,b)=(i-1,i),(i,i)$, or $(i,i+1)$)
