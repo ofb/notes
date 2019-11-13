@@ -1,0 +1,85 @@
+\documentclass[deligne.tex]{subfiles}
+
+\begin{document}
+Some notes about Grothendieck's theorem on quasi-unipotent monodromy.
+We study the arithmetic proof. It uses a proposition proved by
+Grothendieck in the appendix of Serre and Tate's article
+\textit{Good Reduction of Abelian Varieties}.
+
+We may assume that $K$ is complete since, following Serre,
+\textit{Corps Locaux}, II$\S$3 Cor.~4, completing $K$ leaves the 
+decomposition unchanged. Now, we may assume that any matrix in the image of
+$\rho$ has coefficients in $\ZZ_\ell$ and is congruent to $1\mod l^2$ as
+these are both open conditions, $\rho$ is continuous, and we are free to pass 
+to an open subgroup of $I(\overline v)$ by making a finite extension of $K$.
+
+Note also that $\im\rho$ is a pro-$l$ group since, while $\GL(n,\ZZ_l)$ is
+not a pro-$l$-group, its first congruence subgroup of matrices congruent to
+$1\mod l$ is a pro-$l$-group (c.f., e.g., \S5.1 of \textit{Analytic Pro-$p$
+Groups} by Dixon, du Sautoy, Mann \& Segal).
+We see therefore that the prime-to-$l$ part of the order of $\GL(n,\ZZ_l)$
+is finite. As the image of a pro-$p$ group under a continuous homomorphism 
+is pro-$p$, the continuous image of a pro-$p$ group in $\GL(n,\ZZ_l)$ is 
+finite. As $\im\rho$ is by construction pro-$l$, the image of a pro-$p$ group 
+in $\im\rho$ is $\{1\}$.
+
+Now, if $L$ is a finite extension of $K_l$, we wish to show that the 
+polynomial $f(T)=T^l-a$ splits in $L$ for any $a\in L$. If it does not, then 
+as $f$ is separable and $L$ contains all $l^\text{th}$ roots 
+of unity, $L(\sqrt[l]a)$ is the splitting field of $f$ and is Galois.
+The automorphism of $L(\sqrt[l]a)/L$ sending 
+$\sqrt[l]a\mapsto \zeta_l\sqrt[l]a$, where $\zeta_l$ is a primitive
+$l^{\text{th}}$ root of unity, acts transitively on the roots 
+of $f$, hence $f$ is irreducible.
+But $K_l$ is the $l$-part of the maximal
+tamely ramified extension of $K_{nr}$, hence $l$ cannot divide $[L:K_l]$.
+(Recall that $K_t$ is the maximal tamely ramified extension of $K$, and
+we have
+\begin{ceqn}\begin{equation*}
+	\Gal(K_t/K_{nr})\simeq\prod_{q\ne p}\ZZ_q
+	\qquad
+	\Gal(K_t/K_l)\simeq\prod_{q\ne p,l}\ZZ_q
+	\qquad
+	\Gal(K_s/K_t)\text{ a pro-$p$ group}
+\end{equation*}\end{ceqn}
+as $q$ runs over primes, so $\Gal(K_s/K_l)$ is an extension
+of a group isomorphic to $\prod_{q\ne p,l}\ZZ_q$ by a pro-$p$ group, and therefore has no finite quotient of order divisible by $l$.)
+This allows one to conclude that $l$ does not divide the order of
+$\Gal(K_s/K_l)$.
+The order of $\im\rho$ is a power of $l$ as it is a pro-$l$ group.
+
+An alternative way to see that $l$ does not divide the order of
+$\Gal(K_s/K_l)$ that is more faithful to the original proof proceeds by
+showing directly that for a finite extension $L/K_l$, every element of $L$ is
+an $l^{\text{th}}$ power. To do this, let $L=K_l[t]/a(t)$ for $a(t)$ 
+an irreducible separable polynomial $a(t)=a_nx^n+a_{n-1}x^{n-1}+\ldots+a_0$, 
+and suppose $t$ is not an $l^\text{th}$ power in $L$. This implies that the 
+polynomial $a_l(t)=a_nx^{ln}+a_{n-1}x^{l(n-1)}+\ldots+a_0$ is irreducible and
+separable over $K_l$. 
+Let $K'/K$ be a finite Galois extension containing all $l^{\text{th}}$ 
+roots of unity and the $a_i$, and contained in $K_l$.
+The extension $K'[t]/a_l(t)$ is finite and
+separable and is contained in a finite Galois extension $K''$ of $K'$ with
+$l$ dividing $[K'':K']$, so $l$
+divides the ramification index or the residual degree. If the latter,
+making a finite unramified extension of $K'$ produces a contradition on
+the irreducibility of $a_l(t)$ over $K_l$. If the former,
+replacing $K''$ by $K'[\pi^{1/l}]\subset K_l$ similarly yields a contradiction.
+Now to see that every finite Galois extension $L$ of $K_l$ cannot have $l$ 
+dividing its degree, note that $\Gal(L/K_l)$ contains a cyclic subgroup $H$
+of order $l$, and we claim $L=L^H(a^{1/l})$ for some element $a\in L^H$.
+Let $\sigma$ generate $H$, and let $b\in L-L^H$. Then the element
+\begin{equation*} c=\sum_{m=1}^l\zeta_l^m\sigma^m(b)\end{equation*}
+satisfies $c=\zeta_l\sigma(c)$, where $\zeta_l$ is a primitive $l^\text{th}$
+root of unity. So
+\begin{equation*}c^l=\prod_{m=1}^l\sigma^m(c)\in L^H,\end{equation*}
+and letting $a=c^l$ we find that $L^H(a^{1/l})$ is a nontrivial
+subextension of $L^H$, hence must actually coincide with $L$.
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\begin{thebibliography}{ST}
+\bibitem[ST]{ST} Jean-Pierre Serre and John Tate. Good reduction of abelian varieties. \textit{Ann. of Math.} (2), 88:492–517, 1968.	
+\end{thebibliography}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+\end{document}

@@ -1,0 +1,440 @@
+\documentclass[deligne.tex]{subfiles}
+
+\begin{document}
+\subsection*{1.2}\label{sec:st1.2}
+Suppose $X$ is locally noetherian and $X'$ is a connected
+component of $X$ pointed by a geometric point $a\ra X'$.
+Via Grothendieck's Galois theory, over $X'$, the $A$-torsor $T$ can be
+identified (after a choice $e$ of identity for the stalk of $T$ at $a$) with
+the set $A$ with (continuous) left action of $\pi_1(X',a)$ and right action
+of $A$.
+
+Given a homomorphism $\tau:A\ra B$, we wish to produce a map of sets
+$\tau:A\ra B$ so that $\tau(ta)=\tau(t)\tau(a)$ and give the set $B$ with 
+right action of $B$ a left action of $\pi_1(X',a)$ with respect to which
+$\tau$ is equivariant. The given homomorphism of groups sets up a map of sets
+compatible with the actions of $A$ and $B$, and the formula
+\begin{equation*}
+	g\tau(t):=\tau(gt)
+\end{equation*}
+defines a left $\pi_1$ action on $\tau(A)$. For $s\in B$ not necessarily in
+$\tau(A)$,
+\begin{equation*}
+	gs:=g\tau(e)s=\tau(ge)s
+\end{equation*}
+extends the left action of $\pi_1$ to all of $B$.
+The $B$-torsor $\tau(T)$ is then identified with the set $B$ with right
+action of $B$ and the given left action of $\pi_1$, with respect to which
+$\tau:T\ra\tau(T)$ is equivariant by construction.
+This discussion depends on the choice of identity for the torsor $T$
+(the identity for $\tau(T)$ is obtained from the choice for $T$ and the
+homomorphism $\tau$) and therefore only defines the torsor $\tau(T)$ up to
+isomorphism.
+
+Let $R$ (resp. $E_\lambda$) be a finite $\ZZ_\ell$-algebra
+(resp. finite $\QQ_\ell$-algebra).
+Recall (SGA 5 Exp. VI ($\alpha$) 1.2.4, ($\beta$) 1.4.1, ($\gamma$) 1.4.2, ($\delta$) 1.4.3) that the category of
+\begin{enumerate}[label=(\greek*)]
+	\item lisse $\ZZ_\ell$-sheaves
+	\item lisse $R$-sheaves
+	\item lisse $\QQ_\ell$-sheaves
+	\item lisse $E_\lambda$-sheaves
+\end{enumerate}
+on a connected locally noetherian scheme $X$, pointed by a geometric point
+$a\ra X$ is equivalent to the category of
+\begin{enumerate}[label=(\greek*)]
+	\item $\ZZ_\ell$-modules of finite type on which $\pi_1(X):=\pi_1(X,a)$ acts continuously for the $\ell$-adic topology
+	\item $R$-modules of finite type equipped with a continuous and $R$-linear action of $\pi_1(X)$ on the underlying $\ZZ_\ell$-module of finite type
+	\item $\QQ_\ell$-vector spaces of finite dimension equipped with a continuous action of $\pi_1(X)$
+	\item $E_\lambda$-vector spaces of finite dimension equipped with a continuous and $E_\lambda$-linear action of $\pi_1(X)$ on the underlying $\QQ_\ell$-vector space.
+\end{enumerate}
+Given an $A$-torsor $T$ on $X$ and a finite-dimensional $E_\lambda$-vector
+space $V$, the data of an 
+$E_\lambda$-sheaf $\mathscr F$, lisse of rank $\dim V$, together with a
+morphism of sheaves $\rho:T\ra\underline{\operatorname{Isom}}(V,\mathscr F)$
+satisfying $\rho(ta)=\rho(t)\rho(a)$ is the same (after a choice of identity
+$e$ for the stalk of $T$ at $a$) as the data of a continuous
+and $E_\lambda$-linear action of $\pi_1(X)$ on the underlying
+$\QQ_\ell$-vector space of $V$ and a $\pi_1$-equivariant group homomorphism
+$\rho:A\ra\GL(V)$, where the action of $\pi_1$ on $\GL(V)$ is induced by the
+action of $\pi_1$ on the second factor of $\Hom(V,V)$.
+Given $\rho:A\ra\GL(V)$ a linear representation of $A$, there is a unique
+continuous and $E_\lambda$-linear action of $\pi_1$ on the $\QQ_\ell$-vector
+space underneath $V$ that makes $\rho$ $\pi_1$-equivariant:
+\begin{align*}\tag{$\dagger$}
+	\pi_1(X)\times V&\ra V \\
+	(g,v)&\mapsto \rho(ge)v
+\quad\rightsquigarrow\quad\rho(ga)=\rho(gea)=\rho(ge)\rho(a)=g\rho(a).
+\end{align*}
+
+\subsection*{1.3}
+Torsors can be discussed in the language of schemes or sheaves; the
+distinction comes down to whether the torsor is representable as a sheaf,
+and this distinction motivates the introduction of algebraic spaces.
+In SGA 1 Exp. V \S2 and SGAD Exp. III \S0 \& Exp. IV \S5
+the notion of principal homogeneous space is developed;
+these are the representing objects for certain (sheaf) torsors.
+There, an $A$-torsor is called a principal homogeneous space under $A$.
+More precisely, given a category $\mathscr C$, let
+$\widehat{\mathscr C}$ denote its category of set-valued presheaves
+$\textbf{Hom}(\mathscr C^\circ,(\textbf{Set}))$.
+If $A$ is a $\widehat{\mathscr C}$-group acting on $X$ an object of
+$\widehat{\mathscr C}$, $X$ is formally principal homogeneous under $A$
+(i.e. an $A$-pseudo torsor) if the equivalent conditions below are satisfied:
+\begin{enumerate}[label=(\roman*)]
+	\item for each object $S$ of $\mathscr C$, the set $X(S)$ is empty or principal homogeneous under $A(S)$;
+	\item the morphism of functors $A\times X\ra X\times X$ defined setwise by $(a,x)\mapsto(ax,x)$ is an isomorphism.
+\end{enumerate}
+It amounts to the same to say that the canonical morphism of functors
+\begin{equation*} X\times A\ra X\times X \end{equation*} is an isomorphism.
+If $\mathscr C$ is equipped with a topology, then one says that the
+$S$-object $X$ with $S$-group of operators $A$ is fibered principal
+homogeneous under $A$ (i.e. is an $A$-torsor) if it is locally trivial; i.e.
+there exists a covering family $\{S_i\ra S\}$ such that for each $i$, the
+$S_i$-functor $X\times_S S_i$ with $S_i$-functor-group of operators
+$A\times_S S_i$ is trivial.
+
+The category $\widehat{\mathscr C}$ has a final object
+$\underline{\mathbf{e}}$ which sends an
+object of $\mathscr C$ to $\{\emptyset\}$, the set with one element.
+This functor is representable iff $\mathscr C$ admits a final object.
+The `sections' functor $\Gamma$ is defined on $\widehat{\mathscr C}$ as
+$\Hom(-,\underline{\mathbf{e}})$ and on $\mathscr C$ via $X\mapsto h_X$;
+if $\mathscr C$ admits a final object, this latter functor is isomorphic to
+$\Hom(e,-)$.
+SGAD Exp. IV 5.1.2, 5.1.3 observes that $X$ is formally principal 
+homogeneous under $A$, there is an isomorphism
+\begin{equation*}
+	\Gamma(X)\xra{\sim}\operatorname{Isom}_{A\text{-obj.}}(A,X)
+\end{equation*}
+of principal homogeneous sets under $\Gamma(A)$; therefore an isomorphism
+of $A$-objects
+\begin{equation*}
+	X\xra{\sim}\underline{\operatorname{Isom}}_{A\text{-obj.}}(A,X).
+\end{equation*}
+The proof is simply that to each section $x$ of $X$ one associates the
+morphism $A\ra X$ defined setwise by $a\mapsto xa$.
+This implies that an object with group of operators is trivial iff it is
+formally principal homogeneous and possesses a section.
+
+The algebraic group schemes in the given extension can also be
+considered as sheaves for the fpqc topology on $S$. En effet, the
+surjectivity of $\pi$ implies that $\pi$ is faithfully flat, and therefore
+an fpqc covering.
+\begin{proposition*}[SGAD Exp. IV 5.1.7.1]
+Let $\mathscr C$ denote a category possessing a final object, stable
+by fiber products, and equipped with a subcanonical topology $\mathcal T$
+(such as \textbf{Sch} equipped with fppf, fpqc, étale).
+Suppose $\pi:G'\ra G$ is a morphism of $\mathscr C$-groups which is covering
+for the topology $\mathcal T$, and $A=\ker\pi$.
+Then $G$ represents the quotient sheaf $G'/A$, and $\pi$ is an $A_G$-torsor;
+i.e. $G'$ is an $A$-torsor on $G$.
+\end{proposition*}
+Therefore it makes sense to say `$G'$ is an $A$-torsor on $G$' or that
+`the sheaf $T$ of local sections of $\pi$, $T=\Hom_G(-,G')$, is an $A$-
+torsor on $G$'; the former represents the latter.
+The $A$-torsor $G'$ on $G$ is indeed locally trivial for fpqc: pulling back
+along the faithfully flat covering $\pi$, we find
+\begin{align*}
+	G'\times_G A&\ra G'\times_G G' \\
+	(g',a)&\mapsto(g',g'a)
+\end{align*}
+is indeed an isomorphism, as can be checked setwise.
+
+In order to understand how to add torsors, it is instructive to first recall
+how to add extensions of abelian groups. Suppose
+\begin{align*}
+	&0\ra A\ra G'\ra G\ra 0 \\
+	&0\ra A\ra G''\ra G\ra 0
+\end{align*}
+are exact sequences of abelian groups. $G'$ and $G''$ are $A$-torsors in
+\textbf{Set}. The Baer sum $G'+G''$ is constructed from the direct sum of
+extensions by pushout along addition for $A$ and pullback along the diagonal 
+for $G$.
+\begin{equation*}\begin{tikzcd}
+	0\arrow[r]&A\oplus A\arrow[dr,phantom,"\lrcorner",near end]\arrow[r]\arrow[d,"+"] &G'\oplus G\arrow[r]\arrow[d] &G\oplus G\arrow[r]\arrow[d]&0 \\
+	0\arrow[r]&A\arrow[r]&+_*(G'\oplus G'')\arrow[r]&G\oplus G\arrow[r] \arrow[dl,phantom,"\llcorner",near end]&0 \\
+	0\arrow[r]&A\arrow[r]\arrow[u]&\Delta^*+_*(G'\oplus G'')\arrow[r]\arrow[u]&G\arrow[r]\arrow[u,"\Delta"]&0
+\end{tikzcd}\end{equation*}
+Here, the square marked with $\llcorner$ is cartesian while the one marked 
+with $\lrcorner$ is cocartesian.
+The Baer sum of $G'$ and $G''$ is $\Delta^*+_*(G'\oplus G'')$.
+Now consider the case of 1.3 where we are given an extension of commutative
+algebraic group schemes over $S$, and $G'$ is an $A$-torsor over $G$.
+Pulling back $G'$ along addition for $G$ yields the fiber product
+$+_G^*G'=G'\times_G G\times_S G$.
+If $X$ is a scheme over $S$, to give a morphism over $S$ to $+_G^*G'$
+amounts to giving two objects $g_1,g_2\in G(X)$ and an object in
+$g\in G'(X)$ such that $\pi g=g_1+g_2$.
+This data is equivalent to the data of two objects $g_1',g_2'$ in $G'(X)$
+mapping to $g_1,g_2$, respectively, modulo the relation which considers two
+such pairs equivalent if their sum is the same.
+This generalizes pushing out by addition on $A$ to the case of torsors.
+The pullback of torsors is given on representing objects by fiber product,
+so that given an $S$-morphism $f:X\ra G$, $f^*T=\Hom_X(-,X\times_{f,\pi} G')$.
+This torsor is trivial if there is a section $X\ra X\times_{f,\pi} G'$ over $X$;
+i.e. a commutative diagram
+\begin{equation*}\begin{tikzcd}[column sep=tiny]
+	X\arrow[rr]\arrow[dr,"f"']&&G'\arrow[dl,"\pi"] \\
+	&G.
+\end{tikzcd}\end{equation*}
+In other words, the torsor $f^*T$ is defined up to isomorphism by the image
+of $f$ in $\Hom_S(X,G)/\pi\Hom_S(X,G')$.
+
+If $g:X\ra G$ is another $S$-morphism, then $g^*T$ is represented by
+$X\times_{g,\pi} G'$.
+The fiber products $X\times_{f,\pi} G'$ and $X\times_{g,\pi} G'$
+are $A$-torsors over $X$. In analogy with Baer sum, a sum of torsors is
+given by pushing out by the addition on $A$ followed by pulling back by the
+diagonal $\Delta_X:X\ra X\times_S X$. Since $G'$ is defined by
+an extension and both torsors come from pulling back $G'$ (i.e. $T$),
+this is the same as pulling back $G'$ along the composition of morphisms
+\begin{equation*}\begin{tikzcd}
+	X\arrow[r,"{(f,g)}"]&G\times_S G\arrow[r,"+"]&G.
+\end{tikzcd}\end{equation*}
+More explicitly, the morphism $X\ra G\times_S G$ factors as
+\begin{equation*}\begin{tikzcd}
+	X\arrow[r,"\Delta"]&X\times_S X\arrow[rr,"{(f\circ\pr_1,g\circ\pr_2)}"]&&G\times_S G
+\end{tikzcd}\end{equation*}
+and therefore pulling back along this morphism corresponds to pulling back
+$(f^*T,g^*T)$ along the diagonal $\Delta_X$.
+Of course, the fiber product $G'\times_{G'}(G'\times_S G')\simeq G'\times_S G'$
+corresponds to the $A\times A$-torsor $(T,T)$.
+As we have already seen, pulling back $G'$ along $G\times_S G\xra{+} G$
+is the quotient of $(T,T)$ by the relation the action of $(a_1,a_2)$ and
+$(a_1',a_2')$ if $a_1+a_2=a_1'+a_2'$. Therefore, $(f+g)^*T$ is the quotient
+of $(f^*T,g^*T)$ by this same relation, which verifies the formula 
+\begin{equation*} (f+g)^*T=f^*T+g^*T. \end{equation*}
+
+\subsubsection*{The Lang torsor}
+For the development of the Lang isogeny and its properties, see
+Borel, \emph{Algebraic Groups} \S16. There, he proves that $\mathscr L$ is
+surjective when $G^0$ is connected.
+If the group $G^0$ is smooth (i.e. geometrically reduced), then $\mathscr L$
+is seen to be étale (as a morphism of schemes) by computing its differential
+and Milne, \emph{Algebraic Groups}, 1.63.
+That the functor $G_0^F=G_0(\FF_q)$ is a consequence of the description of
+$F$ on the set $G_0(\FF)$; see \emph{Rapport} 1.1.
+
+\subsection*{1.6}\label{sommes:1.6} If $G_0$ is a commutative algebraic group defines over
+$\FF_q$, then the norm map
+\begin{equation*}
+N:G_0(\FF_{q^n})\ra G_0(\FF_q)\subset G_0(\FF_{q^n})\end{equation*}
+is defined, as $F$ is a group homomorphism.
+In the case $G_0=\GG_a$, then $\GG_a(\FF_{q^n})=\FF_{q^n}$
+and $N$ coincides with the field \emph{trace}
+$N(x)=x+x^q+\cdots+x^{q^{n-1}}$, as the group operation is
+addition. If $G_0=\GG_m$, on the other hand, then
+$\GG_m(\FF_{q^n})=\FF_{q^n}^\times$ and $N$ coincides with the field 
+\emph{norm} $N(x)=x\cdot x^q\cdots x^{q^{n-1}}$, as the group operation is
+multiplication.
+
+\subsection*{1.7} The formul\ae\
+$\mathscr F(\chi,f_0)=f_0^*\mathscr F(\chi,\id_{G_0})$, etc. result from the
+fact that the pullback of lisse sheaves corresponds to the homomorphism of
+$\pi_1$ induced by $f_0$; i.e. if $x\ra X_0$ is a geometric point and 
+$g=f_0(x)$, then both sides of these identities result from the composition 
+of maps
+\begin{equation*}
+	\pi_1(X_0,x)\ra\pi_1(G_0,g)\xra{L_0} G_0(\FF_q)\xra{\chi^{-1}} E_\lambda^*,
+\end{equation*}
+where the $L_0$ indicates the homomorphism of groups defining the
+Lang torsor $L_0(G_0)$.
+
+The formula that motivates this whole business
+\begin{equation*} F_x^*=\chi f_0(x)\end{equation*}
+follows from the hint that the fiber in $x$ of the morphism 1.2.2 commutes
+with $F_x^*$. This is true for the following reason: the geometric point 
+$x\in X^F$ and $f_0$ give homomorphisms
+\begin{equation*}	
+	\Gal(\FF,\FF_q)\ra\pi_1(X_0,x)\ra\pi_1(G_0,x)
+\end{equation*}
+and $F_x^{*-1}$ coincides with the image of the Frobenius substitution
+$\varphi\in\Gal(\FF,\FF_q)$. Commutation of $F_x^*$ with $f_0^*$ is clear 
+and it remains to show that $\rho_x$ of 1.2.2 is $\pi_1(X,x)$-equivariant.
+The formula ($\dagger$) of \hyperref[sec:st1.2]{the note to 1.2} shows this
+explicitly.
+
+\subsection*{1.8} (ii) The inverse image by $f$ of the the $E_\lambda$-sheaf
+obtained from $\chi^{-1}(L_0(G_0))$ by extension of scalars from $\FF_q$ to
+$k$ is probably better written $f^*\mathscr F(\chi)_1$ than $\mathscr F(\chi f)$.
+
+\subsection*{1.10} The subtlety in this argument is building a bridge 
+between $\CC$ and $\FF_q$. Of course, the isomorphisms on singular
+cohomology with $\QQ$ coefficients imply isomorphisms on singular cohomology
+with $\QQ_\ell$ coefficients for all $\ell$.
+The quadric hypersurface $X_0'$ and hyperplane $Y_0'$ in
+$\PP_0^{2N}$ over $\FF_q$ are each defined by the vanishing of
+a homogeneous polynomial of degree two and one, respectively, in the ring
+$\FF_q[X_0,X_1,\ldots,X_{2N}]$; let $f_0$ denote the polynomial defining
+$X_0'$. As $X_0'$ is a nonsingular variety over a perfect field, it is
+smooth over $\FF_q$. Let $m(x)$ be the minimal polynomial for a primitive
+element of $\FF_q$ over $\FF_p$; lifting the coefficients of $m$ to $\ZZ$,
+$m$ remains irreducible, and defines a finite extension of domains
+$\ZZ\ra\ZZ[x]/(m(x))=:A$ so that $A/(p)\simeq\FF_q$.
+The coefficients of $f_0$ now admit lifts to $A$ and define a projective
+quadric $X_S'$ in $\PP^{2N}_S$ which is, in particular, flat over
+$S:=\Spec A$, and such that the fiber over $(p)$ is $X'_0$.
+Recalling EGA IV 12.2.4, the set of points $s\in S$ such that $(X'_S)_s$ is
+smooth over $k(s)$ is open. In particular, the fiber over the generic point
+$\xi\in S$ is smooth over $k(\xi)$, which is a finite extension of $\QQ$.
+The strict henselization $\tilde A$ of $A$ at $(p)$ is a regular local ring 
+with spectrum $\tilde S$; $X'_{\tilde S}\ra\tilde S$ is proper and smooth,
+and $k(\tilde\xi)$ is an algebraic extension of $k(\xi)$.
+Let $\Spec\CC=t\ra\tilde S$ be a geometric point centered on $\tilde\xi$,
+and put $X:=(X'_{\tilde S})_t$.
+The specialization morphism
+\begin{equation*}
+	H^*(X',\QQ_\ell)\xra\sim H^*(X,\QQ_\ell)
+\end{equation*}
+is an isomorphism (Arcata V 3.1). As $X$ is a projective nonsingular quadric
+in $\PP^{2N}_\CC$, the comparison theorem between ordinary cohomology and 
+étale cohomology (Arcata V 3.5.1) allow us to apply the transcendental
+argument to conclude.
+
+\subsection*{1.13}
+To compute $R^if_!\QQ_\ell$, we may assume $Y$ is the spectrum of a 
+separably closed field and $X=\A^1$. By Poincaré duality and Artin's 
+theorem, $H^0_c(\A^1,\QQ_\ell)=0$. As for $H^1_c$, the short exact sequence
+of sheaves on $\PP^1$
+\begin{equation*}
+	0\ra(\QQ_\ell)_{\A^1}\ra\QQ_\ell\ra(\QQ_\ell)_\infty\ra0
+\end{equation*}
+gives rise to a long exact sequence of cohomology
+\begin{equation*}
+	0\ra\QQ_\ell\ra\QQ_\ell\ra H^1_c(\A^1,\QQ_\ell)\ra H^1(\PP^1,\QQ_\ell)=0\qquad(\text{as }\operatorname{Pic}^0(\PP^1)=0),
+\end{equation*}
+verifying $H^1_c(\A^1,\QQ_\ell)=0$.
+Evidently $H^0(\A^1,\QQ_\ell)=\QQ_\ell$; by Poincaré we conclude
+\begin{equation*}
+	\begin{cases}
+	R^if_!\QQ_\ell=0\qquad i\ne2 \\
+	R^2f_!\QQ_\ell=\QQ_\ell(-1).
+\end{cases}\end{equation*}
+
+\subsection*{2.3*} Leray spectral sequence for cohomology with proper 
+support is a particular case of spectral sequence of composed functors,
+but the proof that for all composition of morphisms $f=gh:X\xra h Y\xra g Z$
+we have `well-behaved' transitivity isomorphisms between $Rf_!$ and
+$Rg_!Rh_!$ is not straight forward; it is SGAA Exp. XVII 5.1.8, which also
+proves that the functors $Rf_!$ are `way out' and triangulated.
+The proof of transitivity is formal, relying on \S3 of the same exposé,
+which reduces the problem to the analogous ones for proper morphisms and
+open immersions, provided one `compatibility' isomorphism, which is 5.1.6.
+With transitivity in hand, the spectral sequence
+\begin{equation*}
+	E_2^{pq}=R^pg_!R^qh_!(K)\Rightarrow R^{p+1}f_!(K),
+\end{equation*}
+valid for $K$ in $D(X,\mathscr A_X)$ ($\mathscr A$ a sheaf of rings), is
+a consequence of a general spectral sequence written down by Verdier:
+for all $L$ in $D(Y,\mathscr A_Y)$
+\begin{equation*}
+	E_2^{pq}=R^pg_!(\mathscr H^q(L))\Rightarrow R^{p+q}g_!(L);
+\end{equation*}
+see \emph{Des catégories dérivées des catégories abéliennes} 4.4.6.
+
+
+\subsection*{2.4*} Künneth formula in cohomology with proper support is
+SGA 4 Exp. XVII 5.4.
+
+\subsection*{2.5*} The spectral sequence (2.5.2)* is the spectral sequence
+associated to a filtration of chain complex. Namely, the complements of the 
+closed subsets in the filtration on $X$ gives rise to a filtration on $X$
+by open subsets $U_p\subset U_{p+1}$.
+To calculate cohomology with proper support, fix a compactification
+$j:X\hookrightarrow\overline X$.
+In what follows, we write $\mathscr F$ for the sheaf and its various
+inverse images. Let $j_p:U_p\hookrightarrow\overline X$ and
+$i_{p+1}:U_{p+1}-U_p=X_p-X_{p+1}\hookrightarrow\overline X$ be the immersions. The filtration $j_{p!}\mathscr F\subset j_{p+1!}\mathscr F$ on
+$j_!\mathscr F$ has successive quotients isomorphic to $i_{p+1!}\mathscr F$.
+In light of the spectral sequence (2.3.1)*, the spectral sequence associated
+to a filtered injective resolution of $j_!\mathscr F$
+(\href{https://stacks.math.columbia.edu/tag/05TT}{Stacks \texttt{05TT}})
+gives rise 
+(\href{https://stacks.math.columbia.edu/tag/015W}{Stacks \texttt{015W}})
+to the spectral sequence
+\begin{equation*}
+	E_1^{p,q}=H^{p+q}(\overline X,i_{p+1!}\mathscr F)
+	=H_c^{p+q}(X_p-X_{p+1},\mathscr F)
+	\Rightarrow H^{p+q}(\overline X,j_!\mathscr F)=H_c^{p+q}(X,\mathscr F).
+\end{equation*}
+
+\begin{remark}
+Let $C$ be a curve of finite type over an algebraically closed field $k$, 
+$P$ the set of rational points of the curve, $\mathscr F$ the constant sheaf
+with value $A$ on $C$, and $x\in C(k)$.
+The fiber of $P_*P^*\mathscr F$ is not $\mathscr F_x$;
+rather, it can be identified with functions from $P$ to $A$ continuous for
+the discrete topology on $P$, modulo the relation that $f\sim g$ if
+$f(x)=g(x)$ and $f$ and $g$ disagree on only finitely many points.
+\end{remark}
+
+\subsection*{2.6*}
+SGAA Exp. V \S3 introduces the \v Cech complex and the Cartan-Leray spectral
+sequence associated to a covering, which is simply the spectral sequence of
+the composition of functors, where the first is inclusion of sheaves into 
+presheaves and the second is $\check H^0$ (it is shown that the $\check H^i$ 
+associated to the \v Cech complex are indeed right derived functors of
+$\check H^0$ on presheaves). The condition on the morphisms in the covering
+is simply that fibered products are representable, which is true in the
+category of schemes.
+However, this is not done for cohomology with support.
+In the introduction to SGAA Exp. Vbis, the Leray spectral sequence is 
+discussed for an open covering and for a locally finite closed covering,
+and this guides SGAA Exp. XVII 6.2.8--6.2.10, which discusses in full detail
+the construction of the so-called `extraordinary' spectral sequence
+(2.6.2)*. One can also obtain the
+more `ordinary' spectral sequence of (2.6.1)* from the argument there by
+replacing the trace morphism $u_!u^*\ra\id$ in the case of $u:Y\ra X$ 
+separated, étale, surjective, and finite type with the unit of adjunction
+$\id\ra u_*u^*$ when $u$ arises from a finite covering by closed subschemes.
+Then instead of getting a left resolution of the sheaf, one gets a right
+resolution, as in the usual \v Cech resolution.
+
+Given $(X_i)_{i\in I}$ a finite covering by closed subschemes, let
+$u:Y=\coprod_i X_i:=Y\ra X$,
+\begin{equation*}
+	Y_n=\underbrace{Y\times_X\cdots\times_X Y}_{n+1\text{ times}},
+\end{equation*}
+and $u_n:Y_n\ra X$. The sheaves $\mathscr F_n=u_{n*}u_n^*\mathscr F$ form,
+via the units of adjunction $\mathscr F\ra u_{n*}u_n^*\mathscr F$, a
+simplicial sheaf coaugmented by $\mathscr F$.
+As discussed in SGAA Exp. Vbis, if $\mathscr C^*(\mathscr F)$ denotes an
+injective resolution of $\mathscr F$, the double complex
+\begin{equation*}
+	\mathscr F\rightarrow (u_{p*}\mathscr C^q(u_p^*(\mathscr F)))_{p,q}
+\end{equation*}
+defines a resolution of $\mathscr F$ by injective sheaves.
+
+\begin{equation*}\begin{tikzcd}
+	Y\arrow[rr,"u"]\arrow[dr,"f"']&&X\arrow[dl,"g"] \\
+	&\Spec k
+\end{tikzcd}\end{equation*}
+If $f_n$ is the projection of $Y_n$ to $\Spec k$, then
+$Rf_{n!}=Rg_!u_{n!}=Rg_!u_{n*}$. Applying the functor $g_!$ to the double
+complex and filtering by semi-simplicial degree gives rise to the
+\v Cech spectral sequence
+\begin{equation*}
+	E_1^{p,q}=R^qf_{p!}(u_p^*\mathscr F)\Rightarrow R^{p+q}g_!\mathscr F;
+\end{equation*}
+this is (2.6.1)* for cohomology with support.
+
+The problem when taking the $X_i$ to be open is that $u_{n*}\ne u_{n!}$ and
+there is no longer a coaugmentation map $\id\ra u_{n!}u_n^*$.
+The trace morphism, however, provides an augmentation map
+$u_{n!}u_n^*\ra\id$ and one proceeds by resolving to the left to produce the
+extraordinary \v Cech resolution and spectral sequence
+\begin{equation*}
+	E_1^{-p,q}=R^qf_{p!}(u_p^*\mathscr F)\Rightarrow R^{-p+q}g_!\mathscr F;
+\end{equation*}
+this is (2.6.2)*.
+For more on the extraordinary \v Cech resolution, see
+SGAA Exp. XVII 6.2.8--6.2.10.
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\begin{thebibliography}{Sommes trig.}
+	\bibitem[Sommes trig.]{Trig} \textit{Application de la formule des traces aux sommes trigonométriques}
+	dans SGA $4\frac12$.
+\end{thebibliography}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+\end{document}

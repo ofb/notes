@@ -1,0 +1,86 @@
+\documentclass[deligne.tex]{subfiles}
+
+\begin{document}
+	\subsection*{1.3}\label{thfin:1.3} Under the hypothesis of 1.1, $Rf_*$ is of finite
+	cohomological dimension. In light of the description of the fiber of
+	$f_*$ (Arcata 3.3), we may assume we are studying the cohomology of a
+	scheme $X$ of finite type over $S$ the spectrum of a separably closed 
+	field (which has cohomological dimension 0)
+	or a strictly henselian local DVR.
+	SGAA X 4.2 proves this, but we have to satisfy two conditions.
+	The condition (i) can be deduced from SGAA X 2.1, 2.3, which give
+	bounds on the cohomological dimension of residue
+	fields of points of $X$ depending on which points of $S$ they sit over;
+	the condition (ii) follows from SGAA X 3.2, which gives a bound on the
+	cohomological dimension of the function field of strict localizations
+	of points of $X$.
+	
+	\subsection*{1.6}
+	Given a morphism of schemes $f:X\ra Y$ and sheaves $\mathcal F,\mathcal G$
+	on $Y$, there is always a morphism
+	\begin{equation*}
+		f^*\underline\Hom(\mathcal F,\mathcal G)\lra
+		\underline\Hom(f^*\mathcal F,f^*\mathcal G).
+	\end{equation*}
+	When $\mathcal F$ is locally constant constructible, this map is a 
+	bijection.
+	
+	If $\mathcal I$ is an injective abelian sheaf on $X$ and $j:U\ra X$ 
+	belongs to the topology on $X$, then $\mathcal I(U)$ is an injective 
+	object, since if $\underline A$ is the constant sheaf on $U$ with value 
+	$A$,
+	\begin{equation*}
+		\Hom(A,\mathcal I(U))=\Hom(j_!\underline A,\mathcal I),
+	\end{equation*}
+	and $j_!$ is left exact.
+	The restriction $\mathcal I_U$ is also an injective sheaf, since for
+	$\mathcal F$ on $U$
+	\begin{equation*}
+		\Hom(\mathcal F,\mathcal I_U)=\Hom(j_!\mathcal F,\mathcal I).
+	\end{equation*}
+	Likewise, for any (geometric) point $x\in X$, $\mathcal I_x$ is an
+	injective object, by forming constant sheaves on $X$ and taking stalks.
+	
+	All this to say that $R\underline\Hom(\mathcal F,\mathcal G)|_U=
+	R\underline\Hom(\mathcal F|_U,\mathcal G|_U)$, and when $\mathcal F$
+	is l.c.c.,
+	$R\underline\Hom(\mathcal F,\mathcal G)|_x=
+	R\underline\Hom(\mathcal F|_x,\mathcal G|_x)$, and
+	$\R\underline\Hom(\mathcal F,\mathcal G)$ is constructible (resp. l.c.c.)
+	when $\mathcal G$ is. This also shows that for $\mathcal F$ constant,
+	one can compute $\R\underline\Hom$ by a projective resolution of the
+	constant value of $\mathcal F$.
+	
+	\subsection*{1.11} $R\pr_{2*}\pr_1^*K=b^*R\Gamma(X,K)$ is base change
+	for $Ra_*$ along $b$. In the string of equalities, the first one is
+	just Leray, and the second and last are again base change morphisms,
+	discussed at length in SGAA XVII \S4. Given
+	\begin{equation*}\begin{tikzcd}
+		X'\arrow[r,"g'"]\arrow[d,"f'"]&X\arrow[d,"f"] \\
+		S'\arrow[r,"g"]&S,
+	\end{tikzcd}\end{equation*}
+	at the level of complexes, the map
+	$L\otimes g^*f_*K\ra f'_*(f'^*L\otimes g'^*K)$ factors as
+	\begin{equation*}
+		L\otimes g^*f_*K\ra L\otimes f'_*g'^*K\ra f'_*f'^*L\otimes f'_*g'^*K
+		\ra f'_*(f'^*L\otimes g'^*K),
+	\end{equation*}
+	where the last arrow comes from the fact that
+	$\mathscr F(U)\otimes\mathscr G(U)$ are among the sections of
+	$\mathscr F\otimes \mathscr G$ over $U$.
+	
+	\subsection*{2.1}\label{thfin:2.1} It is claimed that
+	$R\underline\Hom(\mathcal F,\mathbf Z/m)\xleftarrow{\sim}\underline\Hom(\mathcal F,\mathbf Z/m)$
+	when $\mathcal F$ is a l.c.c. sheaf (c.f. SGAA XVIII 3.2.6).
+	There is evidently an arrow, and by the note to 1.6 (and since $\ZZ/m$ is
+	an injective $\ZZ/m$-module), it is an isomorphism.
+	It holds more generally with $\ZZ/m$ replaced by any l.c.c. sheaf locally
+	isomorphic to $\ZZ/m$, such as one obtained by twisting.
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\begin{thebibliography}{Th. finitude}
+	\bibitem[Th. finitude]{F} \textit{Théorèmes de finitude en cohomologie $\ell$-adique} par Deligne,
+	dans SGA $4\frac12$.
+\end{thebibliography}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+\end{document}

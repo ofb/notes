@@ -1,0 +1,153 @@
+\documentclass[12pt, fleqn, oneside, reqno]{amsbook}
+\usepackage{newtxtext}
+\usepackage[frenchmath]{newtxmath}
+\usepackage{eucal}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{subfiles}
+\usepackage{nccmath}
+\usepackage{setspace}
+
+\usepackage{pdflscape}
+
+\usepackage[letterpaper,portrait,textwidth=5.75in]{geometry}
+
+\newcommand{\ra}{\rightarrow}
+\newcommand{\RR}{\mathbf{R}}
+\newcommand{\CC}{\mathbf{C}}
+\newcommand{\ZZ}{\mathbf{Z}}
+\newcommand{\QQ}{\mathbf{Q}}
+\newcommand{\NN}{\mathbf{N}}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\PP}{\mathbf{P}}
+\newcommand{\GG}{\mathbf{G}}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\vep}{\varepsilon}
+\newcommand{\Lotimes}{\otimes^{\mathbf{L}}}
+\newcommand{\scr}{\mathscr}
+\newcommand{\Dparf}{D_{\text{parf}}}
+\newcommand{\sep}[1]{{#1}^{\mathrm{sep}}}
+\newcommand{\alg}[1]{{#1}^{\mathrm{alg}}}
+
+\usepackage{enumitem,moreenum}
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage{accents}
+% \setlength\parindent{0pt}
+\setlength{\parskip}{.5em}
+\renewcommand{\baselinestretch}{1.25}
+
+
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem*{corollary*}{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem{proposition-definition}{Proposition-Definition}
+\newtheorem*{proposition-definition*}{Proposition-Definition}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem*{definition*}{Definition}
+ 
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\fr}{fr}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\R}{R}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Out}{Out}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\Gr}{Gr}
+\DeclareMathOperator{\Or}{or}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\spe}{sp}
+\DeclareMathOperator{\codim}{codim}
+\renewcommand{\div}{\operatorname{div}}
+\newcommand{\et}[1]{{#1}_{\text{ét}}}
+\newcommand{\sh}[1]{\underline{#1}}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\xlra}[1]{\xrightarrow{\quad #1\quad}}
+\newcommand{\Qell}{\QQ_\ell}
+\newcommand{\s}[1]{{\normalfont (}#1{\normalfont )}}
+\newcommand{\Jad}{J\mathrm{-ad}}
+\newcommand{\Jadn}{J\mathrm{-adn}}
+\newcommand{\pAR}{p_{\mathrm{AR}}}
+\newcommand{\pARn}{\pAR^\mathrm{n}}
+\newcommand{\PAR}{P_{\mathrm{AR}}}
+
+\makeatletter
+\newcommand*\dotp{{\mathpalette\dotp@{.5}}}
+\newcommand*\dotp@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\newcommand{\leqnomode}{\tagsleft@true}
+\newcommand{\reqnomode}{\tagsleft@false}
+\makeatother
+
+\title{Notes}
+%\author{Owen Barrett}
+\date{September 2019}
+
+\setcounter{tocdepth}{1}
+%\pagestyle{plain}
+
+
+\begin{document}
+\maketitle
+{\setlength{\parskip}{0.5em}\setstretch{1.0}\small\tableofcontents\par}
+
+\section{\emph{Rapport sur la formule des traces}}
+\subfile{rapport}
+
+\newpage
+\setcounter{section}{1}
+\section{Quasi-unipotent monodromy}
+\subfile{grothendieck_quasi_unipotent_monodromy}
+
+\newpage
+\setcounter{section}{2}
+\section{Weil II}
+\subfile{weil2}
+
+\newpage
+\section{\emph{Faisceaux Pervers}}
+\subfile{BBD}
+
+\newpage
+\section{\emph{Applications de la formule des traces aux sommes trigonométriques}}\label{sec:sommes_trig}
+\subfile{sommes_trig}
+
+\newpage
+\section{Laumon, \emph{Transformation de Fourier}}
+\label{sec:laumon}
+\subfile{laumon}
+\newpage
+\section{\emph{Théorèmes de finitude en
+cohomologie $\ell$-adique}}\label{sec:thfin}
+\subfile{th_finitude}
+\end{document}

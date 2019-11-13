@@ -1,0 +1,478 @@
+\documentclass[deligne.tex]{subfiles}
+
+\begin{document}
+$p,q,\ell,\FF_q,\FF$: $p$ is a prime number, $q=p^f$ is a power of $p$ and 
+$\FF$ an algebraic closure of the field $\FF_q$; $\ell$ is a prime number
+$\ne p$.
+
+$X_0,X$: $X_0$ is a scheme on $\FF_q$, $X=X_0\times_{\FF_q}\FF$.
+If $\mathscr F_0$ is an (étale) sheaf on $X_0$, $\mathscr F$ denotes its 
+inverse image on $X$.
+
+\subsection{Mise en garde}
+The exposition beginning with~\ref{sec:houz} is based on SGA 5, Exposé XIV 
+by C. Houzel. This approach is explicit at the expense being somewhat
+anti-conceptual and overloaded with cumbersome notation, which makes it
+hard to remember. On the other hand, Deligne's approach to Frobenius is
+conceptually beautiful and easy to remember, but the first time I read it
+I couldn't understand it. Now that I do, I write these notes.
+Deligne uses $\varphi$ to denote what he calls the `Frobenius substitution';
+it is the well-known topological generator of $\Gal(\FF/\FF_q)$.
+He uses $F$ to denote the `Frobenius endomorphism', notated $\fr_{X_0}$
+below, which is the endomorphism of a scheme $X_0/\FF_q$ obtained by
+$x\mapsto x^q$ on the structure sheaf $\mathscr O_{X_0}$.
+Finally, he uses $F^*$ to denote the action of Frobenius on sheaves on a
+scheme over $\FF_q$ (and base extensions of such), and their cohomology.
+
+\subsection{Frobenius following Deligne}
+\subsubsection{Representing the Frobenius correspondence}
+Let $Q$ be any scheme and $\mathscr G$ an (étale) sheaf on $Q$.
+Let $Q_{\mathrm{pet}}$ denote the category (Et/$Q$) of algebraic spaces
+étale over $Q$, equipped with the étale topology.
+We `recall' the following
+\begin{proposition*} $\mathscr G$ is represented over $Q_{\mathrm{pet}}$ by
+l'espace étalé $[\mathscr G]$ of $\mathscr G$: an algebraic space, locally 
+separated and étale over $Q$.
+If moreover $\mathscr G$ is
+\begin{enumerate}[label=(\greek*)]
+	\item locally constant constructible
+	\item locally constant,
+	\item constructible,
+\end{enumerate}
+then $[\mathscr G]$ may be taken to be
+\begin{enumerate}[label=(\greek*)]
+	\item a scheme finite étale over $Q$ (SGAA Exp. IX 2.2).
+	\item a scheme étale over $Q$ (SGAA Exp. IX 2.2).
+	\item étale and finitely presented as an algebraic space over $Q$ (SGAA Exp. IX 2.7).
+\end{enumerate}
+\end{proposition*}
+In other words, $\mathscr G$ is the sheaf of local sections of the space
+$[\mathscr G]$: for each $V\in\mathrm{Et/}Q$,
+\begin{equation*}
+	\mathscr G(V)=\Hom_Q(V,[\mathscr G]).
+\end{equation*}
+M. Artin constructs the espace étalé $[\mathscr G]$ associated to an 
+arbitrary étale sheaf $\mathscr G$ on a scheme $Q$ in
+\href{http://math.uchicago.edu/~barrett/resources/Artin_theoremes_de_representabilite_pour_les_espaces_algebriques.pdf}{\emph{Théorèmes de représentabilité pour les espaces algébriques}} VII \S1.
+A sketch: put
+\begin{equation*}
+	(\mathcal U\ra\mathscr G):=\coprod_{U,\xi\in\mathscr G(U)}(U\xra\xi\mathscr G),
+\end{equation*}
+the sum executed over affine schemes $U$ étale over $Q$ and the
+$\xi\in\mathscr G(U)$. The canonical morphism
+$\mathcal U\times_\mathscr G\mathcal U\ra\mathcal U\times_Q\mathcal U$
+induced by $\xi\in\mathscr G(U)$ and $\eta\in\mathscr G(V)$
+($U,V$ affine étale schemes over $Q$) is an open immersion and defines an 
+étale equivalence relation on $\mathcal U$. Let $[\mathscr G]$ be the 
+quotient of $\mathcal U$ by this equivalence relation; it is an algebraic
+space over $Q$, in general not separated, but only locally separated;
+in other words,
+$\mathcal U\times_{\mathscr G}\mathcal U\ra\mathcal U\times_Q\mathcal U$ 
+is not necessarily a closed immersion.
+
+Now let $X_0$ be a scheme over $\FF_q$ and $\mathscr F_0$ a sheaf on $X_0$.
+The formation of the espace étalé $[\mathscr F_0]$ of $\mathscr F_0$ yields
+the commutative square
+\begin{equation*}\begin{tikzcd}[]
+	{[\mathscr F_0]}\arrow[r,"F"]\arrow[d]&{[\mathscr F_0]}\arrow[d] \\
+	X_0\arrow[r,"F"]&X_0.
+\end{tikzcd}\end{equation*}
+and hence a morphism $[\mathscr F_0]\ra F^*[\mathscr F_0]$.
+Replacing $S$ with $X_0$, and $X_0$ with $[\mathscr F_0]$, 
+\ref{sec:relFrobDef} below finds that this morphism is
+relative Frobenius $\Fr_{[\mathscr F_0]/X_0}$; as $[\mathscr F_0]$ is étale
+over $X_0$, \ref{sec:relFrobProp} tells us that this morphism is an
+isomorphism $[\mathscr F_0]\xra\sim F^*[\mathscr F_0]$ with inverse
+Deligne's Frobenius correspondence (1.2.1)
+\begin{equation*}
+	F^*:F^*\mathscr F_0\xra\sim\mathscr F_0.
+\end{equation*}
+This morphism is the same as the one constructed with different notation in
+\ref{sec:FrobCor}.
+The point is that by putting additional hypotheses on $\mathscr F_0$, one
+may assume that $[\mathscr F_0]$ is in fact a scheme étale over $X_0$.
+
+\subsubsection{The Frobenius correspondence and the Frobenius endomorphism}
+Let $\mathscr F_0$ be an abelian sheaf on $X_0$. We wish to elucidate
+Deligne's approach in 1.8 of \emph{Rapport} to show that
+\begin{equation*}
+	F^{*-1}=\varphi\qquad\text{(on $H_c^i(X,\mathscr F)$)}.
+\end{equation*}
+Letting $Y_0=\Spec\FF_q$, as written
+$H_c^i(X,\mathscr F)=[R^if_!\mathscr F_0](\FF)$, and, noting $F=\id$ on 
+$Y_0$ we have the (stupid) diagram
+\begin{equation*}
+\begin{tikzcd}
+&{[R^if_!\mathscr F_0]}\arrow[dr,"F"]\arrow[drr, dashed,"F",bend left=20] \\
+&&{[R^if_!\mathscr F_0]}\arrow[r,"\id"']\arrow[d] &{[R^if_!\mathscr F_0]}\arrow[d] \\
+&&Y_0\arrow[r,"\id"] &Y_0
+\end{tikzcd}
+\end{equation*}
+which just serves to connect this discussion to that of the previous section 
+and show that the morphism defining the inverse of the
+Frobenius correspondence $F^*$ on $[R^if_!\mathscr F_0]$ is indeed
+$F:[R^if_!\mathscr F_0]\ra [R^if_!\mathscr F_0]$; as
+$F$ acts on geometric points by $\varphi$, we see that
+\begin{equation*}
+	F^{*-1}:[R^if_!\mathscr F_0](\FF)\ra [R^if_!\mathscr F_0](\FF)
+\end{equation*}
+coincides with $\varphi$.
+
+\subsection{Frobenius following Houzel}\label{sec:houz}
+\begin{definition*}
+We denote by $\fr_{X_0}$ the morphism of schemes $X_0\ra X_0$ which is the 
+identity on the underlying topological space $|X_0|$ and acts on the
+structure sheaf $\mathscr O_{X_0}$ by $g\mapsto g^q$.
+
+This morphism is called \emph{absolute Frobenius}.
+\end{definition*}
+
+\subsubsection{}\label{sec:relFrobDef}
+If the structure morphism $X_0\ra\FF_q$ factors through some scheme $S$,
+then we denote by
+$X_0^{(q/S)}:=X_0\times_{S,\fr_S}S$ the fiber product of $g:X_0\ra S$ by the morphism 
+$\fr_S:S\ra S$ with projection $\pi_{X_0/S}:X_0^{(q/S)}\ra X_0$.
+The absolute Frobenius $\fr_{X_0}$ then factors through the morphism $\pi_{X_0/S}$.
+We can form the diagram
+\begin{equation*}
+\begin{tikzcd}
+&X_0\arrow[dr,"\Fr_{X_0/S}"]\arrow[drr, dashed,"\fr_{X_0}",bend left=20]\arrow[ddr,"g"',bend right=20] \\
+&&X_0^{(q/S)}\arrow[r,"\pi_{X_0/S}"']\arrow[d,"g^{(q)}"] &X_0\arrow[d,"g"] \\
+&&S\arrow[r,"\fr_S"] &S
+\end{tikzcd}
+\end{equation*}
+\begin{definition*}
+    The morphism $\Fr_{X_0/S}$ is called \emph{relative Frobenius}.
+\end{definition*}
+\subsubsection{Frobenius acts on geometric points}
+Consider the set of geometric points $X(\FF)=X_0(\FF)$.
+Frobenius acts on this set by $\varphi\in\Gal(\FF/\FF_q)$,
+$\varphi(x)=x^q$. In particular, as $\FF_q$ is perfect, $X^F=X_0(\FF_q)$, where
+$X^F$ denotes the geometric points fixed by Frobenius. In slightly more words, consider
+a geometric point $\overline x\rightarrow X_0$ centered on $x$. The fiber
+$X\times_{X_0}x$ is isomorphic to the spectrum of $A=\FF\otimes_{\FF_q}k(x)$.
+As $k(x)/\FF_q$ is separable, $A\sim\prod_{[k(x):\FF_q]}\FF$, and $[k(x):\FF_q]$ is also
+equal to the number of $\FF_q$-embeddings $k(x)\rightarrow\FF$. Such an embedding is
+fixed by $\varphi$ iff $k(x)=\FF_q$, and by $\varphi^f$ iff $k(x)\subset \FF_{q^f}$.
+So for every point $x\in|X_0|$ with $[k(x):\FF_q]=f$, there are $f$
+geometric points centered on $x$; $F$ acts transitively by $\varphi$ on this set, and
+$F^f$ fixes each of these geometric points.
+
+\subsubsection{Behavior of relative Frobenius}\label{sec:relFrobProp}
+The relative Frobenius $\Fr_{X_0/S}$ is integral, surjective, and radicial, hence
+a universal homeomorphism. This is clear when $S=\FF_q$;
+i.e. for $\fr_{X_0}=\pi_{X_0/S}\circ\Fr_{X_0/S}$; it follows that
+$\Fr_{X_0/S}$ is radicial \cite[I 3.5.6 (ii)]{EGA}.
+Moreover, $\pi_{X_0/S}$ is separated and radicial, therefore
+$\Fr_{X_0/S}$ is integral \cite[II 6.1.5 (v)]{EGA} and surjective.
+
+Suppose moreover that $g:X_0\ra S$ is étale. The same is true of
+$g^{(q)}:X_0^{(q)}\ra S$, and therefore $\Fr_{X_0/S}:X_0\ra X_0^{(q)}$ is étale.
+As $\Fr_{X_0/S}$ is also radicial and surjective, it is an isomorphism.
+
+\subsubsection{Frobenius correspondence}\label{sec:FrobCor}
+Let $X_0$ be a scheme over $\FF_q$ and $\mathscr F_0$ a sheaf of sets on
+$\et{(X_0)}$ (the small étale site of $X_0$ whose underlying category is the 
+category of schemes étale over $X_0$).
+We have for all $U\ra X$ étale $(\fr_{X_0})_\ast\mathscr F_0(U)=\mathscr F_0(U^{(q/X)})$.
+The isomorphism $\mathscr F_0(\Fr_{U/X_0}):(\fr_{X_0})_\ast\mathscr F_0(U)\ra \mathscr F_0(U)$
+is natural in $U$ and induces an isomorphism of sheaves
+\begin{equation*}
+    \mathscr F_0(\Fr_{/X_0}):(\fr_{X_0})_\ast\mathscr F_0\xrightarrow{\sim}\mathscr F_0;
+\end{equation*}
+by adjunction applied to $\mathscr F_0(\Fr_{/X_0})^{-1}$ we obtain a morphism
+\begin{equation*}
+    F^\ast : \fr_{X_0}^\ast \mathscr F_0\rightarrow\mathscr F_0.
+\end{equation*}
+As $\fr_{X_0}$ is integral, surjective, and radicial, $\fr_{X_0}^\ast:\et{(X_0)}\ra\et{(X_0)}$
+is an equivalence of sites, and the functors
+\begin{equation*}
+    (\fr_{X_0})_\ast,\fr_{X_0}^\ast:\widetilde{\et{(X_0)}}\longrightarrow \widetilde{\et{(X_0)}}
+\end{equation*}
+are autoequivalences and quasi-inverses, where $\widetilde{\et{(X_0)}}$ denotes the
+étale topos on $X_0$ \cite[Exp. VIII, 1.1]{SGAA}.
+Therefore $F^\ast$ is also an isomorphism.
+\begin{definition*}
+    The isomorphism $F^\ast : \fr_{X_0}^\ast\mathscr F_0\longrightarrow\mathscr F_0$ is called
+    the \emph{Frobenius correspondence}.
+\end{definition*}
+
+\subsubsection{Frobenius acts on cohomology}
+Consider $\mathscr F_0$ a sheaf of $\Lambda$-modules, for some commutative ring $\Lambda$.
+The canonical morphism $\alpha:\mathscr F_0\ra{\fr_{X_0}}_\ast\fr_{X_0}^\ast\mathscr F_0$
+gives rise to
+\begin{equation*}
+    \Gamma(X_0,\mathscr F_0)\xra{\alpha}\Gamma(X_0,\fr_{X_0}^\ast\mathscr F_0)
+    \xra{F^\ast}\Gamma(X_0,\mathscr F_0);
+\end{equation*}
+we also denote the composition of these maps by $F^\ast$.
+When $\mathscr F_0=\sh{\Lambda}$, this composition is easily seen to coincide with
+$\id_{\Gamma(X_0,\sh{\Lambda})}$,
+and as every section $s\in\Gamma(X_0,\mathscr F_0)$ corresponds to a morphism
+$s:\sh{\Lambda}\ra\mathscr F_0$ and $F^\ast$ is evidently functorial in $\mathscr F_0$,
+we find $F^\ast\circ\Gamma(X_0,s)=\Gamma(X_0,s)\circ F^\ast=\Gamma(X_0,s)$, ergo
+$F^\ast s=s$, so $F^\ast$ induces the identity on ${\Gamma(X_0,\mathscr F_0)}$.
+Recalling the definition of the Frobenius correspondence via adjunction, this action of Frobenius on $\Gamma(X_0,\mathscr F_0)$ coincides with the composition
+\begin{equation*}
+    \Gamma(X_0,\mathscr F_0)\xrightarrow{\mathscr F_0(\Fr_{/X_0})^{-1}}
+    \Gamma(X_0,(\fr_{X_0})_\ast\mathscr F_0)=\Gamma(X_0,\mathscr F_0).\tag{$\ast$}
+\end{equation*}
+Considering $\mathscr F_0$ now as an object of $D^+(X_0,\Lambda)$, we have 
+${\fr_{X_0}}_\ast$ preserves injective objects; hence the composition
+\begin{equation*}
+    F^\ast:R\Gamma(X_0,\mathscr F_0)\xra{\mathscr F_0(\Fr_{/X_0})^{-1}} R\Gamma(X_0,{\fr_{X_0}}_\ast\mathscr F_0)\lra R\Gamma(X_0,\mathscr F_0)
+\end{equation*}
+can be computed by applying $(\ast)$ term-by-term to an injective resolution of
+$\mathscr F_0$, whence we see that $F^\ast$ acts by identity on $R\Gamma(\mathscr F_0)$,
+and hence
+\begin{equation*}
+    F^\ast:H^i(X_0,\mathscr F_0)\lra H^i(X_0,\mathscr F_0)
+\end{equation*}
+is the identity for all $i$.
+
+Suppose that $X_0$ is separated and of finite type over $\FF_q$.
+Then we can replace $\Gamma$ in the above discussion by $\Gamma_c$ to find that
+Frobenius acts on compactly supported cohomology
+\begin{equation*}
+    F^\ast : H_c^i(X_0,\mathscr F_0)\lra H_c^i(X_0,\mathscr F_0).
+\end{equation*}
+
+\setcounter{section}{2}\setcounter{subsection}{0}
+\subsection{The trace formula for $\Spec{\FF_{q^n}}\ra\Spec{\FF_q}$}
+Let $X_0=\Spec{\FF_{q^n}}$, $q=p^f$,
+and $\mathscr F_0$ be a constructible $\Qell$
+sheaf on $X_0$, $\mathscr F$ its inverse image on $X$.
+In this case, the cohomological description of the
+$L$-function $L(X_0,\mathscr F_0)$ reads very simply
+\begin{equation*}
+    \tag{$\ast$}\det(1-F^\ast_x t^{d(x)},\mathscr F)^{-1}
+    =\det(1-F^\ast t^f,H^0_c(X,\mathscr F))^{-1},
+\end{equation*}
+where $d(x)=[k(x):\FF_p]$. We first need to make precise how Frobenius
+is acting on the left and right sides.
+
+On the left side, we fix a geometric point $\overline x\rightarrow x=X$ and
+construct the action of Frobenius on the fiber $\mathscr F_{\overline x}$
+by picking the smallest power of $F_{(q)}$ which actually fixes the
+geometric point $\overline x$, namely $F_{(q^n)}=F_{(q)}^n$.
+The notation $F^\ast_x$ denotes the endomorphism of
+$\mathscr F_{\overline x}$ induced by $F^\ast_{(q^n)}$.
+Up to isomorphism, $(F_x,\mathscr F_{\overline x})$ do not depend on the
+choice of geometric point $\overline x\rightarrow x$, and the trace,
+determinant of this action are denoted by $\Tr(F_x^\ast,\mathscr F)$, etc.
+
+Now, on the right side, we have the Frobenius correspondance on cohomology.
+We will make use of the identity
+\begin{equation*} {F^\ast}^{-1}=\varphi,\end{equation*}
+where $\varphi$ is the Frobenius considered as the topological generator
+of $\Gal(\FF,\FF_q)$ (c.f. remark below).
+The data of a $\Qell$-sheaf on $X$ is equivalent to the data of a
+finite-dimensional $\Qell$-vector space $V=\mathscr F_{\overline x}$ on
+which $\Gal(\overline k(x)/k(x))=\pi_x$ acts continuously.
+There is a canonical isomorphism
+\begin{equation*}
+    \pi_x=\Gal(\overline k(x),k(x))\simeq\hat\ZZ
+\end{equation*}
+furnished by the Frobenius element
+\begin{equation*}
+    \varphi_x\in\Gal(\overline k(x),k(x))=\Gal(\FF/\FF_{q^n}),\qquad
+    \varphi_x(\lambda)=\lambda^{q^n},
+\end{equation*}
+so that the action of $\pi_x$ on $V=\mathscr F_{\overline x}$ is known once
+one knows the automorphism $(\varphi_x)_V$ (under the one condition that
+$(\varphi_x)^\nu\ra\id_V$ as $\nu\ra0$ multiplicatively). If
+\begin{equation*} \pr_x:X=\Spec(\FF_{q^n})\ra\Spec\FF_q=e\end{equation*}
+is the canonical morphism, $\pi_x$ is identified via ${\pr_x}_\ast$
+with a subgroup of the analogous Galois group $\pi_e$ for $e=\Spec(\FF_q)$,
+itself topologically generated by $\varphi$, and via this identification
+we have the identity \begin{equation*} \varphi_x=\varphi^n.\end{equation*}
+The sheaf ${\pr_x}_\ast(\mathscr F)$ is defined by the induced module
+\begin{equation*}
+    {\pr_x}_\ast(\mathscr F)_{\overline e}\simeq\mathscr F_{\overline x}
+    \otimes_{\pi_x}\pi_e,
+\end{equation*}
+from which one deduces that, letting $f=\varphi_x^{-1}$,
+$\varphi^{-1}$ acts on ${\pr_x}_\ast(\mathscr F)_{\overline e}$ by
+\begin{equation*}
+f^{(n)}:(x_1,\ldots,x_n)\mapsto(f(x_n),x_1,\ldots,x_{n-1}),
+\end{equation*}
+where here we have written ${\pr_x}_\ast(\mathscr F)_{\overline e}$ with 
+respect to a basis as a free $\pi_x$-module of rank $n$.
+Now the formula ($\ast$) is a matter of verifying the formula
+\begin{equation*}
+    \det(1-f t^n)=\det(1-f^{(n)} t)
+\end{equation*}
+for $f$ acting on a free module of rank $n$. This is Deligne's
+corollary 3.4.
+
+\remark Perhaps one way to think about the identification
+$F^\ast=\varphi^{-1}$ is by setting up the usual diagram
+\begin{equation*}
+\begin{tikzcd}
+&X\arrow[dr,"\Fr_{X/X_0}"]\arrow[drr, dashed,"\fr_X",bend left=20]\arrow[ddr,"g"',bend right=20] \\
+&&X^{(q/X_0)}\arrow[r,"\pi_{X/X_0}"']\arrow[d,"g^{(q)}"] &X\arrow[d,"g"] \\
+&&X_0\arrow[r,"\fr_{X_0}"] &X_0
+\end{tikzcd}
+\end{equation*}
+with $g$ the base extension of the map $\Spec\FF\rightarrow\Spec\FF_q$ that
+arises from fixing an algebraic closure of $\FF_q$, and
+then observing that $\Fr_{X/X_0}=\varphi\times_{\FF_q}\id_{X_0}$.
+Recalling that $F^\ast$ on $\mathscr F_0/X_0$ is induced by 
+$\Fr_{U/X_0}^{-1}$ for $U\ra X_0$ étale, and by functoriality
+$F^\ast$ on $\mathscr F/X$ is induced by pulling back the same, hence by
+$\Fr_{U/X_0}^{-1}$ for $U\ra X$ étale, in particular we have that
+$F^\ast$ on $H^0_c(X,\mathscr F)$ is induced by
+$\mathscr F(\Fr_{X/X_0})^{-1}=\mathscr F(\varphi^{-1}\times_{\FF_q}\id_{X_0})$.
+
+\setcounter{section}{3}\setcounter{subsection}{0}
+\subsection{Le sorite de la notation}
+It is very important to note that in Deligne's notation,
+$\Tr(F^\ast_x,\mathscr F)$ and $\Tr(F^\ast,\mathscr F_x)$ are traces of
+possibly different operators on the fiber $\mathscr F_x$.
+Namely, if $\mathscr F$ is a $\QQ_\ell$-sheaf on $X_0$ a scheme separated and
+of finite type over $\FF_q$, then $\mathscr F_{\overline x}$ is a
+$\QQ_\ell$ vector space, for a choice of geometric point $\overline x$ centered
+on a closed point $x$ of $X_0$. Then $F^\ast_x$ denotes the 
+Frobenius $F^\ast_{q^n}=F^{\ast n}_q$
+raised to the power of the residue field extension $n=[\deg k(x) : \FF_q]$.
+This power of Frobenius is the least that fixes each geometric point centered 
+on $x$, and the notation $\Tr(F^\ast_x,\mathscr F)$ means
+$\Tr(F^\ast_x,\mathscr F_{\overline x})$.
+
+On the other hand, if, say, $x\in X^{F^n}$ is a geometric point centered on a
+point of $X_0$ defined over $\FF_{q^n}$, $\Tr(F^\ast, \mathscr F_x)$ denotes
+(absolute) $q$-power Frobenius acting on the fiber. So, unless $x\in X^F$,
+$\Tr(F^\ast,\mathscr F_x)$ and $\Tr(F^\ast_x,\mathscr F)$ are traces of
+different operators on the same vector space, the latter a power of the other.
+
+\subsection{Le sorite des faisceaux localement constants}
+\subsubsection*{The case of locally constant sheaves of sets}
+Let $X$ be a scheme and $\mathscr L$ a locally constant sheaf of 
+sets with finite fibers on $X$.
+(With additional assumptions on $X$, the case of a
+locally constant sheaf of sets with infinite fibers is reduced to the finite
+case in the course of the discussion of Weil II \nameref{1.7.8}.)
+We know that $\mathscr L=h_U$ for some $U\ra X$ revêtement étale.
+We know that every revêtement étale of $X$ is étale-locally on $X$ trivial;
+namely for some $V\ra X$ étale, $U_V\sim\coprod V$. We wish to show that we may
+take $V\ra X$ to be a revêtement étale
+(with no further work, we could then take it to be a \emph{galoisian} 
+revêtement, i.e. a connected torsor for the automorphism group of the fiber, 
+as principal Galois objects in a Galois category form a cofinal system).
+
+First note that if $f:X\ra Y$ is any morphism of schemes and $V\ra Y$ is étale,
+then $f^\ast h_V\sim h_{V\times_Y X}$.
+To see this, observe
+\begin{equation*}
+    \Hom(f^\ast h_V,\mathscr G)
+    =\Hom(h_V, f_\ast\mathscr G)
+    =f_\ast\mathscr G(V)
+    =\mathscr G(V\times_Y X)
+    =\Hom(h_{V\times_Y X},\mathscr G).
+\end{equation*}
+Evidently, this argument holds true for any morphism of sites.
+
+So, it will suffice to show that any revêtement étale can be trivialized
+after base extension by a revêtement étale. To see this, assume $X$ connected 
+and let $U\ra X$ be a revêtement étale of constant degree $d$ and proceed by 
+recurrence on $d$, the case $d=1$ being trivial.
+(Of course, in the special case that $U\ra X$ is galoisian with Galois group $G$,
+$U\times_X U\sim U\times G$ is a trivial $G$-torsor, and we are done.)
+
+As $U\ra X$ is étale, hence net, and finite, the diagonal morphism
+$U\ra U\times_X U$ is simultaneously an open and closed immersion, hence
+an isomorphism onto a connected component of
+$U\times_X U$, allowing us to write $U\times_X U=U\coprod Z$ with
+$Z\ra U$ of constant degree $d-1$. By hypothesis, there exists a revêtement
+étale $V\ra U$ such that $Z\times_U V\sim\coprod_{d-1}V$.
+Our desired revêtement is then simply the composition $V\ra U\ra X$:
+\begin{equation*}
+    V\times_X U=V\times_U U\times_X U=V\times_U(U{\textstyle\coprod} Z)
+    =V{\textstyle\coprod} (V\times_U Z)={\textstyle\coprod}_d V.
+\end{equation*}
+
+\subsubsection*{The case of locally constant constructible sheaves}
+Let $\Lambda$ be a commutative, noetherian torsion ring. We adapt the above
+discussion to locally constant constructible (l.c.c.) sheaves of
+$\Lambda$-modules. Let $\mathscr F$ be a l.c.c. sheaf of $\Lambda$-modules
+on a connected scheme $X$. Then the fibers of $\mathscr F$ are finite sets 
+and the above discussion yields a revêtement étale $f:V\ra X$ with $V$ a
+(connected) galoisian cover with Galois group $H$
+(i.e. $V$ is a $H$-torsor) such that $f^\ast\mathscr F$ is a constant sheaf.
+Its constant value $H^0(V,f^\ast\mathscr F)$ is a $\Lambda[H]$-module.
+
+The sheaf $f_\ast\Lambda$ on $X$, together with the natural action of $H$,
+is a rank 1 l.c.c. sheaf of $\Lambda[H]$-modules.
+Relative to the natural action of $H$ on $f_\ast f^\ast\mathscr F$, the
+trace morphism $f_\ast f^\ast\mathscr F\ra\mathscr F$ factors by an
+isomorphism
+\begin{equation*} (f_\ast f^\ast\mathscr F)_H\ra\mathscr F, \end{equation*}
+and we have
+$f_\ast f^\ast\mathscr F=f_\ast M=f_\ast\Lambda\otimes_\Lambda M$
+with the diagonal action of $H$.
+
+The above discussion shows that a l.c.c. sheaf of $\Lambda$-modules on a
+connected scheme $X$ is determined by its restriction to the small étale
+site of $X$. Sheaves on the small étale site $\mathscr U$ are in turn
+determined by Grothendieck's Galois theory: fixing a geometric point
+$\overline x$ of $X$ and putting $G:=\pi_1(X,\overline x)$, the functor
+\begin{align*}
+	\operatorname{Sh}(\mathscr U)&\ra \text{finite }G\text{-sets} \\
+	\mathscr F&\mapsto\mathscr F_{\overline x}
+\end{align*}
+admits the inverse
+\begin{align*}
+	\text{finite }G\text{-sets}&\ra\operatorname{Sh}(\mathscr U) \\
+	\mathscr F_{\overline x}&\mapsto
+	[V\in\mathscr U\mapsto\Hom_G(V_{\overline x},\mathscr F_{\overline x})].
+\end{align*}
+To verify this, as the torsors are cofinal in a covering of any
+$V\in\mathscr U$, we may cover $V$ by a torsor $W$ with Galois group $H$
+and combine the equalizer description of $\mathscr F(V)$
+\begin{equation*}
+	\mathscr F(V)\ra\mathscr F(W)
+	\rightrightarrows\mathscr F(W\times_V W)
+\end{equation*}
+with the description of such in the case of a Galois torsor;
+c.f.~\cite[I \S5]{SGA4.5}.
+
+The discussion in the previous section can be rephrased using the
+monodromy representation of a l.c.c. sheaf. Namely, let $\mathscr F$
+be a l.c.c. sheaf of $\Lambda$-modules on a connected scheme $X$ pointed
+by a geometric point $\overline x$ as above; $\mathscr F$ corresponds
+to a representation $\pi_1(X,\overline x)\ra\GL(\mathscr F_{\overline x})$.
+As the latter is a finite group, the kernel of this representation is of
+finite index, and as the Galois coverings are cofinal, we can find a Galois
+cover of $X$ corresponding to a open subgroup contained in the kernel.
+The sheaf $\mathscr F$ becomes constant when restricted to this cover.
+
+\subsubsection*{The case of lisse sheaves} Let $E\subset\overline\QQ_\ell$
+be an finite extension of $\QQ_\ell$ with valuation ring $R$, integral
+closure of $\ZZ_\ell$ in $E$, $\mathfrak m$ the maximal ideal of $R$.
+Every $\overline\QQ_\ell$-sheaf $\mathscr G$ is obtained as
+$\mathscr F\otimes_E\overline\QQ_\ell$ for some $E$ and some torsion-free 
+(i.e. flat) constructible $E$-sheaf $\mathscr F$. This means that
+$\mathscr F=``\operatorname{lim\;proj}"\mathscr F_n$, the latter a flat
+$R$-sheaf. A lisse $R$-sheaf has all the $\mathscr F_n$ locally constant
+sheaves of $R/\mathfrak m^n$-modules, and for each $n$, the above discussion
+shows that the functor `fiber at $\overline x$' gives an equivalence of
+categories between the category of lisse $R/\mathfrak m^n$-sheaves and the
+category of $R/\mathfrak m^n$-modules of finite type together with a
+continuous action of $\pi_1(X,\overline x)$. Since the $\mathscr F_n$ have
+$\mathscr F_n\otimes_{R/\mathfrak m^{n+1}}R/\mathfrak m^n\xrightarrow{\sim}\mathscr F_{n-1}$, by passing to the limit we get an equivalence between
+the category of lisse $R$-sheaves and the category of finite $R$-modules
+with continuous action of $\pi_1(X,\overline x)$.
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\begin{thebibliography}{SGA 4$\tfrac12$}
+\bibitem[EGA]{EGA} \textit{Eléments de géométrie algébrique} par A. Grothendieck.
+\bibitem[Gr]{Gr} \textit{Formule de Lefschetz et Rationalité des Fonctions
+$L$} par A. Grothendieck.
+\bibitem[SGAA]{SGAA} SGA 4 ed. Grothendieck, Artin, Verdier.
+\bibitem[SGA5]{SGA5} SGA 5, Exposé XV par C. Houzel.
+\bibitem[SGA 4$\tfrac{1}{2}$]{SGA4.5}
+SGA 4$\frac{1}{2}$, \textit{Rapport sur la formule des traces} par P. Deligne.
+\end{thebibliography}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+
+\end{document}

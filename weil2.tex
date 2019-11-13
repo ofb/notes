@@ -1,0 +1,1532 @@
+\documentclass[deligne.tex]{subfiles}
+
+\begin{document}
+\subsection*{0.5}
+Let $X$ be a scheme of finite type over a field $k$.
+If $X$ is connected, the structure morphism $X\ra\Spec(k)$ admits a
+unique factorization $X\ra\Spec(k')\ra\Spec(k)$ with
+$k'/k$ finite separable and $X\ra\Spec(k')$ geometrically connected.
+{\Large $\rightsquigarrow$} Stacks, tag \texttt{\href{https://stacks.math.columbia.edu/tag/04PZ}{04PZ}}.
+Proof uses notion of `weakly étale $k$-algebra.'
+
+
+\subsection*{1.1.2}\label{WeilII_1.1.2}
+First of all, to see that if $K\in D_c^b(X,R)$, then
+$K\Lotimes R/m^n\in D_{ctf}^b(X,R/m^n)$, see Stacks, tag
+\texttt{\href{https://stacks.math.columbia.edu/tag/0942}{0942}}.
+Note that $K\Lotimes R/m^n$ can be represented by a bounded complex of flat
+constructible sheaves by \textit{Rapport}, 4.7.
+Also recall that the locally constant sheaves form a weak Serre subcategory
+of the constructible sheaves on a site (\texttt{\href{https://stacks.math.columbia.edu/tag/093U}{093U}}).
+
+\subsubsection*{Claim a)}
+On the subject of the category $D_c^b(X,R)$, claim a) is that for each $i$,
+the projective system of cohomology sheaves
+$\mathscr H^i(K):=``\lim\proj"\mathscr H^i(K\Lotimes R/m^n)$ of a complex
+$K$ in $D_c^b(X,R)$ is an $R$-constructible sheaf.
+First a trivial statement: of course the reduction modulo $m^n$ of a
+complex of flat sheaves representing $K_{n+1}$ induces
+a map on cohomology, but a priori it need not induce an isomorphism
+$\mathscr H^i(K_{n+1})\otimes R/m^n\ra\mathscr H^i(K_n)$.
+For example, in
+\begin{equation*}
+\begin{tikzcd}
+	0\arrow[r]\arrow[d]&\ZZ/\ell^n\arrow[r,"\ell^{n-1}"]\arrow[d]
+	&\ZZ/\ell^n\arrow[d]\arrow[r]&0\arrow[d] \\
+	0\arrow[r]&\ZZ/\ell^{n-1}\arrow[r,"0"]&\ZZ/\ell^{n-1}\arrow[r]&0
+\end{tikzcd}
+\end{equation*}
+the first nonzero cohomology in the top row is
+$\ell\ZZ/\ell^n\simeq\ZZ/\ell^{n-1}$, which gets mapped by the down arrow
+to $\ell\ZZ/\ell^{n-1}\simeq\ZZ/\ell^{n-2}$, even though the first nonzero
+cohomology in the bottom row is all of $\ZZ/\ell^{n-1}$. Moreover,
+$\ZZ/\ell^{n-1}\xra\sim\ZZ/\ell^{n-1}\otimes_{\ZZ/\ell^n}\ZZ/\ell^{n-1}$,
+so the map on cohomology after reduction mod $\ell^{n-1}$ is neither
+injective nor surjective.
+
+It is important to note that in (1.1.1), the term 
+`R-faisceau constructible' is used to describe all pro-sheaves in the 
+essential image of the functor
+$\mathscr F\mapsto``\lim\proj" \mathscr F\otimes R/m^n$.
+In Exposé V of SGA 5, Jouanolou studies $J$-adic projective systems, where
+$J$ is an ideal in a commutative ring $A$. All references in this paragraph
+will be to this exposé unless indicated otherwise.
+There is a conflict of indexing, in that Deligne in Weil II has
+$K_n$ annihilated by $m^n$, while Grothendieck, Jouanolou and Deligne in
+SGA 4$\frac12$ have $K_n$ annihilated by $m^{n+1}$.
+As a predictable but no less unfortunate result, both conventions are
+effectively in force in different parts of these notes.
+Jouanolou begins with an abelian category $\mathcal C$ and forms
+$P=\underline\Hom(\NN^\circ,\mathcal C)$, the
+category of projective systems indeed by the ordered set $\NN$ of positive
+integers with values in $\mathcal C$.
+Given an object $X=(X_n,u_n)_{n\geq0}$ of $P$ and an integer $r\geq0$,
+$X[r]$ denotes the projective system $(X_{n+r},u_{n+r})_{n\geq0}$.
+If $r,s$ are integers satisfying $s\geq r\geq0$, then iterated application
+of the transition morphisms $u$ define a morphism $w_{sr}:X[s]\ra X[r]$.
+For each integer $r\geq0$ and $X$ in $P$, the morphism $w_{r0}:X[r]\ra X$
+is also denoted $V_{rX}$.
+With this notation, $X$ is said to satisfy the condition
+Mittag-Leffler-Artin-Rees (MLAR) if there exists an integer $r$ such that
+for each integer $s\geq r$,
+\begin{equation*}
+	\im(X[s]\xrightarrow{w_{s0}}X)=\im(X[r]\xra{w_{r0}}X).
+\end{equation*}
+In particular, if there exists an $r\geq0$ such that the canonical morphism
+$X[r]\ra X$ is null, $X$ is said to be AR-null.
+The full subcategory $P_0$ of $P$ whose objects are the AR-null projective
+systems is thick. The quotient category is called the category of
+projective systems in $\mathcal C$ up to translation and notated
+$\underline\Hom_{AR}(\NN^\circ,\mathcal C)$ or $\PAR$. It is abelian and
+the quotient functor $\pAR:P\ra \PAR$ is exact (2.4.4).
+Equivalently, $\PAR$ is obtained from $P$ by a (left or right) calculus of
+fractions with respect to the set of morphisms $\{V_{rX}\}$, as $X$ runs
+over the set of objects in $P$ and $r$ over the set of integers $\geq0$.
+Denote this set by AR.
+Now suppose $\rho$ equips $\mathcal C$ with the structure of $A$-category
+(1.1) and either that $J$ is of finite type or that $\mathcal C$ possesses
+infinite direct sums.
+\begin{definition*}[3.1.1]
+	An object $X$ of $P$ is called $J$-adic if the following two conditions
+	are verified.
+	\begin{enumerate}[label=(\roman*)]
+	\item 	For every integer $n\geq0$, $J^{n+1}X_n=0$.
+	\item For every couple $(m,n)$ of integers with $m\geq n\geq0$, the
+morphism  $A/J^{n+1}\otimes_AX_m\ra X_n$ deduced from the transition
+morphism $X_m\ra X_n$ is an isomorphism. 
+	\end{enumerate}
+	If moreover the components of $X$ are noetherian objects of
+	$\mathcal C$, then $X$ is called noetherian $J$-adic.
+\end{definition*}
+The full subcategory of $P$ (resp. of $\PAR$) generated by
+the $J$-adic projective systems (resp. the images of the noetherian
+$J$-adic systems) is notated $\Jad(\mathcal C)$ (resp. $\Jadn(\mathcal C)$).
+Two objects $X$ and $Y$ of the category $P$ are said to be AR-isomorphic
+if $\pAR(X)$ and $\pAR(Y)$ are isomorphic in the category $\PAR$.
+\begin{definition*}[3.2.1-3.2.2]
+	An object $X$ of $P$ is called AR-$J$-adic if it satisfies the
+	following conditions.
+	\begin{enumerate}[label=(\roman*)]
+		\item $J^{n+1}X_n=0$ for all $n\geq0$.
+		\item There exists a $J$-adic projective system $Y$ isomorphic
+		to $X$ in the category $\PAR$.
+	\end{enumerate}
+	If moreover the components of $X$ are noetherian objects of
+	$\mathcal C$, then $X$ is called noetherian AR-$J$-adic.
+\end{definition*}
+The full subcategory of $P$ (resp. of $\PAR$) generated by
+the noetherian AR-$J$-adic projective systems (resp. by their images) is 
+denoted $\mathcal E_{\mathcal C}$ (resp. AR-$J$-adn($\mathcal C$)).
+\begin{proposition*}[3.2.3]
+	Let $X$ be in $P$. Suppose $J^{n+1}X_n=0$ for all $n\geq0$. In order for
+	$X$ to be AR-$J$-adic, it is necessary and sufficient that it verify the
+	property (MLAR) and that, denoting by $X'$ its projective system of
+	universal images, there exist an integer $r\geq0$ such that, for each
+	pair $(m,n)$ of integers with $m\geq n+r$, the `transition morphism'
+	below be an isomorphism:
+	\begin{equation*}
+		X'_m/J^{n+1}X'_m\lra X'_{n+r}/J^{n+1}X'_{n+r}.
+	\end{equation*}
+\end{proposition*}
+Note that if $X$ verifies (MLAR), it is AR-isomorphic to its projective
+system of universal images. The hypothesis made on $X'$ implies that the
+projective system $(X'_{n+r}/J^{n+1}X'_{n+r})_{n\geq0}$ is $J$-adic.
+This projective system is AR-isomorphic to $X'$. This proves sufficiency.
+
+The restriction of the functor $\pAR$ to $\Jad$ or $\Jadn$ induces
+an equivalence
+\begin{equation*}
+	\pARn:\Jadn(\mathcal C)\lra\mathrm{AR-}J\mathrm{-adn}(\mathcal C).
+\end{equation*}
+Suppose $X,Y$ are noetherian $J$-adic projective systems. Then a morphism
+$X\ra Y$ is represented for a certain integer $r$ by a morphism
+$X[r]\ra Y$. As $J^{n+1}Y_n=0$ for all $n\geq0$ and $X$ is $J$-adic,
+this morphism is the composition of a morphism $X\ra Y$ with $X[r]\ra X$.
+Hence $\pARn$ is full. Moreover, a given morphism $X\ra X$ goes to zero
+under $\pARn$ if it goes to zero in the inductive limit
+\begin{equation*}
+	\varinjlim_r\Hom(X[r],Y);
+\end{equation*}
+i.e. if precomposition by $V_{rX}:X[r]\ra X$ is null for some $r$.
+Such is not the case when $X$ is $J$-adic. Thus $\pARn$ is faithful, and, 
+as AR-$J$-adn($\mathcal C$) is evidently the essential image, an 
+equivalence.
+\begin{proposition*}[5.2.1]
+	The category $\mathcal E_{\mathcal C}$ is stable by kernels and
+	cokernels in $P$. In other words, $\mathcal E_{\mathcal C}$ is an
+	abelian category and the inclusion functor
+	$\mathcal E_{\mathcal C}\lra P$ is exact.
+\end{proposition*}
+\begin{theorem*}[5.2.3]
+	The categories $J$-adn($\mathcal C$) and AR-$J$-adn($\mathcal C$) are
+	abelian and noetherian.
+\end{theorem*}
+We have enough to prove the first statement.
+(5.2.1) implies on the spot that the category
+AR-$J$-adn($\mathcal C$) is abelian: given an arrow $A\ra B$ in
+AR-$J$-adn($\mathcal C$), up to isomorphism of $A$ and $B$ this arrow comes
+from an arrow in $P$ with kernel and cokernel in $\mathcal E_{\mathcal C}$;
+as the functors $\mathcal E_{\mathcal C}\ra P\ra\PAR$ are exact, the kernel
+and cokernel lie in AR-$J$-adn($\mathcal C$).
+Therefore $J$-adn($\mathcal C$) must also be abelian as the two categories
+are equivalent.
+\begin{remark}
+	If $A$ is a noetherian (commutative) ring complete and separated with
+	respect to an ideal $J$ such that $A/J$ is artinian, then the following
+	is true and provides a kind of `spiritual underpinning' for the
+	category $J$-adn.
+	\begin{proposition*}
+		The functor $\varprojlim$ induces an equivalence
+		between the categories \textup{AR-$J$-adn($A$-mod)} and the
+		category of finite $A$-modules.
+	\end{proposition*}
+\end{remark}
+Specializing to the category $\mathrm{Ab}(X)$ of abelian sheaves on 
+$X_{\text{ét}}$, $X$ a scheme, when $X$ is noetherian, the abelian
+noetherian sheaves are the abelian constructible sheaves~\cite[IX 2.9]{SGAA}.
+Let $\mathrm{Abc}(X)$ denote the category of abelian constructible sheaves
+and $\ell\mathrm{-adc}(X)$ the full subcategory of
+$\underline\Hom(\NN^\circ,\mathrm{Abc}(X))$ generated by the
+constructible $\ell$-adic sheaves. Then we have shown that, when $X$ is
+noetherian,
+\begin{equation*}
+	\ell\mathrm{-adc}(X)=(\ell\ZZ)\mathrm{-ad}(\mathrm{Abc}(X))
+	=(\ell\ZZ)\mathrm{-adn}(\mathrm{Ab}(X)),
+\end{equation*}
+the first equality holding with no assumptions on $X$.
+In $P$, given an exact sequence $0\ra X\ra Y\ra Z\ra 0$ with $X$ strict
+and $Y$ $J$-adic, $Z$ is $J$-adic.
+Let $u:\mathscr F\ra\mathscr G$ be a morphism of $\ell$-adic sheaves on a
+scheme $X$. We apply the above formalism in the case $A=R$, $J=m$,
+$\mathcal C=\mathrm{Ad}(X)$, $P=\underline\Hom(\NN^\circ,\mathrm{Ad}(X))$.
+Let $\mathscr F':=\im u$ and $\mathscr G':=\coker u$ computed
+in the category $P$. Then the following diagram has exact rows and
+commutes.
+\begin{ceqn}
+\begin{equation*}
+\begin{tikzcd}
+	&R/m^{n+1}\otimes_R\mathscr F_m\arrow[r,"\id\otimes u_m"]\arrow[d,"f_{nm}"]& R/m^{n+1}\otimes_R\mathscr G_m\arrow[r]\arrow[d,"g_{nm}"]&
+	R/m^{n+1}\otimes_R\mathscr G'_m\arrow[d,"h_{nm}"]\arrow[r]&0 \\
+	0\arrow[r]&\mathscr F'_n\arrow[r]&\mathscr G_n\arrow[r]
+	&\mathscr G'_n\arrow[r]&0
+\end{tikzcd}
+\end{equation*}
+\end{ceqn}
+As $f_{nm}$ is an epimorphism and $g_{nm}$ an isomorphism, the snake lemma
+implies that $h_{nm}$ is an isomorphism; therefore $\mathscr G'$ is a
+cokernel of $u$ in $m$-adc($X$).
+On a noetherian $X$, we have the following simple description of $\ker u$.
+Let $\mathscr K:=\ker u$ in $P$; $\mathscr K$ is AR-$m$-adic.
+Denoting by $\mathscr K'$ the system of universal images of $\mathscr K$, 
+grâce à (3.2.3) there exists an integer $r$ such that the projective system
+\begin{equation*}
+	m_r(\mathscr K'):=(\mathscr K'_{n+r}/\ell^{n+1}\mathscr K'_{n+r})_{n\in\NN}
+\end{equation*}
+is $m$-adic constructible. The composition below is a kernel of
+$u$ in $m\mathrm{-adc}(X)$:
+\begin{equation*}
+	m_r(\mathscr K')\lra\mathscr K'\lra\mathscr K.
+\end{equation*}
+Returning to the setting of Deligne's article, note that the AR-null
+sheaves become null objects in the category of pro-sheaves on $X$, as 
+morphisms in that category between two objects
+$\underline X:=(X_i)_{i\in I},\underline Y:=(Y_j)_{j\in J}$ indexed by sets
+$I,J$ both equipped  with filtered preorders are given by
+\begin{equation*}
+	\text{Pro Hom}(\underline X,\underline Y)
+	:=\varprojlim_j\varinjlim_i(X_i,Y_j),
+\end{equation*}
+and if $\underline X$ is an AR-null object of $P$, it is clear that
+the identity morphism goes to zero in Pro~Hom(\underline X,\underline X),
+so by the universal property of $\PAR$, the
+AR-$m$-adn($\mathrm{Ab}(X)$) sheaves are in the essential image
+of the $m$-adic constructible sheaves in the category of pro-sheaves.
+
+Returning to claim a), the reduction to the punctual case requires a few 
+words. The equivalence between the categories we have seen above 
+specializes to an equivalence
+$\ZZ_\ell\mathrm{-fc}\ra(\mathrm{AR},\ZZ_\ell)\mathrm{-fc}$,
+where the latter is really the category
+AR-$m$-ad($\operatorname{Abc}(X)$)$=$AR-$m$-adn($\operatorname{Ab}(X)$)
+\cite[VI, 1.5.5]{SGA5}, so given the projective system $(\mathscr K_n)$
+where $\mathscr K_n=H^i(K\Lotimes R/m^n)$, letting $j:U\ra X$ be an open
+over which $\mathscr K_0$ is locally constant, $i:X-U\ra X$ the inclusion
+of the complement, by the stability of the property AR-$m$-adic in short
+exact sequences \cite[V, 3.2.4]{SGA5}, in order to conclude that
+$\mathscr K_n$ is an $(\mathrm{AR},R)$-constructible sheaf suffices to show 
+that the projective systems $(j^*j_!\mathscr K_n)$ and
+$(i^*i_*\mathscr K_n)$ are $(\mathrm{AR},R)$-constructible. This allows us
+to reduce to the situation where $(\mathscr K_n)$ is a projective system
+of locally constant constructible sheaves, since the functors $i_*,j_!$
+send $m$-adic sheaves to $m$-adic sheaves and AR-null sheaves to AR-null
+sheaves (this can be checked pointwise), now use \cite[V, 2.4.5]{SGA5}.
+By `gluing' (c.f. proof of \cite[VI, 1.5.5]{SGA5}), we can reduce to
+proving over an open cover trivializing $\mathscr K_0$.
+More concretely, we can cover our space by finitely many opens over which
+$\mathscr K_0$ is constant, and if we can show that $\mathscr K_0$ is
+AR-$m$-adic over each, then the construction (3.2.3) above allows us to
+find an integer for each open in our cover; taking the maximum $r$ of
+these, replacing $(\mathscr K_n)$ by its system of universal images
+$(\mathscr K'_n)$, and forming
+$(\mathscr K'_{n+r}/m^{n+1}\mathscr K'_{n+r})_{n\in\NN}$, we have
+produced an $R$-constructible sheaf which is AR-isomorphic to the system
+$(\mathscr K_n)$.
+
+In the punctual case, the results of
+\cite[XV p.\,473]{SGA5} allow us to suppose that we have a projective
+system $(K_r)_{r\in\NN}$, where $K_r$ is a complex of free $R/m^r$-modules
+of finite type, null outside of an interval $[a,b]$ independent of $r$,
+with transition morphisms $K_{r+1}\ra K_r$ isomorphic (as morphisms of
+complexes) to $K_{r+1}\ra K_{r+1}/m^{r+1}K_{r+1}$, for all $r\in\NN$.
+We will show that the projective system of cohomology
+$``\lim\proj"\ H^i(K_r)$ is AR-$m$-adic, which will imply that it is an
+$R$-constructible sheaf in Deligne's sense; i.e. that it is isomorphic, as
+a pro-object, to a bona fide $R$-constructible sheaf.
+Abusively, put $K:=\varprojlim_r K_r$
+(before, $K$ refers to the stalk of an object in $D_c^b(X,R)$).
+A key ingredient is EGA $0_{III}$ 13.2.3, which says that if a
+projective system of complexes such as $(K_r)$ satisfies the Mittag-Leffler
+condition, and if the projective system $(H^{i-1}(K_r))$ does too, then
+the canonical map $H^i(K)\xra\sim\varprojlim_r H^i(K_r)$
+is bijective. As in our situation, the $K_r$ are complexes of finite groups 
+and their cohomology modules $H^i(K_r)$ are also finite groups, the
+Mittag-Leffler condition is automatic.
+Our hypotheses on the complexes $K_r$ imply the existence of isomorphisms
+$K_{r+s}\otimes_{R/m^{r+s}}R/m^s\xra\sim K_s$ and the exactness of the
+sequence
+\begin{equation*}
+	0\ra K_{r+s}\otimes_{R/m^{r+s}}R/m^s\xra{m^r}K_{r+s}\ra
+	K_{r+s}\otimes_{R/m^{r+s}}R/m^r\ra0
+\end{equation*}
+for $1\leq r,s$. The projective limit as $s\ra\infty$ of the associated 
+cohomology sequence is still exact by the fact that everything is still 
+finite (ML). This projective limit can be broken up into short exact sequences
+\begin{equation*}
+	0\ra H^i(K)/m^r\ra H^i(K_r)\ra H^{i+1}(K)[m^r]\ra0.\tag{*}
+\end{equation*}
+Note that $\Tor_1^R(M,R/m^rR)\simeq M[m^r]$ for $M$ an
+$R$-module. Since the modules $H^{i+1}(K)[m^r]$ stabilize as $r\gg0$ and
+the transition morphisms on $(\Tor_1^R(H^{i+1}(K),R/m^r))_{r\in\NN}$ are
+multiplication by $m$, this projective
+system is evidently AR-null. As the projective system
+$(H^i(K)/m^r)_{r\in\NN}$ is evidently $m$-adic,
+$(H^i(K_r))_{r\in\NN}$ is AR-$m$-adic, and hence its image in the
+category of pro-sheaves $``\lim\proj"\ H^i(K_r)$ is isomorphic to the
+image of the $m$-adic system $``\lim\proj"\ H^i(K)/m^r$, which shows the
+former is $m$-adic in Deligne's sense.
+\begin{remark}
+To see that each transition morphism on the projective
+system
+\begin{equation*}
+	(\Tor_1^R(H^{i+1}(K),R/m^r))_{r\in\NN}
+\end{equation*}
+is multiplication by $m$, note
+that by the equivalence $K^-(\mathcal P)\ra D^-(R\mathrm{-mod})$, where
+$K^-(\mathcal P)$ is the full triangulated subcategory of
+$K^-(R\mathrm{-mod})$ generated by the complexes with projective objects in 
+all degrees, there is, up to homotopy, a unique map of projective
+resolutions of $R/m^r$ and $R/m^{r-1}$ inducing the desired map
+$R/m^r\ra R/m^{r-1}$, namely
+\begin{equation*}
+\begin{tikzcd}
+	0\arrow[r]&R\arrow[r,"m^r"]\arrow[d,"m"]&R\arrow[r]\arrow[d,"\id"]&0\;\\
+	0\arrow[r]&R\arrow[r,"m^{r-1}"]&R\arrow[r]&0.
+\end{tikzcd}
+\end{equation*}
+Tensoring by $H^{i+1}(K)$ we find that the map on $\Tor_1^R$ is indeed
+multiplication by $m$.
+\end{remark}
+
+
+\subsubsection*{Claim c)}\label{weilII:1.1.2c}
+Let $f:Y\ra X$ be an arrow between schemes of finite type over $S$
+with $S$ regular of dimension $\leq1$.
+Claim c) is that about the categories
+$D_{ctf}^b(X,R/m^n)$ being stable by the six functors, and that these 
+functors also commute with reduction modulo $m^n$.
+This can be broken into 3 claims about the six functors: (1) that they 
+preserve constructibility, (2) that they preserve finite tor-dimension,
+and (3) that they commute with reduction modulo $m^n$.
+The discussion of \emph{Th. finitude} 1.1, 1.5–1.7
+covers claims 1 \& 2 for the four functors $Rf_*,f^*,Rf_!,Rf^!$, as well
+as $R\underline\Hom$. Claim 3 for $R\underline\Hom$ is discussed below.
+The case of $\Lotimes$ is more or less trivial.
+Claim 3 for the four functors is the presence of isomorphisms like
+$R/m^n\Lotimes Rf_!(K\Lotimes R/m^{n+1})\xra\sim Rf_!(K\Lotimes R/m^n)$
+in $D^b_{ctf}(X,R/m^n)$. Because of the finitude hypotheses
+(c.f. \href{thfin:1.3}{note to \emph{Th. finitude} 1.3}), we can apply the
+recipe of \emph{Rapport} 4.12 to construct the arrow in
+$D^b_{ctf}(X,R/m^n)$ in the cases of $Rf_*$, $Rf_!$.
+To see the arrow is an isomorphism, we can then copy the reasoning of
+\emph{Rapport} 4.9.1.
+The case of $f^*$ is trivial, since after replacing $K\Lotimes R/m^{n+1}$
+by a bounded complex of flat sheaves M, we have isomorphisms
+\begin{ceqn}\begin{equation*}
+	f^*(K\Lotimes R/m^{n+1})\Lotimes R/m^n
+	\xra\sim f^*(M)\otimes R/m^n\xra\sim f^*(M\otimes R/m^n)
+	\xleftarrow\sim f^*(K\Lotimes R/m^n),
+\end{equation*}\end{ceqn}
+as tensor product commutes with inductive limits.
+As for $Rf^!$, to simplify the notation, let $K_{n+1}$ denote
+$K\Lotimes R/m^{n+1}$. We obtain an arrow
+\begin{equation*}
+	R/m^n\Lotimes_{R/m^{n+1}}Rf^!(K_{n+1})\ra
+	Rf^!(K_{n+1}\Lotimes R/m^n)
+\end{equation*}
+in $D^+(Y,R/m^n)$ from the adjunction
+\begin{equation*}
+	\Hom_{D^+(X,R/m^n)}(Rf_!L,M)\simeq \Hom_{D^+(Y,R/m^n)}(L,Rf^!M)
+\end{equation*}
+with $L=R/m^n\Lotimes_{R/m^{n+1}}Rf^!(K_{n+1})$ and
+$M=K_{n+1}\Lotimes R/m^n$ in the following way:
+\begin{ceqn}\begin{multline*}
+	R/m^n\Lotimes Rf^!K_{n+1}\ra Rf^!Rf_!(R/m^n\Lotimes Rf^!K_{n+1})
+	\xra\sim \\
+	\xra\sim Rf^!(R/m^n\Lotimes Rf_!Rf^!K_{n+1})
+	\ra Rf^!(R/m^n\Lotimes K_{n+1}).
+\end{multline*}\end{ceqn}
+As claims 1 \& 2 have been verified, this actually yields an arrow in
+$D^b_{ctf}(Y,R/m^n)$.
+We can localize this morphism with respect to $u:U\ra Y$ étale, as 
+$Ru^!=u^*$, which we know commutes with reduction modulo $m^n$, and in
+this way, replacing $Y$ by $U$, assume $f$ factors as
+\begin{tikzcd}
+	U\arrow[r,hook,"i"]&Z\arrow[r,"h"]&X
+\end{tikzcd}
+with $i$ a closed immersion and 
+$h$ smooth of relative dimension $d$. As the above morphisms are natural,
+and the composition of the unit and counit $Rf^!\ra Rf^!Rf_!Rf^!\ra Rf^!$
+is the identity transformation of $Rf^!$, and $Rf^!=Rh^!Ri^!$
+(since the left adjoint $i_*$ of $i^!$ is exact), it suffices to show that
+$Rh^!$ and $Ri^!$ commute with reduction modulo $m^n$. The case of
+$Rh^!$ is trivial since $Rh^!K_{n+1}=K_{n+1}(d)[2d]$. Turning to $Ri^!$, 
+let $j:Z-U\hookrightarrow X$ denote the open immersion of the complement
+of $U$; we have a commutative diagram with distinguished triangles for rows
+\begin{ceqn}\begin{equation*}
+\begin{tikzcd}
+	R/m^n\Lotimes i_*Ri^!K_{n+1}\arrow[r]
+	&R/m^n\Lotimes K_{n+1}\arrow[d,equals]\arrow[r]
+	&R/m^n\Lotimes Rj_*j^*K_{n+1}\arrow[d,"\sim"]\arrow[r,"d"]&\ \\
+	i_*Ri^!(K_{n+1}\Lotimes R/m^n)\arrow[r]
+	&R/m^n\Lotimes K_{n+1}\arrow[r]
+	&Rj_*j^*(K_{n+1}\Lotimes R/m^n)\arrow[r,"d"]&.
+\end{tikzcd}	
+\end{equation*}\end{ceqn}
+We obtain an isomorphism
+$R/m^n\Lotimes i_*Ri^!K_{n+1}\xra\sim i_*Ri^!(K_{n+1}\Lotimes R/m^n)$
+from (TR3).
+
+Returning now to $R\underline\Hom$,
+here is a useful lemma which adapts \textit{Th. finitude} 4.6.
+\begin{lemma*}
+    Let $X$ be a noetherian scheme, $\Lambda$ a left noetherian 
+    ring, and $K\in D^-(X,\Lambda)$. Then the following are equivalent.
+    \begin{enumerate}
+    \item $K$ is of finite Tor-dimension and the sheaves $\scr H^i(K)$ are
+    locally constant constructible.
+    \item $K$ is locally isomorphic to a bounded 
+    complex of locally constant, flat $\Lambda$-modules; i.e. there is
+    a finite étale covering $\{U_i\ra X\}$ such that $K|_{U_i}$ is
+    isomorphic (in $D^-(U_i,\Lambda)$) to a bounded complex of constant 
+    sheaves of projective $\Lambda$-modules of finite type.
+    \end{enumerate}
+\end{lemma*}
+The argument follows \textit{Th. finitude} 4.5, except now the
+$\scr H^i(K)$ are moreover locally constant constructible. The sheaves $A$ 
+and $B$ are defined by the cartesian diagram
+\begin{equation*}
+\begin{tikzcd}
+&K^n\arrow[r]&K^n/\im d\arrow[r]&\ker d \\
+&A\arrow[u]\arrow[r,"u"]&B\arrow[r]\arrow[u]&\ker d\arrow[u]
+\end{tikzcd}
+\end{equation*}
+and $B$ is locally free as it sits in the middle of the exact sequence
+\begin{equation*}
+    0\ra\scr H^n(K)\xrightarrow{(\id,0)} B\ra\ker d\ra\scr H^{n+1}(K)
+\end{equation*}
+where $\ker d$ here denotes the kernel of the differential on the complex 
+$K'$ being constructed and is hence locally constant constructible.
+
+As $u$ is surjective, localizing, we may assume $B$ constant constructible
+and that $u$ surjects on
+global sections, defining a morphism $v:\Lambda^{\oplus d}\ra A$ with
+the property that $vu$ is an epimorphism, and we define
+$K'^n=\Lambda^{\oplus d}$.
+
+Suppose $K$ is of Tor-dimension $\leq r$. Propagating the above procedure 
+to the left as far as degree $-r-1$, we produce an étale morphism
+$U\ra X$, constant constructible sheaves
+\begin{equation*}
+    K'^{-r-1}\ra K'^{-r}\ra K'^{-r+1}\ra\cdots
+\end{equation*}
+with the property that $K'^{-r}/\im d$ is constant constructible and flat.
+Then, over $U$, the complex
+\begin{equation*}
+    \cdots\ra0\ra K'^{-r}/\im d\ra K'^{-r+1}\ra K'^{-r+2}\ra\cdots
+\end{equation*}
+is quasi-isomorphic to $K$, and has the desired properties.
+
+\begin{corollary*}[\textit{Th. finitude} 1.7]
+    If $\Lambda$ is moreover commutative and of torsion,
+    and in the situation of \textit{Th. finitude}, then
+    \begin{equation*}
+    \R\underline\Hom:D^b_{ctf}(X,\Lambda)\times D^b_{tf}(X,\Lambda)
+    \ra D^b_{tf}(X,\Lambda).
+    \end{equation*}
+\end{corollary*}
+Following \textit{Th. finitude} 1.7, as the finite Tor-dimension is stable
+by $\R f_\ast,\R f_!, f^\ast,\R f^!$, devissant the first variable
+(say, $\scr F$) relative to a partition of $X$, and using the adjunction
+\begin{equation*}
+    \R\underline\Hom(j_! \scr F, \scr G)
+    \xleftarrow{\sim} \R j_\ast\R\underline\Hom(\scr F,\R j^! \scr G)
+\end{equation*}
+for $j:Y\ra X$ the inclusion of a locally closed subscheme
+(c.f. SGA 4, IX 2.5 \& XVIII \S3.1), one reduces to the situation
+where the $\scr H^i(\scr F)$ are locally constant. Localizing, we can replace
+$\scr F$ by a bounded complex of constant sheaves of projective
+$\Lambda$-modules of finite type. As in this case $\underline\Hom$ computes
+pointwise, we can compute $\R\underline\Hom$ with respect to such a complex.
+Finally, if $N$ and $M$ are $\Lambda$-modules, $N$ projective and $M$ of
+Tor-dimension $\leq r$, then $\Hom(N,M)$ is of Tor-dimension $\leq r$,
+which can be seen after replacing $M$ by a complex of flat
+modules $0$ to the left of $-r$ and writing $N$ as a direct summand of a
+free module.
+
+Returning to the setting of the paper, with $R$ the ring of integers of a
+finite extension of $\QQ_p$, $m$ its maximal ideal,
+let's assume that reduction mod $m^n$ commutes with the four operations
+$\R f_\ast$, $f^\ast$, $\R f_!$, and $\R f^!$, and show that for
+$\scr F, \scr G\in D_c^b(X,R)$,
+\begin{multline*}
+    \R\underline\Hom(\scr F\Lotimes R/m^{n+1},\scr G\Lotimes R/m^{n+1})
+    \Lotimes_{R/m^{n+1}}R/m^n \\
+    =\R\underline\Hom(\scr F\Lotimes R/m^n,\scr G\Lotimes R/m^n)
+    \qquad\text{in }D^b_{ctf}(X,R/m^n).
+    \tag{$\dagger$}
+\end{multline*}
+Devissant $\scr F\Lotimes R/m$ with respect to a partition of $X$,
+we may assume that its cohomology sheaves are locally constant, and therefore
+the same is true of $\scr F\Lotimes R/m^{n+1}$ by considering the $m$-adic
+filtration on a finite complex of flat sheaves representing it.
+Localizing, we may replace $\scr F\Lotimes R/m^{n+1}$ with a bounded complex 
+$N^\ast$ of free $R/m^{n+1}$-modules of finite type and compute
+$\R\underline\Hom$ with respect to $N^\ast$, since for $\mathscr F$ locally free,
+$\underline\Hom(\mathscr F,\mathscr G)_x=\underline\Hom(\scr F_x,\scr G_x)$.
+Now the equality $(\dagger)$ is clear.
+
+Consider the example: $X$ finite type over $S$, $\mathscr F$ and
+$\mathscr G$ two constructible torsion-free $R$-sheaves. The claim is
+that the projective system
+\begin{equation*}
+    \underline\Ext^i(\mathscr F,\mathscr G)
+    :=\mathscr H^i\R\underline\Hom(\mathscr F,\mathscr G)=
+    \text{``}\lim\proj\text{''}\underline\Ext^i_{R/m^n}(\mathscr F\otimes R/m^n,\mathscr G\otimes R/m^n)
+\end{equation*}
+forms a constructible $R$-sheaf.
+By part (a) of 1.1.2, it suffices to show that
+$\R\underline\Hom(\mathscr F,\mathscr G)\in D_c^b(X,R)$.
+By \textit{Th. finitude} 1.6 and the previous corollary,
+$\R\underline\Hom$ sends $D_{ctf}^b(X,R/m^n)\times D_{ctf}^b(X,R/m^n)$ into
+$D_{ctf}^b(X,R/m^n)$, so
+$\R\underline\Hom(\scr F\otimes R/m^n,\scr G\otimes R/m^n)\in D_{ctf}^b(X,R/m^n)$.
+Finally, by ($\dagger$),
+\begin{equation*}
+    \text{``}\lim\proj\text{''}
+    \R\underline\Hom(\scr F\otimes R/m^n,\scr G\otimes R/m^n)\in D^-(X,R).
+\end{equation*}
+\subsubsection*{Truncation \& Tor-dimension}
+In part (e), Deligne addresses the truncation operators $\tau_{\leq n}$.
+The issue is that, while a submodule of a flat $R$-module is flat, a 
+submodule of a flat $R/m^n$-module need not be. To address this deficiency, 
+Deligne introduces the modified truncation operators $\tau_{\leq n}'$, 
+which preserve the finite Tor-dimension. As these properties are of a 
+pointwise nature, we may consider the situation in the category of
+$R$-modules, and the categories $\Dparf(R), \Dparf(R/m^k)$.
+Applying Houzel's argument at the end of SGA 5, Exp. XV to the stalk of
+$K\in D^b_c(X,R)$, we may represent $K_k=K\Lotimes R/m^k$ by a bounded 
+complex of free $R/m^k$-modules and the isomorphisms
+$K_{k+1}\Lotimes_{R/m^{k+1}} R/m^k\xrightarrow\sim K_k$ by isomorphisms of 
+complexes $K_{k+1}\otimes R/m^k\xra\sim K_k$.
+Taking the projective limit of
+these complexes, we obtain a bounded complex of free $R$ modules
+which we will again, as in the notes to claim a), (abusively) notate $K$.
+(To see freeness, note that if $r$ equals the rank of
+$K_1^i=K^i\otimes R/m$, there exists by Nakayama an exact sequence
+\begin{equation*}
+    N\ra R^r\ra K^i\ra 0
+\end{equation*}
+which after tensoring by $R/m^k$ induces an isomorphism
+$(R/m^k)^r\xra\sim K_k^i$, showing $N\subset m^kR$ for all $k$ and hence $N=0$.)
+As before, by the Mittag-Leffler condition, $H^i(K)=\varprojlim H^i(K_k)$.
+Therefore, the submodule of $\ker d$ consisting of cycles whose image in
+$H^n(K_k)$ are in $\im(H^nK\ra H^n(K_k))$ is the reduction modulo $m^k$ of 
+a flat $R$-module, as these cycles coincide with the reduction mod $m^k$ of
+cycles of $K^i$, which form a free submodule of $K^i$.
+More precisely, in view of the commutative diagram
+\begin{equation*}
+\begin{tikzcd}
+	K^{n-1}\arrow[r,"d^{n-1}"]\arrow[d]&K^n\arrow[r,"d^n"]\arrow[d]&K^{n+1}\arrow[d] \\
+	K^{n-1}\otimes R/m^n\arrow[r,"d^{n-1}\otimes\id"]&K^n\otimes R/m^k\arrow[r,"d^n\otimes\id"]&K^{n+1}\otimes R/m^k \\
+\end{tikzcd}
+\end{equation*}
+the submodule of $\ker(d^i\otimes\id)$ consisting of cycles whose image in
+$H^i$ lie in $\im(H^i(K)\ra H^i(K\otimes R/m^k))$ is the submodule
+$(\ker d^n)\otimes R/m^k+\im(d^{n-1}\otimes\id)\subset K^n\otimes R/m^k$.
+As $\im(d^{n-1}\otimes\id)\subset(\ker d^n)\otimes R/m^k$, confirming the
+above description and recognizing
+$\tau_{\leq n}'K_k$ as a bounded complex of free $R/m^k$ modules.
+It may be that $\tau_{\leq n}'K_k$ is no longer quasi-isomorphic to $K_k$, 
+but it is clear by construction that the pro-sheaf $H^n(K_k)$ is
+not affected by the operator $\tau_{\leq n}'$; more precisely, by the exact
+sequence (*) of claim a),
+$H^n(\tau'_{\leq n}K_k)\simeq H^n(K)\otimes_RR/m^k$
+and hence both are AR-isomorphic to $H^n(K_k)$.
+
+\subsection*{1.1.3}\label{weilII:1.1.3}
+Extension of scalars from $R$ to $E$ for a constructible $R$-sheaf
+$\mathscr F$ is
+more or less straightforward: letting $E=\QQ_\ell,R=\ZZ_\ell$, the idea is
+that if is $\ZZ_\ell$-constructible, the torsion subsheaves
+$\Tor^{\ZZ_\ell}_1(\mathscr F,\ZZ/\ell^n)=\ker \ell^n$ stabilize for some
+$n$, and then multiplication by $\ell$ on $\mathscr F$ means multiplying
+$\mathscr F\otimes\ZZ/\ell^m$ by $\ell^n$ for each $m$ to produce an
+AR-$\ell$-adic sheaf, and then forming the associated $\ell$-adic sheaf,
+to produce the exact sequence of $\ell$-adic sheaves
+\begin{equation*}
+	0\ra\Tor^{\ZZ_\ell}_1(\mathscr F,\ZZ/\ell^n)\ra\mathscr F\xra{\ell^n}\mathscr F/\ker \ell^n\ra0.
+\end{equation*}
+The story in $D_c^b(X,\ZZ_\ell)$ works more or less the same way.
+For an object $K$ in this category, we represent $K_m=K\Lotimes\ZZ/\ell^m$
+by a complex of $\ZZ/\ell^m$-flat sheaves (i.e. with free stalks);
+multiplication by $\ell^n$ means multiplying $K_m$ by $\ell^n$.
+This induces multiplication by $\ell$ on the cohomology, and we're back
+in the previous situation, since the cohomology sheaves form
+AR-$\ell$-adic systems. More generally, if $a$ is in $\ZZ_\ell$, letting
+$a_m$ denote the image of $a$ in $\ZZ/\ell^m$, the commutativity of the
+diagram
+\begin{equation*}\begin{tikzcd}
+	K_{m+1}\arrow[r,"a_{m+1}"]\arrow[d,"\otimes\ZZ/\ell^m"]
+	&K_{m+1}\arrow[d,"\otimes\ZZ/\ell^m"] \\
+	K_m\arrow[r,"a_m"]&K_m
+\end{tikzcd}\end{equation*}
+shows that $a$ induces an endomorphism of $D_c^b(X,\ZZ_\ell)$.
+
+\subsection*{1.1.7} A representation $\ZZ\ra\GL(V)$, sending $n$ to $F^n$,
+where $V$ is a $\QQ_\ell$-vector space of dimension $n$, is
+continuous if and only if the eigenvalues of $F$ are $\ell$-adic units.
+
+To see sufficiency, note that we can choose a basis for $V$ so that
+the morphism $\ZZ\ra\GL(V)$ factors through $\GL(\ZZ_\ell^n)=
+\varprojlim\GL((\ZZ/\ell^m)^n)$, a profinite group, and we may extend
+$\ZZ\ra G$ to a morphism $\hat\ZZ\ra G$ for any profinite group $G$
+by the universal property of profinite completion,
+which we state and prove now.
+
+The profinite completion of a group $H$ (with respect to normal subgroups
+of finite index in $H$) is denoted $\hat H$, so that $H\ra\hat H$ has dense
+image. The profinite completion $\hat H$ enjoys the universal property that
+for every profinite group $G$ and continuous homomorphism $H\ra G$,
+there is a unique homomorphism $\hat H\ra G$ making the diagram
+\begin{equation*}
+\begin{tikzcd}
+	&H\arrow[r]\arrow[d]&\hat H\arrow[dl] \\	&G
+\end{tikzcd}
+\end{equation*}
+commute.
+
+To see this, simply use the description of $G$ as $\varprojlim G/N$ as
+$N$ ranges over open normal subgroups of $G$. The preimage $M$ of $N$ in $H$
+is an open normal subgroup of finite index, as $G/N$ is finite.
+Therefore $H\ra G/N$ factors through $H/M$, and to give a continuous
+morphism from $\hat H$ to $G$ it suffices to give compatible continuous maps
+$\hat H\ra G/N$. Continuity is assured by the above remark; compatibility is
+assured by the map $H\ra G$, which determines the maps $\hat H\ra G/N$.
+
+Returning to (1.1.7), to see necessity, we assume we have found a continuous 
+extension $\rho$.
+\begin{equation*}
+\begin{tikzcd}
+	&\ZZ\arrow[rr]\arrow[dr]&&\GL(V) \\
+	&&\hat\ZZ\arrow[ur,dashed,"\rho"]
+\end{tikzcd}	
+\end{equation*}
+The image $\rho(\hat\ZZ)$ is compact, so the set $\rho(\hat\ZZ)\ZZ_\ell^n$
+is compact, for $\ZZ_\ell^n$ a $\ZZ_\ell$-lattice in $V$, so 
+$\rho(\hat\ZZ)\ZZ_\ell^n\subset\frac1{\ell^m}\ZZ_\ell^n$ for some $m$.
+Letting $L$ denote the $\ZZ_\ell$-span of $\rho(\hat\ZZ)\ZZ_\ell^n$, $L$ is 
+a $\ZZ_\ell$-submodule of $\frac1{\ell^m}\ZZ_\ell^n$, hence free
+(of rank $n$). This recognizes $F\in\rho(\hat\ZZ)$ as an element of
+$\Aut(L)$, so the eigenvalues of $F$ are $\ell$-adic units indeed.
+
+
+\subsection*{1.2.6} `On notera que, pour $k$ un corps fini,
+une representation $V$ de $W(\overline k,k)$ est
+automatiquement $\iota$-mixte.’ $\rightsquigarrow$
+This follows from the existence of Jordan normal form.
+
+\subsection*{1.3.9} 
+(When reading the corollary, recall that a semisimple algebraic group is 
+connected by definition.)
+We wish to understand why $G^{00}$ is reductive.
+Note first that the sum of the simple $\pi_1(X,\overline x)$-modules is
+$W$-stable since if $w\in W$ and $V$ is a $\pi_1(X,\overline x)$-module, 
+then $wV$ is again a $\pi_1(X,\overline x)$-module since
+$\pi_1(X,\overline x)$ is a normal subgroup of $W$; applying
+this argument with $w^{-1}$ shows that $wV$ is simple iff $V$ is.
+Next observe that if
+$\rho:W(X_0,\overline x)\ra\GL(\mathscr F_{\overline x})$ 
+is the representation defining $\mathscr F_0$, then
+$\rho(\pi_1(X,\overline x))$ and its
+Zariski closure $G^0$ have the same invariant subspaces (to see this,
+form a basis for $\mathscr F_{\overline x}$ beginning with a basis for an 
+invariant subspace). Therefore we see that $G^0$ acts semisimply since
+$W(X_0,\overline x)$ does by assumption.
+
+Now recall that $R(G^0)$, the radical of $G^0$, is a connected and
+solvable normal subgroup of $G^0$. By the argument above, any normal 
+subgroup of $G^0$ acts semisimply; combining this with the Lie-Kolchin 
+theorem, we see that $\mathscr F_{\overline x}$ decomposes as a direct sum 
+of one-dimensional irreducible $R(G^0)$-modules. The unipotent part
+of $R(G^0)$, which is the unipotent radical $R_u(G^0)$, must 
+therefore act by the identity, and we see that $R_u(G^0)=R_u(G^{00})=\{1\}$;
+i.e. that $G^{00}$ is reductive.
+Note we have proved the following
+\begin{lemma*}
+If $V$ is a finite-dimensional vector space over an algebraically closed
+field and $G$ is a closed subgroup of $\GL(V)$, then $G$ is reductive.
+\end{lemma*}
+This result appears in~\cite[21.60]{Milne} as
+\begin{proposition*}
+	Let $G$ be a connected group variety over a perfect field $k$.
+	The following conditions on $G$ are equivalent.
+	\begin{enumerate}
+		\item $G$ is reductive;
+		\item The radical $R(G)$ of $G$ is a torus;
+		\item $G$ is an almost-direct product of a torus and a semisimple group;
+		\item $G$ admits a semisimple representation with finite kernel.
+	\end{enumerate}
+\end{proposition*}
+More is true. In fact, for $G$ a connected reductive group, say, over
+an algebraically closed field $k$, the maximal central $k$-torus $Z$
+coincides with $(\mathscr CG)^\circ$, the connected component of the
+identity of the center of $G$, and the multiplication homomorphism 
+$Z\times\mathscr D(G)\ra G$ is a central isogeny, i.e. an
+isogeny with central kernel, where $\mathscr D(G)=(G,G)$ is the derived 
+subgroup. This implies that $Z\ra G/\mathscr D(G)$ is a central isogeny.
+Here, our $G$ is Deligne's $G^{00}$, our $Z$ is Deligne's $T_1$, and
+our $G/\mathscr D(G)$ is Deligne's $T$, as a connected, smooth, reductive,
+and commutative group is a torus \cite[19.12]{Milne},
+and a quotient of a reductive group over a field
+of characteristic 0 is reductive.
+
+The set $F$ of characters by which $T_1$ acts on $\mathscr F_{\overline x}$
+generates $X(T_1)$ since the representation of $T_1$ is faithful, and, as
+$T_1$ is a torus, diagonalizable. Therefore, with the right choice of basis, 
+the representation of $T_1$ looks like $\diag(\chi_i)$ for characters 
+$\chi_i\in F$. As the representation is faithful, these characters
+generate the character group $X(T_1)$. (The character group of
+$\diag(\chi_i)$, which is isomorphic to the character group of $T_1$,
+is generated by the $\chi_i$.)
+
+The group $W(X_0,\overline x)$ acts on $G^0$ by conjugation. Recall that
+the neutral component of an algebraic group is a characteristic subgroup,
+and so is the center. Therefore $T_1$, which can be described as 
+the neutral component of $Z(G^{00})$, is acted upon by $W(X_0,\overline x)$.
+Recall that the functor $X$ which takes an algebraic group to its character
+group induces a contravariant equivalence from the category of 
+diagonalizable algebraic groups with the finitely generated commutative 
+groups, and as we have seen, $W(X_0,\overline x)$ acts on $X(T_1)$ by
+permuting factors, hence through a finite quotient.
+
+We would like to know why the group of outer automorphisms of $G^{00}$
+restricting to the identity on $T_1$ is finite.
+The group $G^{00}$ admits a maximal split torus $T_2$
+so that $(G^{00},T_2)$ is a split reductive group.
+The radical $R(G^{00})=T_1$ is the 
+largest subgroup of the multiplicative group $Z(G^{00})$, so the quotient
+$Z(G^{00})/R(G^{00})$ is finite~\cite[19.10]{Milne}.
+Recall the definition of isomorphism of root data~\cite[23.2]{Milne}.
+An isomorphism $\varphi$ of split reductive groups defines an isomorphism
+$f$ of root data, and every isomorphism of root data $f$ arises from a
+$\varphi$, unique up to an inner automorphism~\cite[23.26]{Milne}.
+Moreover for a split reductive group $(G,T)$ we have a canonical isomorphism 
+$\Out(G)\simeq\Aut(X,\Phi,\Delta)$, where the latter is automorphisms
+of based root data~\cite[23.46]{Milne}.
+Given such a $\varphi:(G,T)\ra(G',T')$, the map $f$ is defined by the formula
+$f(\chi')=\chi'\circ\varphi|_T$ for $\chi'\in X(T')$~\cite[23.5]{Milne}.
+Suppose $\varphi$ is now an automorphism of $(G^{00},T_2)$ and
+restricts to the identity on the radical $T_1$. The isomorphism $f$ is 
+\emph{a fortiori} a central isogeny and its action on $\ZZ\Phi$
+(the $\ZZ$-submodule of $X^\ast(T_2)$ generated by the roots $\Phi$)
+preserves the base $\Delta$, hence its action on $\ZZ\Phi$ amounts to
+permuting a finite set.
+On the other hand, the quotient $T_2/Z(G^{00})$ has character group the
+subgroup $\ZZ\Phi$ of $X^\ast(T_2)$~\cite[21.9]{Milne}, hence the
+the root lattice $\ZZ\Phi$ has finite index in $X^\ast(T_2/T_1)$.
+As $Z(G^{00})/T_1$ is finite, this is enough to conclude that subgroup of
+$\Aut(X,\Phi,\Delta)$ corresponding to automorphisms of $G^{00}$ which
+restrict to the identity on $T_1$ is finite, hence that the subgroup of
+$\Out(G^{00})$ consisting of those automorphisms fixing $T_1$ is also
+finite.
+
+Now, if $w$ is an element of $W(X_0,\overline x)$ of degree $1$, and
+$\overline w$ the image of $w$ in $\GL(\overline F_{\overline x})$,
+$G$ is the semi-direct product of $\ZZ$ by $G^0=G^{00}$ relative to the
+action $\interior(\overline w)$ of $\ZZ$ on $G^0$. As this action is given
+by an interior automorphism of $G^0$, by multiplying $w$ by an element of
+$\pi(X,\overline x)$, we make the action of $\interior(\overline w)$
+trivial, and recognize $G\simeq G^{00}\times\ZZ$.
+
+The proof of (1.3.9) follows easily from (1.3.8). Note that once one has
+reduced to $\mathscr F_0$ semisimple, it is easy to see that the radical of
+$G^{00}$ in this case is trivial, as it is by definition the largest
+connected solvable normal subgroup variety of $G^{00}$, hence contained in
+the connected component of the identity of $G^0$, so if $G^0$ is an
+extension of a finite, hence discrete, group, $R(G^{00})$ lies in the
+kernel of this extension, namely in the semisimple subgroup, so in fact
+$R(G^{00})=\{e\}$, as connected normal subgroup varieties of a semisimple
+group are semisimple~\cite[21.52]{Milne}.
+
+\subsection*{1.3.10} Note that (iv) should read 'Le centre de $G$ s'envoie sur
+un sous-groupe d'indice fini de $\ZZ$.' The crux of the direction
+$(iv)\Rightarrow(i)$ is that, while $G$ is not \textit{a priori} a linear
+algebraic group, $G/Z$, as an extension of a finite group by a linear
+algebraic group, is.
+
+\subsection*{1.3.12} The central element $g$ acts by a scalar by Schur's lemma.
+
+\subsection*{1.3.13} (i) The claim rests on the following
+\begin{lemma*} Let $X_0,X_0'$ be normal connected schemes of finite type
+over a field with generic points $\xi,\xi'$ and function fields $K=k(\xi)$ 
+and $K'=k(\xi')$. Let $\Omega,\Omega'$ be algebraically closed extensions of 
+$K,K'$, defining geometric points $a,a'$ of $X_0$, $X_0'$ centered on
+$\xi,\xi'$, respectively.
+If $f:X_0'\ra X_0$ is a dominant morphism, then the image of the induced map 
+$\pi_1(X_0',a')\ra\pi_1(X_0,a)$ is an open subgroup of finite index.
+\end{lemma*}
+Observing that $\pi_1(X_0',a')$ acts on
+$(f^\ast\mathscr F)_{a'}$ via the map on $\pi_1$ in the lemma induced by 
+$f$, we see that there is a central element $g\in G'$ of positive degree and 
+a morphism $G'\ra G$ sending $g$ to a central element of $G$ of positive
+degree, and the action of $g$ on $\mathscr F_{0,a}$ via this map is the 
+same as the action of $g$ on $(f^\ast\mathscr F_0)_{a'}$.
+
+\begin{proof}[Proof of lemma]
+The extensions $\Omega,\Omega'$ define geometric points $a_1,a_1'$ of $S=\Spec(K)$ and $S'=\Spec(K')$, respectively.
+The dominant morphism $f:X_0'\ra X_0$ 
+induces an extension of fields $K\subset K'$.
+Then $\pi_1(S,a_1)\ra\pi_1(X_0,a)$ is surjective~\cite[V 8.2]{SGA1}, and after identifying
+$\pi_1(S,a_1)$ with $\Gal(\sep K,K)$, the kernel is identified with those
+automorphisms which fix all finite extensions of $K$ in $\Omega$ which
+are unramified over $X_0$, and likewise for
+$\pi_1(S',a_1')\ra\pi_1(X_0',a')$. If $L$ is
+an extension of $K$ unramified over $X_0$, then $L\otimes_K K'$ is an
+extension of $K'$ unramified over $X_0'$~\cite[I 10.4(iii)]{SGA1}.
+The operation on étale covers of $X_0$ consisting of taking inverse image
+along $f$ followed by fiber at $a'$ is a fiber functor for $X_0$, hence
+induces a continuous homomorphism of groups
+$\pi_1(X_0',a')\ra\pi_1(X_0,a)$~\cite[V 6.2]{SGA1}. The action of 
+$\pi_1(X_0',a')$ on $(f^\ast\mathscr F_0)_{a'}$ is by restriction with 
+respect to this homomorphism. This homomorphism, in turn, is induced by
+restriction of $\pi_1(S',a_1')\ra\pi_1(S,a)$, since if $L$ is as above, an 
+automorphism $\sigma\in\ker(\pi_1(S',a_1')\ra\pi_1(X_0',a')$ acts on
+$L\otimes_K K'$ by the identity as $L\otimes_K K'$ is unramified. 
+As $K'/K$ is finitely generated, $K'\cap\sep K$ is a finite extension of
+$K$, so the image of $\pi_1(S',a_1')\ra\pi_1(X_0,a)$ is an open subgroup
+of finite index isomorphic to the image of $\Gal(\sep K/K'\cap\sep K)$
+in $\pi_1(X_0,a)$.
+\end{proof}
+(ii) Choose a basis for representations corresponding to
+$\mathscr F_0$ and $\mathscr G_0$ so that Frobenius is upper-triangular in
+both, and then recall the form of the Kronecker (tensor) product of 
+matrices, which has the property that the Kronecker product of 
+upper-triangular matrices is upper-triangular.
+
+(iii) The claim rests on two observations. The first is that if 
+$\mathscr F_0$ is defined by a representation $V$ of $G$, the eigenvalues
+of any $g\in G$ coincide with the eigenvalues of $g$ acting on the
+semi-simplification of $V$ with respect to any Jordan-Hölder series.
+To see this, choose a basis for each graded piece so that $g$ is
+upper-triangular, and then order a lift of these bases according to the
+filtration, beginning with the smallest piece. 
+The second observation is that if we begin with an ordered basis $(a_i)$ for 
+$V$ with respect to which $g$ is upper triangular, then a basis $B$ for 
+$\bigwedge^aV$ consisting of $a$-forms in the $a_i$ can be found.
+If the function $w$ takes an $a$-form in the $a_i$ and outputs the sum of
+the subscripts which appear (so $w(a_1\wedge a_3\wedge a_4)=8$),
+then $g$ is upper-triangular with respect to any ordering of $B$ which
+respects the total order $w$. The claim follows.
+
+\subsection*{1.3.14} It suffices to show that the image of $W(X_0,x)$ in
+$\GL(r,E)$ is bounded by the argument of (1.1.7), which we repeat now.
+We lose nothing by supposing $E=\QQ_\ell$, in which case the image $W$ of 
+$W(X_0,x)$ in $\GL(r,E)$ is bounded if it is contained in
+$\frac1\ell\GL(r,\ZZ_\ell)$. Applying $W$ to $\ZZ_\ell^r$ and taking the
+$\ZZ_\ell$ span, we get a free $\ZZ_\ell$-submodule of
+$\frac1\ell\ZZ_\ell^r$ of rank $r$, on which $W$ acts by automorphisms.
+This recognizes $W$ as isomorphic to a subgroup of $\GL(r,\ZZ_\ell)$, a
+profinite group to which it is easy to extend a map
+$W(X_0,x)\ra\GL(r,\ZZ_\ell)$ to a map from the completion
+$\pi_1(X_0,x)\ra\GL(r,\ZZ_\ell)$.
+
+To see that $\rho(W_1^0)\subset G^{00}$ is compact and Zariski dense, 
+observe that $W_1^0$ is a closed subgroup of $\pi_1(X,\overline x)$, hence a 
+profinite group, and $G^0$ is by definition the Zariski closure of the image 
+of $\pi_1(X,\overline x)$. In particular, the inverse image of $G^{00}$ is
+Zariski dense in $G^{00}$.
+
+\subsection*{1.3.15}
+Relevant sources are Bourbaki, \emph{Lie Groups and Lie Algebras} II, \S7,
+Demazure and Gabriel, \emph{Groupes Algébriques}, II, \S6,
+\cite[10, 14d]{Milne}.
+Bourbaki explains how to extend the logarithm to the union of all compacta.
+You need to know that for all compact $G\subset H(E)$, $x\in G$, and
+neighborhood about $e$, there is a strictly increasing sequence of integers 
+$(n_i)$ such that $x^{n_i}\in V$, which allows one to extend the logarithm
+by Deligne's formula. Bourbaki also explains that there is an open
+subgroup $V$ of $e$ in $H(E)$ such that $\log$ is an analytic
+isomorphism of $V$ onto an open subgroup of $\Lie H$, with inverse $\exp$.
+It follows that $L^1$, the $E$-linear span of $\log K$, coincides with the
+$E$-linear span of $\log(K\cap V)$. We have for $X\in\log H$ that
+$\exp(nX)=\exp(X)^n$, and $\log(g^n)=n\log(g)$ for any $g$ where $\log$ is 
+defined.
+
+For $g\in H(E)$, $X\in\Lie H$,
+\begin{equation*}\tag{$\dagger$}
+g\cdot\exp(X)\cdot g^{-1}=\exp(\Ad(g)(X)),\end{equation*}
+whenever these expressions converge.
+Taking $X\in\log(K\cap V)$ and $g\in V\cap K$, we find that the left side
+is in $K\cap V$. Moreover there is an $n\in\ZZ$ such that both $n\Ad(g)(X)$
+and $nX$ lie in $\log V$. We find that $\Ad(g)(nX)\in K\cap V$, therefore
+that for $g\in V\cap K$, $\Ad(g)$ preserves $L^1$, therefore $L^1$ is also 
+preserved by $V$, which is the Zariski closure of $V\cap K$ in $K$.
+
+Therefore the adjoint representation
+\begin{equation*}
+	\Ad:H\ra\GL(\Lie H)	
+\end{equation*}
+factors through the algebraic subgroup $F\subset\GL(\Lie H)$ which fixes the
+$L^1$. Applying the functor $\Lie$, one finds that
+\begin{equation*}
+	\ad:\Lie H\ra\mathfrak{gl}(\Lie H)
+\end{equation*}
+factors through $\Lie F$. As $\ad$ induces the bracket on $\Lie H$, it 
+follows that $L^1$ is an ideal in $\Lie H$. As $H$ is semisimple over a 
+field of characteristic 0, Lie subalgebras of $\Lie H$ are in bijection with
+connected algebraic subgroups of $H$ (c.f. e.g. Demazure and Gabriel, 
+\emph{Groupes Algebriques}, II \S6 2.4 \& 2.7).
+As the exponential is functorial (c.f. \emph{ibid}, 3.4), the algebraic
+subgroup corresponding to $\mathfrak k$ contains $K$, hence must 
+equal $H$ by density, hence $L^1=\Lie H$.
+
+Let $N$ denote the normalizer of $K$ and $g\in N$. Let $X\in K$. Then
+there is an integer $n$ such that both $X^n\in V$ (hence $n\log X\in\log V$) 
+and $n\Ad(g)(\log X)\in\log V$. Applying $(\dagger)$ to $\log(X^n)=n\log X$
+we find that $\exp(\Ad(g)(n\log X))=g\cdot X^n\cdot g^{-1}\in V\cap K$
+so that $\log(g\cdot X\cdot g^{-1})=\Ad(g)(\log X)$ and we find
+$\Ad(g)$ preserves the set $\log K$ and \emph{a fortiori} $L^0$.
+
+The morphism $\Ad$ factors as a quotient $H\twoheadrightarrow H/Z(H)$
+followed by a closed immersion. As $H$ is semisimple, $Z(H)$ is finite,
+hence the quotient $H\twoheadrightarrow H/Z(H)$ is finite
+(\emph{a fortiori} proper) \cite[21.7, 7.15, 5.39]{Milne}.
+
+The subgroup $K\subset H(E)$ is a compact subset of a complete metric
+space, hence closed for the topology induced by the non-archimedean metric 
+on $E$. Hence $K$ is a closed Lie subgroup of $H(E)$ for that metric, and
+hence $N$ is a closed subgroup of $H(E)$ with respect to the metric induced
+by the one on $E$. As $L^0$ is compact and isomorphic to an
+$\mathscr O_E$-lattice in $\Lie H$, its automorphism group $\Aut L^0$ is 
+compact; as $\Ad$ is proper, $\Ad^{-1}(\Aut L^1)\subset H(E)$ is compact, 
+and $N\subset\Ad^{-1}(\Aut L^0)$ is a closed subgroup, hence also compact.
+
+\subsection*{1.4.1} (\emph b) See Weil I, (2.9).
+
+\subsection*{1.4.2} Let $\overline x$ be a geometric point of $X$; as $X_0$ is absolutely irreducible, $X$ is connected.
+The pullback of lisse sheaves along the morphism $X\ra X_0$ identifies
+with the restriction of representations along the continuous homomorphism
+$\pi_1(X,\overline x)\ra W(X_0,\overline x)$, and likewise the pullback of
+lisse sheaves along the structural morphism $X_0\ra\Spec(\FF_q)$ with
+restriction along $W(X_0,\overline x)\ra\ZZ$. Given a lisse sheaf 
+$\mathscr F$ on $X_0$ with monodromy representation $V$, the largest 
+subsheaf (resp. quotient sheaf) becoming constant on $X$ is obtained by
+taking invariants (resp. coinvariants) of $V$ with respect to
+$\pi_1(X,\overline x)$. Both $V^{\pi_1(X,\overline x)}$ and
+$V_{\pi_1(X,\overline x)}$ carry natural actions of $\ZZ$ which induces
+lisse sheaves $F_0',F_0''$ on $\Spec(\FF_q)$ with inverse images
+$V^{\pi_1(X,\overline x)}$ and $V_{\pi_1(X,\overline x)}$, respectively.
+(The exact sequence $0\ra\pi_1(X,\overline x)\ra W(X_0,\overline x)\ra\ZZ$
+identifies those lisse sheaves invariant under geometric monodromy with
+the inverse image of sheaves on $\Spec(\FF_q)$.)
+
+\subsection*{1.4.3} The point is that on the one hand, the constituents of 
+the sheaves $F',F''$ are among the constituents of $\mathscr F_0$,
+on the other hand as representations of $W(X_0,\overline x)$, $F',F''$ are
+invariant for geometric monodromy, so they have one-dimensional constituents
+which are determined once Frobenius is put in Jordan normal form. 
+Therefore the eigenvalues of Frobenius on $F'$ and $F''$ appear 
+among the determinental weights for $\mathscr F_0$, and, in consideration
+of (1.4.2), up to a twist the same is true of eigenvalues
+of Frobenius on $H^0(X,\mathscr F),H^0_c(X,\mathscr F),$ and
+$H^2_c(X,\mathscr F)$.
+
+\subsection*{1.4.6} See Ahlfors,
+\emph{Complex Analysis}, Ch. 5 \S2.2 for a characteristically elegant 
+review of the convergence properties of infinite products, which elucidates
+the equivalence of the absolute convergence of Deligne's Euler product with
+that of of his geometric series.
+
+\subsection*{1.5.1} Perhaps the only thing to remark is that if a lisse 
+sheaf $\mathscr F$ on $X$ is $\iota$-real, then all of its exterior powers 
+are, too: choosing a basis for $\mathscr F_x$ with
+respect to which $F_x$ is upper-triangular, the resulting canonical basis 
+for $\bigwedge\mathscr F$ can be ordered so that $F_x$ remains upper 
+triangular (1.3.13 iii),
+which makes it easy to see that $\iota\det(1-F_x t,\bigwedge\mathscr F)$ has 
+coefficients which are symmetric polynomials in the eigenvalues of $F_x$.
+As the coefficients of $\iota\det(1-F_x t,\mathscr F)$ are the elementary 
+symmetric polynomials in these eigenvalues, and are real, the coefficients
+of $\iota\det(1-F_x t,\bigwedge\mathscr F)$ are real too.
+
+\subsection*{1.6.11} To see the Clebsch-Gordon decomposition (1.6.11.2),
+let
+\begin{equation*} H=du\begin{pmatrix}
+	1&0\\0&-1
+\end{pmatrix} \end{equation*}
+in the notation of (1.6.8), and let 
+\begin{equation*}\tag{$\dagger$}
+	\chi_d(\lambda)=\Tr(e^{\lambda H})=\sum_{\substack{j=-d \\ j\equiv d(2)}}^d \lambda^j
+\end{equation*}
+as a function of $\lambda\in k$. These characters transform additively under
+direct sum and multiplicatively under tensor product, so finding the
+decomposition of $S_d\otimes S_{d'}$ is the same as finding the additive
+decomposition of
+\begin{equation*}
+	(\lambda^{-d}+\lambda^{-d+2}+\cdots+\lambda^d)	(\lambda^{-d'}+\lambda^{-d'+2}+\cdots+\lambda^{d'})
+\end{equation*}
+into sums of the form ($\dagger$). In this case the decomposition is into
+$d'+1$ sums of the form $\chi_j(\lambda)$ for $j\in P(d,d')$.
+
+\subsection*{1.6.13} It is asserted that the inclusion $\subset$ of 
+assertion 2) results from the fact that the image of $N^iM_i$ in
+$\Gr^W_0(V)$ is $N^iM_i(\Gr_0^WV)=M_i(\Gr_0^WV)$. To see this, recall that 
+in the construction (1.6.1), $N^{d-1}$ sends $\ker N^d/\im N^d$ onto
+$M_{-d+1}/\im N^d$, hence sends $M_{d-1}$ onto $M_{-d+1}$, and proceed
+inductively.
+
+The inequality $k-2i-2\geq k\geq2j-k$ should read $k-2i-2\geq-k\geq2j-k$
+at the end of the discussion of 3). Note $N^{k-j}:\Gr_k^MG\ra\Gr_{2j-k}^MG$.
+
+\subsection*{1.6.14}\label{weilii:1.6.14}
+It seems as though (1.6.14.3) should read
+\begin{equation*}
+	\Gr_i^MV\simeq\bigoplus_{\substack{j\geq|i|\\j\equiv i\,(2)}}
+	P_{-j}\left(\frac{-i-j}2\right).
+\end{equation*}
+For, when $i\leq0$, $N$ induces an isomorphism of $\Gr_i^MV/P_i$ onto
+$\Gr_{i-2}^MV$. Scaling $N\mapsto\lambda N$ also multiplies this isomorphism
+by $\lambda$, so we need to twist by $\otimes N^{-1}$. Similarly, the
+isomorphism $N^i:\Gr_i^MV\xrightarrow{\sim}\Gr_{-i}^MV$ scales by
+$\lambda^i$ so we need to twist by $-i$.
+
+With this modification, the isomorphism
+\begin{equation*}
+	P_{-j}\simeq\bigoplus_{j\in P(j',j'')}P'_{-j}\otimes P''_{-j}
+	\left(\frac{j-j'-j''}2\right)
+\end{equation*}
+is justifiable by passing through a suitable graded piece
+\begin{equation*}
+	P_{-j}\left(\frac{-i-j}2\right)\ra\Gr_i^MV\leftarrow\bigoplus_{j\in P(j',j'')}P'_{-j}\otimes P''_{-j}
+	\left(\frac{-i-j'-j''}2\right).
+\end{equation*}
+As for the isomorphism
+\begin{equation*}
+ 	P_{-j}(V^\ast)\simeq P_{-j}(V)^\ast(j),
+\end{equation*}
+consider $V=S_j$ identified with the representation of $\SL(2)$ on
+homogeneous polynomials in variables $x$ and $y$ of degree $j$. Suppose
+$P_{-j}(V)$ is generated by the vector $y^j$; then $P_{-j}(V)^\ast$ is 
+generated by the covector on $y^j$ and $P_{-j}(V^\ast)$ is the covector
+on $x^j$. The map $P_{-j}(V)^\ast\ra P_{-j}(V^\ast)$ is obtained by
+precomposing by $N^j$. Upon scaling $N\mapsto\lambda N$, this map is scaled
+by $\lambda^j$. Therefore the canonical isomorphism is obtained by
+twisting by $N^{-j}$:
+\begin{equation*}
+	P_{-j}(V)^\ast\ra P_{-j}(V^\ast)(-j).
+\end{equation*}
+
+\subsection*{1.7.3} `Il commute à l'action de
+$W(\overline K,K)$'$\rightsquigarrow$ this statement is somewhat opaque.
+Which action(s)? When you let $W(\overline K,K)$ act on $V$ via $\rho$ and
+on $\overline\QQ_\ell(n)$ via $\Gal(\overline k,k)$, the statement is that
+if $\tau\in W(\overline K,K)$,
+\begin{equation*}\tau N\tau^{-1}=N:V(1)\ra V.\end{equation*}
+Let $\sigma\in\overline\QQ_\ell(1)$.
+As $\tau^{-1}\lambda=(\deg\tau)^{-1}\lambda\tau^{-1}$, the statement is 
+equivalent to the statement
+\begin{equation*}
+	\tau N\lambda\tau^{-1}=(\deg\tau)\,N\lambda.
+\end{equation*}
+$\Gal(\overline K,K)$ acts on the inertia character $t$ by the formula
+\begin{equation*}
+	t(\tau\sigma\tau^{-1})=\tau\,t\sigma,
+\end{equation*}
+where on the right $\tau$ acts through $\Gal(\overline k,k)$, so if
+we assume $I_1$ is a normal subgroup of $I$ and take $\sigma\in I_1$,
+\begin{equation*}
+	\exp(\rho(\tau)\;N\,t_\ell(\sigma)\;\rho(\tau^{-1}))
+	=\rho(\tau\sigma\tau^{-1})=\exp(N\,t_\ell(\tau\sigma\tau^{-1}))
+	=\exp(N\,(\deg\tau)t_\ell(\sigma)).
+\end{equation*}
+
+
+\subsection*{1.7.4} A normal unipotent subgroup of an algebraic group
+acts trivially on all semisimple representations, hence the factorization
+of the action of $I$ by a finite quotient \cite[19.16]{Milne}.
+
+The semisimple representation of $W(\overline K,K)$ therefore factors
+through the quotient by $I_1$. The conjugation action of $W(\overline K,K)$
+on $I/I_1$ is has a kernel $U$ of finite index, as a finite group 
+has only finitely many automorphisms. So for some $m_1$,
+$F'^{m_1},F''^{m_1}\in U$. $F''^{m_1}=aF'^{m_1}$ for some $a\in I$, but now
+$F''^{m_1}$ commutes with $a$, so if $a^{m_2}=1$, then
+$F''^{m_1m_2}=a^{m_2}F'^{m_1m_2}=F'^{m_1m_2}$, so we may take $n=m_1m_2$.
+
+\subsection*{1.7.5}
+In the proof it is asserted `On a $NM_i'\subset M_{i-2}'$.' This is because
+of the commutativity of (1.7.3). Namely, $F'N=NF'$ and if
+$\lambda\in\overline\QQ_\ell(1)$, $F'N\lambda=q^{-1}N\lambda F'$.
+Therefore $N\lambda$ sends $M_i'$ into $M_{i-1}'$ and
+$N:M_i'(1)\subset M_{i-2}'$.
+
+While proving that $M'$ is independent of $F'$, Deligne introduces
+$\exp(\lambda N)$ for $\lambda\in\overline\QQ_\ell(-1)$. Let me instead
+deduce from the fact $F'^n=F''^n\mod I_1$ that for an appropriate choice of
+$\lambda\in\overline\QQ_\ell(1)$,
+\begin{equation*}
+	F''^n=\exp(N\lambda)F'^n.
+\end{equation*}
+Leaving the definition of $\mu$ unchanged, we have
+\begin{equation*}
+	\exp(N\lambda)F'^n	= \exp(N\mu)F'^n\exp(N\mu)^{-1},
+\end{equation*}
+since if we expand $F'^n\exp(-N\mu)$ as a series
+\begin{equation*}
+	F'^n\left(1-N\mu+\frac{(-N\mu)^2}{2!}+\cdots\right),
+\end{equation*}
+we have that $N$ commutes with $F'^n$ and that
+$F'^n\mu^i=q^{ni}\mu^i$, so that
+\begin{equation*}
+	\exp(N\mu)F'^n\exp(N\mu)^{-1} =
+	\exp(N\mu)\exp(-q^nN\mu)F'^n =
+	\exp(N\lambda)F'^n.
+\end{equation*}
+This identity shows that $\exp(N\mu)$ sends $M'$ into $M''$.
+As $(N\mu)M_i'\subset M_{i-2}'$,
+\begin{equation*}
+	\exp(N\mu)=1+N\mu+\frac{(N\mu)^2}{2!}+\cdots
+\end{equation*}
+also sends $M_i'$ into $M_{i-2}'$, so $M_i''\subset M_i'$.
+
+\subsection*{1.7.7} Let $F'$ be as in (1.7.5), let
+$\alpha\in\overline\QQ_\ell^{\,\ast}$, and let $V'^\alpha$ equal the
+sum of the generalized eigenspaces of $F'$ acting on $V$ with eigenvalue
+in the class of $\alpha\mod \text{roots of 1}$. Then $V'^\alpha$ is
+independent of lift and $N\lambda:V'^\alpha\ra V'^{\alpha/q}$, and
+\begin{equation*}
+	V^\alpha=\sum_{i\in\ZZ} V'^{\alpha q^i},
+\end{equation*}
+is stable under $\exp(N\lambda)$ for $\lambda\in\overline\QQ_\ell(1)$ and
+hence under the action of $I_1$. By the argument of (1.7.5), $V^\alpha$ is
+therefore stable under $W(\overline K,K)$.
+
+\subsection*{1.7.8}\label{1.7.8}
+First, the matter of what it means for the locally constant sheaf of sets
+$\mathscr F$ on $X-D$ to be tamely ramified along the divisor $D$.
+In Grothendieck-Murre~\cite{GM}, the notion of a tamely ramified covering is
+discussed. If $\mathscr F$ is a locally constant sheaf of finite sets on
+$X-D$, it is represented by an étale covering of $X-D$.
+What about if $\mathscr F$ is a locally constant sheaf of sets on a scheme
+$S$ with infinite fibers?
+
+Let $\{S_i\}_{i\in I}$ be a covering trivializing $\mathscr F$. If $S$ is
+quasi-compact we can take this covering to be finite quasi-compact.
+Over each $S_i$, $\mathscr F$ is represented by an étale morphism
+$X_i\ra S_i$, namely the disjoint union $\bigsqcup_{\lambda\in\Lambda} S_i$ 
+with the set $\Lambda$ in bijection with a(ny) fiber of $\mathscr F$.
+This yields a separated, locally of finite presentation, and
+locally quasi-finite descent datum $X_i$ relative to the covering $S_i$
+(c.f., e.g. Stacks, tag
+\texttt{\href{https://stacks.math.columbia.edu/tag/02W4}{02W4}}).
+By~\cite[Exp. X, 5.4]{SGA3}, this descent datum is effective and yields
+an $S$-scheme $X$. In the case that $S$ is quasi-compact, then as the
+faithfully flat covering $\bigsqcup_i S_i$ was taken to be 
+quasi-compact, $X$ is separated~\cite[Exp. VIII, 4.8 or Exp. IX, 2.4]{SGA1}, 
+but in any case it is evidently étale as its restriction to each $S_i$ is.
+This elucidates the proof of Lemma 2.2 in~\cite[Exp. IX]{SGAA}, with one 
+refinement:
+\begin{lemma*}
+	Let $S$ be a scheme and $\mathscr F$ a locally constant sheaf of sets on
+	$S$. Then $\mathscr F$ is represented by a $X/S$ étale.
+	If $S$ is quasi-compact, then $X$ is separated.
+	If the fibers of $\mathscr F$ are finite (resp. and non-empty), then
+	$X$ is an étale covering (resp. and surjective).
+\end{lemma*}
+Now suppose $S$ is normal, integral, and quasi-compact with generic point
+$\eta$.
+By EGA $\text{IV}_{\text 4}$ 18.10.7 and 18.10.8, the étale $X\ra S$
+is isomorphic to a disjoint union of integral normal schemes $X_\alpha$
+such that $f_\alpha^{-1}(\eta)$ is a finite separable extension of
+$k(\eta)$ and moreover if $S'_\alpha\xrightarrow{g_\alpha}S$ denotes the
+normalization of $S$ in $f_\alpha^{-1}(\eta)$, then $S'_\alpha$ is a 
+revêtement étale, and $f_\alpha$ factorizes as
+$X_\alpha\xrightarrow{f'_\alpha}S'_\alpha\xrightarrow{g_\alpha}S$
+with $f_\alpha'$ an open immersion.
+
+Hence $\mathscr F$ decomposes as a disjoint union of sheaves
+$\mathscr F_\alpha=h_{X_\alpha}$, with $h_{X_\alpha}$ locally constant
+constructible. The property of the $h_{X_\alpha}$ being locally constant
+implies that the open immersions $f'_\alpha$ are in fact isomorphisms, and
+we sum up in the following
+\begin{lemma*}
+	Let $S$ be a normal, integral, and quasi-compact scheme and let
+	$\mathscr F$ be a locally constant sheaf of sets on $S$.
+	Then $\mathscr F\simeq\bigsqcup_\alpha h_{X_\alpha}$; i.e. $\mathscr F$
+	decomposes as a disjoint union of locally constant constructible sheaves
+	represented by revêtements étales $X_\alpha\ra S$.
+\end{lemma*}
+
+
+Now we recall the definition of divisors with normal
+crossings~\cite[1.8]{GM}.
+Let $S$ be a locally noetherian scheme and $(D_i)_{i\in I}=D$ a finite set
+of divisors on $S$. For simplicity we often denote the inverse image of the
+$D_i$ in $\Spec \mathscr O_{S,s}\ra S$ by the same letter $D_i$.
+\begin{definition*}
+	\begin{enumerate}[label=\alph*)]
+		\item We say that the $(D_i)_{i\in I}$ have
+		\emph{strictly normal crossings} if for every
+		$s\in\bigcup_{i\in I}\supp D_i$ we have:
+		\begin{enumerate}[label=\roman*)]
+			\item $\mathscr O_{S,s}$ is a regular local ring,
+			\item if $I_s=\{i:s\in\supp(D_i)\}$, then for $i\in I_s$ we have
+			\begin{equation*}
+				\qquad D_i=\sum_\lambda\div(x_{i,\lambda})
+			\end{equation*}
+			with $x_{i,\lambda}\in\mathscr O_{S,s}$ and
+			$(x_{i,\lambda})_{i,\lambda}$ part of a regular system of
+			parameters at $s$.
+		\end{enumerate}
+		\item We say that the set $(D_i)_{i\in I}$ has \emph{normal crossings}
+		if for every $s\in\bigcup_{i\in I}\supp D_i$ there exists an étale
+		neighborhood $S'\ra S$ of $s$ in $S$ such that the family of inverse
+		images of the $(D_i)_{i\in I}$ on $S'$ has strictly normal crossings.
+	\end{enumerate}
+\end{definition*}
+\begin{remark}
+	The concept of (strictly) normal crossings is stable by étale base 
+	change, and one can check whether a set of divisors has normal crossings
+	étale-locally.
+\end{remark}
+In the setting of $X$ a regular scheme and $D$ a divisor on $X$ with normal
+crossings, the definition of a tamely ramified covering $f:V\ra X$ relative
+to $D$ given in Grothendieck-Murre is equivalent to the property that $V$ be
+étale over $X-D$, and that the inertia at each $d\in D$ of codimension one
+act trivially on $V$ (see also~\cite[Exp. XIII, 2.1]{SGA1}).
+More precisely, let $D$ be a union of lisse divisors 
+$D_i$, $d$, $X_{(d)}$, $\overline\eta$ be as in (1.7.8). Then the corresponding inertia group should act trivially on
+$V_{\overline\eta}$. Evidently this definition extends to a locally constant
+sheaf of sets $\mathscr F$. The ramified Kummer covering $\pi:X_n\ra X$ is
+a homeomorphism, and if $\mathscr F$ is a locally constant sheaf of sets on
+$X-D$, $\mathbf L$-ramified along $D$, for $\mathbf L$ a set of primes
+invertible on $X$, then there is an $n$ invertible on $X$ such that the
+action of inertia with respect to every point of $X_n$ on
+$\pi^\ast\mathscr F$ is trivial.
+
+More explicitly, let $U=X-D,U_n=\pi^{-1}(U)$. The Kummer covering $\pi$ is a
+revêtement étale when restricted to $U_n$, which corresponds to the
+homomorphism $\varphi:\pi_1(U_n,\overline\eta)\ra\pi_1(U,\overline\eta)$ of
+topological groups which is the inclusion of the former group as an open
+subgroup of the latter corresponding to the connected, pointed étale cover 
+$U_n\ra U$. Let $\sigma\in\Gal(\overline\eta/\eta)$ be any element of the
+inertia corresponding to the monodromy around any of the $D_i$ which acts
+nontrivially on $\mathscr F_{\overline\eta}$. Then the image of $\sigma$ in
+$\pi_1(U,\overline\eta)$ is nonzero in
+$\pi_1(U,\overline\eta)/\varphi\pi_1(U_n,\overline\eta)$; in particular it
+does not lie in $\Gal(\overline\eta/\eta_n)$ where $\eta_n$ is the generic
+point of $U_n$. Therefore the representation of $\pi_1(U_n,\overline\eta)$
+obtained by restricting $\pi^\ast\mathscr F$ to $U_n$ coincides with the
+restriction of a continuous representation of $\pi_1(X_n,\overline\eta)$
+by the continuous map $\pi_1(U_n,\overline\eta)\ra\pi_1(X_n,\overline\eta)$;
+i.e. $\pi^\ast\mathscr F$ extends to a locally constant sheaf
+$\overline{\mathscr F}$ on $X_n$.
+
+\subsection*{1.7.11}\label{weilii:1.7.11}
+As this paragraph reinterprets the construction of (1.7.8), it is implicit
+that $X$ is a henselian \emph{trait}.
+A remark on the equality $\Gal(K_1/K)=\Gal(k_1/k)$: this is effectively
+saying that there is an equivalence of Galois categories of finite étale
+covers of the points $\Spec K$ and $\Spec k$.
+The functor of restriction to the special fiber does induce an
+equivalence of the categories of finite étale covers of $X$ with that of
+$\Spec k$; this is~\cite[$\text{IV}_{\text 4}$ 18.5.11]{EGA}. For the
+equality of Galois groups in the setting of $R\subset R^{\text{sh}}$,
+$K\subset K_1$, $R$ local henselian normal, $R^{\text{sh}}$ its strict
+henselization, we use the following facts.
+	
+	For any finite separable subextension $k\subset k_2\subset k_1$,
+	there exists a unique (up to unique isomorphism) finite étale local
+	ring extension $R\subset R_2$ with specified residue field extension.
+	Since the functor of restriction to the special fiber induces an
+	equivalence of categories, the inductive system of finite separable 
+	subextensions $k\subset k_2\subset k_1$ specifies an inductive system of 
+	local ring homomorphisms $R\subset R_2\subset R^{\text{sh}}$, of which
+	$R^{\text{sh}}$ is the colimit (Stacks, tag
+	\texttt{\href{https://stacks.math.columbia.edu/tag/0BSL}{0BSL}}).
+	
+	The following is a variation on the theme of the aforementioned 
+	equivalence. It is Lemma 7, \S2.3 of \emph{Néron Models}
+	by Bosch, Lütkebohmert, and Raynaud
+	(compare \emph{Corps Locaux} III \S5 Th. 3).
+	\begin{lemma*}
+ 		Let $R$ be a local ring, $S'$ an étale $R$-scheme, and $s'$ a point
+ 		of $S'$ above the closed point $s$ of $S=\Spec R$. Let $R'$ be the
+ 		local ring $\mathscr O_{S',s'}$ of $S'$ at $s'$ and let $k'$ be
+ 		the residue field of $R'$. Furthermore, let $A$ be a local
+ 		$R$-algebra with residue field $k_A$. Then all $R$-algebra morphisms
+ 		from $R'$ to $A$ are local. So there is a canonical map
+ 		\begin{equation*}
+ 			\Hom_R(R',A)\ra\Hom_k(k',k_A).
+ 		\end{equation*}
+		This map is always injective; it is bijective if $A$ is henselian.
+ 	\end{lemma*}
+ 	The group $\Gal(K_1,K)$ acts on $R^{\text{sh}}$ with fixed
+ 	subring $R$. Let $k\subset k_2\subset k_1$ and $R\subset R_2$ be as
+ 	above, then $R_2$ is normal as $R$ is, and we have an isomorphism
+ 	\begin{equation*}
+ 		\Hom_K(K_2,K_1)=\Hom_R(R_2,R^{\text{sh}})\xrightarrow{\sim}\Hom_k(k_2,k_1).
+ 	\end{equation*}
+As $R\subset R_2$ is étale, $K_2$ is separable over $K$, in the inductive
+limit we find that the induced map $\Gal(K_1,K)\ra\Gal(k_1,k)$ is an 
+isomorphism.
+
+\subsection*{1.8.1} The inclusion
+$\accentset{k}{\otimes} j_\ast\mathscr F_0\subset j_\ast\accentset{k}{\otimes}\mathscr F_0$
+comes about by considering that étale locally about a point $s\in S_0$ 
+neither sheaf may be locally free, as restricting étale neighborhoods of
+$s$ to $U_0$ may not be enough to trivialize either sheaf; in other words,
+a trivialization may ramify when extended to $X_0$. Let $V\ra X_0$ be an
+étale neighborhood of $s$. Then the inclusion above simply reflects the fact 
+that sections of $\accentset{k}{\otimes}\mathscr F_0$ over
+$V|_{U_0}:=V\times_{X_0}U_0$ include those coming from the tensor product of
+$k$ sections in $\mathscr F_0(V|_{U_0})$, but might include more besides.
+
+Here is an example: let $X=\Spec\RR$ and let $\mathscr F$ be the locally 
+free sheaf on $X$ represented by $\Spec\R[x]/(x^3-1)$; this is the sheaf
+$\mu_3$ of third roots of unity and it is a locally free sheaf of
+$\ZZ/3$-modules of rank 1.
+Then $\mathscr F(\RR)=\{1\}$ and if $\zeta$ is a primitive 3rd root of 
+unity, $\mathscr F(\CC)=\{1,\zeta,\overline\zeta\}$.
+$\Gal(\CC/\RR)\simeq\ZZ/2$ and $\mathscr F$ corresponds to the 
+representation $V$ of $\ZZ/2$ given by complex conjugation on the
+$\ZZ/3$-module $\{1,\zeta,\overline\zeta\}$.
+Then $\mathscr F\otimes_{\ZZ/3}\mathscr F$
+corresponds to the tensor representation $V\otimes_{\ZZ/3} V$.
+Its sections over $\RR$ are its $\ZZ/2$-invariant sections of
+$V\otimes V$. These are $\{1\otimes 1,\zeta\otimes\overline\zeta\}$.
+
+\subsection*{1.8.4} The fiber of $j_\ast\mathscr F_0$ at $\overline s$
+can be computed by taking first the inverse image of $j_\ast\mathscr F$ to
+$\Spec\mathscr O_{X_0,s}$, the local ring of $X_0$ at $s$, and then taking
+the colimit along all étale ring maps $\mathscr O_{X_0,s}\ra U$, these being
+equivalent to finite separable extensions of $k(\eta)$ which are
+non-ramified over $s$. So in the end we are computing the colimit of 
+sections of the inverse image of $\mathscr F_0$ along $\eta\ra X_0$
+over finite separable field extensions of $k(\eta)$ fixed by $I$; this is
+nothing other than $\mathscr F_{0\overline\eta}^I$.
+
+The last line of the proof references (1.6.14.3), which has been corrected
+in the note (1.6.14) above.
+
+\subsection*{1.8.5}
+The $\iota$-weights of $\mathscr F_{\overline\eta}$ are 
+integers, as guaranteed by (1.8.4); therefore, we can apply (1.7.5).
+The nilpotent endomorphism $N$ respects the filtration $W$ on
+$\mathscr F_{\eta}$, since all of $W(\overline\eta,\eta)$ respects the
+filtration, and hence the inertia does, so that the logarithm of the
+unipotent part of the local monodromy does too. For the local monodromy 
+filtration on $\mathscr F_{\overline\eta}$, rel. $W$ to exist, it remains 
+only to check that $N^k$ induces isomorphisms
+$\Gr_{i+k}^M\Gr_i^W(\mathscr F_{\overline\eta})\xrightarrow{\sim}
+\Gr_{i-k}^M\Gr_i^W(\mathscr F_{\overline\eta})$; i.e. that the weight
+filtration $M_1$ on $\Gr_i^W(\mathscr F_{\overline\eta})$ coincides with the 
+local monodromy monodromy filtration $M_2$ on 
+$\Gr_i^W(\mathscr F_{\overline\eta})$, shifted by $i$; i.e. that
+\begin{equation*}
+\Gr_j^{M_1}\Gr_i^W(\mathscr F_{\overline\eta})=
+\Gr_{j-i}^{M_2}\Gr_j^W(\mathscr F_{\overline\eta}).\tag{$\dagger$}
+\end{equation*}
+But (1.7.5) shows that the weight filtration $M_1$ is the unique finite
+increasing filtration on $\Gr_i^W(\mathscr F_{\overline\eta})$ which is 
+stable under $W(\overline K,K)$ such that
+$\Gr_j^{M_1}\Gr_i^W(\mathscr F_{\overline\eta})$ is $\iota$-pure of weight $j$.
+On the other hand, (1.8.4) shows that the local monodromy filtration $M_2$
+on $\Gr_i^W(\mathscr F_{\overline\eta})$ is a finite increasing filtration
+which is stable under $W(\overline\eta,\eta)$ such that 
+$\Gr_j^M\Gr_i^W(\mathscr F_{\overline\eta})$ is $\iota$-pure of weight $i+j$.
+This shows that the filtration $M_2$, shifted by $i$, coincides with $M_1$;
+i.e. we have verified ($\dagger$), and hence the existence of the
+local monodromy filtration on $\mathscr F_{\overline\eta}$, rel. $W$.
+
+\begin{remark}
+	Both the local monodromy filtration and the weight
+	filtration involve a choice of point $s\in S$, but end up defining a
+	filtration on the fiber $\mathscr F_{\overline\eta}$.
+\end{remark}
+
+
+\subsection*{1.8.8} With regards to remark 2), twist the sheaf
+$\mathscr F_0\rightsquigarrow\mathscr F_0^{(b)}$ so that it has
+weight~0 (following (1.2.7), $b=p^{-\beta}$).
+Then apply (1.8.7) with the trivial filtration $W$ to see that
+$\Gr_i^M(j_\ast\mathscr F_0^{(b)}|D_0)$ is
+punctually $\iota$-pure of weight $i$.
+Twist back to conclude that $\Gr_i^M(j_\ast\mathscr F_0|D_0)$ is punctually
+$\iota$-pure of weight $\beta+i$.
+
+\subsection*{1.8.9} In c),
+$j_\ast\mathscr F_0\hookrightarrow\vep_\ast j_\ast \vep^\ast\mathscr F_0$
+follows, after writing
+$\vep_\ast j_\ast\vep^\ast\mathscr F_0=j_\ast\vep_\ast\vep^\ast\mathscr F_0$,
+from the observation that
+$\mathscr F_0\hookrightarrow \vep_\ast\vep^\ast\mathscr F_0$
+injects since on stalks, a finite extension of a henselian ring splits
+as a product of henselian rings; i.e. the adjunction morphism corresponds
+to the inclusion along the diagonal
+\begin{equation*}
+	\mathscr F_x\hookrightarrow\prod_{\vep^{-1}x}\mathscr F_x.
+\end{equation*}
+
+In d), reduce to a constant sheaf, where it is obvious.
+
+In the explanation for e), the strict henselization of $X_0$ at $x$ is
+irreducible hence a fortiori the inverse image of any open set is connected.
+Then, since the fiber product of any étale cover of $x$ with $U_0$ is an
+étale neighborhood of $z$, there is a map
+$(i^\ast j_\ast\mathscr F_0)_x\rightarrow(\mathscr F_0)_z$.
+As the former can be computed as sections over the inverse image of $U_0$ in
+the strict henselization of $X_0$ at $x$; since this is a connected scheme, 
+and $\mathscr F_0$ is lisse, the arrow is injective.
+The factorization of this arrow as
+\begin{equation*}
+	(i^\ast j_\ast\mathscr F_0)_x\ra(k_\ast k^\ast j_\ast\mathscr F_0)_x
+	\ra(j_\ast\mathscr F_0)_y\ra(\mathscr F_0)_x
+\end{equation*}
+can be explained as follows. After rewriting
+$k_\ast k^\ast j_\ast\mathscr F_0$ as
+$k_\ast k^\ast i^\ast j_\ast\mathscr F_0$, the first arrow is just 
+adjunction for $k$, 
+The middle arrow can be rewritten
+$(k_\ast k^\ast i^\ast j_\ast\mathscr F_0)_x\ra(i^\ast j_\ast\mathscr F_0)_y$ so that it is a statement about sheaves on $F_0$.
+Take an étale neighborhood $W_0$ of $x$ in $F_0$; then $W_0\times_{F_0}V_0$
+is an étale neighborhood of $y$.
+The projective system of étale $W_0'\ra F_0$ s.t. $W_0'\times_{F_0}V_0$
+admits an arrow to $W_0\times_{F_0}V_0$ has the property that the projective
+system $W_0'$ is a subcategory of the projective system of
+étale neighborhoods of $y$ in $F_0$. Therefore there is an arrow from the 
+colimit of $i^\ast j_\ast\mathscr F_0$ applied to the former system
+to the colimit of $i^\ast j_\ast\mathscr F_0$ applied to the latter,
+which is $(i^\ast j_\ast\mathscr F_0)_y$. This gives an arrow
+$(k_\ast k^\ast i^\ast j_\ast F_0)(W_0)\ra (i^\ast j_\ast\mathscr F_0)_y$,
+functorial in $W_0$, and hence an arrow
+$(k_\ast k^\ast i^\ast j_\ast F_0)_x\ra (i^\ast j_\ast\mathscr F_0)_y$.
+
+The last arrow is in effect the observation that the fiber product of
+$U_0$ with an étale neighborhood of $y$ in $X_0$ is an étale neighborhood
+of $z$.
+
+In the proof of (1.8.9), the reductions are all clear except perhaps the
+reduction to $\mathscr F_0$ tamely ramified at the generic points of $F_0$.
+Suppose all the other dévissages have been made except that one; then as
+there are finitely many generic points and $\mathscr F_0$ is a lisse
+$\overline\QQ_\ell$ sheaf corresponding to a representation $V$ of
+$\pi_1(U_0,\overline x)$ for some geometric point $\overline x$ of $U_0$, 
+the image of the wild inertia at the finitely many generic points of $F_0$ 
+in $\Aut V$ is finite. In particular, the preimage of the congruence
+subgroup $\Gamma_1$ of $\Aut V$ in $\pi_1(U_0,\overline x)$ is open and of
+finite index, corresponding to an étale cover of $V_0\ra U_0$ which extends
+to a finite surjective morphism to $X_0$. Applying c), we reduce to the
+desired situation.
+
+To complete the proof, we are almost there, except $F_0$ is just a Weil
+divisor, and need not satisfy the smoothness assumption of (1.8.6).
+The idea is to use e) and recurrence on $\dim U_0$ to shrink $X_0$ and 
+throw away the bad points of $F_0$.
+If we replace $X_0$ by an open set containing $U_0$ whose intersection with
+$F_0$ is a lisse divisor, then (1.8.8)\quad2) shows that 
+(1.8.9) is true there.
+We can find finitely many such open sets with inclusions $j_i$, the union 
+of which, $X_0'$, intersects $F_0$ in a dense set $V_0$. If
+$j':U_0\hookrightarrow X_0'$, then
+$j'_\ast\mathscr F_0\hookrightarrow\prod_i j_{i\ast}\mathscr F_0$ so
+(1.8.9) is proved for $j'$.
+By recurrence on dimension we may assume that (1.8.9) holds for $k_\ast$.
+In light of this, applying e) to the lisse sheaf $\mathscr F_0$, yields 
+that $i^\ast j_\ast\mathscr F_0$ satisfies the conclusions of (1.8.9); in
+effect, $k^\ast j_\ast=k^\ast j'_\ast$.
+Finally, $j_\ast\mathscr F_0\hookrightarrow
+j'_\ast\mathscr F_0\times i_\ast i^\ast j_\ast\mathscr F_0$ allows us to
+conclude that $j_\ast$ satisfies (1.8.9).
+
+\subsection*{1.8.11} A Jordan-Hölder series for $\mathscr F_0$ allows us
+to reduce to $\mathscr F_0$ irreducible.
+The restriction of an irreducible lisse sheaf to a
+nonempty open $U_0$ of a normal connected scheme $X_0$ is still irreducible 
+because if $\eta$ denotes the generic point of $X_0$, and $\overline\eta$ a
+geometric point centered on $\eta$, we have by \cite[Exp. V, 8.2]{SGA1}
+\begin{equation*}
+	\Gal(\overline\eta,\eta)\twoheadrightarrow \pi_1(U_0,\overline\eta)	\twoheadrightarrow\pi_1(X_0,\overline\eta).
+\end{equation*}
+Now, $\mathscr F_0$ is $\iota$-mixed, so admits an $\iota$-pure subsheaf
+$\mathscr G_0$ which is lisse when restricted to some $U_0$.
+Therefore $\mathscr F_0|U_0$, irreducible yet containing
+$\mathscr G_0|U_0$, must equal $\mathscr G_0|U_0$.
+
+\subsection*{1.8.12}
+Let $f:X_0'\ra X_0$ be the normalization morphism.
+It induces a bijection on irreducible components, and $X_0'$ is a disjoint
+of normal integral schemes.
+We make use of the fact, true for any morphism, that if $x_0\in X_0$,
+the weights of $\mathscr F_0$ at $x_0$ coincide with the weights of 
+$f^\ast\mathscr F_0$ at every point of the fiber $f^{-1}(x_0)$.
+If $\mathscr F_0$ is $\iota$-pure of weight $\beta$ at a point
+$x_0$, then all the points of $X_0'$ in the fiber over $x_0$ are also
+$\iota$-pure of the same weight; therefore (1.8.11) implies that all the
+points of the irreducible components of $X_0'$ meeting the fiber of $x_0$
+are $\iota$-pure of weight $\beta$, which in turn implies that all the 
+points in the irreducible components of $X_0$ meeting $x_0$ are
+$\iota$-pure of weight $\beta$, which shows that the locus of points where
+$\mathscr F_0$ is $\iota$-pure of weight $\beta$ is closed.
+This locus is also open because, taking any $x_0$ in it, there is an 
+open neighborhood of $x_0$ which meets only the irreducible components of
+$X_0$ on which $x_0$ lies. Then the above construction shows that all the
+points in this neighborhood are also $\iota$-pure of weight $\beta$.
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\begin{thebibliography}{SGAA}
+\bibitem[WeilII]{WeilII} Deligne, \textit{Weil II}.
+\bibitem[Gr]{Gr} \textit{Formule de Lefschetz et Rationalité des Fonctions
+$L$} par A. Grothendieck.
+\bibitem[GM]{GM} \textit{The Tame Fundamental Group of a Formal Neighbourhood of a Divisor with Normal Crossings on a Scheme}
+par A. Grothendieck et J. Murre.
+\bibitem[Milne]{Milne} \textit{Algebraic Groups}.
+\bibitem[SGA1]{SGA1} SGA 1 ed. Grothendieck.
+\bibitem[SGAD]{SGA3} SGA 3 ed. Demazure et Grothendieck.
+\bibitem[SGAA]{SGAA} SGA 4 ed. Grothendieck, Artin, Verdier.
+\bibitem[SGA5]{SGA5} SGA 5, dirigé par Grothendieck
+\bibitem[SGA 4$\tfrac{1}{2}$]{SGA4.5}
+SGA 4$\frac{1}{2}$, \textit{Rapport sur la formule des traces} par P. Deligne.
+\end{thebibliography}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+\end{document}

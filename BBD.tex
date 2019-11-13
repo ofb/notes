@@ -1,0 +1,1721 @@
+\documentclass[deligne.tex]{subfiles}
+
+\begin{document}
+	\subsection*{1.1.11} To verify the anti-commutativity of the 9th square, as
+	the morphism of triangles $(X'',Y'',Z'')\ra(X'[1],Y'[1],Z'[1])$ factors
+	as the composition of two morphisms of triangles
+	$(X'',Y'',Z'')\ra(A,Y'',Z'[1])\ra(X'[1],Y'[1],Z'[1])$, where the second
+	arrow is the rotation of $(Z',A,Y'')\ra(Z',X'[1],Y'[1])$, it suffices
+	to verify that the triangle $(Z',X'[1],Y'[1])$ which appears in this last
+	morphism of triangles has all arrows induced by the arrows of
+	$(X',Y',Z')$ or translates of them (with the same parity).
+	This is not hard to check from the diagram (1).
+	(The stated explanation appears to be an un-explanation.)
+	
+	\subsection*{1.3.3} Though it is not stated explicitly, it is immediate from
+	the definition $\mathcal D^{\leq n}:=\mathcal D^{\leq 0}[-n]$,
+	$\mathcal D^{\geq n}:=\mathcal D^{\geq 0}[-n]$ that
+	$(\tau_{\leq n}X)[m]=\tau_{\leq n-m}(X[m])$ and
+	$(\tau_{\geq n}X)[m]=\tau_{\geq n-m}(X[m])$.
+	Namely, for $X$ in $\mathcal D$ and $T$ in $\mathcal D^{\leq n}$,
+	$T=T'[-m]$ for some $T'$ in $\mathcal D^{\leq n-m}$, so
+	\begin{align*}
+		&\Hom(T,(\tau_{\leq n-m}(X[m]))[-m])
+		=\Hom(T'[-m], (\tau_{\leq n-m}(X[m]))[-m]) \\
+		=&\Hom(T'[-m],\tau_{\leq n-m}(X[m]))[-m]
+		=\Hom(T',X[m])[-m]
+		=\Hom(T'[-m],X) \\
+		=&\Hom(T,X).
+	\end{align*}
+	
+	\subsection*{1.4.2.1} The argument for why the derived functors continue to
+	satisfy the stated adjunctions is as follows (this argument is also found
+	in SGA 4 Exp. XVIII 3.1.4.11). Given $F,G$ an adjoint pair
+	of functors on abelian categories
+	\begin{equation*}\begin{tikzcd}\mathcal A\arrow[r,shift left=.5ex,"{F}"]&\mathcal B \arrow[l,shift left=.5ex,"{G}"]\end{tikzcd}\end{equation*}
+	where both categories have enough injectives and $L$ is exact.
+	The functors $F$ and $G$ extend to
+	functors $D^+(\mathcal A)\rightleftarrows D^+(\mathcal B)$.
+	Given $K^\dotp\in D^+(\mathcal A),L^\dotp\in D^+(\mathcal B)$,
+	we may assume $L^\dotp$ is a complex of injective objects;
+	we have an isomorphism of triple complexes
+	\begin{equation*}
+		\begin{tikzcd}
+		\Hom^\dotp(F(K^\dotp),L)\arrow[r,leftrightarrow,"{\sim}"]&\Hom^\dotp(K^\dotp,G(L^\dotp))\arrow[l].
+		\end{tikzcd}
+	\end{equation*}
+	As $G$ preserves injectives, taking $H^0$ of the associated simple complex 
+	(calculated with products) finds the desired
+	\begin{equation*}
+	\begin{tikzcd}
+		\Hom_{K(\mathcal B)}(F(K^\dotp),L^\dotp)\arrow[r,leftrightarrow,"{\sim}"]&
+		\Hom_{K(\mathcal A)}(K^\dotp,G(L^\dotp)),\arrow[l]
+	\end{tikzcd}
+	\end{equation*}
+	where both sides are also $\Hom$ in the respective derived categories,
+	since $L^\dotp$ and $G(L^\dotp)$ are complexes of injectives.
+	
+	\subsection*{1.4.4} The question is, why are the adjoints to the Verdier 
+	quotients fully faithful? Let's consider the quotient
+	$Q:\mathcal T\ra\mathcal T/\mathcal U$, where $\mathcal U$ is the strictly
+	full coreflective triangulated subcategory of $\mathcal T$;
+	$(\mathcal U,\mathcal V)$ form a t-structure on $\mathcal T$;
+	$\mathcal U={}^\perp\mathcal V$, and $\mathcal V=\mathcal U^\perp$.
+	Since the embedding $u:\mathcal U\ra\mathcal T$ admits a right adjoint
+	$u_\dotp$ it follows that $Q$ admits a right adjoint $Q_\dotp$~\cite[I 6-5]{CD}.
+	There is a natural isomorphism of functors
+	$Q_\dotp\circ Q\xrightarrow{\sim}v\circ v^\dotp$,
+	where $v^\dotp$ is the left adjoint to the inclusion
+	$v:\mathcal V\ra\mathcal T$~\cite[I 6-6]{CD}.
+	The functor $v^\dotp$ is nothing other
+	than $\tau_{\geq0}$ for the t-structure $(\mathcal U,\mathcal V)$,
+	and therefore, restricted to $\mathcal V$,
+	$v\circ v^\dotp=\id|_{\mathcal V}$.
+	On the other hand, the functor $Q$ when restricted to $\mathcal V$
+	is fully faithful~\cite[I 5-3]{CD}. Therefore $Q_\dotp$ restricted to the
+	essential image of $\mathcal V$ under $Q$ is fully faithful.
+	This essential image is all of $\mathcal T/\mathcal U$, since every object
+	$X$ in $\mathcal T$ belongs to an exact triangle $(U,X,V)$ with $U,V$
+	objects in $\mathcal U,\mathcal V$, respectively.
+	The assertion that $v^\dotp$ yields an equivalence
+	$\underline v^\dotp:\mathcal T/\mathcal U\xrightarrow{\sim}\mathcal V$
+	(functor obtained by
+	applying the universal property of $\mathcal T/\mathcal U$ to $v^\dotp$) 
+	is easy since $Q\circ v:\mathcal V\ra\mathcal T/\mathcal U$ is an 
+	equivalence, and $\underline v^\dotp\circ Q\circ v=v^\dotp\circ v=\id$.
+	The corresponding
+	statement for $\mathcal T\ra\mathcal T/\mathcal V$ follows identically.
+	
+	\subsection*{1.4.6} In part b), there is the following consideration.
+	Given triangulated categories $\mathcal T,\mathcal T'$, a thick 
+	subcategory $\mathcal U\subset\mathcal T$ with Verdier quotient	$Q:\mathcal T\ra\mathcal T/\mathcal U$, exact
+	functors $F,G:\mathcal T/\mathcal U\ra\mathcal T'$ and a natural 
+	transformation $\overline\varphi:F\circ Q\ra G\circ Q$, there is an 
+	obvious candidate for a natural transformation $\varphi:F\ra G$, since
+	$\operatorname{Ob}(\mathcal T/\mathcal U)=\operatorname{Ob}(\mathcal T)$.
+	But is it still a natural transformation? Let $f:X\ra Y$ in
+	$\mathcal T/\mathcal U$ be represented by $X\xleftarrow{s}Z\xrightarrow{a}Y$,
+	where $s$ is in the saturated multiplicative system of morphisms 
+	corresponding to $\mathcal U$. The commutative diamond
+	\begin{equation*}
+	\begin{tikzcd}
+		&&F(Z)\arrow[dl,swap,"F(s)"]\arrow[dr,"\varphi(Z)"] \\
+		&F(X)\arrow[dl,swap,"\id"]\arrow[dr,"\varphi(X)"]&&
+		G(Z)\arrow[dl,swap,"G(s)"]\arrow[dr,"G(a)"]\\
+		F(X)&&G(X)&&G(Y)
+	\end{tikzcd}
+	\end{equation*}
+	shows that $\varphi(X)\circ G(f)$ coincides with
+	$F(X)\xleftarrow{F(s)}F(Z)\xrightarrow{G(a)\circ\varphi(Z)}G(Y)$, but as
+	\begin{equation*}
+	\begin{tikzcd}
+		%F(X)\arrow[d,"\varphi(X)"]& \arrow[l,swap,"F(s)"]
+		F(Z)\arrow[r,"F(a)"]\arrow[d,"\varphi(Z)"]
+		&F(Y)\arrow[d,"\varphi(Y)"] \\
+		%G(X)& \arrow[l,swap,"G(s)"]
+		G(Z)\arrow[r,"G(a)"]
+		&G(Y)
+	\end{tikzcd}
+	\end{equation*}
+	commutes, this morphism is just
+	$F(X)\xleftarrow{F(s)}F(Z)\xrightarrow{\varphi(Y)\circ F(a)}G(Y)=F(f)\circ\varphi(Y)$, which shows that $\varphi$ is indeed a natural 
+	transformation.
+	
+	\subsection*{1.4.7} In c), by 1.1.9, the morphism $B\ra C$ is the unique such
+	that completes the morphism of triangles
+	$(B,j_!j^*X[1],j_*j^*X[1])\ra(C,X[1],j_*j^*X[1])$.
+	
+	\subsection*{1.4.13} The distinguished triangle
+	$(\tau_{\leq p}^FX,X,i_*\tau_{>p}i^*X)$ is the distinguished triangle
+	$(A,Y,i_*\tau_{>p}i^*Y)$ of 1.4.10, since as remarked, $X=Y$ since
+	$\tau_{>0}j^\ast X=0$. To check that $A=\tau_{\leq p}^FX$, note
+	that $A$ belongs to $\mathcal D^{\leq p}$, as
+	$i^\ast A\simeq\tau_{\leq p}i^\ast X$, and that if $T$ belongs to
+	$\mathcal D^{\leq p}$, then by applying $\Hom(T,-)$ to the above
+	distinguished triangle and observing that as $i_\ast$ is t-exact, it
+	commutes with truncation, so
+	$i_\ast\tau_{>p}i^\ast X[-1]$ lies in $\mathcal D^{>p+1}$,
+	$\Hom(T,i_\ast\tau_{>p}i^*X)=0=\Hom^{-1}(T,i_\ast\tau_{>p}i^\ast X)$,
+	and $\Hom(T,X)\simeq\Hom(T,A)$.
+	
+	The distinguished triangle $(\tau_{\leq p-1}^FX,X,i_*\tau_{>p-1}i^*X)$
+	and the fact that $i_*$ commutes with truncation establishes
+	$i_*\tau_{>p-1}i^*X$ as $\tau_{>p-1}X$ for the t-structure on 
+	$\mathcal D$; applying $\tau_{\leq p}$ and passing it through the $i_*$
+	gives the statement about cohomology.
+	
+	\subsection*{1.4.14} To find the dual statement at the end of the proof,
+	reverse arrows and exchange $j_!\leftrightarrow j_*$,
+	$i^*\leftrightarrow i^!$ to obtain the distinguished triangle
+	$(i_*i^*X[-1],j_!Y,X)$, then use (b'), the isomorphism
+	$j_*/j_!\simeq i^!j_![1]$ of 1.4.6.4, (and the note to 1.3.3) to write
+	\begin{equation*}
+		i_*i^*X[-1]=i_*(\tau_{\leq p-1}(j_*/j_!)Y)[-1]
+		=i_*\tau_{\leq p}((j_*/j_!)Y[-1])
+		=i_*\tau_{\leq p}i^!j_!Y,
+	\end{equation*}
+	establishing $X$ as $\tau^F_{\geq p+1}j_!Y$.
+	
+	\subsection*{1.4.17.1} A little note: $^p i^*X$ is the largest quotient of $X$
+	belonging to $\mathcal C_F$. First we check that it is a quotient from
+	1.4.17 (ii). Then, suppose $A$ belongs to $\mathcal C_F$ and
+	$X\twoheadrightarrow A$; then $^pi^*X\twoheadrightarrow{}^pi^*A
+	\xrightarrow{\sim}A$, as ${}^pi_*$ is fully faithful, so the adjunction
+	morphism ${}^pi^*{}^pi_*\ra\id$ is an isomorphism, and ${}^pi^*X$
+	is indeed the largest quotient of $X$ in $\mathcal C_F$.
+	Dually for ${}^pi^!$.
+	
+	\subsection*{1.4.18} A little note about $T$ faithful: as $^pj^*$ is an exact
+	functor, if $^pj^*f_1=0$, this means that 
+	${}^pj^*\im(f_1)=\im(^pj^*f_1)=0$, which is to say that $\im f_1$
+	belongs to $\overline{\mathcal C}_F$.
+		
+	\subsection*{1.4.23} In the distinguished triangle
+	$(i_*H^0i^!j_!B,\tau_{\geq0}^Fj_!B,\tau_{\geq1}^Fj_!B)$,
+	as $j_!B=\tau_{\geq0}^Uj_!B$,
+	$\tau_{\geq p}=\tau_{\geq p}^F\tau_{\geq p}^U$,
+	and $j_!$ is right t-exact, $\tau_{\geq0}^Fj_!B$ sits in $\mathcal C$.
+	Likewise, $i_*$ is t-exact, so $i_*H^0i^!j_!B$ also sits in
+	$\mathcal C$, and from the long exact sequence of $H^i$ one finds
+	that $\tau_{\geq1}^Fj_!B$ is in $\mathcal D^{[-1,0]}$.
+	
+	\subsection*{2.1.2} In the discussion `\emph{Si les foncteurs $^\circ i^!_S$
+	sont de dimension cohomologique finie…}' it is claimed that there is a
+	neighborhood of $S$ in which $H^j\tau_{<a}K$ is supported on $S$.
+	To find such a neighborhood, simply discard $\overline S-S$ and the
+	closure of any stratum which doesn't meet $S$. The assumption that the
+	closure of each stratum is a union of strata implies that the induced
+	stratification of the resulting neighborhood of $S$ has the property
+	that every stratum contains $S$ in its closure, and therefore
+	$H^j\tau_{<a}K$ vanishes on every stratum distinct from $S$.
+	By construction, $S$ is a closed set in this neighborhood.
+	
+	As for the isomorphism
+	$H^i(i_S^*\tau_{<a}K)\xleftarrow{\sim}H^i(i_S^!\tau_{<a}K)$ for $i<a$,
+	let us replace $X$ by the neighborhood above, in which case
+	the adjunction morphism $\tau_{>a}K\ra{i_S}_*i_S^*\tau_{<a}K$ is an
+	isomorphism as $^\circ{i_S}_*$ and $^\circ i_S^*$ are exact and the 
+	induced morphism on cohomology
+	$H^j(\tau_{>a}K)\ra{i_S}_*i_S^*H^j(\tau_{<a}K)$ is an
+	isomorphism for all $j$. Therefore by 1.4.1.2,
+	$i^!_S\tau_{<a}K\xrightarrow{\sim}i_S^!{i_S}_*i_S^*\tau_{<a}K\xrightarrow{\sim}i_S^*\tau_{<a}K$.
+	
+	\subsection*{2.1.13} To get the desired conclusion from the spectral sequence
+	$R^pj_*H^qK\Rightarrow H^{p+q}Rj_*K$, recall that the locally constant
+	constructible sheaves form a weak Serre subcategory of the category of 
+	constructible sheaves of $\mathcal O$-modules. For $j^!$ when $j$ is a
+	closed immersion, just use that $j_!=j_*$ is exact in the long exact
+	sequence of cohomology for the distinguished triangle
+	$(j_!j^!K,K,k_*k^*K)$.
+	
+	One can deduce that the truncation operators $\tau_{\leq p}$ and
+	$\tau_{\geq p}$ respect $D_c(X,R)$ from the proof of 
+	1.4.10 by induction on the number of strata à la 2.1.3.
+	
+	\subsection*{2.1.14} For the isomorphism $i^!L\simeq i^*L\otimes_{\ZZ}\Or[-d]$,
+	combine Proposition 4.3.6 from Dimca, \emph{Sheaves in Topology} with
+	the description of the relative dualizing complex in, e.g.,
+	Remark 3.3.5 in Kashiwara-Schapira, \emph{Sheaves on Manifolds}, taking
+	$S=\{\ast\}$ there and noting
+	that $f^!A_X$ is the relative dualizing complex $\omega_{Y/X}$
+	(Definition 3.1.16), and the orientation sheaves are self-dual
+	(so that Deligne's $\Or$ coincides with $\Or_T\otimes i^*\Or_S$).
+	The `non-characteristic' hypothesis in Dimca's Proposition is trivial
+	in light of the result that precedes it and the fact that the
+	$H^mj^!K$ are locally constant.
+	
+	Note that by the description of $i^!$ in terms of local cohomology,
+	this gives a statement like, $H^n_T(S,\mathcal F)$ vanishes in degrees
+	less than the codimension of $T$, for $\mathcal F$ a locally free sheaf
+	(with obvious extension to $\mathcal F$ a bounded below
+	complex with locally free $H^n$).
+	
+	\subsection*{2.1.16}
+	In the remarks about Verdier duality, the fact that the functor $D$
+	exchanges $j_!\leftrightarrow j_*$, $j^!\leftrightarrow j^*$ follows by 
+	taking $L$ to be the dualizing complex in the local formulas of adjunction
+	\begin{align*}
+		j_*DK&=j_*R\underline\Hom(K,j^!L)\xrightarrow{\sim}
+		R\underline\Hom(j_!K,L)=Dj_!K \\
+		Dj^*K&=R\underline\Hom(j^*K,j^!L)\xrightarrow{\sim}
+		j^!R\underline\Hom(K,L)=j^!DK
+	\end{align*}
+	(the latter may be found, e.g. in SGA 4 Exp. XVIII 3.1.12.2,
+	or Dimca, 3.3.7, but see especially SGA 5 Exp. I 1.12).
+	These formulæ hold for more general morphisms than the inclusion of a locally closed subscheme; the condition is compactifiability.
+
+	In \emph{Th. finitude} \S4 `Bidualité locale,' Deligne
+	puts Verdier duality for étale cohomology on firm footing in the case of
+	$a:X\ra S$ a scheme of finite type over $S$ a regular scheme of 
+	dimension 0 or 1.
+	If $A=\ZZ/n$, $K_S$ constant sheaf on $S$ with value $A$, and $K$ in 
+	$D_{ctf}^b(X,A)$, put $K_X:=Ra^!K_S$ and $DK:=R\underline\Hom(K,K_X)$.
+	Then $K_X$ is dualizing; i.e.
+	\begin{theorem*}[Deligne]
+		$K\xra\sim DDK$.
+	\end{theorem*}
+	This involutivity establishes the stated duality in the formalism, since
+	we may write
+	\begin{equation*}
+		Dj_*K=Dj_*DDK=DDj_!DK=j_!DK.
+	\end{equation*}
+	It is essential that the cohomology sheaves be locally
+	constant of finite rank when restricted to each stratum and that $R$ 
+	have the proscribed properties so that Poincaré duality holds on each 
+	stratum. In fact, the definition of perverse sheaf is engineered 
+	expressly so that on each stratum we have Poincaré duality, and this
+	data determines the Verdier dual of the sheaf on the stratified space.
+	
+	About the formula $H^iDK=(H^{-d-i}K)^\vee\otimes\Or$, let's do it
+	instead in the case $R=\ZZ/\ell$, in which case the dualizing
+	complex is $\ZZ/\ell(d)[2d]$ and the formula is
+	\begin{equation*}
+		H^iDK=(H^{-2d-i}K)^\vee(d).\tag{$\dagger$}
+	\end{equation*}
+	This is simply Poincaré duality (SGAA XVIII 3.2.5).
+	(In light of
+	\hyperref[thfin:2.1]{the note to 2.1 in \emph{Th. finitude}}, this is
+	the immediate consequence of the weakly convergent spectral
+	sequence
+	\begin{equation*}
+		E_2^{pq}=\operatorname{Ext}^p(H^{-q}(K),\ZZ/\ell(d))\Rightarrow
+		\operatorname{Ext}^{p+q}(K,\ZZ/\ell(d))
+	\end{equation*}	
+	which collapses at the $E_2$ page.)
+	
+	The business about exchanging $^{p^*}H^i$ and $^pH^{-i}$ is seen to be
+	true for $H^0$, then use $H^iK=H^0(K[i])$ and
+	$D(K[n])=R\underline\Hom(K[n],-)=R\underline\Hom(K,-)[-n]=(DK)[-n]$
+	
+	\subsection*{2.2.2}
+	A word about the `trivial' implication (ii)$\Rightarrow$(iii).
+	As each $S$ in $\mathcal T$ is lisse equidimensional, applying (ii) to
+	each irreducible component we find there exists a Zariski dense open 
+	$i:U\hookrightarrow S$ such that $i^*H^ii_S^*K=H^ii^*i_S^*K$
+	(resp. $i^*H^ii_S^!K=H^ii^!i_S^!K$) vanish in degrees $i>p(S)$
+	(resp. $i<p(S)$); as $H^ii_S^*K$ and $H^ii_S^!K$ are locally constant,
+	this implies they also vanish when their restrictions to $U$ do.
+	
+	In the second paragraph, `\emph{il reste à montrer que chacune implique 
+	que $H^iK=0$ pour $i>b$ (resp. $i<a$).}' Without securing this, we would 
+	not have that $\tau_{\geq a}K$ (resp. $\tau_{\leq b}K$) belongs to 
+	$D^b_c$ and the proof in the first paragraph wouldn't apply.
+	In both cases, the verification for $i>b$ is easy as $^\circ i^*$ is
+	exact.
+	The verification for (iii) $i<a$ follows the proof of (2.1.2.1) exactly, 
+	after $\mathcal T$ has been replaced by a finer stratification.
+	The verification for (ii) follows immediately by the noetherian property
+	from the stated claim that for each irreducible subvariety $S'$ and each
+	$i<a$, there exists a dense open $S$ of $S'$ such that $H^iK$ vanishes on 
+	$S$. To prove this claim we proceed by descending induction on $\dim S'$,
+	the maximal nonvacuous case being easy since such an $S'$ is an 
+	irreducible component of $X$, and $H^iK$ vanishes on the dense open $S$ 
+	obtained from (ii) since $S$ is open in $X$ and $i_S^!=i_S^*$ is exact.
+	The case of general $S'$ will follow from the argument of the proof of 
+	(2.1.2.1) (see note for 2.1.2) if we can find a neighborhood $U$ of the 
+	$S$ obtained from (ii) so that $\supp((H^j\tau_{<a}K)|_U)\subset S$.
+	Begin with the irreducible component containing $S'$; the 
+	inductive assumption gives an open set which has either empty or nonempty 
+	intersection with $S'$. If nonempty, then this intersection is the 
+	desired open of $S'$ of the claim.
+	If empty, $S'$ belongs to the complement. Throw away all irreducible
+	components of the complement that do not contain $S'$ and apply the same
+	process to the irreducible component of the complement that contains 
+	$S'$. After finitely many steps we are left only with $S'$, and we throw
+	away $S'-S$. The open neighborhood $U$ is the set we are left with after 
+	throwing away finitely many closed sets of $X$, and $S$ is closed in $U$.
+	
+	\subsection*{2.2.3} In the discussion of the intermediate extension,
+	the triangle $(\tau_{<t}i^*j_*A,i^*j_*A,\tau_{\geq t}i^*j_*A)$ is 
+	distinguished, not the one written, and if $\tau_{\geq t}i^*j_*A$ is in
+	$^pD_c^{\geq0}$, then indeed
+	$^p\tau_{<0}i^*j_*A\xrightarrow{\sim}\tau_{<t}i^*j_*A$
+	and $\tau_{\geq t}i^*j_*A\simeq{}^p\tau_{\geq 0}i^*j_*A$; the latter
+	isomorphism establishes an isomorphism
+	$^p\tau_{<0}^Fj_*A\xrightarrow{\sim}\tau_{<t}^Fj_*A$, which differs
+	by one character from what is written.
+	
+	\subsection*{2.2.8} The discussion of $R\underline\Hom$ differs from what
+	is proved in 2.1.20 in that there is no longer a fixed stratification.
+	Fortunately, if $p\leq a,b\geq q$, there are only finitely many solutions
+	to $i=m-n$ for a fixed $i$ and for $n\leq a$, $m\geq b$. Therefore for
+	each $i$, we can apply the reasoning of 2.1.20 to a common refinement
+	of only finitely many stratifications.
+	
+	\subsection*{2.2.10}\label{BBD:2.2.10} In order to have a good (involutive) Verdier duality
+	on each
+	stratum as in 2.1.16, it is necessary to secure that the complex of
+	sheaves has l.c.c. cohomology, and that the stratum is smooth.
+	The program outlined in this paragraph achieves both.
+	Here is an explication of the smoothness condition (a).
+	\begin{lemma*}[EGA $0_{IV}$ 22.5.8 \& IV 6.7.6, 6.7.8, Stacks tags \href{https://stacks.math.columbia.edu/tag/07EL}{\texttt{07EL}} \& \href{https://stacks.math.columbia.edu/tag/038X}{\texttt{038X}}]
+		Let $X$ be a scheme locally of finite type over a field $k$ and
+		$x\in X$. Then the following are equivalent:
+		\begin{enumerate}[label=(\roman*)]
+			\item $X\ra\Spec k$ is smooth at $x$.
+			\item $X$ is geometrically regular at $x$, i.e. for every finite extension $k'$ of $k$, the semi-local ring $(\mathcal O_X)_x\otimes_k k'$ is regular.
+			\item $X\times_k \overline k$ is regular at every point lying over $x$.
+		\end{enumerate}
+	\end{lemma*}
+	The smoothness condition on strata is that over $\overline k$, each
+	stratum $S$, with the reduced subscheme structure, is smooth.
+	The claim is then that on $S$ equidimensional of dimension $d$, the
+	dualizing complex is given by $\ZZ/\ell(d)[2d]$.
+	After replacing $k$ by its perfect closure, anodyne operation with
+	respect to the étale topology, we may assume $S$ is of finite type over a
+	perfect field $k$. The fact that $S\times_k\overline k$ is smooth implies
+	(in light of the lemma and Stacks tag 
+	\href{https://stacks.math.columbia.edu/tag/030U}{\texttt{030U}})
+	that $S$, with its reduced scheme structure, is smooth.
+	In this case, the fact about the dualizing complex is standard
+	(SGAA Exp. XVIII 3.2.5).
+	
+	\subsection*{2.2.14} A brief review of Galois cohomology of a finite
+	field $k$, to recall why the groups $H^i(\Gal(\overline k/k'),\ZZ/\ell)$
+	are finite for every finite extension $k'$ of $k$. We have
+	\begin{align*}
+		H^0&=H^1=\ZZ/\ell \\
+		H^i&=0\quad i>1.
+	\end{align*}
+	The case of $H^0$ is obvious as it corresponds to taking
+	$G=\Gal(\overline k/k')$-invariants of a trivial
+	$G$-module. The $H^1$ is the corollary of a formula given in Serre,
+	\emph{Corps Locaux}, Ch.\,XIII Prop.\,1 (p.\,197 in the 1968 édition Hermann).
+	The vanishing in
+	degrees $>1$ is because a finite field is $C_1$ and hence has finite
+	cohomological dimension; now see (1.6) in
+	\emph{Arcata}, SGA 4$\frac12$. For more details see Serre,
+	\emph{Cohomologie Galoisienne}, Ch.\,II, \S3.
+	
+	Let $\mathcal D_n= D_{ctf}^b(X,\ZZ/\ell^n)$,
+	$K,L$ objects of $\mathcal D_n$, $G=\Gal(\overline k,k)$,
+	and $f:X\ra\Spec k$ the structure morphism.
+	Why does the above imply that $\Hom_{\mathcal D_n}(K,L)$ is finite?
+	Deligne's finiteness theorems show that the sheaves
+	$R\underline\Hom(K,L)$ belong to $\mathcal D_n$.
+	The Hochschild-Serre spectral sequence gives
+	\begin{equation*}
+		E^2_{ij}=H^i(G,R^j\Gamma(X\times_k\overline k,R\underline\Hom(K,L)))\Rightarrow R^{i+j}\Gamma(X,R\underline\Hom(K,L)).\tag{$\dagger$}
+	\end{equation*}
+	As $R\Gamma(X\times_k\overline k,R\underline\Hom(K,L))$ coincides with
+	the stalk of the constructible sheaf $Rf_*R\underline\Hom(K,L)$
+	at any geometric point of $\Spec k$, it belongs to $D^+_{c}(\ZZ/\ell^n)$
+	(even $D^+_{ctf}$; c.f. Th.\,finitude~1.7).
+	Fix $j$ and let
+	$A:=R^j\Gamma(X\times_k\overline k,R\underline\Hom(K,L))$; it is a finite
+	$G$-module. Let $U$ denote the kernel of $G\ra\Aut A$; it is an open
+	normal subgroup of finite index corresponding to a finite extension
+	$k'$ of $k$. The Galois group $U=\Gal(\overline k,k')$ acts trivially
+	on $A$ and a simple dévissage reducing to the case $\ZZ/\ell$ shows that
+	the $H^i(U,A)$ are finite. As $G/U$ is a finite group, the spectral 
+	sequence (c.f. \emph{Cohomologie Galoisienne} \S2.6b)
+	\begin{equation*}
+		H^p(G/U,H^q(U,A))\Rightarrow H^{p+q}(G,A)
+	\end{equation*}
+	shows that the groups $H^i(G,A)$ are also finite, and therefore that the
+	objects on the $E^2$ page of ($\dagger$) are finite $\ZZ/\ell^n$-modules
+	so that $R^0\Gamma(X,R\underline\Hom(K,L))=\Hom_{\mathcal D_n}(K,L)$ is finite.
+
+	\subsection*{2.2.16} See
+	\hyperref[WeilII_1.1.2]{note to Weil II (1.1.2)}.
+	In that paper, the functor $H^i(K)$ is defined as the pro-sheaf which is
+	the projective system defined by the $H^i(K_n)$; the corresponding
+	projective system is AR-isomorphic to an $(\ell\ZZ)$-adic sheaf in the 
+	naïve sense. This allows us to upgrade the pointwise exact sequence (*)
+	of those notes to the corresponding sequence of sheaves (2.2.16.1).
+	There, he uses the notation $K\Lotimes\ZZ/\ell/n$ for $K_n$, whereas
+	here $\otimes$ is used instead of $\Lotimes$. In the interest of
+	consistency, I will continue with the notation
+	$K\Lotimes\ZZ/\ell^n$ for $K_n$.
+	So in this paragraph, we are implicitly in the AR category or in the
+	category of pro-sheaves.
+	(In Weil II, Deligne uses the definition
+	of $\ZZ_\ell$-sheaf as any pro-sheaf in the essential image of the
+	$\ZZ_\ell$-sheaves; i.e. the $(\ell\ZZ)$-adic objects of the category
+	of abelian constructible sheaves.)
+	For the business about $H^0$ inducing an equivalence
+	between $D_c^b(X,\ZZ_\ell)^{\leq0}\cap D_c^b(X,\ZZ_\ell)^{\geq0}$ and
+	$\ZZ_\ell$-constructible sheaves, this is simple, since for such a $K$
+	we can represent
+	$K\Lotimes\ZZ/\ell$ by a sheaf concentrated in degree 0.
+	As every complex of flat sheaves representing the $K_n$ admits an
+	$\ell$-adic filtration with successive quotients quasi-isomorphic to
+	$K\Lotimes\ZZ/\ell$, we can represent $K$ by a projective system of
+	flat sheaves concentrated in degree 0. In this case, $K$ is a bona fide
+	$\ell$-adic sheaf.
+	
+	As for checking whether $K$ belongs to $D_c^b(X,\ZZ_\ell)^{\leq0}$,
+	the statement is punctual and we may consider the problem in
+	$D_{\mathrm{parf}}$. If $H^i(K\Lotimes\ZZ/\ell^n)$ is null for one $n$,
+	then $H^i(K)\otimes\ZZ/\ell^n$ is null by (2.2.16.1), so
+	$H^i(K)\otimes\ZZ/\ell$ is null. This imples by the exact sequence
+	\begin{equation*}
+		0\ra\ell H^i(K)/\ell^n H^i(K)\ra H^i(K)/\ell^n H^i(K)\ra H^i(K)/\ell H^i(K)\ra0
+	\end{equation*}
+	and the fact that
+	$H^i(K)/\ell^{n-1}\twoheadrightarrow\ell H^i(K)/\ell^n$ surjects
+	that $H^i(K)\otimes\ZZ/\ell^n$ is null for all $n$ and so $K$ is in
+	$D_c^b(X,\ZZ_\ell)^{\leq0}$. On the other hand, if $K$ is in
+	$D_c^b(X,\ZZ_\ell)^{\leq0}$, the exact sequence (2.2.16.1) for $n=1$
+	tells us that $H^i(K\Lotimes\ZZ/\ell)=0$ for $i>0$.
+	The $\ell$-adic filtration on flat complexes 
+	representing $K\Lotimes\ZZ/\ell^n$ has successive quotients
+	quasi-isomorphic to $K\Lotimes\ZZ/\ell$ and the sequence of cohomology
+	then establishes that $H^i(K\Lotimes\ZZ/\ell^n)$ is null.
+	
+	\subsection*{2.2.17} On the equivalent conditions: 
+	suppose $K\Lotimes_{\ZZ_\ell}\ZZ/\ell^n$ is in
+	$D^b_{\mathcal S,\mathcal L}(X,\ZZ/\ell^n)$ for one $n$.
+	In the spirit of \hyperref[WeilII_1.1.2]{Weil II (1.1.2) claim a)},
+	observe that as the projective system $H^i(K\Lotimes\ZZ/\ell^k)$
+	is noetherian AR-$(\ell\ZZ)$-adic, the projective system
+	$H^i(K\Lotimes\ZZ/\ell^{kn})$ is noetherian AR-($\ell^n\ZZ$)-adic
+	and AR-isomorphic by (3.2.3) of that section (i.e. \cite[V, 3.2.3]{SGA5})
+	to the $(\ell^n\ZZ)$-adic system
+	$(\mathscr K^i_{k+r}/\ell^{kn}\mathscr K^i_{k+r})_{k\in\NN}$ for 
+	some integer $r\geq 0$, where $\mathscr K^i_k$ denotes the projective 
+	system of universal images of the system $H^i(K\Lotimes\ZZ/\ell^{kn})$.
+	As $K\Lotimes\ZZ/\ell^n$ is in $D^b_{\mathcal S,\mathcal L}(X,\ZZ/\ell^n)$,
+	the $H^i(K\Lotimes\ZZ/\ell^n)$ are locally constant on the strata in
+	$\mathcal S$. Taking successive quotients on the $\ell^n$-adic
+	filtration on bounded complexes of flat sheaves representing the
+	$K\Lotimes\ZZ/\ell^{kn}$, we find that the $H^i(K\Lotimes\ZZ/\ell^{kn})$
+	are also locally constant on the strata. Therefore the sheaves
+	$\mathscr K_k^i$ are, as well as the sheaves
+	$\mathscr K^i_{k+r}/\ell^{(k+1)n}\mathscr K^i_{k+r}$.
+	For $k=0$, the latter sheaf is isomorphic to $H^i(K)\otimes\ZZ/\ell^n$,
+	so we have shown that $H^i(K)\otimes\ZZ/\ell^n$ is locally constant on
+	the strata $\mathcal S$.
+	
+	(An equivalent way to argue is again to use the description of
+	\cite[V, 3.2.3]{SGA5} and just note that when computing the universal
+	image subsheaves of $H^i(K\Lotimes\ZZ/\ell^{kn})$, one can restrict to
+	looking at the images of the sheaves $H^i(K\Lotimes\ZZ/\ell^{kn}))$, and 
+	when finding an $r$, if $r$ works, then $s$ works for any $s\geq r$, so
+	$r$ can be taken to be a multiple of $kn$.)
+	
+	As $H^i(K)\otimes\ZZ/\ell^n$ is locally constant and includes into
+	$H^i(K\Lotimes\ZZ/\ell^n)$, on each stratum $S\in\mathcal S$ consider a
+	Jordan-Hölder series for both. The constituents of the former are a 
+	subset of the constituents of the latter and therefore also belong to
+	$\mathcal L(S)$. We have shown that $H^i(K)\otimes\ZZ/\ell^n$, and
+	therefore $H^i(K)\otimes\ZZ/\ell$, is
+	$(\mathcal S,\mathcal L)$-constructible.
+	
+	On the other hand, suppose the $H^i(K)\otimes\ZZ/\ell$ are
+	$(\mathcal S,\mathcal L)$-constructible, and without loss of generality 
+	let $K$ be in $D_c^b(X,\ZZ_\ell)^{\leq 0}$. Proceed by recurrence on
+	$-j$; in the case $j=0$, $H^1(K)=0$ and
+	$H^0(K)\otimes\ZZ/\ell\xra\sim H^0(K\Lotimes\ZZ/\ell)$. The $\ell$-adic
+	filtration on any bounded complex of flat sheaves representing
+	$K\Lotimes\ZZ/\ell^n$ has successive quotients quasi-isomorphic to
+	$K\Lotimes\ZZ/\ell$; taking the long exact sequence of cohomology finds
+	that $H^0(K\Lotimes\ZZ/\ell^n)\xra\sim H^0(K)\otimes\ZZ/\ell^n$ are
+	$(\mathcal S,\mathcal L)$-constructible for all $n$.
+	In particular, this implies that each
+	$\Tor_1^{\ZZ_\ell}(H^0(K),\ZZ/\ell^n)$ is
+	$(\mathcal S,\mathcal L)$-constructible.
+	To see why, note that the increasing sequence of $\ell$-adic subsheaves
+	$\ker\ell^a\subset H^0(K)$ must stabilize, say at $a=N$ as $H^0(K)$ is
+	noetherian. Let $\mathscr K$ denote $\ker \ell^N$; it is an $\ell$-adic 
+	subsheaf of $H^0(K)$ and is $(\mathcal S,\mathcal L)$-constructible
+	since $H^0(K)\otimes\ZZ/\ell^N$ is. Then
+	\begin{equation*}
+		\Tor^{\ZZ_\ell}_1(H^0(K),\ZZ/\ell^n)
+		\simeq\Tor^{\ZZ_\ell}_1(\mathscr K,\ZZ/\ell^n)
+		\simeq\mathscr K[\ell^n]
+	\end{equation*}
+	This last sheaf is easily seen to be
+	$(\mathcal S,\mathcal L)$-constructible, as it is locally constant
+	wherever $\mathscr K$ is, and as a subsheaf, its constituents on a
+	stratum are a subset of the constituents of $\mathscr K$ on that stratum.
+	Since $\Tor^{\ZZ_\ell}_1(H^0(K),\ZZ/\ell^n)$ and
+	$H^{-1}(K)\otimes\ZZ/\ell$ are
+	$(\mathcal S,\mathcal L)$-constructible, (2.2.16.1)
+	shows that $H^{-1}(K\Lotimes\ZZ/\ell)$ is
+	$(\mathcal S,\mathcal L)$-constructible, hence that
+	$H^{-1}(K\Lotimes\ZZ/\ell^n)$ is for all $n$. 
+	The argument above then shows that $H^{-1}(K)\otimes\ZZ/\ell^n$ are
+	$(\mathcal S,\mathcal L)$-constructible for all $n$, and hence
+	that $\Tor_1^{\ZZ_\ell}(H^{-1}(K),\ZZ/\ell^n)$ are for all $n$, etc.
+	
+	In order to proceed to define the t-structure in imitation of 2.2.10,
+	one needs to extend the six functors to $D_c^b(X,\ZZ_\ell)$. This is
+	trivial because they commute with reduction modulo $\ell^n$; see
+	\hyperref[weilII:1.1.2c]{note to Weil II 1.1.2c}.
+	Then the claim about $K$ belonging to $^pD_c^{\leq0}(X,\ZZ_\ell)$ iff
+	its reduction modulo $\ell$ belongs to $^pD_c^{\leq0}(X,\ZZ/\ell)$ is
+	also trivial.
+	
+\subsection*{2.2.18}
+See \hyperref[weilII:1.1.3]{note to Weil II 1.1.3}.
+Multiplication by $\ell$ on complexes of flat sheaves representing $K$
+in $D_c^b(X,\ZZ_\ell)$ induces a multiplication by $\ell$ on their 
+cohomology. To see that the image 
+$D^b_{\mathcal S,\mathcal L}(X,\ZZ_\ell)\otimes\QQ_\ell$
+consists of those $K$ such that each $H^iK$ is the $\QQ_\ell\otimes$
+of an $(\mathcal S,\mathcal L)$-constructible $\ZZ_\ell$-sheaf, well,
+certainly it is contained in it. On the other hand, given $K$ in
+$D_c^b(X,\ZZ_\ell)$
+with each $H^iK$ the $\QQ_\ell\otimes$ of an
+$(\mathcal S,\mathcal L)$-constructible $\ZZ_\ell$-sheaf $\mathscr F_i$,
+then for each of finitely many nonzero $i$, there exist nonzero 
+$a_i,b_i\in\ZZ_\ell$ such that $a_iH^iK=b\mathscr F_i$; $b_i\mathscr F_i$ is
+a subsheaf of $\mathscr F_i$ and is also
+$(\mathcal S,\mathcal L)$-constructible.
+Then $(\prod_i a_i)K$ has cohomology sheaves which are
+$(\mathcal S,\mathcal L)$-constructible, showing the reverse containment.
+
+Turning now to the claim that the forgetful functor $\omega$ induces an
+equivalence
+\begin{align*}
+	D_c^b(X,E_\lambda)\ra
+	\{&\text{category of objects $K$ of $D_c^b(X,\QQ_\ell)$ equipped with
+	a morphism} \\
+	&\text{of $\QQ_\ell$-algebras $E_\lambda\ra\End(K)$}\},
+\end{align*}
+the essential surjectivity of $\omega$ follows from the fact that if $K$ is 
+in $D_c^b(X,\QQ_\ell)$ and equipped with an action $\phi:E_\lambda\ra\End(K)$, 
+and $K\otimes_{\QQ_\ell}E_\lambda$ has $E_\lambda$ acting on itself, then
+there is an $E_\lambda$-equivariant imbedding $K\ra K\otimes E_\lambda$ with 
+retraction $r$. Let $\alpha$ be a primitive element for the extension
+$E_\lambda/\QQ_\ell$ so that $E_\lambda\simeq\QQ(\alpha)$, and let
+$d$ denote the degree $[E_\lambda:\QQ_\ell]$. The maps are given by
+\begin{align*}
+	i:K&\ra K\otimes E_\lambda &
+	r:K\otimes E_\lambda &\ra K \\
+	K&\mapsto \frac1d\sum_{i=0}^{d-1}\phi(\alpha)^iK\otimes\alpha^{-i} &
+	K\otimes a&\mapsto\phi(a)K.
+\end{align*}
+This implies that $K$ is indeed a direct factor of $K\otimes E_\lambda$;
+see Neeman, \emph{Triangulated Categories} 1.2.10. This in turn gives an
+idempotent in $\End(K\otimes E_\lambda)$, and if the image of this 
+idempotent is represented in $D_c^b(X,E_\lambda)$, then this implies a
+splitting of $K\otimes E_\lambda$ in $D_c^b(X,E_\lambda)$ which is sent by
+$\omega$ to the direct factor $K$.
+A category in which every idempotent splits is called alternatively
+Cauchy complete, idempotent complete, or Karoubi complete
+(see SGA 4, I 8.7.8), so we are done if
+we show that $D_c^b(X,E_\lambda)$ is Karoubi complete.
+The splitting of an idempotent $e$ in the endomorphism ring of an object
+in some category is equivalent to the existence of the equalizer
+$i=\ker(e,\id)$ or the coequalizer $r=\coker(e,\id)$, and this 
+(co)equalizer, if it exists, is an absolute (co)limit; i.e. it is preserved
+by every functor (see Proposition 1 of Borceaux and Dejean,
+\emph{Cauchy Completion in Category Theory}). As $D_c^b(X,E_\lambda)$
+is a projective limit of categories $D_{ctf}^b(X,R/m^n)$ for $R$ the ring
+of integers in $E_\lambda$, it is easily seen that if the categories
+$\mathcal D_n:=D_{ctf}^b(X,R/m^n)$ are Karoubi complete, if $e$ is an 
+idempotent in $\End(K\otimes E)$, its reductions in $\mathcal D_n$ are
+idempotents which split, and as these splittings are absolute (co)limits,
+they automatically give an object in $D_c^b(X,E_\lambda)$ splitting $e$.
+It will suffice to show that $\mathcal D_n$ is Karoubi complete.
+Let's say that a triangulated category has direct sums if it has
+(arbitrary) categorical direct sums and if the (arbitrary) direct sum of
+distinguished triangles is distinguished.
+B\"okstedt and Neeman show in \emph{Homotopy limits in triangulated categories} 3.2
+that if a triangulated category has direct sums, it is Karoubi complete.
+The category $D(X,R/m^n)$ is therefore Karoubi complete.
+An object $C$ of an additive category with arbitrary direct sums is said to
+be compact if $\Hom(C,-)$ commutes with arbitrary direct sums.
+Any direct summand of a compact object $C$ is compact, since a finite
+colimit of compact objects is compact
+(maps out of a finite colimit is a finite limit, and finite limits commute
+with filtered colimits in Set). Therefore as $D(X,R/m^n)$ is Karoubi complete, so
+is the full subcategory generated by compact objects.
+That $D_{ctf}^b(X,R/m^n)$ coincides with the subcategory generated by
+compact objects of $D(X,R/m^n)$ is 6.4.8 of Bhatt-Scholze,
+\emph{The pro-étale topology for schemes}, after you recall that the
+objects of $D^b_{ctf}(X,R/m^n)$ can be represented by bounded complexes
+of $R/m^n$-flat constructible sheaves (\emph{Rapport} 4.6).
+
+\subsection*{2.2.19} The fact that $i^!f_*=f_*i^!$ is SGAA XVIII 3.1.12.3.
+The `argument habituel d'homotopie' referenced in the last sentence of the
+proof is referring to, e.g. Th. 5.7.1 in Godement,
+\emph{Théorie des faisceaux}, but a more accessible reference is
+\href{https://stacks.math.columbia.edu/tag/09UY}{Stacks \texttt{09UY}}.
+If you have two open coverings $\mathcal U=(U_i)_{i\in I}$ and
+$\mathcal V=(V_j)_{j\in J}$ of a space $X$, and $\mathcal U$ is a refinement
+of $\mathcal V$, so that we can choose a map $\phi:I\ra J$ such that
+$U_i\subset V_{\phi(i)}$ for all $i\in I$. This induces a map of \v Cech
+complexes
+$\phi^*:\check C^\dotp(\mathcal V,\mathscr F)\ra\check C^\dotp(\mathcal U,\mathscr F)$
+for any sheaf $\mathscr F$ on $X$.
+The result then says that if you have a second $\phi':I\ra J$ such that
+$U_i\subset V_{\phi'(i)}$, the maps $\phi^*$, $\phi'^*$ are homotopic.
+This instantly implies that if $\mathcal U,\mathcal V$ are mutual 
+refinements, they have the same \v Cech cohomology, since in this case we
+can choose $\phi:I\ra J$ and $\psi:J\ra I$ satisfying\
+$U_i\subset V_{\phi(i)}$ and $V_j\subset U_{\psi(j)}$; the maps
+$\phi\circ\psi$ and $\psi\circ\phi$ must then induce the identity on
+\v Cech cohomology as they are homotopic to the identity on the chain level.
+Our case is formally equivalent to this statement for $\check H^0$.
+
+In more words: $A$ is defined as an equalizer of two maps
+\begin{equation*}
+	\prod_I\ ^pj_{i*}A_{U_i}\rightrightarrows\prod_{I\times I}\ ^pj_{ij*}A_{U_{ij}}
+\end{equation*}
+where one map $d^0_0$ is the product over $(i,j)\in I\times I$ of the maps
+\begin{equation*}
+	\prod_I\ ^pj_{i*}A_{U_i}\xra{\pr_i}\ ^pj_{i*}A_{U_i}\ra\ ^pj_{\dotp j*}A_{U_{\dotp j}},
+\end{equation*}
+(here the second map is $j_{i*}$ of the unit of the adjunction on $U_i$ if
+$\dotp=i$ and 0 if $\dotp\ne i$),
+and the other map $d^0_1$ is the product over $(i,j)\in I\times I$ of the maps
+\begin{equation*}
+	\prod_I\ ^pj_{i*}A_{U_i}\xra{\pr_j}\ ^pj_{j*}A_{U_j}\ra\ ^pj_{i\dotp*}A_{U_{i\dotp}}
+\end{equation*}
+(the second map is $j_{j*}$ of the unit of the adjunction on $U_j$ if
+$\dotp=j$ and 0 if $\dotp\ne j$).
+This recognizes $A$ as $\ker(d^0_0-d^0_1)$.
+Let $f$ denote maps of the type
+\begin{equation*}
+	U_{i_0}\times\cdots\times U_{i_a}\times\cdots U_{i_p}
+	\ra U_{i_0}\times\cdots\times\hat U_{i_a}\times\cdots U_{i_p}.
+\end{equation*}
+In higher degrees, the differential is determined by the formula
+\begin{equation*}
+	\pr_{i_0\ldots i_{p+1}}\circ d
+	=\sum_{a=0}^{p+1} (-1)^a\
+	^pj_{i_0\ldots\hat i_a\ldots i_p*}(\eta(A_{i_0\ldots i_p}))
+	\circ\pr_{i_0\ldots \hat i_a\ldots i_{p+1}},
+\end{equation*}
+where $\eta$ is the unit of the adjunction $\id\ra\ ^pf_*\ ^pf^*$.
+Let $\mathcal U$ be the cover of $X$ as above and $s:I\ra J$ satisfying
+$s_i:U_i\ra V_{s(i)}$ as above.
+The chain map induced by $s$ has the explicit description
+\begin{equation*}
+	\pr_{i_A}\circ s^*=\ ^pj_{s(i_A)*}(\eta(A_{i_A}))\circ\pr_{s(i_A)},
+\end{equation*}
+where $i_A$ is a multi-index $i_0i_1\ldots i_p$, 
+$s(i_A)=s(i_0)\ldots s(i_p)$, and $\eta$ is the unit of
+the adjunction $\id\ra\ ^ps_{i_A*}\ ^ps_{i_A}^*$ on $V_{s(i_A)}$,
+where
+$s_{i_A}:U_{i_0}\times\cdots\times U_{i_p}\ra V_{s(i_0)}\times\cdots\times
+V_{s(i_p)}$ is deduced by taking the product of the maps $s_i.$
+
+Now given another map $t:I\ra J$ satisfying $t_i:U_i\ra V_{t(i)}$,
+let $0\leq a\leq p$ and let $f$ now denote maps of the sort
+\begin{equation*}
+	U_{i_0}\times\cdots\times U_{i_p}
+	\ra V_{s(i_0)}\times\cdots\times V_{s(i_a)}\times
+	V_{t(i_a)}\times\cdots\times V_{t(i_p)},
+\end{equation*}
+where here we use the map $U_{i_a}\ra V_{s(i_a)}\times V_{t(i_a)}$.
+We set up a homotopy $h$ by the formula
+\begin{ceqn}\begin{equation*}
+	\pr_{i_0\ldots i_p}\circ h
+	=\sum_{a=0}^p (-1)^a\
+	^pj_{s(i_0)\ldots s(i_a)t(i_a)\ldots t(i_p)*}(\eta(A_{s(i_0)\ldots s(i_a)t(i_a)\ldots t(i_p)})
+	\circ\pr_{s(i_0)\ldots s(i_a)t(i_a)\ldots t(i_p)}
+\end{equation*}\end{ceqn}
+where here $\eta$ is the unit of the adjunction
+$\id\ra\ ^pf_*\ ^pf^*$.
+
+Now we can follow the argument of
+\href{https://stacks.math.columbia.edu/tag/01FP}{Stacks \texttt{01FP}}.
+
+\subsection*{3.1.2}
+(3.1.2.7) The morphism $K_{n+1}\ra K_n$ in $D\mathcal A$ can be represented
+by $K_{n+1}\xleftarrow{\alpha} K'_{n+1}\xra\beta K_n$ with $\alpha$ a
+quasi-isomorphism and $\beta$ a homotopy class of morphisms.
+Replacing $K_n$ by $K_n\oplus\operatorname{cone}(K_{n+1}')$ allows us to
+write a commutative square
+\begin{equation*}\begin{tikzcd}
+	K_{n+1}'\arrow[d,"\alpha"]\arrow[r,"{(\beta,\iota)}"]
+	&K_n\oplus\operatorname{cone}(K_{n+1}') \\
+	K_{n+1}\arrow[r]&K_n\arrow[u,"\gamma"']
+\end{tikzcd}\end{equation*}
+where $\iota$ denotes the canonical map
+$K_{n+1}'\ra\operatorname{cone}K'_{n+1}$.
+Now $(\beta,\iota)$ is injective and $\gamma$ is a homotopy equivalence
+so that it can be inverted. Doing this finitely many times allows us to
+produce a filtered complex of objects $(K,F)$ of $\mathcal A$ with the
+sequence of $F^iK$ isomorphic in $D\mathcal A$ to the given sequence.
+
+(3.1.2.8) The intersection of two subobjects $A,B$ of an object $C$ in an
+abelian category $\mathcal A$ is defined as the pullback
+\begin{equation*}\begin{tikzcd}
+	A\cap B\arrow[d]\arrow[r]&A\arrow[d] \\
+	B\arrow[r]&C
+\end{tikzcd}\end{equation*}
+or equivalently by the exact sequence
+\begin{equation*}
+	0\ra A\cap B\ra A\oplus B\ra C.
+\end{equation*}
+The sum $A+B$ is defined as the image of $A\oplus B$ under the same map
+$A\oplus B\ra C$ defined by the monomorphisms $A\ra C$ and $B\ra C$.
+The inclusion
+\begin{equation*}
+	\sum_{i+j=p}F^i\cap G^j\subset\bigcap_{i+j=p+1}F^i+G^j
+\end{equation*}
+is evident from the fact that if $a+b=p$, every pair $(i,j)$ satisfying
+$i+j=p+1$ also satisfies $i\leq a$ or $j\leq b$.
+For the reverse inclusion, find some $a$ in the intersection; then we
+have expressions $a=f_i+g_j$ for $f_i\in F^i, g_j\in G^j,i+j=p+1$; as the 
+filtration is finite \& decreasing there exists an $n$ such that
+$a=f_n$ and $g_n=0$.
+Then $a-f_{n+1}=g_{p+1-(n+1)}$ is in $F^n\cap G^{p-n}$.
+Likewise $f_{n+i}-f_{n+i+1}=g_{p+1-(n+i+1)}-g_{p+1-(n+i)}$ is in
+$F^{n+i}\cap G^{p-(n+i)}$ for $i\geq0$.
+By finiteness, $f_{n+i}=0$ for $i\gg0$, so that
+\begin{equation*}
+	a=\sum_{i=0}^{\infty} f_{n+i}-f_{n+i+1}\qquad
+	(f_{n+i}-f_{n+i+1}\in F^{n+i}\cap G^{p-(n+i)})
+\end{equation*}
+has only finitely many nonzero terms.
+
+\subsection*{3.1.3} This paragraph should be read along with
+Illusie \emph{Complexe cotangent et déformations I} Ch.\,V \S1, cited
+\cite{Cotangent}. I don't understand why (3.1.3.4) and (3.1.3.5) are
+written with the notation
+$\Hom^{p+q}$ and $\Hom_{D\mathcal A}^{p+q}$ and $\Hom_{DF\mathcal A}^{p+q}$ 
+instead of
+$\Ext^{p+q}$ and $\Ext_{D\mathcal A}^{p+q}$ and $\Ext_{DF\mathcal A}^{p+q}$.
+This notation continues into (3.1.4) and beyond and is very confusing
+as for objects $K,L$ of $D\mathcal A$,
+$\Ext^n(K,L)=\Hom_{D\mathcal A}(K,L[n])$, and writing the former as
+$\Hom^n(K,L)$ makes little sense and conflicts with the $\Hom^n$
+defined in the first part of (3.1.3) as the $\Hom^n$ there specifies a
+component of the familiar chain complex. In the notes that follow we will
+distinguish between this $\Hom^n$ and $\Ext^n$ even when Deligne writes
+$\Hom^n$.
+
+\subsection*{3.1.4} The statement of the proposition of course has grammatical grouping
+`lorsque \{$n=0$ ou $-1$\} et $i>j$' and `lorsque \{$n=0$ ou $-1$\} et 
+$n+i-j<0$'. The proof of (i) is obtained from the distinguished triangle
+given by taking the sequence of cohomology and using the vanishing of $H^0$
+and $H^{-1}$ of $F^{-\infty}/F^0$. In the proof of (ii), the differential
+at $(0,0)$ on the $E_r$ page for goes $(0,0)\xra{d}(r,1-r)$;
+as $E_1^{pq}=0$ for $p<0$, $E_\infty^{00}=\cap_r\ker d_r$.
+The assumptions give that $E_r^{pq}=0$ whenever $q<0$ and either $p+q=0$ or
+$p+q=1$, so that $\ker d_r=E_2^{00}$ for $r\geq2$ and therefore
+$E_2^{00}=E_\infty^{00}$. The assumption that $E_1^{pq}=0$ if $n=0$ and
+$q<0$ implies that the only nonzero graded piece in the filtration on
+$\Hom_{DF\mathcal A}(K,L)=\Ext^0_{DF\mathcal A}(K,L)$ is the 
+0\textsuperscript{th} and it coincides with $E_2^{00}$.
+
+\emph{Note:}
+$\Ext^n(\Gr_F^iK,\Gr_F^jL)=\Ext^{n+i-j}(\Gr_F^iK[i],\Gr_F^jL[j])$ so
+for example the condition $\Ext^{n}(\Gr_F^iK[-i],\Gr_F^jL[-j])=0$ for
+$n<0$ equates to $\Ext^{n-j+i}(\Gr_F^iK,\Gr_F^jL)=0$ for $n<0$, which
+implies $\Ext^n(\Gr_F^iK,\Gr_F^jL)=0$ whenever $i>j$ and $n<1$.
+
+\subsection*{3.1.6} The filtration $T_i$ is now taken to be an \emph{increasing} 
+filtration, corresponding to the \emph{decreasing} filtration $T^{-i}$.
+Under this correspondence $(\Gr_i^TK)[i]$ becomes $(\Gr_T^{-i}K)[i]$.
+$\Hom^n(A,B)$ should be written $\Ext^n(A,B)=\Hom(A,B[n])$, null for $n<0$
+when $A,B$ are in $\mathcal C$ by (1.3.1) (i).
+
+\subsection*{3.1.7}
+\emph{A priori} there is the matter of the uniqueness of the arrows of
+degree 1 $\Gr_F^iK\ra\Gr_F^{i+1}K$ defined by the distinguished triangle
+$(\Gr_F^{i+1},F^i/F^{i+2},\Gr_F^i)$.
+
+For $d^{i+1}\circ d^i=0$ the point is that in the commutative 
+diagram of distinguished triangles below, the two morphisms
+$F^{i+1}/F^{i+3}\ra\Gr_F^{i+1}$ coincide.
+\begin{equation*}\begin{tikzcd}
+	\Gr_F^i[-1]\arrow[r]&F^{i+1}/F^{i+3}\arrow[r]\arrow[d]
+	&F^i/F^{i+3}\arrow[d] \\
+	&\Gr_F^{i+1}\arrow[r]\arrow[d,equals]&F^i/F^{i+2}\arrow[r]\arrow[d]
+	&\Gr_F^i \\
+	F^{i+1}/F^{i+3}\arrow[r]&\Gr_F^{i+1}\arrow[r]&\Gr_F^{i+2}[1]
+\end{tikzcd}\end{equation*}
+
+\subsection*{3.1.8} On the subject of the differential $d_1(f)=df-fd$,
+we have to compute it. Illusie discusses the differential in
+\cite[V 1.4.10]{Cotangent}.
+The spectral sequence (3.1.3.4) is isomorphic to the spectral sequence
+\begin{equation*}
+	E_1^{pq}=H^{p+q}\Gr_F^pR\Hom(L,M)\Rightarrow\Ext^{p+q}(L,M).
+\end{equation*}
+We replace $M$ by a filtered injective resolution of $M$, which is 
+therefore (non-canonically) termwise-split as a direct sum of its graded
+pieces, which are also injective
+(\href{https://stacks.math.columbia.edu/tag/05TP}{\texttt{05TP}}), and
+we compute in the abelian category.
+General considerations
+(\href{https://stacks.math.columbia.edu/tag/012N}{\texttt{012N}}) dictate
+that the differential $d_1$ is equal to the coboundary map
+associated to the short exact sequence of complexes
+\begin{ceqn}\begin{equation*}
+	0\ra\Gr^{p+1}(\Hom(L,M))\ra F^p/F^{p+2} \Hom(L,M)
+	\ra\Gr^p(\Hom(L,M)))\ra0,
+\end{equation*}\end{ceqn}
+where the differential on $\Hom(L,M)$ is defined by
+\begin{equation*}
+	\Hom^n(L,M)=\prod_i\Hom(L^i,M^{i+n}),\quad d^p=d_L+(-1)^{n+1}d_M.
+\end{equation*}
+We need only consider $n=0$ and for simplicity we look at a single $i$ at a
+time. Basically we need to translate this differential via the isomorphism
+\begin{align*}
+	&E_1^{pq}\simeq\oplus_k\Ext^{p+q}(\Gr^kL,\Gr^{k+p}M),\quad\text{or, more properly, through} \\
+	&\Gr^p(\Hom(L^i,M^i))\simeq\oplus_k\Hom(\Gr^kL^i,\Gr^{k+p}M^i).
+\end{align*}
+The diagrams on the next page, combined with the fact that $d^0=d_L-d_M$,
+show that $d_1$, the coboundary map induced 
+by $d^0$ and the relevant exact sequence, coincides with
+\begin{equation*}
+	\prod_i\Hom(\Gr^kL^i,\Gr^{k+p}M^i)\ni (f_i)\mapsto (f_id''_L-d'_Mf_{i-1}),
+\end{equation*}
+for each $k$, where $d'_M$ and $d''_M$ are induced on $\Hom$ by
+coboundaries associated to the exact sequences
+\begin{align*}
+	&0\ra\Gr^{k+p+1}M\ra F^{k+p}M/F^{k+p+2}M\ra\Gr^{k+p}M\ra0\quad\text{and} \\
+	&0\ra\Gr^kL\ra F^{k-1}/F^{k+1}L\ra\Gr^{k-1}L\ra0,\quad\text{respectively.}
+\end{align*}
+So $(f_i)$ belongs to $\ker d_1$ if $f_id''_L-d'_Mf_{i-1}=0$ for all $i$,
+and all that is left to observe is that $d_M'$ and $d_L''$ correspond with
+Deligne's differential $d$.
+
+\newpage
+\newgeometry{bottom=2cm,left=2cm,right=2cm}
+\begin{landscape}\begin{small}
+\begin{ceqn}\begin{equation*}\begin{tikzcd}[cramped,column sep=small,ampersand replacement=\&]
+	\&\;\arrow[d]\&\;\arrow[d]\&\;\arrow[d] \\
+	0\arrow[r]\&\Gr^{p+1}(\Hom(L^i,M^i))\arrow[r]\arrow[d]
+	\&F^p/F^{p+2}(\Hom(L^i,M^i))\arrow[r]\arrow[d,"d^0=d_L-d_M"]
+	\&\Gr^p(\Hom(L^i,M^i))\arrow[r]\arrow[d]
+	\&0 \\
+	0\arrow[r]
+	\&\Gr^{p+1}(\Hom(L^{i-1},M^i)\oplus\Hom(L^i,M^{i+1}))\arrow[r,"\alpha"]\arrow[d]
+	\&F^p/F^{p+2}(\Hom(L^{i-1},M^i)\oplus\Hom(L^i,M^{i+1}))\arrow[r]\arrow[d]
+	\&\Gr^p(\Hom(L^{i-1},M^i)\oplus\Hom(L^i,M^{i+1}))\arrow[r]\arrow[d]
+	\&0\\
+	\&\;\&\;\&\;
+\end{tikzcd}\end{equation*}
+\end{ceqn}\end{small}
+Let $a,b\in\ZZ$ (we care about $(a,b)=(i-1,i),(i,i)$, or $(i,i+1)$)
+and fix retractions to the monomorphisms
+$F^p/F^{p+k}M^b:=F^pM^b/F^{p+k}M^b\hookrightarrow F^{p+1}/F^{p+k}M^b$
+so that we can identify $M^b$ with the direct sum of its graded pieces,
+which are almost all zero.
+\begin{equation*}
+	F^p/F^{p+2}\Hom(L^a,M^b)
+	\simeq\oplus_kF^p/F^{p+2}\Hom(L^a,\Gr^kM^b)
+	\simeq\oplus_k\Hom(F^{k-p-1}/F^{k-p+1}L^a,\Gr^kM^b)
+\end{equation*}
+\begin{ceqn}\begin{equation*}\begin{tikzcd}[column sep=small]
+	0\arrow[r]&\Gr^{p+1}\Hom(L^a,M^b)\arrow[r]\arrow[dd,"\scalebox{1.5}{\rotatebox{-90}{\text{\Huge$\sim$}}}"]
+	&F^p/F^{p+2}\Hom(L^a,M^b)\arrow[r]\arrow[d,phantom,"{\rotatebox{-90}{\text{\Large$\simeq$}}}"]
+	&\Gr^p\Hom(L^a,M^b)\arrow[r]\arrow[ddd,"\scalebox{1.5}{\rotatebox{-90}{\text{\Huge$\sim$}}}"]
+	&0 \\
+	&&\oplus_k\Hom(F^{k-p-1}/F^{k-p+1}L^a,\Gr^kM^b)\arrow[ur]\arrow[d,"\Gr"] \\
+	&\oplus_k\Hom(\Gr^{k-p-1}L^a,\Gr^kM^b)\arrow[r]\arrow[ur] \arrow[d,phantom,"{\rotatebox{-90}{\text{\Large$\simeq$}}}"]
+	&\oplus_k\Hom(\Gr^{k-p-1}L^a\oplus\Gr^{k-p}L^a,\Gr^kM^b) \arrow[d,phantom,"{\rotatebox{-90}{\text{\Large$\simeq$}}}"] \\
+	0\arrow[r]&\oplus_k\Hom(\Gr^{k-p}L^a,\Gr^{k+1}M^b)\arrow[r]
+	&\oplus_k\Hom(\Gr^{k-p}L^a,F^k/F^{k+2}M^b)\arrow[r]
+	&\oplus_k\Hom(\Gr^{k-p}L^a,\Gr^kM^b)\arrow[r]&0
+\end{tikzcd}\end{equation*}\end{ceqn}
+The above diagram commutes.
+The bottom row and diagonal row are induced by the exact sequences
+\begin{align*}
+	&0\ra\Gr^{k+p+1}M^b\ra F^{k+p}/F^{k+p+2}M^b\ra\Gr^{k+p}M^b\ra0\quad\text{and} \\
+	&0\ra\Gr^kL^a\ra F^{k-1}/F^{k+1}L^a\ra\Gr^{k-1}L^a\ra0,\quad\text{respectively.}
+\end{align*}
+\end{landscape}
+\restoregeometry
+Returning to the proof of (3.1.8), let's examine why the filtered complex
+$X$ in the first solution is taken by $G$ to a bounded complex of objects 
+of $\mathcal C$ isomorphic to the given one.
+In the (unconventionally indexed) double complex
+\begin{equation*}\begin{tikzcd}
+	&\;&\;&\; \\
+	\;\arrow[r]&K^{i+1,j-1}\arrow[u]\arrow[r]
+	&K^{i+1,j}\arrow[u]\arrow[r]
+	&K^{i+1,j+1}\arrow[u]\arrow[r]&\; \\
+	\;\arrow[r]&K^{i,j-1}\arrow[u]\arrow[r]
+	&K^{i,j}\arrow[u,"d'"]\arrow[r,"d''"]
+	&K^{i,j+1}\arrow[u]\arrow[r]&\; \\
+	\;\arrow[r]&K^{i-1,j-1}\arrow[u]\arrow[r]
+	&K^{i-1,j}\arrow[u]\arrow[r]
+	&K^{i-1,j+1}\arrow[u]\arrow[r]&\; \\
+	&\;\arrow[u]&\;\arrow[u]&\;\arrow[u]
+\end{tikzcd}\end{equation*}
+the terms $X^n$ correspond to the diagonals with
+slope $-1$ capturing all terms with biindex summing to $n$.
+\begin{equation*}
+	\Gr^iX\simeq(K^i[-i],(-1)^id'')=K^i[-i].
+\end{equation*}
+It remains only to show that the morphism of degree one in the 
+distinguished triangle associated to the exact sequence
+\begin{equation*}
+	0\ra\Gr^{i+1}X\xra f F^i/F^{i+2}X\xra g\Gr^iX\ra0
+\end{equation*}
+coincides with $d'^i$. Actually we will show that it coincides with
+$-d'^i$. This is OK, as any complex $L=(L,d)$ is isomorphic to the
+complex $L'=(L,-d)$ by the morphisms $(-1)^i\id:L^i\ra L^i$ which induce an
+isomorphism of chain complexes $L\xra\sim L'$.
+Therefore we will still have shown that $0\ra K^a\ra\cdots\ra K^b\ra0$ is
+in the essential image of $G$.
+We have an isomorphism of distinguished triangles
+\begin{equation*}\begin{tikzcd}
+	\Gr^{i+1}X\arrow[r,"f"]
+	&F^i/F^{i+2}X\arrow[r,"g"]
+	&\Gr^iX\arrow[r]
+	&\Gr^{i+1}X[1] \\
+	\Gr^{i+1}X\arrow[r]\arrow[u,equals]
+	&\operatorname{Cyl}(f)\arrow[u]\arrow[r]
+	&C(f)\arrow[u,"\gamma"]\arrow[r,"\delta"]
+	&\Gr^{i+1}X[1]\arrow[u,equals]
+\end{tikzcd}\end{equation*}
+where $\delta:C(f)=\Gr^{i+1}X[1]\oplus F^i/F^{i+2}X\ra \Gr^{i+1}X[1]$
+corresponds componentwise to projection to the first factor and
+$\gamma:C(f)\ra\Gr^iX$ is given by the composition
+$C(f)\xra{\pr_2}F^i/F^{i+2}X\xra g\Gr^iX$, where here $\pr_2$ denotes
+abusively the morphism of complexes induced by componentwise projection 
+to the second factor.
+\begin{align*}
+	&C(f)=K^{i+1}[i]\oplus K^i[-i]\oplus K^{i+1}[-i-1]
+	\quad\text{with differential} \\
+	&\begin{multlined}d^n(k^{i+1,n-i},k^{i,n-i},k^{i+1,n-i-1}) \\
+	=((-1)^id'',(-1)^id'',f(k^{i+1,n-i})+d'k^{i,n-i}+(-1)^{i+1}d''k^{i+1,n-i-1}).\end{multlined}
+\end{align*}
+It suffices to show that $-d'\circ\gamma$ is homotopic to $\delta$.
+Consider the homotopy given by
+\begin{align*}
+	&h^n:C(f)^n=K^{i+1,n-i}\oplus K^{i,n-i}\oplus K^{i+1,n-i-1}
+	\xra{\pr_3} K^{i+1,n-i-1}=(K^{i+1}[-i])^{n-1} \\
+	&dh(k^{i+1,n-i},k^{i,n-i},k^{i+1,n-i-1})
+	=(-1)^id''k^{i+1,n-i-1} \\
+	&hd(k^{i+1,n-i},k^{i,n-i},k^{i+1,n-i-1})
+	=d'(k^{i,n-i})+(-1)^{i+1}d''k^{i+1,n-i-1}+k^{i+1,n-i} \\
+	&\text{so that}\quad
+	dh+hd=k^{i+1,n-i}+d'(k^{i,n-i}).
+\end{align*}
+Therefore $h$ defines a homotopy between the two morphisms
+\begin{equation*}\begin{tikzcd}
+	C(f)\arrow[r,shift left,"\delta"]\arrow[r,shift right,"-d'\circ\gamma"']
+	&K^{i+1}[-i].
+\end{tikzcd}\end{equation*}
+As for the construction of the differential of the complex $X$, let's
+check that
+\begin{equation*}
+	d_2=H_0+H_1+H_2=(-1)^id''+d'+\sum_i(-1)^{i+1}H_2^i
+\end{equation*}
+satisfies (*); i.e. that $d_2\circ d_2$ is of filtration $\geq3$.
+To do this, it suffices to look at the terms of $d_2\circ d_2$ which are
+of filtration $<3$. We denote by $(\geq n)$ terms of filtration $\geq n$.
+It suffices to compute what $d_2\circ d_2$ does to $K^{i,j}$.
+\begin{align*}
+	d_2\circ d_2
+	&=d_1\circ d_1+d_1\circ H_2+H_2\circ D_1+H_2\circ H_2 \\
+	&=d'^{i+1}\circ d'^i+(-1)^{i+2}d''\circ H_2+H_2\circ(-1)^id'' \\
+	&=d''\circ H_2^i+H_2^i\circ d''+(-1)^{2i+3}d''\circ H_2^i+(-1)^{2i+1}H_2^i\circ d''+(\geq3) \\
+	&=0+(\geq3)
+\end{align*}
+as $H_2\circ H_2$ is of filtration 4 and $d'\circ H_2$ and
+$H_2\circ d'$ are of filtration 3.
+
+In the case $p\geq2$, $\varphi^i:K^i\ra K^{i+p+1}[1-p]$ is a morphism of
+complexes. This is because the component of degree $p+1$ of $d_p\circ d_p$
+is bihomogenous of degree $(p+1,1-p)$: indeed, it is a sum of morphisms
+obtained by composing two morphisms bihomogenous of degree $(a,-a+1)$ and
+$(b,-b+1)$, respectively, so that $a+b=p+1$. Let's verify that with
+\begin{equation*}
+	H_{p+1}=\sum_i(-1)^{i+p}H^i_{p+1},\quad
+	d_{p+1}\circ d_{p+1}\,\,\text{is of filtration $\geq p+2$.}
+\end{equation*}
+We check what $d_{p+1}\circ d_{p+1}$ does to $K^{i,j}$.
+\begin{ceqn}\begin{align*}
+	d_{p+1}\circ d_{p+1}
+	&=\Big(d_p+\sum_i(-1)^{i+p}H_{p+1}^i\Big)\circ\Big(d_p+\sum_i(-1)^{i+p}H_{p+1}^i\Big) \\
+	&=\varphi+H_0\circ H_{p+1}+H_{p+1}\circ H_0+(\geq p+2) \\
+	&=\varphi^i+(-1)^{i+p+1}d''\circ (-1)^{i+p}H_{p+1}^i+(-1)^{i+p}H^i_{p+1}\circ (-1)^id''+(\geq p+2) \\
+	&=\varphi^i-d''\circ H^i_{p+1}+(-1)^pH_{p+1}^i\circ d''+(\geq p+2) \\
+	&=0+(\geq p+2),
+\end{align*}\end{ceqn}
+in light of the identity that shows $\varphi^i$ homotopic to 0 (as a 
+morphism of complexes $K^i\ra K^{i+p+1}[1-p]$) with homotopy $H^i_{p+1}$.
+
+\subsubsection*{2ème solution}
+Let's check that the object $(C,F)$ of $\mathcal D^bF_{\text{b\^ete}}$ 
+defined up to isomorphism by the distinguished triangle
+\begin{equation*}\begin{tikzcd}
+	&(A,F)\arrow[dr,"\tilde f"] \\
+	(A,F[1])\arrow[ur,"\id_A"]\arrow[rr]&&(A,F)\arrow[r]&(C,F)\arrow[r]&\;
+\end{tikzcd}\end{equation*}
+is sent by $G$ to a complex in $C^b(\mathcal C)$ isomorphic to
+$0\ra K^a\ra\cdots\ra K^b\ra0$.
+There is some ambiguity in the definition of $A,B$ and $f$. As we will see,
+we want $f^{p+1}:K^p\ra K^{p+1}$ to coincide with $-d^p$, $G(B)$ to 
+coincide with the bête truncation
+$\sigma_{\geq p+1}(\cdots\ra K^i\xra{d^i}\cdots)$ of the desired
+complex, and $G(A)$ to coincide with the translation of the bête truncation 
+$\sigma_{\leq p}(\cdots\ra K^i\xra{d^i}\cdots)[-1]$.
+We have a commutative diagram with distinguished rows and columns.
+\begin{equation*}\begin{tikzcd}
+	\Gr_F^{i+2}A\arrow[r]\arrow[d]
+	&\Gr_F^{i+1}B\arrow[r]\arrow[d]
+	&\Gr_F^{i+1}C\arrow[r]\arrow[d]&\; \\
+	F^{i+1}/F^{i+3}A\arrow[r]\arrow[d]
+	&F^i/F^{i+2}B\arrow[r]\arrow[d]
+	&F^i/F^{i+2}C\arrow[r]\arrow[d]&\; \\
+	\Gr_F^{i+1}A\arrow[r]\arrow[d]
+	&\Gr^i_FB\arrow[r]\arrow[d]
+	&\Gr_F^iC\arrow[r]\arrow[d]&\; \\
+	\;&\;&\;
+\end{tikzcd}\end{equation*}
+When $i>p$, $\Gr_{F[1]}^iA=\Gr_F^{i+1}A=0$, the left column vanishes, and
+we find an isomorphism of bête truncated complexes
+$\sigma_{>p}G(B)\xra\sim\sigma_{>p}G(C)$:
+\begin{equation*}\begin{tikzcd}
+	(\Gr_F^{p+1}C)[p+1]\arrow[r,"d_C^{p+1}"]
+	&\cdots\arrow[r]&(\Gr_F^{b}C)[b]\arrow[r] 
+	&(\Gr_F^{b+1}C)[b+1]\arrow[r]
+	&\cdots \\
+	(\Gr_F^{p+1}B)[p+1]\arrow[r]\arrow[u,"\sim"]\arrow[d,"\sim"]
+	&\cdots\arrow[r]
+	&(\Gr_F^{b}B)[b]\arrow[r]\arrow[u,"\sim"]\arrow[d,"\sim"]
+	&(\Gr_F^{b+1}B)[b+1]\arrow[r]\arrow[u,"\sim"]\arrow[d,"\sim"]
+	&\cdots \\\
+	K^{p+1}\arrow[r,"d^{p+1}"]&\cdots\arrow[r]
+	&K^b\arrow[r]&0\arrow[r]&\cdots
+\end{tikzcd}\end{equation*}
+When $i\leq p$, $\Gr_F^iB=0$ and $\Gr^i_FC\xra\sim(\Gr_F^{i+1}A)[1]$.
+When $i<p$, moreover the entire middle column vanishes, finding an
+isomorphism of bête truncated complexes
+$\sigma_{<p}G(C)\xra\sim\sigma_{\leq p}(G(A)[1])$: 
+\begin{equation*}\begin{tikzcd}
+	\cdots\arrow[r]&(\Gr_F^{a-1}C)[a-1]\arrow[r]\arrow[d,"\sim"]
+	&(\Gr_F^{a}C)[a]\arrow[r,"d_C^a"]\arrow[d,"\sim"]
+	&\cdots\arrow[r]&(\Gr_F^{p}C)[p]\arrow[d,"\sim"] \\
+	\cdots\arrow[r]&(\Gr_F^{a-1}A)[a]\arrow[r]\arrow[d,"\sim"]
+	&(\Gr_F^{a}A)[a+1]\arrow[r]\arrow[d,"\sim"]
+	&\cdots\arrow[r]&(\Gr_F^{p}A)[p+1]\arrow[d,"\sim"] \\
+	\cdots\arrow[r]&0\arrow[r]
+	&K^a\arrow[r,"{d^a}"]&\cdots\arrow[r]&K^p
+\end{tikzcd}\end{equation*}
+We will be done if we can join these diagrams with a commutative diagram
+\begin{equation*}\begin{tikzcd}
+	(\Gr_F^{p}C)[p]\arrow[d,"\sim"]\arrow[r,"d_C^p"]\arrow[d,"\sim"]
+	&(\Gr_F^{p+1}C)[p+1] \\
+	(\Gr_F^{p}A)[p+1]\arrow[d,"\sim"]\arrow[r,dashed]
+	&(\Gr_F^{p+1}B)[p+1]\arrow[d,"\sim"]\arrow[u,"\sim"] \\
+	K^p\arrow[r,"d^p"]&K^{p+1}
+\end{tikzcd}\end{equation*}
+When $i=p$, part of our earlier commutative diagram looks like
+\begin{equation*}\begin{tikzcd}
+	&\Gr_F^{p+1}B\arrow[r,"\sim"]\arrow[d,"\sim","\beta"']
+	&\Gr_F^{p+1}C\arrow[d] \\
+	F^{p+1}/F^{p+3}A\arrow[r,"\alpha"]\arrow[d,"\sim", "\gamma"']
+	&F^p/F^{p+2}B\arrow[r]
+	&F^p/F^{p+2}C\arrow[r]\arrow[d]&\; \\
+	\Gr_F^{p+1}A&&\Gr_F^pC\arrow[d,"{d_C^p[-p]}"] \\ &&\;
+\end{tikzcd}\end{equation*}
+with distinguished row and column, inducing an isomorphism of 
+distinguished triangles
+\begin{equation*}\begin{tikzcd}
+	\Gr^{p+1}_FB\arrow[r]\arrow[d,"\sim"]
+	&F^p/F^{p+2}C\arrow[d,equals]\arrow[r]
+	&(\Gr_F^{p+1}A)[1]\arrow[r,"{-(\beta^{-1}\circ\alpha\circ\gamma^{-1})[1]}"]&[40pt]\;&\; \\
+	\Gr_F^{p+1}C\arrow[r]&F^p/F^{p+2}C\arrow[r]
+	&\Gr_F^pC\arrow[u,"\sim"]\arrow[r,"{d_C^p[-p]}"]&\;&.
+\end{tikzcd}\end{equation*}
+The commutative diagram
+\begin{equation*}\begin{tikzcd}
+	&K^p[-p-1]\arrow[r,"{f^{p+1}[-p-1]}"]
+	&[10pt]K^{p+1}[-p-1] \\
+	\Gr^p_{F[1]}A\arrow[r,equals]
+	&\Gr_F^{p+1}A\arrow[r,"\delta"]\arrow[d]\arrow[u,"{\rotatebox{-90}{\text{\Huge$\sim$}}}"]
+	&\Gr_F^{p+1}B\arrow[d,"\sim","\beta"']\arrow[u,"{\rotatebox{-90}{\text{\Huge$\sim$}}}"] \\
+	F^{p+1}/F^{p+3}A=(F[1])^p/(F[1])^{p+2}A\arrow[u,"\sim","\gamma"']\arrow[r,"\id_A"]\arrow[rr,bend right=15,"\alpha"]
+	&F^p/F^{p+2}A\arrow[r,"\tilde f"]&F^p/F^{p+2}B
+\end{tikzcd}\end{equation*}
+shows that
+$\delta=\beta^{-1}\circ\alpha\circ\gamma^{-1}:\Gr_F^{p+1}A\ra\Gr_F^{p+1}B$
+has the property that $-\delta[p+1]$ makes a commutative diagram
+\begin{equation*}\begin{tikzcd}
+	(\Gr_F^{p}C)[p]\arrow[d,"\sim"]\arrow[r,"d_C^p"]\arrow[d,"\sim"]
+	&(\Gr_F^{p+1}C)[p+1] \\
+	(\Gr_F^{p}A)[p+1]\arrow[d,"\sim"]\arrow[r,"{-\delta[p+1]}"]
+	&(\Gr_F^{p+1}B)[p+1]\arrow[d,"\sim"]\arrow[u,"\sim"] \\
+	K^p\arrow[r,"-f^{p+1}"]&K^{p+1}
+\end{tikzcd}\end{equation*}
+This is why we should take $f^{p+1}=-d^p$.
+
+
+
+
+
+\subsection*{4.1.1} The following proof of Artin's theorem was given to me
+by Sasha Beilinson. The $\eta$ notation, along with the
+construction of a retraction, is discussed after the proof.
+
+Below $D(X):=D^b_c(X,\ZZ/\ell^n),D(X)^{\leq0}:=\{\mathcal F\in D(X):\dim\supp H^i\mathcal F\leq-i\}$, i.e., this is $^pD(X)^{\leq0}$ where
+$p$ is the middle perverse $t$-structure.
+\begin{theorem*}[Artin]
+For an affine map $f:X\ra Y$ of schemes of finite type over a field $k$
+(with $\operatorname{char} k$ prime to $\ell$) the functor
+$f_*:D(X)\ra D(Y)$ is right $t$-exact.
+\end{theorem*}
+\begin{proof}
+Pick $\mathcal F\in D(X)^{\leq0}$; we want to show that
+$f_*\mathcal F\in D(Y)^{\leq0}$. Let $d(\mathcal F)$ be the dimension of
+support of $\mathcal F$. We use induction by $d(\mathcal F)$, so we assume
+that for every $f,k$ as in the theorem and $\mathcal G\in D(X)^{\leq0}$
+with $d(\mathcal G)<d(\mathcal F)$ one has $f_*\mathcal G\in D(Y)^{\leq0}$.
+
+(o) \emph{We can assume that $k$ is algebraically closed} (since $f_*$
+commutes with the base change to an algebraic closure of $k$).
+
+(i) \emph{It is enough to show that for every closed point $y\in Y$ the
+complex $(f_*\mathcal F)_y$ is connective} (i.e., acyclic in degrees $>0$):
+We need to check that for a point $\eta$ of $Y$ of dimension $\delta>0$
+the complex $(f_*\mathcal F)_\eta[-\delta]$ is connective. Let $Z\subset Y$
+be the closure of $\eta$. Replacing $Y$ by an étale neighborhood of $\eta$,
+choose a retraction $Y\ra Z$ (it exists since $k$ is perfect). Consider
+$Y$ as a $Z$-scheme and $f$ as a map of $Z$-schemes. Let $f^o:X^o\ra Y^o$
+be the map of the generic fibers (over $\eta=\Spec k_\eta\in Z$); this is
+an affine morphism of $k_\eta$-schemes.
+Since $\mathcal F|_{X^o}\in D(X^o)^{\leq-\delta}$ and
+$d(\mathcal F|_{X^o})\leq d(\mathcal F)-\delta$, one has
+$f^o_*(\mathcal F|_{X^o})[-\delta]\in D(Y^o)^{\leq0}$ by the induction
+assumption applied to $f^o$, $k_\eta$, and $\mathcal F|_{X^o}[-\delta]$.
+Now $(f_*\mathcal F)|_{Y^o}=f_*^o(\mathcal F|_{X^o})$, hence
+$(f_*\mathcal F)_\eta[-\delta]=f_*^o(\mathcal F|_{X^o})_\eta[-\delta]$
+is connective, q.e.d.
+
+(ii) \emph{The case when $f$ is an open embedding $j:X\hookrightarrow\overline X$ with $Q:=\overline X-X$ a Cartier divisor:}
+We can assume that $y$ as in (i) lies in $Q$ which is a principal divisor 
+$h=0$. Let $K$ be the field of fractions of the henselian local ring at
+$0\in\A^1_k$, $\tilde K$ its separable closure, $G:=\Gal(\tilde K/K)$, and
+$\Psi=\Psi_h:D(X)\ra D(Q)$ be the nearby cycles functor. One has 
+$(j_*\mathcal F)_y=R\Gamma(G,\Psi(\mathcal F)_y)$, so, since $G$ has
+cohomological dimension 1, it is enough to check that
+$\Psi(\mathcal F)_y[-1]$ is connective. By definition, $\Psi(\mathcal F)_y$
+is inductive limit of complexes
+$R\Gamma(U_{\tilde K},\mathcal F_{U_{\tilde K}})$ where $U/\overline X$
+runs the category of affine étale neighborhoods of $y$,
+$U_{\tilde K}:=U\times_{\A^1}\Spec\tilde K$, $\mathcal F_{U_{\tilde K}}$ is
+the pullback of $\mathcal F$ by the map $U_{\tilde K}\ra X$.
+Since $\mathcal F_{U_{\tilde K}}\in D(U_{\tilde K})^{\leq-1}$ and
+$D(\mathcal F_{U_{\tilde K}})<d(\mathcal F)$, each complex
+$R\Gamma(U_{\tilde K},\mathcal F_{U_{\tilde K}})[-1]$ is connective by the
+induction assumption applied to the affine map
+$U_{\tilde K}\ra\Spec\tilde K$, and so $\Psi(\mathcal F)_y[-1]$ is
+connective.
+
+(iii) \emph{The case when $f$ is the projection} $p:X=\A^1\times Y\ra Y$:
+For $y$ as in (i) consider the complementary embeddings 
+$i_y:X_y=\A^1_y\hookrightarrow X$, $j_y:X-X_y\hookrightarrow X$.
+Applying $p_*(-)_y$ to the exact triangle
+$j_{y!}j_y^*\mathcal F\ra\mathcal F\ra i_{y*}i_y^*\mathcal F$ we see that 
+it is enough to show that $(p_*i_{y*}i_y^*\mathcal F)_y$ and
+$(p_*j_{y!}j_y^*\mathcal F)_y$ are connective.
+
+$(p_*i_{y*}i_y^*\mathcal F)_y$ \emph{is connective:}
+One has $(p_*i_{y*}i_y^*\mathcal F)_y=R\Gamma(\A^1_k,i_y^*\mathcal F)$, so 
+it is enough to check that for every successive quotient of the (usual)
+canonical filtration on $i_y^*\mathcal F$ the complex
+$R\Gamma(\A^1_k,\Gr_ni_y^*\mathcal F)$ is connective.
+Since $\Gr_{>0}\mathcal F=0$ and $\Gr_0\mathcal F$ is supported at finitely 
+many points, we are reduced to the claim that for a (usual) sheaf
+$\mathcal G$ on $\A^1_k$ one has $H^{>1}(\A^1_k,\mathcal G)=0$ which is
+SGA 4 IX 5.7.
+
+$(p_*j_{y!}j_y^*\mathcal F)_y$ \emph{is connective:}
+One has $\mathcal G:=j_{y!}j_y^*\mathcal F\in D(X)^{\geq0}$.
+Consider the open embedding
+$j:X=(\PP^1-\{\infty\})\times Y\hookrightarrow\overline X:=\PP^1\times Y$.
+Let $\overline p:\overline X\ra Y$ be the projection, and
+$\overline{i}_y:\PP^1_k\ra\overline X$ be the embedding
+$\overline{i}_y(a)=(a,y)$. Then $p=\overline pj$,
+$(p_*\mathcal G)_y=(\overline p_*j_*\mathcal G)_y=R\Gamma(\PP^1_k,\overline{i}^*_yj_*\mathcal G)$ be proper base change, and so
+$(p_*\mathcal G)_y=(j_*\mathcal G)_{\overline{i}_y(\infty)}$
+since $i_y^*\mathcal G=0$. We are done by (ii) applied to $j$ and
+$\mathcal G$.
+
+(iv) \emph{The general case:} It is enough to write $f$ as a composition
+$f=f_nf_{n-1}\ldots f_0$ of affine maps $f_i$ such that our claim is true
+for each $f_i$ (indeed, the sheaves
+$\mathcal F_i:=(f_if_{i-1}\ldots f_0)_*\mathcal F$
+satisfy $d(\mathcal F_i)\leq d(\mathcal F)$, and so
+$\mathcal F_i=f_{i*}\mathcal F_{i-1}\in D^{\leq0}$ by induction by $i$).
+Now locally on $Y$ we can factor $f$ as composition
+$X\hookrightarrow\A^n\times Y\ra Y$ where $\hookrightarrow$ is a closed
+embedding and $\ra$ is the projection. Thus
+$f=f_nf_{n-1}\ldots f_0$ where $f_0$ is $\hookrightarrow$ and $f_i$ is the 
+projection $\A^{n-i+1}\times Y\ra\A^{n-i}\times Y$ for $i>0$. Our claim is
+true for $f_0$ since $f_{0*}$ is t-exact and for $f_i$, $i>0$, by (iii),
+and we are done.
+\end{proof}
+
+\subsubsection*{Constructing retractions}
+In the above, $\eta$ is used simultaneously for a point of the topological
+space of the scheme $Y$ and for a geometric point centered on this
+(scheme-theoretic) point.
+Let $\overline\eta$ be a geometric point of $Y$ centered on a point
+$\eta$ of $Y$ and $Z=\overline{\{\eta\}}$.
+As $k$ is perfect, the smooth locus of $Z$ is nonempty, so we may
+assume that $Z$ factors as $Z\xra h\A^\delta\ra\Spec k$ for $h$ étale.
+Suppose $Y=\Spec A$, $Z=\Spec B$ and form the pullback
+\begin{equation*}\begin{tikzcd}
+	A'\arrow[d]\arrow[r]\arrow[dr,"\ulcorner",phantom,near start]&k[x_1,\ldots,x_\delta]\arrow[d] \\
+	A\arrow[r]&B
+\end{tikzcd}\end{equation*}
+of rings; it is easy to find a retract $k[x_1,\ldots,x_\delta]\ra A'$.
+Let $Y'=\Spec A'$.
+\begin{equation*}\begin{tikzcd}
+	Z\arrow[r,hook]\arrow[d,"h"]&Y\arrow[d] \\
+	\A^\delta\arrow[r,hook]&Y'\arrow[l,bend right,dashed]
+\end{tikzcd}\end{equation*}
+The map $Z\times_{\A^\delta}Y\ra Y$ is étale and the base change by
+$Z\ra Y$ is given by $Z\times_{\A^\delta}Z\ra Z$, which admits the diagonal
+as section. As $h$ is étale, this diagonal is is an isomorphism onto a
+connected component of $Z\times_{\A^\delta}Z$ (SGA 1 I 9.3) and we identify
+$Z$ with this component. Let $U$ denote
+$Z\times_{\A^\delta}Y$ minus the closed subscheme $Z\times_{\A^\delta}Z-Z$;
+$U$ is an étale neighborhood of $\overline\eta$ and is equipped with a 
+retract $U\ra Z$, namely the one
+\begin{equation*}
+	Z\hookrightarrow U=Z\times_{\A^\delta}Y-(Z\times_{\A_\delta}Z-Z)
+	\ra Z
+\end{equation*}
+induced by the first projection $Z\times_{\A^\delta}Y\ra Z$.
+
+
+\subsection*{4.1.7}
+The \v Cech spectral sequence is also called the Cartan-Leray spectral
+sequence and its existence in an arbitrary topos is established in
+SGAA, Exp. V 3.3.
+
+\subsection*{4.1.8} The only thing worth mentioning is that the entire
+second paragraph is implicitly local to $U_i$. After all, on $U_i$ we have 
+that $\tau_{\leq-i}K$ is in $^pD^{\leq0}$, and to show that $K|{U_i}$ is in
+$^pD^{\leq0}$, it suffices to show that $H^q(\tau_{>-i}K)|{U_i}$ is 0 for 
+all $q$ (i.e. for all $q>-i$). Proceeding by descending induction on $q>-i$,
+the induction step consists of showing that $H^i(V\cap W_i,\mathcal L)=0$
+for all affine open $V$ implies that $\mathcal L=0$.
+
+\subsection*{4.2.5}
+As $f^*$ and $R\underline\Hom$ commute with reduction modulo $\ell^n$, it is
+enough to prove the statement in the category $D^b_{ctf}(X,\ZZ/\ell^n)$,
+and the equality $\Gamma H^0R\underline\Hom=H^0R\Gamma R\underline\Hom$
+holds in $D(X,\ZZ/\ell^n)$ because, as $R\underline\Hom$ is in
+$D_c^{\geq0}$, $H^0=\tau_{\leq0}\ker d_0$, and $\Gamma$ commutes with the
+formation of kernels. For (4.2.5.3), the retraction
+$\mathcal H\ra\ ^\circ f_*f^*\mathcal H$ is $^\circ f_*(\eta(f^*\mathcal H)$
+where $\eta$ is the unit $\id\ra\ ^\circ e_*e^*$:
+\begin{equation*}
+	\mathcal H\ra\ ^\circ f_*f^*\mathcal H
+	\ra\ ^\circ f_*\,^\circ e_* e^*f^*\mathcal H=\mathcal H,
+\end{equation*}
+and it remains to check that the first arrow is surjective.
+The references in the rest of this paragraph are to SGAA Exposé XV.
+By, (1.1), it suffices to show that
+$H^0(Y',\mathcal H)\ra H^0(X',f'^*\mathcal H)$ is bijective for each
+$Y'\ra Y$ étale. Replacing $Y$ by $Y'$, we know by (1.5) that $f$ is
+$(-1)$-acyclic; i.e. that
+$\alpha:H^0(Y,\mathcal H)\ra H^0(X,f^*\mathcal H)$ is injective, as $f$ is
+surjective. Moreover, $f$ is locally acyclic as it is smooth.
+Then, (1.16) shows that $\alpha$ is surjective iff for every geometric
+point $\overline y$ of $Y$ algebraic over a point $y$ of $Y$,
+$\overline\alpha:H^0(\overline y,\mathcal H_{\overline y})\ra H^0(X_{\overline y},f^*\mathcal H|X_{\overline y})$ is, so we may assume
+$Y$ is the spectrum of an algebraically closed field, in which case $X$ is
+connected, as the fibers of $f$ were assumed geometrically connected.
+Then $\alpha$ is seen to be bijective by another application of (1.1),
+which reduces the matter to the corresponding question for a constant sheaf.
+Note that the existence of a retraction discussed above is irrelevant to
+this argument.
+
+\subsection*{4.2.6}
+This paragraph, as written, is nonsense.
+The correct (equivalent) statements are
+
+(a)\quad $u^*$ identifies $\mathcal A$ with a subcategory of $\mathcal B$ closed under subquotients. \\
+\indent(b)\quad the unit of adjunction $\eta_!:\id_{\mathcal B}\ra u^*u_!$ is a natural epimorphism;\\
+\indent(b$'$)\quad the counit of adjunction $\vep_*:u^*u_*\ra\id_{\mathcal B}$ is a natural monomorphism.
+
+Note that statement (a) is different from $\mathcal A$ being épaisse, as an
+épaisse subcategory is also closed under extensions.
+A general remark: an adjunction $F:\mathcal C\leftrightarrows\mathcal D:G$ 
+with unit $\eta$ and counit $\vep$ is called idempotent if it can be
+factored as a reflection and a coreflection, in which case many things are
+true; see the nLab page `idempotent adjunction.' In particular, $\vep F$ and
+$\eta G$ are natural isomorphisms. In our situation, both $u_!\dashv u^*$
+and $u^*\dashv u_*$ are idempotent adjunctions as they are reflective and
+coreflective, respectively, so we get that $\vep_*u^*$ and $\eta_!u^*$ are
+natural isomorphisms. Of course, $u_!$ is right exact and $u_*$ is left exact. We prove (a)$\Leftrightarrow$(b$'$); dual arguments give
+(a)$\Leftrightarrow$(b).
+
+To prove (a)$\Rightarrow$(b$'$), let $B$ be an object of $\mathcal B$.
+In the commutative diagram with exact rows,
+\begin{equation*}\begin{tikzcd}
+	0\arrow[r]&\ker\vep_*(B)\arrow[r]&u^*u_*B\arrow[r]&B \\
+	0\arrow[r]&u^*u_*\ker\vep_*(B)\arrow[u,"\alpha"]\arrow[r]&u^*u_*u^*u_*B\arrow[u,"\beta"]\arrow[r,"\gamma"]
+	&u^*u_*B\arrow[u]
+\end{tikzcd}\end{equation*}
+$\ker\vep_*(B)$ is in the essential image of $\mathcal A$ as $\mathcal A$ is
+closed under subobjects. Therefore $\alpha$, $\beta$, and $\gamma$ are
+isomorphisms, which shows $u^*u_*\ker\vep_*(B)=0$ and therefore
+$\ker\vep_*(B)=0$.
+
+Now let's prove (b$'$)$\Rightarrow$(a). In the commutative diagram
+\begin{equation*}\begin{tikzcd}
+	0\arrow[r]&A\arrow[r]&u^*B\arrow[r]&C\arrow[r]&0 \\
+	0\arrow[r]&u^*u_*A\arrow[r]\arrow[u]
+	&u^*u_*u^*B\arrow[u]\arrow[r]&u^*u_*C\arrow[u]
+\end{tikzcd}\end{equation*}
+with exact rows, the middle arrow is an isomorphism and the outer arrows
+are monomorphisms. By the four-lemma, the first arrow is also an
+epimorphism, hence an isomorphism, identifying $A$ in the essential image of
+$\mathcal A$. Therefore this essential image is closed under subobjects and
+hence also under subquotients, as $u^*$ is exact.
+
+Identifying $\mathcal A$ with its essential image, a full subcategory of
+$\mathcal B$, every object $B$ of $\mathcal B$ has a largest subobject in
+$\mathcal A$, viz. $u^*u_*B$, and a largest quotient in $\mathcal A$, viz.
+$u^*u_!B$. To see this, simply observe that both candidates are indeed in
+$\mathcal A$, and if $A$ is in $\mathcal A$ and a subobject of $\mathcal B$,
+then $A\simeq u^*u_*A\hookrightarrow u^*u_*B\hookrightarrow B$, and dually.
+
+The example adjunction is backwards:
+$u_!(X\ra Y)=(Y\xra{\sim}Y)$ is the left adjoint,
+$u_*(X\ra Y)=(X\xra\sim X)$ is the right adjoint, since the diagrams
+\begin{equation*}\begin{tikzcd}
+	A\arrow[r]&B\arrow[d] && A\arrow[r,"\sim"]\arrow[d]&B \\
+	C\arrow[r,"\sim"]&D && C\arrow[r]&D
+\end{tikzcd}\end{equation*}
+have unique completions to commutative squares.
+Then $\vep_*:u^*u_*\ra\id_{\mathcal B}$ needn't be a natural monomorphism, 
+as a commutative diagram of the sort
+\begin{equation*}\begin{tikzcd}
+	A\arrow[d]\arrow[r]&B\arrow[d] \\
+	C\arrow[r,"\sim"]\arrow[d,"\id"]&C\arrow[d] \\
+	C\arrow[r]&D
+\end{tikzcd}\end{equation*}
+determines the morphism $A\ra C$ but isn't enough to determine the morphism
+$B\ra D$.
+
+\subsection*{4.2.6.1}
+The Jordan-H\"older theorem holds in any abelian category, and since $u^*$
+is exact and preserves simple objects, identifying $\mathcal A$ with its
+essential image, it follows that the components of any $A$ in $\mathcal A$
+also belong to $\mathcal A$. To show that $\mathcal A$ is closed under
+subobjects, and therefore subquotients, it will suffice to show that if
+$0\ra B\ra A\ra S\ra0$ with $A$ in $\mathcal A$, $B$ in $\mathcal B$, and
+$S$ simple, then $B$ is in $\mathcal A$. Since $S$ is simple, it is a
+component of $A$ and therefore in $\mathcal A$. The five-lemma, applied to
+the diagram with exact rows obtained by applying $\vep_*$
+\begin{equation*}\begin{tikzcd}
+	0\arrow[r]&B\arrow[r]&A\arrow[r]&S \\
+	0\arrow[r]&u^*u_*B\arrow[r]\arrow[u]
+	&u^*u_*A\arrow[u,"\sim"]\arrow[r]&u^*u_*S\arrow[u,"\sim"],
+\end{tikzcd}\end{equation*}
+shows that indeed $u^*u_*B\xra\sim B$, and $B$ is in $\mathcal A$.
+
+\subsection*{4.2.6.2}
+Notes on the proof are below; the proof depends on the middle perversity
+insofar as the commutativity of intermediate extension with $f^*[d]$ relies
+on the relative dimension coinciding with the change in perversity
+between an irreducible component and its inverse image by $f$.
+The proof doesn't work for $\ZZ_\ell$-sheaves as it relies on 4.3.1 which
+fails for $\ZZ_\ell$-cohomology.
+
+\subsubsection*{Commutation of $f^*[d]$ with intermediate extension}
+We wish to show that $f^*[d]j_{*!}=j_{*!}f^*[d]$.
+The transitivity of $j_{*!}$ for $j$ the inclusion of a locally closed
+subset allows us to factorize the inclusion of $V$ as the open immersion
+$V\hookrightarrow\overline V$ followed by the closed immersion
+$\overline V\hookrightarrow Y$; the latter posing no problem as in this case
+lower shriek, lower star, and intermediate extension all coincide and 
+commute with $f^*[d]$ by smooth base change. Reduced to the case
+of open immersion $Y=\overline V$, let $m$ be minimal such that $F=Y-V$ is
+of dimension $\leq m$, and put $t:=p(2m)$. We can find a stratification of
+$F$ into strata satisfying 2.2.10 (a) so that for
+$A$ in $D_c^b(V,R/m^n)$, the $H^ij_*A$ are locally constant on each stratum for $i\geq t$. Let $U_n$ (resp. $F_n$) denote the
+union of strata $S$ in this stratification of $F$ satisfying $p(S)\leq n$
+(resp. $p(S)\geq n$).
+For such an $S$, $\overline S-S$ is a union of strata of dimension strictly 
+less than $\dim S$. Therefore each $S$ in the stratification of
+$U_n-U_{n-1}$ is closed in $U_n$. By transitivity of the intermediate
+extension, it will suffice to extend $A$ from $V$ to $V\cup U_t$,
+as the complement of the latter in $Y$ is $F_{t+1}$, closed;
+$V\cup U_t-V=U_t$ is also closed in $V\cup U_t$, and nonempty.
+$U_t$ is a disjoint union of equidimensional strata smooth over $\overline k$
+(hence by the note to 2.2.10, the étale topology sees them as smooth),
+so that the $H^ij_*A$ are locally constant on $U_t$ for $i\geq t$.
+We have reduced to the setting of 2.2.4: $Y=\overline V$, $F=Y-V$
+smooth of dimension $m$, $H^ij_*A$ are locally constant on $F$ for
+$i\geq t:=p(2m)$, and $j_{!*}A=\tau_{\leq t-1}^Fj_*A$.
+As $f$ is smooth of relative dimension $d$, $f^{-1}F$ is also 
+equidimensional, now of dimension $m+d$. As pullbacks of locally constant
+sheaves, the $H^ij_*f^*A$ are still locally constant on $f^{-1}F$.
+If $t'=p(2(d+m))=-d-m$, then shifting by $d$ and applying $\tau^F_{<t'}$ is
+the same as applying $\tau^F_{<t}$ and then shifting by $d$. It only remains
+to verify that $f^*$ commutes with $\tau^F_{\leq0}$, but this is easy:
+letting $i:F\hookrightarrow Y$ be the closed immersion,
+$(f^*\tau^F_{\leq 0}A,f^*A,f^*i_*\tau_{>0}i^*A)$ defines
+$f^*\tau^F_{\leq0}A$, but $f^*i_*\tau_{>0}i^*A=i_*\tau_{>0}i^*f^*A$
+(notating $i$ as usual for the base extension as well), hence also
+defines $\tau_{\leq0}^Ff^*A$.
+
+\subsubsection*{Irreducibility of the inverse image of an irreducible local
+system on an irreducible scheme by a smooth morphism with geometrically
+connected fibers} SGA 1, Exp. IX, 5.6 shows that if $f:S'\ra S$ is
+universally submersive (e.g. faithfully flat and quasi-compact) with
+geometrically connected fibers, and $S$ is connected, then $S'$ is
+connected, and, choosing a geometric point
+$s'$ of $S'$ and letting $s$ be the image of $s'$ in $S$, the homomorphism
+$\pi_1(S',s')\ra\pi_1(S,s)$ is surjective. This immediately implies that if
+$\mathscr L$ is an irreducible local system on $S$, $f^*\mathscr L$ is an
+irreducible local system on $S'$. Of course, smooth with geometrically
+connected fibers means smooth with geometrically irreducible fibers as these
+fibers are themselves smooth (SGA 1, Exp II, 2.1) and therefore regular.
+It is a topological fact
+(\href{https://stacks.math.columbia.edu/tag/004Z}{Stacks \texttt{004Z}})
+that if $Y$ is irreducible and $f:X\ra Y$ is open with irreducible fibers,
+then $X$ is irreducible. This verifies that the if $V$ is irreducible
+and $f$ is smooth with connected fibers, the inverse image on $f^{-1}V$
+of an irreducible local system on $V$ is again irreducible.
+
+\subsection*{4.2.7}
+Let $X',X,Y$ be of finite type over a field $k$ and $f:X'\ra X$.
+We wish to show that $\boxtimes$ commutes with direct image; i.e. that the
+below arrow is an isomorphism.
+\begin{equation*}
+	f_*K\boxtimes L\ra (f\times\id)_*(K\boxtimes L)
+\end{equation*}
+We will compute locally about a geometric point
+$\xi:=(x,y)\ra X\times Y$ ($x,y$ geometric points of $X,Y$ respectively), 
+so that all the objects in $X_x\leftarrow (X\times Y)_\xi\rightarrow Y_y$
+are spectra of strictly henselian local rings.
+Let $t\ra X_x$ be a geometric point centered on the generic point of an
+irreducible component of $X_x$.
+\emph{Th. finitude} 2.16 gives that $Y\ra\Spec k$ is universally locally
+acyclic, so for any $M$ in $D^+(X\times Y,\ZZ/\ell)$,
+\begin{equation*}
+	\Gamma((X\times Y)_\xi,M)=\Gamma((X\times Y)_{\xi,t},M),
+\end{equation*}
+where $(X\times Y)_{\xi,t}$ denotes the geometric fiber in $t$ of
+$(X\times Y)_\xi\ra Y_y$. To pass from $X_x$ to $(X_x)_t=t$ we can first
+pass to the limit of Zariski neighborhoods of $t$, which is the spectrum of 
+an artinian local ring, then kill nilpotents and extend scalars. As lower
+star commutes with smooth base change and the étale topology doesn't see
+nilpotents, we may therefore assume 
+$X=t$, the spectrum of a separably closed extension $k(t)$ of $k$, and 
+$Y=Y_y$.
+As $X_x\ra\Spec\overline k\leftarrow Y_y$, $\Spec\overline k\times_k Y_y$ is 
+the disjoint union of copies of $Y_y$, and $\xi$ picks one of them; i.e.
+$(\Spec\overline k\times_k Y_y)_\xi=Y_y$. So we may assume
+$Y_y\ra\overline k$, and write
+\begin{equation*}
+	\Gamma((X\times Y)_{\xi,t},M)=\Gamma(Y_y\times_{\overline k}k',M)
+	=\Gamma(Y_y,M),
+\end{equation*}
+where the second equality is Arcata V 3.3.
+We are reduced to $k=\overline k$, $X=\overline k$, $Y=Y_y$, in which case
+the formula is
+\begin{equation*}
+	\Gamma(X',K)\otimes\Gamma(Y,L)\ra\Gamma(X'\times Y,K\boxtimes L),
+\end{equation*}
+which is obtained from the Künneth formula of \emph{Th. finitude} 1.11 by
+smooth base change and passage to the limit along $Y_y\ra Y$.
+
+\subsection*{4.2.8} It would appear that $\boxtimes$ is only right t-exact
+in $\ZZ_\ell$-cohomology, due to the possible appearance of $\Tor$.
+
+\subsection*{4.3.1} This is a theorem in $\QQ_\ell$-cohomology and not in
+$\ZZ_\ell$-cohomology because the latter has few irreducible objects; in
+particular, the category of lisse $\ZZ_\ell$-sheaves is not artinian;
+the irreducible lisse $\ZZ_\ell$ sheaves are torsion….
+
+\subsection*{4.3.3} `la monodromie de $\mathcal L$ ne change pas par
+réstriction à $U$' $\rightsquigarrow$ SGA 1 Exp. 1 10.3.
+
+\subsection*{4.3.4} The dévissage of the perverse sheaf $\mathcal F$ should
+occur over an irreducible affine smooth open so that we can apply the
+results of 4.1.10--4.1.12. The sequence 4.1.10.1 has outer terms supported
+on $X-U$ and so reduces the problem for $\mathcal F$ to that for
+$j_!j^*\mathcal F=j_!\mathcal L[\dim U]$; 4.1.12.3 then reduces
+the problem for $j_!\mathcal L[\dim U]$ to that for
+$j_{!*}\mathcal L[\dim U]$. This allows us to proceed by induction on the
+length of $\mathcal L$. Let $\mathcal L'\subset\mathcal L$ be a simple
+lisse subsheaf. It suffices to remark that the kernel of
+$j_{*!}\mathcal L'[\dim U]\ra j_{*!}\mathcal L[\dim U]$ is supported on
+$X-U$, and the restriction of the cokernel to $U$ has strictly lesser 
+length than that of $\mathcal L'$.
+
+\subsection*{4.4 \& Appendix A: t-exactness of nearby \& vanishing cycles}
+To understand the argument in Appendix A, \cite[\S3.1]{Illusie} is very
+helpful.
+In Appendix A, the calculation of $R\Gamma$ proceeds along identical lines
+to \cite[7.11.3 \& 10.7]{Modular}.
+
+There is a discrepancy between (4.4.2) the the proposition of Appendix A;
+namely (4.4.2) says that $\Psi_{\overline\eta}:=R\Psi_{\overline\eta}$ is
+right t-exact, while the appendix claims that the same functor has perverse
+amplitude $-1$; i.e. that $\Psi_{\overline\eta}[-1]$ is t-exact.
+This discrepancy is due to a difference of t-structures; both are relative
+to the middle perversity function $p_{1/2}$, but the dimension function
+in (4.4.2) is the naïve one, while the dimension function in the appendix
+is the rectified dimension function introduced by Artin in
+\cite[XIV 2.2]{SGAA}, which is also the one described in Remark (i) to
+Appendix A. The point is that if $S$ admits structure morphism to a field
+$k$ and $x\in X$ maps to the generic point of $S$,
+\begin{equation*}
+	\operatorname{tr. deg.}(k(x)/k)=\operatorname{tr. deg.}(k(x)/k(\eta))+1;
+\end{equation*}
+in general if $x$ has image $s$ in $S$, Artin rectifies the naïve dimension
+function by adding $\operatorname{tr. deg.}(k(x)/k(y))$ so that
+\begin{equation*}
+	\delta(x)=\dim\overline{\{y\}}+\operatorname{tr. deg.}(k(x)/k(y)).
+\end{equation*}
+This has the effect of shifting the naïve t-structure on
+$X_{\overline\eta}$ by 1 to the left, so that if $\Psi_{\overline\eta}$ is
+t-exact with respect to the naïve t-structure (4.4.2),
+$\Psi_{\overline\eta}[-1]$ is t-exact with respect to the rectified
+t-structure. The point is that we would like to think of $S$ as the
+henselization of a curve at a regular point; if $S$ were instead the curve
+instead of its localization and $X\ra S$ were still of finite type, any
+point $x$ of $X$ lying over the generic point of $S$ would have strictly
+positive dimension ($\dim\overline{\{x\}}>0$), and indeed if $S$ were a
+curve of finite type over a field $k$, $\dim\overline{\{x\}}$ would be
+given by precisely $\operatorname{tr. deg.}(k(x)/k)$.
+
+On the matter of invariants of a $\Lambda[G]$-module when $G$ is a finite
+group of order invertible in $\Lambda$: the functor `invariants under $G$'
+$\Hom_{\Lambda[G]}(\Lambda,-)$
+is exact if $\Lambda$ is projective as $\Lambda[G]$-module. The canonical
+surjection $\Lambda[G]\twoheadrightarrow\Lambda$ is split by
+\begin{equation*}
+	1\mapsto\frac1{|G|}\sum_{g\in G}g=:\omega,
+\end{equation*}
+which recognizes $\Lambda$ as projective $\Lambda[G]$-module.
+Therefore when $Q$ is a profinite group of order prime to $\ell$ acting on
+a finite $\Lambda$-module ($\Lambda\supset\ZZ/\ell^n$), the functor
+`invariants under $Q$' is exact.
+This argument can be applied stalkwise, and gives more.
+Namely, if $M$ is a $\Lambda[G]$-module, the map
+$M\twoheadrightarrow M_G$ factors as
+\begin{equation*}
+	M\xra{\omega}M^G\hookrightarrow M_G.
+\end{equation*}
+This shows that the map $M^G\hookrightarrow M_G$ is an isomorphism; the
+inverse is given by the map which to a class $[m]\in M_G$ associates
+$\omega\, m$.
+
+There is the matter of how to define the nearby cycles:
+in \cite[XIII 2.1]{SGA7} the functor $R\Psi$ is defined in a somewhat 
+different way from the functor $\Psi$ of \cite[I 2.2]{SGA7}.
+Let $(S,\eta,s)$ be a henselian trait and let
+$\tilde\eta,\overline\eta$ denote the spectra of
+respectively the maximal unramified extension of $k(\eta)$ and the
+separable closure of $\eta$.
+Let $\tilde S$ denote the normalization of $S$ in $k(\tilde\eta)$; and
+$\tilde s$ its closed point; $\tilde s$ is the spectrum of the separable
+closure of $k(s)$ and $\tilde S$ is the strict henselization of $S$ at
+$\tilde s$.
+Let $\overline S$ denote the normalization of $S$ in $k(\overline\eta)$:
+$\overline S$ is the spectrum of a valuation ring with value group $\QQ$,
+generic point $\overline\eta$, and closed point $\overline s$ with residue 
+field a purely inseparable extension of $k(\tilde s)$.
+We have a commutative diagram
+\begin{equation*}\begin{tikzcd}
+	\overline s\arrow[d]\arrow[r,"\overline i"]&
+	\overline S\arrow[d]&\overline\eta\arrow[l,"\overline j"']\arrow[d,"\rho"] \\
+	\tilde s\arrow[d]\arrow[r,"\tilde i"]&
+	\tilde S\arrow[d]&\tilde\eta\arrow[l,"\tilde j"']\arrow[d] \\
+	s\arrow[r,"i"]& S&\eta\arrow[l,"j"'].
+\end{tikzcd}\end{equation*}
+Let $f:X\ra S$ and $G:=\Gal(\overline\eta/\eta)$.
+Exposé 1 (and Appendix A) suppose $S$ is strictly henselian to begin with, 
+in which case the tilde is superfluous, and define
+\begin{equation*}
+	\psi(K):=\tilde i^*Rj_*\rho_*\rho^*K,
+	\qquad\qquad K\in D_c^b(X_\eta,\Lambda).
+\end{equation*}
+On the other hand, in Exposé XIII, Deligne defines for (a not necessarily
+strictly henselian $S$)
+\begin{equation*}
+	R\Psi(K):=\overline i^*R\overline j_*K_{\overline\eta},
+	\qquad\qquad K\in D^+(X_\eta,\Lambda).
+\end{equation*}
+Why do these functors coincide when $S$ is strictly henselian? Henceforth
+assume $S$ strictly henselian and suppress the tilde decorations.
+Let $\rho_i:\eta_i\ra\eta$ be a finite Galois extension with
+$G_i:=\Gal(\eta_i/\eta)$ and let $S_i$ be the normalization of
+$S$ in $k(\eta_i)$ with $i_i$, $j_i$ as above.
+Proving $\psi(K)=R\Psi(K)$ and the isomorphism
+\begin{equation*}
+	K\xra\sim R\Gamma(G,\rho_*\rho^*K)\qquad\qquad K\in D^b_c(X_\eta,\Lambda)
+\end{equation*}
+of Appendix A follow from the same argument.
+Both follow from passage to the limit from the statements
+\begin{align*}
+	i^*Rj_*\rho_{i*}\rho_i^*K&\simeq i_i^*Rj_{i*}\rho_i^*K \\
+	K&\xra\sim R\Gamma(G_i,\rho_{i*}\rho^*_iK)\qquad\qquad K\in D^b_c(X_\eta,\Lambda).
+\end{align*}
+These isomorphisms can be proved after a base change $\eta_i\ra\eta$
+after which they are literally Shapiro's lemma
+(compare \cite[XIII \S1]{SGA7}). In conclusion,
+\begin{equation*}
+	\psi(K)=i^*Rj_*\rho_*\rho^*K
+	=\overline i^*R\overline j_*\rho^*K=R\Psi(K).
+\end{equation*}
+(In both cases the passage to the limit is justified in light of the
+isomorphisms
+\begin{equation*}
+	H^q(G,A)\xra\sim H^q(G/U,A^U)
+\end{equation*}
+as $U$ runs over open subgroups of $G$ and $A$ is a discrete $G$-module
+(c.f. Serre, \emph{Cohomologie Galoisienne} \S2.2).)
+
+\subsubsection*{Appendix A (i)}
+In light of the above, the identity $i^*Rj_*K=R\Gamma(G,R\Psi(K))$ is 
+definitional \cite[3.1.3]{Illusie}. The spectral sequence associated to the
+perverse canonical filtration is the spectral sequence associated to
+the filtration of complexes given by the $^p\tau_{\leq}$; see
+\cite[\S3.1.5]{BBD} for the definition of the filtration and
+\href{https://stacks.math.columbia.edu/tag/012N}{\texttt{012N}}
+for the formulation of the spectral sequence arising from a filtration of
+complexes (see also
+\href{https://stacks.math.columbia.edu/tag/015X}{\texttt{015X}}). 
+Unfortunately when writing down the spectral sequence in
+Appendix A there is a collision of notation, as $a,b$ are
+used as indexes in the spectral sequence while $R\Psi(\mathcal F)$ still 
+has perverse amplitude $[a,b]$.
+The perverse amplitude of $i^*j_*\mathcal F$ is contained in $[-1,0]$ by
+\cite[4.1.10 (ii)]{BBD}. The compatibility of $R\Psi$ with change of trait
+is \emph{Th. finitude} (3.7).
+
+\subsubsection*{Appendix A (ii)}
+$Y$ must denote the closed fiber $X_s$. When $\mathcal G$ is supported on
+the closed fiber, $R\Psi_\eta(\mathcal G)=0$ and the claim is clear.
+Therefore we assume the support of $\mathcal G$ has nonempty intersection 
+with $X_\eta$ and $\mathcal G$ is a simple perverse sheaf.
+\cite[4.3.1 \& 4.3.2]{BBD} gives $\mathcal G=j_{!*}j^*\mathcal G$, and
+\cite[4.1.12]{BBD} allows us to write the distinguished triangle
+\begin{equation*}
+	i^*\mathcal G\ra R\Psi(\mathcal G_\eta)\ra R\Phi(\mathcal G)\ra
+\end{equation*}
+\leqnomode
+\begin{equation*}\tag*{as}
+	(^pH^{-1}i^*j_*\mathcal F)[1]\ra R\Psi(\mathcal F)\ra R\Phi(\mathcal G)\ra.
+\end{equation*}
+\reqnomode
+This shows that $R\Psi(\mathcal G)[-1]$ is a perverse sheaf, and using
+(i) and (*) obtains
+\begin{equation*}
+	R\Psi(\mathcal G)[-1]
+	=\ ^pH^{-1}R\Psi(\mathcal F)/(^pH^{-1}R\Psi(\mathcal F))^G.
+\end{equation*}
+
+
+
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\begin{thebibliography}{SGA5}
+	\bibitem[BBD]{BBD} \textit{Faisceaux Pervers}
+	par Beilinson, Bernstein, Deligne (\& Gabber!)
+	\bibitem[CD]{CD} \textit{Catégories Dérivées (Etat 0)} par Verdier,
+	dans SGA $4\frac12$
+	\bibitem[D]{Modular} \emph{Les constantes des équations fonctionnelles des fonctions $L$} par Deligne, dans LNM \textbf{349}
+	\bibitem[I]{Illusie} \emph{Autour du théorème de monodromie locale} par Illusie, dans Astérisque \textbf{223}
+	\bibitem[I2]{Cotangent} \emph{Complexe Cotangent et déformations I} par Illusie, dans LNM \textbf{239}
+	\bibitem[SGA5]{SGA5} SGA 5, dirigé par Grothendieck
+\end{thebibliography}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+\end{document}

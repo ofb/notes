@@ -1,0 +1,2609 @@
+\documentclass[deligne.tex]{subfiles}
+
+\begin{document}
+As a warm-up, let's recall some Galois theory from SGA 1 in connection with
+the beginning of \emph{Sommes trig.} All references in this paragraph are to
+SGA 1 Exposé V. The Lang isogeny for $\GG_{a,\FF_q}$ is written
+\begin{equation*}
+	0\lra\FF_q\lra\GG_a\xra{x^q-x}\GG_a\lra0
+\end{equation*}
+and is a revêtement étale called the Artin-Schreier revêtement.
+The sheaf of sections defines an $\FF_q$-torsor.
+The Galois group of the Artin-Schreier revêtement is therefore $\FF_q$, as
+a connected torsor under a finite group $G$ has Galois (= automorphism) group
+$G$. Just as in the theory of fields, the choice of words `Galois group' in
+place of `automorphism group' is reserved for Galois objects in the Galois
+category. Remark 5.11 characterizes the Galois objects in a Galois category
+$\mathscr C$ equipped with fiber functor $F$ as the connected torsors $X$
+under a finite group $G$ (torsor = principal homogeneous space).
+The implications go as follows: an object $X$ is galoisian if it is 
+connected, not isomorphic to $\emptyset_{\mathscr C}$, the initial object of 
+$\mathscr C$ ($\Leftrightarrow F(X)\ne\emptyset$), and $\Aut X$ is transitive 
+($\Leftrightarrow$ simply transitive) (N$^\circ$\,4, f) \& 5.4).
+$X$ is a torsor under the group opposite $\Aut X$ iff $F(X)$ is a torsor
+under the group opposite $\Aut X$; i.e. $\Aut X$ acts simply transitively.
+Therefore $X$ is a connected torsor under the group opposite $\Aut X$.
+On the other hand, suppose $X$ is a torsor under $G$, i.e. $G$ acts on $X$ 
+on the right and on $F(X)$ simply transitively, yielding a natural injection
+from $G$ into the group opposite $\Aut X$.
+As $G$ acts simply transitively, $\Aut X$ acts transitively.
+If moreover $X$ is connected, then N$^\circ$\,4 f) gives that
+$\Aut X$ acts transitively iff it acts simply transitively, showing that the
+injection above is actually an isomorphism between $G$ and the group opposite
+$\Aut X$. This is justification for the fact
+`In a Galois category, a connected torsor under a finite group $G$ is a
+Galois object with Galois group $G$.'
+
+\subsection*{1.1.1.5} En vue de l'additivité de $t$ (0.9), l'énoncé
+$t_{Rf_*\overline\QQ_{\ell,X}}(\infty)=1-q$
+résulte de la pureté relative pour
+\begin{tikzcd}[column sep=small]
+	\A^1\arrow[r,hook,"j"]&\PP^1&\infty\arrow[l,hook']
+\end{tikzcd}
+(Arcata V 3.4) en ce que
+\begin{equation*}
+	\begin{cases}
+		j_*\QQ_\ell=\QQ_\ell \\
+		R^1j_*\QQ_\ell=\QQ_\ell(-1)_\infty \\
+		R^qj_*\QQ_\ell=0 \text{ pour } q\geq2.
+	\end{cases}
+\end{equation*}
+
+\subsection*{1.1.3} The action of Frobenius on the fiber is clearer
+in \emph{Sommes trig.} 1.5, 1.6 since Deligne's notation for Frobenius is 
+clear and consistent.
+
+The rigidification (1.1.3.1) is a consequence of the fact that there is a
+distinguished element of $L^{-1}(1)$, namely 1.
+
+The trivialization (1.1.3.2) depends on the construction of $\mathscr L_\chi$
+from a torsor defined by an extension. In the setting of \emph{Sommes trig.}
+1.3, the $A$-torsor $T$ is defined as the sheaf of local sections of an 
+extension $\pi$. As $H$ represents $m^*T$ in the commutative diagram with
+exact rows ($\ulcorner$ = cartesian and $m$ denotes the group law)
+\begin{equation*}\begin{tikzcd}
+	0\arrow[r]&A\times A\arrow[r]\arrow[d,"m"]&G'\times G'\arrow[r,"\pi\times\pi"]\arrow[d]&G\times G\arrow[r]\arrow[d,equals]&0 \\
+	0\arrow[r]&A\arrow[r]\arrow[d,equals]&H\arrow[r]\arrow[d]&G\times G\arrow[r]\arrow[d,"m"]&0 \\
+	0\arrow[r]&A\arrow[r]&G'\arrow[r,"\pi"]&G\arrow[r]\arrow[ul,phantom,"\ulcorner",near end]&0,
+\end{tikzcd}\end{equation*}
+in the language of torsors there is a canonical isomorphism
+\begin{equation*}
+	m(T\times T)=m^*T.
+\end{equation*}
+The structure of group on $G$ provides commutative diagrams
+\begin{ceqn}\begin{equation*}\begin{tikzcd}
+	G&&G \\
+	G\times *\arrow[u,"\sim"]\arrow[r,"\id\times1"]\arrow[dr,"\sim"']&G\times G\arrow[ul,"\pr_1"']\arrow[ur,"\pr_2"]\arrow[d,"m"]&*\times G\arrow[u,"\sim"']\arrow[l,"1\times\id"']\arrow[dl,"\sim"] \\
+	&G
+\end{tikzcd}\qquad
+\begin{tikzcd}[column sep=small]
+	\pi_1(G,1)&&\pi_1(G,1) \\
+	\pi_1(G,1)\arrow[u,"\sim"]\arrow[r]\arrow[dr,"\sim"']&\pi_1(G\times G,(1,1))\arrow[ul,"\pr_1"']\arrow[ur,"\pr_2"]\arrow[d,"m"]&\pi_1(G,1)\arrow[u,"\sim"']\arrow[l]\arrow[dl,"\sim"] \\
+	&\pi_1(G,1)
+\end{tikzcd}
+\end{equation*}\end{ceqn}
+The diagram
+\begin{equation*}\begin{tikzcd}[column sep=large,row sep=0]
+	\pi_1(G\times G,(1,1))\arrow[r,"\pr_1\times\pr_2"]&\pi_1(G,1)\times\pi_1(G,1)\arrow[r,"m"]&\pi_1(G,1) \\ &\scalebox{2}{\rotatebox[origin=c]{-180}{$\circlearrowright$}} &\scalebox{2}{\rotatebox[origin=c]{-180}{$\circlearrowright$}} \\
+	&A\times A&A
+\end{tikzcd}\end{equation*}
+gives the action of $\pi_1(G\times G,(1,1)$ on the torsors $T\times T$ and
+$m(T\times T)=m^*T$. Pushing by $\chi^{-1}$ gives a representation of
+$\pi_1(G\times G,(1,1))$ on $\overline\QQ_\ell$ which is induced by
+\begin{equation*}
+	(g_1,g_2)\mapsto\chi^{-1}(g_1)\otimes\chi^{-1}(g_2),
+\end{equation*}
+demonstrating explicitly an isomorphism
+\begin{equation*}
+	m^*\mathscr L_\chi\simeq\pr_1^*\mathscr L_\chi\otimes\pr_2^*\mathscr L
+\end{equation*}
+and hence a trivialization of $\mathscr D_2(\mathscr L_\chi)$ compatible
+with the identification of the fibers of $\mathscr D_2(\mathscr L_\chi)$
+and $\overline\QQ_\ell$ at $(1,1)$.
+
+(1.1.3.3) = \emph{Sommes trig.} 1.7.7
+(see \hyperref[sommes:1.6]{note to \emph{Sommes trig.} 1.6})
+
+(1.1.3.4) = \emph{Sommes trig.} 2.7*.
+
+The remark (1.1.3.7) can be summed up by the morphism of torsors induced by
+the commutative diagram below, the projective limit of which defines
+$\varprojlim_{I(k)}\mathbf{\mu}_N(k)$:
+\begin{equation*}\begin{tikzcd}
+	1\arrow[r]&\mu_{NM}(k)\arrow[r]\arrow[d,"{[M]}"]&\GG_{m,k}\arrow[r,"{[NM]}"]\arrow[d,"{[M]}"]&\GG_{m,k}\arrow[r]\arrow[d,equals]&1 \\
+	1\arrow[r]&\mu_{N}(k)\arrow[r]&\GG_{m,k}\arrow[r,"{[N]}"]&\GG_{m,k}\arrow[r]&1.
+\end{tikzcd}\end{equation*}
+As $\FF_q^\times\simeq\ZZ/(q-1)$, $I(\FF_q)=\{n\in\NN_{>0}:n|q-1\}$.
+
+\subsection*{1.2.1}
+The pairing $\langle\enskip,\enskip\rangle:E\times_SE'\ra\GG_{a,k}$ should
+rather land in $\GG_{a,S}$. See \emph{Sommes trig.} 1.7 c) to make sense of
+what this does to $\mathscr L_{\psi}$.
+
+To be maximally pedantic, if $q=p^n$, with the 
+notation of (1.1.3.3) we should write $\psi_n$ where $\psi_q$ appears in
+the definition of $\hat t$.
+
+\subsection*{1.2.2} Locally $S=\Spec A$,
+$E=\Spec A[t_1,\ldots,t_r]$,
+$E\times_S E=\Spec A[t_1,\ldots,t_r,t_1',\ldots,t_r']$, and the addition
+$E\times_S E\ra E$ is given by $t_i\mapsto t_i+t_i'$ while $[-1]$ is given
+by $t_i\mapsto-t_i$. More to the point, writing
+$\mathscr E\simeq\textbf{Spec}\operatorname{Sym}(\mathscr E)$ with
+$\operatorname{Sym}(\mathscr E)$ the symmetric algebra on a locally free
+sheaf $\mathscr E$, then addition of sections gives addition on $E$, and
+vice versa, as the sheaf of local sections of $E$ coincides with
+$\mathscr E^\vee$.
+
+(1.2.2.1)
+Identifying $E$ with $E''$
+via $e\mapsto\langle e,\enskip\rangle=-a(e)$, the diagram becomes the base
+change by $\pi':E'\ra S$ of addition on $E''$,
+\begin{equation*}\begin{tikzcd}
+	&E''\times_SE''\arrow[rr,"{(e_1'',e_2'')\mapsto e_1''+e_2''}"]\arrow[dl,"\pr"]\arrow[dr,"\pr"]&&E'' \\
+	E''\arrow[dr]&&E''\arrow[dl] \\
+	&S
+\end{tikzcd}\end{equation*}
+and the isomorphism
+\begin{equation*}
+	\pr_{12}^*\mathscr L(\langle\enskip,\enskip\rangle)\otimes
+	\pr_{23}^*\mathscr L(\langle\enskip,\enskip\rangle)
+	=\alpha^*\mathscr L(\langle\enskip,\enskip\rangle)
+\end{equation*}
+becomes (1.1.3.2) on the nose.
+\begin{align*}
+	\mathscr F'\circ\mathscr F(K)
+	&=R\pr_!''(\pr'^*(R\pr_!'(\pr^*(K)\otimes\mathscr L(\langle\enskip,\enskip\rangle)))\otimes\mathscr L(\langle\enskip,\enskip\rangle))[2r] \\
+	&\simeq R(\pr''\circ\pr_{23})_!((\pr\circ\pr_{13})^*(K)\otimes\pr_{13}^*\mathscr L(\langle\enskip,\enskip\rangle)\otimes\pr_{23}^*\mathscr L(\langle\enskip,\enskip\rangle))[2r] \\
+	&\simeq R(\pr''\circ\pr_{23})_!((\pr\circ\pr_{13})^*(K)\otimes\alpha^* \mathscr L(\langle\enskip,\enskip\rangle))[2r] \\
+	&\simeq R(\pr''\circ\pr_{13})_!((\pr\circ\pr_{13})^*(K)\otimes\alpha^* \mathscr L(\langle\enskip,\enskip\rangle))[2r] \\
+	&\simeq R\pr''_!(\pr^*K\otimes R\pr_{13!}\alpha^* \mathscr L(\langle\enskip,\enskip\rangle))[2r] \\
+	&\simeq R\pr''_!(\pr^*K\otimes \beta^*R\pr''_! \mathscr L(\langle\enskip,\enskip\rangle))[2r].
+\end{align*}
+In (1.2.2.2), the first equation of the proof is missing a $\pi'^*$; it
+should read
+\begin{equation*}
+	\mathscr F(\pi^*L[r])=\pi'^*L\otimes R\pr_!'\mathscr L(\langle\enskip,\enskip\rangle)[2r].
+\end{equation*}
+The rest of the proof of (1.2.2.2) is straightforward. It allows us to write
+\begin{align*}
+	\mathscr F'\circ\mathscr F(K)
+	&\simeq R\pr''_!(\pr^*K\otimes \beta^*\mathscr F'(\overline\QQ_{\ell,E'}[r])) \\
+	&\simeq R\pr''_!(\pr^*K\otimes \beta^*\sigma''_*\overline\QQ_{\ell,S}(-r)) \\
+	&\simeq a_*K(-r),
+\end{align*}
+as $\beta^*\sigma_*''$ is supported precisely on the locus where $e''=a(e)$,
+and after base change along $E\times_{a,\id}E''\ra E\times_SE''$, which
+commutes with $\pr_!''$, we find $R\pr_!''\pr^*K=a_*$.
+\begin{equation*}\begin{tikzcd}
+	&E\times_{a,\id}E''\arrow[dl]\arrow[dr]\arrow[rr]&&E\times_SE''\arrow[dl]\arrow[dr] \\
+	E\arrow[dr,"a"']&&E''\arrow[dl,"\id"]\arrow[dr,"\pi''"']&&E\arrow[dl,"\pi"] \\
+	&E''&&S
+\end{tikzcd}\end{equation*}
+
+\begin{remark}\label{laumon:1.2.2.1rmk}
+	Identifying $E\simeq (E^\vee)^\vee$ in the canonical way,
+	the involutivity can be written
+	\begin{equation*}
+		\mathscr F'\circ\mathscr F(K)\simeq [-1]_*K(-r),
+	\end{equation*}
+	and the inverse image under $[-1]$ of this identity is
+	$\mathscr F'_{\psi^{-1}}\circ\mathscr F(K)\simeq K(-r)$, since
+	$[-1]^*\mathscr F_{\psi}'=\mathscr F'_{\psi^{-1}}$ in light of the fact 
+	that $[-1]^*\psi(\langle e'',e'\rangle)=\psi(\langle-e,e'\rangle)=\psi^{-1}(\langle e,e'\rangle)$.
+\end{remark}
+
+
+
+(1.2.2.4) The adjunction upon which the equality rests is
+\begin{equation*}
+	\langle f(s),\varphi \rangle_2=\langle s,f'^*\varphi:=\varphi\circ f\rangle_1,
+\end{equation*}
+as pullback by $f'$ on a section $\varphi$ of $E_2'$ gives, by definition, 
+the element of $E_1'$ which, to a section $s$ of $E_1$, applies $f$ then $\varphi$. We then write
+\begin{align*}
+	\mathscr F_2(Rf_!K_1)
+	&=R\pr_{2!}'(\pr_2^*(Rf_!K_1)\otimes\mathscr L(\langle\enskip,\enskip\rangle))[r_2] \\
+	&\simeq R\pr_{2!}'(R(f\times1)_!(\pr_1^*K_1)\otimes\mathscr L(\langle\enskip,\enskip\rangle)_2)[r_2] \\
+	&\simeq R(\pr_2'\circ (f\times1))_!(\pr_1^*K_1\otimes(f\times1)^*\mathscr L(\langle\enskip,\enskip\rangle)_2)[r_2] \\
+	&\simeq R(\pr_2'\circ (f\times1))_!((\pr_1\circ(1\times f'))^*K_1\otimes(1\times f')^*\mathscr L(\langle\enskip,\enskip\rangle)_1)[r_2] \\
+	&\simeq R\pr_{2!}'(1\times f')^*R(f\times1)_!(\pr_1^*K_1\otimes\mathscr L(\langle\enskip,\enskip\rangle)_1)[r_2] \\
+	&\simeq f'^*R\pr_{1!}'(\pr_1^*K_1\otimes\mathscr L(\langle\enskip,\enskip\rangle)_1)[r_2] \\
+	&\simeq f'^*\mathscr F_1(K_1)[r_2-r_1].
+\end{align*}
+
+
+(1.2.2.5)
+If $(\pi')'$ is the morphism of dual 
+bundles $S\ra E''$ induced by $\pi'$, then $(\pi')'^*a_*\simeq\sigma^*$.
+To make sense of the morphism $(\pi')':S\ra E''$, you have to unpack what it
+means to consider $S$ as a vector bundle of rank 0 over $S$. 
+The only section of $S$ is the zero section, as at all points of $S$, as a
+rank 0 vector bundle returns the vector space $\{0\}$ at every point of $S$.
+In other words, we dispose of a tautological isomorphim
+$S\xra\sim S\times_k*=S\times\{0\}$.
+Thinking about $\pi':E'\ra S$ as sending $(s,e')\mapsto (s,0)$,
+the map $(\pi')':S\ra E''$ turns the 0 section of $S$ into a
+section of $E''$, i.e. the one which to a section $s'$ of $E'$ returns the 0 
+section of $S$. Therefore $(\pi')'$ is the embedding by zero section
+$0:S\hookrightarrow E''$; as $-0=0$, the zero section of $E''$
+corresponds under the isomorphism $a$ to the zero section of $E$, which
+sees $(\pi')'^*a_*\simeq\sigma^*$.
+
+(1.2.2.7) For the isomorphism
+\begin{equation*}
+	\mathscr F(K_1\boxtimes_SK_2)\simeq\mathscr F(K_1)\boxtimes_S\mathscr F(K_2),
+\end{equation*}
+perhaps it helps to write the commutative diagram
+\begin{equation*}\begin{tikzcd}
+	E&E\times_SE\arrow[l]\arrow[r]&E \\
+	E\times_SE'\arrow[u]\arrow[d]&(E\times_SE)\times_S(E'\times_SE')\arrow[l,"\pr_1"']\arrow[r,"\pr_2"]\arrow[u]\arrow[d]&E\times_SE\arrow[u]\arrow[d] \\
+	E'&E'\times_SE'\arrow[l]\arrow[r]&E'.
+\end{tikzcd}\end{equation*}
+If one imagines this diagram drawn on the $xy$-plane in 3D with the center
+at $(0,0,0)$, places $S$ at $(0,0,1)$, and connects every node of this
+diagram to this $S$, every row and column of the $3\times3$ above will then
+form a cartesian square with this $S$.
+The equality of Fourier transform then follows from the Künneth formula
+in light of the isomorphism
+\begin{equation*}
+	\pr_1^*\mathscr L(\langle\enskip,\enskip\rangle_{E_1})
+	\otimes\pr_2^*\mathscr L(\langle\enskip,\enskip\rangle_{E_2})
+	\simeq\mathscr L(\langle\enskip,\enskip\rangle_{E_1\oplus E_2}),
+\end{equation*}
+which is an obvious consequence of the fact that given vector bundles
+$E_1,E_2$,
+\begin{equation*}
+	\langle\enskip,\enskip\rangle_{E_1\oplus E_2}
+	=\langle\enskip,\enskip\rangle_{E_1}+\langle\enskip,\enskip\rangle_{E_2}.
+\end{equation*}
+The character $\psi$ carries this additive identity to a multiplicative 
+one, hence the $\otimes$.
+
+To go from here to the stated isomorphism
+\begin{equation*}
+	\mathscr F(K_1*K_2)\simeq\mathscr F(K_1)\otimes\mathscr F(K_2)[-r],
+\end{equation*}
+after applying (1.2.2.4) in the given way, one is faced with the problem of
+justifying
+\begin{equation*}
+	s'^*(\mathscr F(K_1)\boxtimes_S\mathscr F(K_2))
+	\simeq\mathscr F(K_1)\otimes\mathscr F(K_2).
+\end{equation*}
+It is useful to reason by adjunction, writing the following adjoint pair of
+diagrams.
+\begin{equation*}\begin{tikzcd}[column sep=small]
+	&E'\arrow[d,"{s'}"]\arrow[ddl,bend right]\arrow[ddr,bend left] \\
+	&E'\times_SE'\arrow[dl,"\pr_1"]\arrow[dr,"\pr_2"'] \\
+	E'&&E'
+\end{tikzcd}\qquad\qquad\begin{tikzcd}[column sep=small]
+	&E \\
+	&E\times_SE\arrow[u,"s"'] \\
+	E\times_S\{0\}\arrow[uur,bend left,"\id"]\arrow[ur,"\sigma_1"']&&\{0\}\times_SE\arrow[uul,bend right,"\id"']\arrow[ul,"\sigma_2"]
+\end{tikzcd}\end{equation*}
+The point is that given $e,e'$ sections of $E,E'$ respectively,
+\begin{equation*}
+	\langle e,(\pr_i\circ s')(e')\rangle
+	=\langle \sigma_i(e),s'(e') \rangle
+	=\langle (s\circ \sigma_i)(e), e'\rangle
+	=\langle e,e'\rangle.
+\end{equation*}
+Ergo,
+\begin{equation*}
+	s'^*(\mathscr F(K_1)\boxtimes_S\mathscr F(K_2))
+	\simeq(\pr_1\circ s')^*\mathscr F(K_1)\otimes_S(\pr_2\circ s')^*\mathscr F(K_2))
+	\simeq\mathscr F(K_1)\otimes\mathscr F(K_2).
+\end{equation*}
+
+\subsection*{1.2.3} Quelques détails supplémentaires pour les exemples donnés suivent.
+
+(1.2.3.1) With $\sigma'_F:S\ra F'$,
+\begin{equation*}
+	\mathscr F(i_*\overline\QQ_{\ell,F}[s])
+	\simeq i'^*\mathscr F(\overline\QQ_{\ell,F}[s])[r-s]
+	\simeq i'^*\sigma_{F*}'(\overline\QQ_{\ell,S}(-s))[r-s];
+\end{equation*}
+now use proper base change for the cartesian square
+\begin{equation*}\begin{tikzcd}
+	E'\arrow[d,"{i'}"]&F^\perp\arrow[l,"i^\perp"']\arrow[d,"\pi'"]\arrow[dl,phantom,"\urcorner",very near start] \\
+	F'&S\arrow[l,"\sigma_F'"].
+\end{tikzcd}\end{equation*}
+
+(1.2.3.2) A few useless words: $e_*\overline\QQ_{\ell,S}$ is the sheaf on
+$E$ that is supported precisely on the section $e$ of $E$. Restricted to
+the closed subscheme which is the image of $e$, $e_*\overline\QQ_{\ell,S}$
+is constant with value $\overline\QQ_{\ell}$. Therefore
+$(e_*\overline\QQ_{\ell,S})\boxtimes_SK$ has support contained in
+$e\times_S E$, and restricted to this closed subscheme, $s$ is an
+isomorphism with inverse $E\xra\sim(-e)\times_SE\xra sE\xra\sim e\times_SE$.
+En effet, $\tau_e$ factors as $E\xra\sim e\times_SE\xra sE$.
+
+After applying (1.2.2.7), one uses (1.2.3.1) to compute
+\begin{equation*}
+	\mathscr F(e_*\overline\QQ_{\ell,S})
+	\simeq e^\perp_*\overline\QQ_{\ell,E'}[r]
+	\simeq\mathscr L(\langle e,\enskip\rangle)[r].
+\end{equation*}
+
+(1.2.3.3)
+The isomorphism $\alpha$ gives rise to a nondegenerate bilinear form
+$B:E\times_S E\ra\GG_{a,S}$ via $B(e_1,e_2)=\langle e_1,\alpha(e_2)\rangle$,
+and $\alpha$ is symmetric if $B$ is; equivalently,
+\begin{equation*}
+	\langle \alpha^{-1}(e'),\alpha(e)\rangle=\langle e,e'\rangle.
+\end{equation*}
+This allows the easy verification of the identity
+\begin{equation*}\tag{$\dagger$}
+	q(e)+\langle e,2e'\rangle=q(e+\alpha^{-1}(e'))-q'(e').
+\end{equation*}
+The cartesian square
+\begin{equation*}\begin{tikzcd}
+	E\times E'\arrow[r,"{\id\times[2]}"]\arrow[d]&E\times E'\arrow[d] \\
+	E'\arrow[r,"{[2]}"]&E'
+\end{tikzcd}\end{equation*}
+and proper base change gives
+\begin{equation*}
+	[2]^*\mathscr F(\mathscr L(q))\simeq
+	R\pr_!'(\pr^*\mathscr L(q)\otimes\mathscr L(\langle\enskip,2\enskip\rangle)),
+\end{equation*}
+where here we write $\mathscr L(\langle\enskip,2\enskip\rangle$ for
+$(\id\times[2])^*\mathscr L(\langle\enskip,\enskip\rangle)$.
+Let $f$ denote the composition of maps in the diagram
+\begin{equation*}\begin{tikzcd}
+	E\times E'\arrow[r,"\id\times\alpha^{-1}"]&E\times_SE\arrow[r,"s"]&E.
+\end{tikzcd}\end{equation*}
+We have the following correspondences between functions and sheaves on
+$E\times_SE'$.
+\begin{align*}
+	&q(e+\alpha^{-1}(e'))\longleftrightarrow f^*\mathscr L(q) \\
+	&-q'(e')\longleftrightarrow\mathscr L(-q') \\
+	&q(e)\longleftrightarrow\pr^*\mathscr L(q) \\
+	&\langle e,2e'\rangle\longleftrightarrow(\id\times[2])^*\mathscr L(\langle\enskip,\enskip\rangle)=:\mathscr L(\langle\enskip,2\enskip\rangle).
+\end{align*}
+Disposing of this dictionary, the identity $(\dagger)$ gives an isomorphism
+of sheaves on $E\times_SE'$
+\begin{equation*}
+	\pr^*\mathscr L(q)\otimes\mathscr L(\langle\enskip,2\enskip\rangle)
+	\simeq\pr'^*\mathscr L(-q')\otimes f^*\mathscr L(q)).
+\end{equation*}
+Therefore the stated isomorphism rests on showing that
+\begin{equation*}
+	R\pr_!'(\pr'^*\mathscr L(-q)\otimes f^*\mathscr L(q))
+	\simeq\mathscr L(-q')\otimes\pi'^*R\pi_!\mathscr L(q).
+\end{equation*}
+The following diagram is commutative with cartesian squares.
+\begin{equation*}\begin{tikzcd}
+	E\times_SE'\arrow[r,"{\id\times\alpha^{-1}}"]\arrow[d,"\pr'"]\arrow[rr,"f",bend left]\arrow[dr,phantom,"\ulcorner",near start]
+	&E\times_SE\arrow[r,"s"]\arrow[d,"\pr_2"]\arrow[dr,phantom,"\ulcorner",near start]
+	&E\arrow[d,"\pi"] \\
+	E'\arrow[r,"\alpha^{-1}"]\arrow[rr,"\pi'",bend right]
+	&E\arrow[r,"\pi"]
+	&S
+\end{tikzcd}\end{equation*}
+To see that the right square is cartesian, note that the isomorphism
+\begin{align*}
+	\beta:E\times_SE&\lra E\times_SE \\
+	(e_1,e_2)&\longmapsto(e_1-e_2,e_2)
+\end{align*}
+induces an isomorphism of cartesian squares
+\begin{equation*}\begin{tikzcd}
+	E\times_SE\arrow[r,"\pr_1"]\arrow[d,"\beta"]\arrow[dd,"\pr_2"',bend right=50]
+	&E\arrow[d,"\id"']\arrow[dd,"\pi",bend left=50] \\
+	E\times_SE\arrow[r,"s"]\arrow[d,"\pr_2"]&E\arrow[d,"\pi"'] \\
+	E\arrow[r,"\pi"]&S.
+\end{tikzcd}\end{equation*}
+By the projection formula and proper base change, we conclude
+\begin{equation*}
+	R\pr_!'(\pr'^*\mathscr L(-q)\otimes f^*\mathscr L(q))
+	\simeq\mathscr L(-q')\otimes R\pr_!'f^*\mathscr L(q)
+	\simeq\mathscr L(-q')\pi'^*R\pi_!\mathscr L(q).
+\end{equation*}
+	
+(1.2.3.4) Let $p:G\ra S$ denote the structure morphism and its various base
+extensions along $\pi,\pi'$.
+Let $f=(\pr_G,m)^{-1}$, with transpose $f'=(\pr_G,m')$. The diagram
+\begin{equation*}\begin{tikzcd}
+	G\times_SE'\arrow[r,"f'"]\arrow[rr,"m'",bend right]&G\times_SE'\arrow[r,"p"]&E'
+\end{tikzcd}\end{equation*}
+commutes, so that
+\begin{equation*}
+	m'^*\mathscr F(K)=f'^*p^*\mathscr F(K)
+	\simeq f'^*\mathscr F(p^*K)
+	\simeq\mathscr F(f_!p^*K).
+\end{equation*}
+where in the first isomorphism we have used (1.2.2.9) and in the second
+(1.2.2.4). The commutative diagram
+\begin{equation*}\begin{tikzcd}
+	G\times_SE\arrow[rrr,"p",bend left]\arrow[rr,"\id",bend right]\arrow[r,"f"]
+	&G\times_SE\arrow[rr,"m",bend right,crossing over]\arrow[r,"{(\pr_G,m)}"]
+	&G\times_SE\arrow[r,"p"]&E
+\end{tikzcd}\end{equation*}
+together with the isomorphism $L\xra\sim f_*f^*L=f_!f^*L$ for all $L$ in 
+$D_c^b(G\times_SE,\overline\QQ_\ell)$ and the hypothesis
+$m^*K\simeq M\boxtimes_SL$ let us write
+\begin{equation*}
+	\mathscr F(f_!p^*K)\simeq\mathscr F(m^*K)\simeq\mathscr F(M\boxtimes_SL).
+\end{equation*}
+Letting $\pr,\pr'$ denote
+$E\xleftarrow{\pr}E\times_S E'\xra{\pr'}E'$
+and their base extensions by $p$, the commutative diagrams below have
+cartesian diamonds marked.
+\begin{ceqn}
+\begin{equation*}
+\begin{tikzcd}[column sep=small]
+	&&[-30pt]G\times_SE\times_SE'\arrow[dl,"\pr"]\arrow[dr,"\pr'"']\arrow[dd,phantom,"{\rotatebox{45}{\text{$\urcorner$}}}",near start]&[-30pt] \\
+	&G\times_SE\arrow[dl,"p"']\arrow[dr,"\pi"']
+	&&G\times_SE'\arrow[dl,"\pi'"]\arrow[dr,"p"] \\
+	E&&G&&E'
+\end{tikzcd}
+\qquad\qquad\begin{tikzcd}[row sep=small]
+	&[-30pt]G\times_SE\times_SE'\arrow[dl,"\pr'"]\arrow[dr,"p"']\arrow[dd,"\pr'" description]
+	\arrow[dddr,phantom,"\ulcorner",near start]
+	&[-30pt] \\
+	G\times_SE'\arrow[dd,equals]
+	&&E\times_SE'\arrow[dd,"\pr'"] \\
+	&G\times_SE'\arrow[dl,"\id"]\arrow[dr,"p"'] 
+	\arrow[dd,phantom,"{\rotatebox{45}{\text{$\urcorner$}}}",near start] \\
+	G\times_SE'\arrow[dr]&&E'\arrow[dl] \\
+	&E'
+\end{tikzcd}
+\end{equation*}
+\begin{equation*}\begin{tikzcd}[column sep=small]
+	M\arrow[d,dash]&[10pt]&[-30pt]G\times_SE\times_SE'\arrow[dl,"\pr'"]\arrow[dr,"p"']
+	\arrow[dd,phantom,"{\rotatebox{45}{\text{$\urcorner$}}}",near start]
+	&[-30pt]&[-20pt]\mathscr L(\langle\enskip,\enskip\rangle)\arrow[dl,dash] \\
+	G&G\times_SE'\arrow[l,"\pi'"]\arrow[dr]&&E\times_SE'\arrow[dr]\arrow[dl]
+	&L\arrow[d,dash] \\
+	&&E'&&E
+\end{tikzcd}
+\end{equation*}
+\end{ceqn}
+The projection formula and proper base change find
+\begin{align*}
+	\mathscr F(M\boxtimes_SL)
+	&\simeq R\pr'_!(\pr^*(M\boxtimes_SL)\otimes\mathscr L(\langle\enskip,\enskip\rangle) \\
+	&\simeq R\pr'_!(\pr^*\pi^*M\otimes\pr^*p^*L\otimes\mathscr L(\langle\enskip,\enskip\rangle)) \\
+	&\simeq R\pr'_!(\pr'^*\pi'^*M\otimes p^*(\pr^*L\otimes\mathscr L(\langle\enskip,\enskip\rangle)) \\
+	&\simeq \pi'^*M\otimes R\pr'_!(p^*(\pr^*L\otimes\mathscr L(\langle\enskip,\enskip\rangle))) \\
+	&\simeq \pi'^*M\otimes p^*\mathscr F(L)
+	=M\boxtimes_S\mathscr F(L).
+\end{align*}
+
+\subsection*{1.2.3.5} As
+$E_1\times_S E'\simeq E_1\times_{S_1}E_1'\simeq E\times_S E_1'$, the diagram
+below has cartesian diamonds.
+\begin{ceqn}\begin{equation*}\begin{tikzcd}[column sep=tiny]
+	&&S_1 \\
+	&&E_1\times_{S_1}E_1'\arrow[dll,"\pr_1"]\arrow[drr,"\pr'_1"']\arrow[d,"f"]
+	\arrow[ddl,phantom,"{\rotatebox{15}{\text{$\urcorner$}}}",near start]
+	\arrow[ddr,phantom,"{\rotatebox{75}{\text{$\urcorner$}}}",near start]
+	\arrow[u,phantom,"{\rotatebox{45}{\text{$\llcorner$}}}",near start] \\
+	E_1\arrow[dr,"f_E"]\arrow[uurr]
+	&&E\times_SE'\arrow[dl,"\pr"]\arrow[dr,"\pr'"'] 	\arrow[dd,phantom,"{\rotatebox{45}{\text{$\urcorner$}}}",near start]
+	&&E_1'\arrow[dl,"f_{E'}"]\arrow[uull] \\
+	&E\arrow[dr]&&E'\arrow[dl] \\ &&S
+\end{tikzcd}\end{equation*}\end{ceqn}
+In light of the fact that $\mathscr L(\langle\enskip,\enskip\rangle)$ on
+$E_1\times_{S_1}E_1'$ coincides with the inverse image under $f$ of
+$\mathscr L(\langle\enskip,\enskip\rangle)$ on $E\times_SE'$,
+proper base change and the projection formula for $f$ give
+\begin{align*}
+	\mathscr F(Rf_{E!}K_1)
+	&\simeq R\pr'_!(Rf_!\pr_1^*K_1\otimes\mathscr L(\langle\enskip,\enskip\rangle))
+	\simeq R(\pr'\circ f)_!(\pr_1^*K_1\otimes f^*\mathscr L(\langle\enskip,\enskip\rangle) \\
+	&\simeq R(f_{E'}\circ\pr_1')_!(\pr_1^*K_1\otimes \mathscr L(\langle\enskip,\enskip\rangle)
+	\simeq Rf_{E'!}\mathscr F_1(K_1).
+\end{align*}
+
+\subsection*{1.3.1–1.3.2}
+I would like to advocate for something of a shortcut through these sections.
+\subsubsection*{t-exactness of $\mathscr F$}
+Laumon deduces the t-exactness of $\mathscr F$ from the fact that the
+`forget supports' map is an isomorphism. However, the following direct
+argument (lifted from the appendix to the reprinted 
+Astérisque \textbf{100}) is immediate.
+As in \hyperref[laumon:1.2.2.1rmk]{the remark to the note to (1.2.2.1)},
+$\mathscr F_{\psi^{-1}}\circ\mathscr F_{\psi}(K)=K(-r)$.
+As $\mathscr F_{\psi}$ is the composition of exact functors $\pr^*[n]$,
+$\mathscr L(\langle\enskip,\enskip\rangle)$ and the left t-exact functor
+$\pr_!$ (BBD 4.1.2), it is left t-exact. But it is also left adjoint to
+its inverse, and this inverse is also left t-exact since up to a Tate twist
+it coincides with $\mathscr F_{\psi^{-1}}$. Therefore $\mathscr F_{\psi}$ is
+also right t-exact (BBD 1.3.17 (iii)).
+
+\subsubsection*{`Forget supports'}
+The theorem (1.3.1.1) in Laumon's paper states that for all $K$ in
+$D_c^b(E,\overline\QQ_\ell)$, the `forget supports' map
+\begin{equation*}
+	R\pr_!'(\pr^*K\otimes\mathscr L(\langle\enskip,\enskip\rangle))
+	\ra R\pr_*'(\pr^*K\otimes\mathscr L(\langle\enskip,\enskip\rangle))
+\end{equation*}
+is an isomorphism. Laumon refers the reader to his paper with Katz, where
+they give an involved geometric proof that ends up yielding more.
+But Verdier gave the first proof of this isomorphism, and his proof is very
+short and completely formal. It can be found in Katz's 1988 Séminaire
+Bourbaki talk `Travaux de Laumon.'
+
+As for the proof of (1.3.2.1), surely the stated isomorphism should read
+\begin{equation*}
+	R\underline\Hom(\mathscr F_{\psi}(K),\pi'^!L)
+	\simeq R\pr_*'(\pr^!(R\underline\Hom(K,\pi^!L))\otimes\mathscr L_{\psi^{-1}}(\langle\enskip,\enskip\rangle)).
+\end{equation*}
+
+\subsection*{1.4.1}
+\begin{equation*}\begin{tikzcd}
+	A\times A'\arrow[r,"\pr'"]\arrow[d,"\alpha\times\alpha'"]
+	&A'\arrow[d,"\alpha'"] \\
+	D\times D'\arrow[r,"\overline\pr'"]&D'
+\end{tikzcd}\end{equation*}
+\begin{align*}
+	\alpha_!'\mathscr F(K)
+	&=R\overline\pr'_*(\alpha\times\alpha')_!(\pr^*K\otimes\mathscr L(xx'))[1]
+\\	&=R\overline\pr'_*((\alpha\times\alpha')_!\pr^*K\otimes \overline{\mathscr L}(xx'))[1]
+\\	&=R\overline\pr'_*(\overline\pr^*\alpha_!K\otimes \overline{\mathscr L}(xx'))[1].
+\end{align*}
+
+\subsection*{1.4.2}\label{laumon:1.4.2}
+On a curve $X$ with $j:U\hookrightarrow X$
+a dense smooth open with complement $F$ and $A$ a lisse sheaf on $U$,
+$A[1]$ is perverse on $U$ and Verdier's formula \cite[2.2.4]{BBD} gives
+\begin{equation*}
+	j_{!*}A[1]=\tau^F_{<0}Rj_*A[1]=j_*A[1].
+\end{equation*}
+The simple perverse sheaves on a curve come as (a) $i_*$ of an irreducible
+$\overline\QQ_\ell$-sheaf on a closed point or (b) from $j_{!*}[1]$ of an
+irreducible sheaf on a dense open.
+($T_1$) takes care of (a), but we must verify that a $K$ of type (b)
+is either ($T_2$) or ($T_3$). Given a $K$ of type ($T_2$),
+\begin{equation*}
+	K|\overline A=(\pr_{\overline A})_*(\mathscr L(x.\overline s')\otimes\pr_{\overline s'}^*F')[1]
+\end{equation*}
+where $\overline s'$ denotes the geometric fiber of $s'$, a discrete set
+on which $F'$ is a constant sheaf, so that $K|\overline A[-1]$ has all of
+its constituents (as a lisse sheaf \cite[1.1.6]{weilii}) isomorphic to
+$\mathscr L(x.a')$ for some $a'\in\overline k$.
+\begin{lemma*}
+	Suppose $K=j_{!*}F[1]=j_*F[1]$ for $F$ irreducible lisse on dense 
+	$U\subset A$, and $K=\mathscr F'(K')$, where $K'=j'_*F'[1]$, $F'$
+	irreducible lisse on dense $U'\subset A'$.
+	Then $K$ is $(T_3)$.
+\end{lemma*}
+\begin{proof}
+Let $\vep$ denote $\Spec\overline k\ra\Spec k$ and its various extensions.
+The constituents of $\vep^*K'$ coincide with $j_*'[1]$ of the
+constituents of the lisse sheaf $\vep^*F'$
+(exact sequences of lisse sheaves give rise to distinguished triangles
+concentrated in degree 0, apply triangulated functor $j_{!*}'[1]$ followed
+by $^pH^0$);
+in particular they are all of type (b).
+As $\mathscr F$ induces an equivalence of perverse sheaves on
+$A$ and $A'$, $\mathscr F$ is \emph{a fortiori} exact
+(likewise for $\mathscr F'$), so that the constituents of $\vep^*K'$
+coincide with those of $\mathscr F\circ\mathscr F'(\vep^*K')$; in
+particular, they are still of type (b), and this implies that none of
+the constituents of $\mathscr F'(\vep^*K')$ are of type ($T_2$).
+As the formation of Fourier transform commutes with any base change
+(1.2.2.9), this implies the same for the constituents of
+$\vep^*\mathscr F'(K')=\vep^*K$; i.e. that none are isomorphic to
+$\mathscr L(x.a')[1]$ for some $a'\in\overline k$.
+In light of \cite[4.3.2]{BBD} or the lemma in
+\hyperref[laumon:4.3.2]{the note to 4.3.2 below},
+which says that if $F$ is a lisse sheaf on a normal connected curve, the
+unit of adjunction $F\ra j_*j^*F$ is an isomorphism, this implies that $K$
+is of type ($T_3$): if $\vep^*F$ had a constituent isomorphic to
+$\mathscr L(x.a')|\overline U$, by the above $\vep^*K$ would have a
+constituent isomorphic to
+$\overline j_*(\mathscr L(x.a')|\overline U)[1]\simeq\mathscr L(x.a')[1]$,
+where $\overline j=\vep^*j_*:\overline U\hookrightarrow\overline A$.
+\end{proof}
+\begin{corollary*}
+	$\mathscr F$ exchanges $(T_3)$ and $(T_3')$.
+\end{corollary*}
+\begin{proof}
+	Given a simple perverse sheaf $K'$ of type $(T_3')$, $\mathscr F'(K')$
+	is simple and is not $(T_1)$ by (1.4.2.1 (i)), therefore must be of type
+	(b); i.e. $\mathscr F'(K')$ satisfies the hypotheses of the lemma,
+	so is ($T_3$).
+\end{proof}
+\begin{corollary*}[Dichotomy]
+	An irreducible lisse $\overline\QQ_\ell$-sheaf $\mathcal F$ on a 
+	dense open $U\hookrightarrow A$
+	\begin{enumerate}[label=(\greek*)]
+	\item has every constituent of $\vep^*\mathcal F$ isomorphic to $\mathscr L(x.a')|\overline U$ for various $a'\in\overline k$, or
+	\item has no constituent of $\vep^*\mathcal F$ isomorphic to $\mathscr L(x.a')|\overline U$, for any $a'\in\overline k$.
+	\end{enumerate}
+\end{corollary*}
+\begin{remark}
+	In analogy with the Fourier transform on function spaces on $\RR$,
+	\begin{align*}
+		\text{constant functions}&\leftrightarrow (T_2) \\
+		L^2(\RR)&\leftrightarrow (T_3) \\
+		\text{point masses}&\leftrightarrow (T_1).
+	\end{align*}
+\end{remark}
+\begin{remark}
+	It is tempting to observe that if we were in the abelian category of
+	constructible sheaves (perverse of pervervity $p=0$) shifted by 1, of
+	course $j_!A\hookrightarrow j_*A$, although in the category of perverse
+	sheaves for the middle perversity, $j_*A[1]$ is simple.
+	In this category,
+	\begin{equation*}
+		\ker(j_!A[1]\ra j_*A[1])=i_*H^0i^*Rj_*A=i_*R^1i^!j_!A
+		\qquad\text{placed in degree 0,}
+	\end{equation*}
+	where $i$ denotes the immersion of the complement \cite[4.1.2]{BBD}.
+	The point is that although $i^!j_!A=0$, $R^1i^!j_!A$ vanishes iff
+	$j_*A$ extends to a lisse sheaf on $X$. Assuming it doesn't, $j_!A[1]$
+	is not simple, as it admits a nontrivial subobject
+	$i_*\,^pH^0Ri^!j_!A[1]=:i_*\,^pi^!j_!A[1]$; this is nothing other than
+	$i_*R^1i^!j_!A$ placed in degree 0, and coincides with the largest
+	sub-object of $j_!A[1]$ in the essential image (via $^pi_*$) of the
+	category of perverse sheaves on $S$ (for the middle perversity – this is
+	simply the category of constructible sheaves on the finite set $S$)
+	\cite[1.4.25]{BBD}.
+\end{remark}
+
+\subsection*{2.1.1}\label{laumon:2.1.1}
+A first curiosity: are the conventions (0.3) \emph{en rigeur}?
+Evidently $T$ isn't essentially of finite type over $k$, but perhaps it is
+implicit that it is the spectrum of a ring ind-étale over a $k$-algebra of
+finite type.
+Does the inclusion $k\{\pi\}\subset R\subset k[[\pi]]$ require that
+$k\subset R$ by assumption, or as in the complete case, does a
+coefficient field exist automatically for $R$?
+The answer is that we must assume that $k\subset R$, as the following
+stupid example shows.
+
+Let $k_1=\FF_q(t)$, $A_1:=k_1[\pi]_{(\pi)}$, the local ring at 0 of
+$\A^1_{k_1}$, and put
+\begin{align*}
+	A_n&:=A_1[x_n]/(x_n^{p^n}-(\pi+t)) \\
+	A&:=\varinjlim_n A_n.
+\end{align*}
+For each $n$, $A_n$ is a d.v.r. with uniformizer $\pi$.
+For $m<n$ the map goes $x_m\mapsto x_n^{p^{n-m}}$.
+Let $A^h$ denote the henselization of $A$; both $A$ and $A^h$
+have the perfect closure $k_1^{p^{-\infty}}$ of $k_1$ as residue field, but
+neither contain $k_1^{p^{-\infty}}$.
+
+\begin{remark}
+As a partial converse, if $A$ is an \emph{excellent} henselian d.v.r.
+with perfect residue field, then its completion $\hat A$ contains a
+\emph{canonical} coefficient field, and Artin's approximation theorem gives 
+that $A$ contains a coefficient field.
+\end{remark}
+
+As $R$ is equicharacteristic, the inertia admits this simple description;
+c.f. \hyperref[weilii:1.7.11]{note to Weil II, 1.7.11}.
+
+One must always repair to \emph{Corps Locaux} Ch. IV for the ultra-mystical 
+`upper numbering' filtration on $I$. In Proposition 3 of \S1, it is claimed
+that $s(f)-f$ has all its coefficients divisible by $s(y)-y$.
+If we let $\mathfrak p_{K'}$ denote the maximal ideal of $A_{K'}$, the
+definition of $i_{G/H}$ means that $s(y)-y$ is of order $i_{G/H}(s)$ in
+$A_{K'}$; i.e. $(s(y)-y)=\mathfrak p_{K'}^{i_{G/H}(s)}$.
+Lemma 1 then shows that all the coefficients of $s(f)-f$ have order
+$\geq i_{G/H}(s)$, hence are divisible by $s(y)-y$.
+
+In light of \emph{Corps Locaux} IV \S3 Prop. 14 \& Rmk. 1, if $L/K$ is an
+infinite Galois extension with Galois group G, one defines
+$G^v:=\varprojlim G(L'/K)^v$ as $L'$ runs over the set of finite Galois
+sub-extensions of $L$.
+This description shows that $G^v$ is a compact subgroup of $G$, hence 
+closed in $G$, hence also in the compact open subgroup $I=G_0=G^0$,
+(provided of course $v\geq0$). It also shows that $G^v$ is normal, as it is 
+a projective limit of the normal groups $G(L'/K)^v$
+(\emph{Corps Locaux} IV Prop. 1). Left continuity
+\begin{equation*}
+	G^v=\bigcap_{w<v}G^w
+\end{equation*}
+amounts to the statement that if $s\in G$ is not in $G^v$, then
+$s\not\in G^w$ for some $w<v$.
+An element $s\in G$ belongs to $G^v$ if for every
+finite Galois subextension $L\supset L'\supset K$ with $\Gal(L'/K)=H$,
+$i_{G/H}(s)\geq\psi(v)$, so it will suffice to show that if there is
+some $L'$ as above with $i_{G/H}(s)<\psi(v)$, then there is some $w<v$ such
+that $i_{G/H}(s)<\psi(w)$.
+As $\psi$ is continuous and increasing, this is trivial.
+
+Laumon considers the induced filtration on $I=G_0=G^0$. The filtration is 
+separated,
+\begin{equation*}
+	\bigcap_{\lambda\geq0}I^{(\lambda)}=\{1\},
+\end{equation*}
+as the same is true for $G/H$ for every normal open subgroup $H$ of $G$
+(\emph{Corps Locaux} IV Prop. 1).
+
+It's clear that $I^{(\lambda\;+)}\subset I^{(\lambda)}$ as $I^{(\lambda)}$
+is closed. But why $I^{(0\;+)}=P$? On the level of a finite Galois 
+extension $L'$ of $K$, \emph{Corps Locaux} IV \S2 explains that over a
+perfect field of characteristic $p$, $G_1$ is a $p$-group and the quotient
+$G_0/G_1$ is sent isomorphically by the inertia character to a subgroup of
+the group of roots of unity of the residue field of $\overline L'$; this is
+the tame inertia, and $G_1$ is the wild inertia.
+It is necessary to switch to the upper numbering 
+filtration in order for the filtration to play well with quotients, and
+as the index $(G_0:G_1)$ increases (corresponding to more tame inertia in
+the extension $L'$), $\varphi(1)$ approaches 0 from the right.
+This means that (provided the maximal tamely ramified extension of $K$ is
+not finite over $K_r$, the maximal unramified extension of $K$)
+for every $\vep>0$ and $s\in I^{(0+\vep)}$ there
+exists an extension $L'$ of $K$ with $1/(G_0:G_1)<\vep$, so that
+$s\not\in G_1$, $G:=\Gal(L'/K)$.
+So $P$ coincides with the completion of $\cup I^{(0+\vep)}$, which 
+coincides with the closure of $\cup I^{(0+\vep)}$ in $I$.
+
+\subsection*{2.1.2}\label{laumon:2.1.2}
+(2.1.2.2) The kernel of the representation of $P$ is closed and of finite
+index, hence open, hence by \emph{Corps Locaux} IV Prop 14. \& Prop. 1,
+$I^{(\lambda)}$ acts trivially for $\lambda\gg0$.
+The corollary (2.1.2.3) is Maschke's theorem.
+In the definition of \emph{pente}, $\RR_+:=\RR_{\geq0}$, and
+$\lambda$ may equal $0$; $\lambda=0$ iff $W$ is trivial.
+If $H$ denotes the kernel of the representation $P\ra\GL(V)$, then
+$P/H$ is a finite group and $(P/H)^v=P^vH/H$
+(\emph{Corps Locaux} IV Prop. 14). The slope $\lambda$ coincides with the
+largest real number $v$ such that $(P/H)^v=\{1\}$; in the vocabulary of
+\emph{Corps Locaux} IV \S3 Rmk. 1, this is the largest break in the 
+filtration on $P/H$.
+The canonical slope decomposition (2.1.2.4) of $V$ is a decomposition as
+$I$- or $G$-module since if $W$ is a simple $P$-submodule of $V$ of slope
+$\lambda$ and $g\in G$, then $gW$ is still simple as $P$-module and still
+of slope $\lambda$, as the groups $I^{(v)}$ are normal subgroups of $G$,
+for all $v\geq0$. Therefore $V_\lambda$ is preserved by $G$.
+
+(2.1.2.8) To see that $L_\psi(1/\pi)$ has slope 1, it will suffice to show
+that if $\Gamma:=\Gal(\eta'/\eta)$, then $\Gamma=\Gamma_1$ and 
+$\Gamma_2=\{1\}$. It would follow that $\varphi(1)=1$ for this extension so
+that $\Gamma^1=\Gamma_1=\Gamma$ and $\Gamma^{1+\vep}=\{1\}$ for all
+$\vep>0$. With the criterion of \emph{Corps Locaux} IV \S2 Prop. 5, it
+would suffice to show that for all $s\in\Gamma$,
+\begin{align*}
+	s(\pi')/\pi'&\equiv1\mod (\pi') \\
+	s(\pi')/\pi'&\not\equiv1\mod (\pi')^2.
+\end{align*}
+As $s(\pi')/\pi'=1/(1+\alpha\pi')$ for $\alpha\in\FF_p$,
+\begin{equation*}
+	s(\pi')/\pi'\equiv 1-\alpha\pi'\mod(\pi')^2.
+\end{equation*}
+
+
+\subsection*{2.1.4} Schur's lemma gives that every simple tame $I$-module has rank 1.
+The action of $\Gal(\overline k/k)$ on $\hat\ZZ(1)(\overline k)$ by inner
+automorphisms coincides with the action of Galois on roots of unity;
+c.f. \href{https://stacks.math.columbia.edu/tag/0BU5}{Stacks tag \texttt{0BU5}}.
+
+\subsection*{2.1.5} The equivalence of the three conditions can be seen as
+follows: (i) trivially implies (ii) and (iii) as $V^I$ (resp. $V_I$) is the
+largest subobject (resp. quotient) on which $I$ acts trivially.
+The decomposition $V=\oplus V_\lambda$ permits us to assume $V=V_\lambda$.
+If $\lambda>0$, then by definition $V_\lambda^I=0$ and moreover $P$ acts
+nontrivially. Restricting the action of $P$ to a simple $P$-submodule $W$ 
+of $V_\lambda$, one finds $W_P=0$, hence $(V_{\lambda})_P=0$ and
+\emph{a fortiori} $(V_{\lambda})_I=0$. Moreover, $V_\lambda$ has no
+nontrivial subquotient on which $I$ acts trivially, as such a subquotient
+would be a direct sum of simple $P$-modules of slope $\lambda$, so
+(i), (ii), and (iii) are automatically verified and we consider $V=V_0$,
+a tame $G$-module. The existence of a geometrically constant subquotient of
+$V$ as $G$-module implies the same as $I$-module, and therefore we need
+only show that (ii)$\Leftrightarrow$(iii) and the combination implies that
+there exists no $I$-module subquotient of the tame $I$-module $V$.
+As $T:=I/P\simeq\hat\ZZ(1)(\overline k)$ is procyclic with topological
+generator, say, $t$, and the representation $V$ of $T$ is continuous,
+\begin{equation*}
+	0\ra V^T\ra V\xra{t-1}V\ra V_T\ra0
+\end{equation*}
+is exact, and shows that $V^T=0\Leftrightarrow V_T=0$.
+Given $T$-submodules
+\begin{equation*}
+	V=V_0\supset V_1\supset V_2\supset0,
+\end{equation*}
+$V_1^T=0\Rightarrow (V_1)_T=0$ for each $i$, so if $V_1/V_2$ is
+$T$-invariant, the quotient $V_1\ra V_1/V_2$ factors through $(V_1)_T=0$,
+and $V_1/V_2=0$. So, $V$ has no $T$-invariant subquotient.
+
+Duality $V\mapsto V^\vee$ sends $\mathscr G_{(0,\infty[}$ into itself
+as $(V^\vee)^I=(V_I)^\vee$.
+
+\subsection*{2.2.1}\label{laumon:2.2.1}
+Of course, the various functions are extended additively with sign, so that
+e.g. for a perverse sheaf $K$ on $X$, $s_x(K)\leq0$ for $x\in|X|$.
+
+(2.2.1.1) Let
+\begin{tikzcd}[column sep=18pt]x\arrow[r,hook,"i"]&X&X-x\arrow[l,hook',"j"'].\end{tikzcd}
+There is a distinguished triangle
+($i^!=Ri^!$ etc.)
+\begin{equation*}
+	i^!K\ra i^*K\ra i^*j_*j^*K\ra
+	\hspace{100pt}
+\end{equation*}
+As $K$ is perverse, $\mathscr H^{-1}(i^!K)=0$ and $\mathscr H^i(j^*K)=0$
+for $j\ne-1$. Representing $j^*K$ by a complex $I$ of injectives in degrees
+$\geq-1$
+\begin{equation*}
+	0\ra\cdots\ra0\ra I_{-1}\xra{d^{-1}}I_0\ra I_1\ra\cdots
+\end{equation*}
+we have $\mathscr H^{-1}(j^*K)=\ker d^{-1}$. As $j_*$ is left exact,
+\begin{ceqn}\begin{equation*}
+	\mathscr H^{-1}(j_*j^*K)=\mathscr H^{-1}(j_*I)=\ker j_*(d^{-1})
+	=j_*(\ker d^{-1})=j_*\mathscr H^{-1}(j^*K)=j_*j^*\mathscr H^{-1}(K),
+\end{equation*}\end{ceqn}
+so that
+\begin{equation*}
+	0\ra i^*\mathscr H^{-1}(K)\ra i^*j_*(j^*\mathscr H^{-1}(K))
+\end{equation*}
+is exact, proving
+$\mathscr H^{-1}(K)_{\overline x}\subset j_*(j^*\mathscr H^{-1}(K))_{\overline x}$
+and the inequality $r(K)\leq r_x(K)$, as
+$r(\mathscr H^0(K))=0$, and showing that
+$\mathscr H^{-1}(K)$ is lisse at $x$ iff
+$I_x$ acts trivially on $\mathscr H^{-1}(K)_{\overline x}$ iff
+$r_x(\mathscr H^{-1}(K))=r(\mathscr H^{-1}(K))$; of course
+$\mathscr H^0(K)_{\overline x}=0$ iff $r_x(\mathscr H^0(K))=0$.
+As $r_x(K)=r_x(\mathscr H^0(K))-r_x(\mathscr H^{-1}(K))$ and
+$r(K)=-r(\mathscr H^{-1}(K))$, $r_x(K)\geq r(k)$ with equality iff
+(i) holds. Of course, $s_x$ measures wild ramification and so
+(ii)$\Leftrightarrow$(iii) trivially.
+See \hyperref[laumon:reprise]{Reprise}.
+
+\subsection*{2.2.2}\label{laumon:2.2.2} The tame quotient
+$\pi_1(\xi,\overline\xi)\ra\pi_1(\xi,\overline\xi)^{\mathrm{mod}}$
+has not actually been defined; `tame quotient' in (2.1.1) meant
+$I\twoheadrightarrow I/P$. This tame quotient corresponds to
+$G\twoheadrightarrow G/P$.
+
+(2.2.2.1) It suffices to show $\overline i_*^{\mathrm{mod}}$ is an
+isomorphism in light of the short exact sequence of $\pi_1$ (SGA 1 6.11) 
+which expresses the fundamental group as extension of $\Gal(\overline k/k)$ 
+by the geometric fundamental group.
+
+(2.2.2.2) This mysterious theorem is found in Katz,
+\emph{Local-to-global extensions of representations of fundamental groups,}
+where he also proves a cohomological formula for the $\ell$-adic Swan
+representation.
+In light of \hyperref[laumon:reprise]{Reprise} below, some cursory analysis
+of the meaning of this theorem can be made.
+The discussion doesn't change if one replaces $k$ by $\overline k$.
+First of all, $\Gal(\overline\xi/k(u))$ surjects onto
+$\pi_1(\GG_{m,k},\overline\xi)$, and we can describe the kernel in terms of
+the monodromy at all geometric closed points of $\GG_{m,k}$.
+\begin{equation*}
+	G:=\Gal(\overline\xi/k(u))
+	\twoheadrightarrow\pi_1(\GG_{m,k},\overline\xi)
+	\twoheadrightarrow\pi_1(\GG_{m,k},\overline\xi)^{\mathrm{mod}.\infty}
+	\twoheadrightarrow\pi_1(\GG_{m,k},\overline\xi)^{\mathrm{mod}}
+\end{equation*}
+With the notation (2.2.1),
+the kernel of the first map is topologically generated by
+$\{I_x\}_{x\in\GG_{m,k}}$.
+The kernel of the second map is topologically generated by $P_{\infty}$.
+The kernel of the third map is topologically generated by $P_0$.
+(Both $P_\infty,P_0\subset G$.)
+The injection $\pi_1(\xi,\overline\xi)\hookrightarrow G$ corresponds to the
+Galois extension $k(\xi)/k(u)$.
+
+That $\pi_1(\xi,\overline\xi)$ injects into
+$\pi_1(\GG_{m,k},\overline\xi)^{\mathrm{mod}.\infty}$
+corresponds simply to the statement that membership in the latter group
+puts no condition on the monodromy at 0. An object in the latter Galois
+category corresponds to a finite cover of $\PP^1-\{0\}$ which is étale away
+from $\infty$ and tamely ramified at infinity. The injection
+$\pi_1(\xi,\overline\xi)\hookrightarrow\pi_1(\GG_{m,k},\overline\xi)^{\mathrm{mod}.\infty}$
+corresponds to the statement that the constraints on monodromy at all 
+closed points of $\PP^1$ other than 0 imposed by membership in 
+$\pi_1(\GG_{m,k},\overline\xi)^{\mathrm{mod}.\infty}$ put in effect
+`no constraints' on the monodromy at 0.
+
+The isomorphism
+$\pi_1(\xi\otimes_k\overline k,\overline\xi)^{\mathrm{mod}}\simeq\pi_1(\GG_{m,\overline k},\overline\xi)^{\mathrm{mod}}$
+is the statement that the Galois category of étale covers of the generic
+point of $(\A^1_{\overline k})_{(0)}$ tamely ramified at the closed point 
+is equivalent to the category of étale covers of $\GG_{m,\overline k}$
+which are tamely ramified at 0 and $\infty$.
+The proof given notes that both are isomorphic to $\hat\ZZ(1)(\overline k)$,
+but this fact for $\GG_{m,\overline k}$ is not proved in (1.1.3.7), which 
+introduces the Kummer coverings of $\GG_{m,\overline k}$.
+What's needed is Grothendieck's
+comparison theorem for curves (SGA 1 XIII 2.12), which immediately shows
+that the tame fundamental group of $\PP^1_{\overline k}-\{\infty\}$ is
+trivial (this is the automorphism group of a fiber functor on the Galois
+category consisting of finite covers of $\PP^1_{\overline k}$ étale over
+$\A^1_{\overline k}$ and tame at $\infty$)
+and that $\pi_1(\GG_{m,\overline k},\overline\xi)^{\mathrm{mod}}$
+is freely generated by a generator of the tame inertia at 0, hence is
+indeed isomorphic to $\hat\ZZ(1)(\overline k)$.
+In light of this, we know that the Kummer coverings of (1.1.3.7) do exhaust
+the set of finite maps to $\PP^1_k$ étale over $\GG_{m,\overline k}$ and
+tamely ramified at 0 and $\infty$.
+
+\subsection*{Intermezzo I: Katz-Gabber extensions}
+The paper is by Katz,
+\emph{Local-to-global extensions of representations of fundamental groups}.
+
+(1.2.3) En effet, when you pull $E$ back to $X\otimes_K K^{\mathrm{sep}}$,
+the only monodromy is geometric. The map
+$\pi_1(X\times_K K^{\mathrm{sep}},\overline x)\ra\Aut(E(\overline x))$
+is continuous with open kernel $U$ corresponding to the Galois $G$-torsor
+$Z$, where of course $G=\pi_1(X\times_KK^{\mathrm{sep}},\overline x)/U$.
+Pulling back to $Z$ kills the monodromy on $E$ (i.e. $E$ `splits').
+Now the point is that in the exact sequence
+($\overline X:=X\times_K K^{\mathrm{sep}}$)
+\begin{equation*}\tag{$\dagger$}
+	e\ra\pi_1(\overline X,\overline x)\ra\pi_1(X,\overline x)\ra\Gal(K^{\mathrm{sep}}/K)\ra e,
+\end{equation*}
+the surjection is a quotient map, \emph{a fortiori} open. Let $V$ be 
+defined by the exact sequence
+\begin{equation*}
+	e\ra V\ra\pi_1(X,\overline x)\ra\Aut(E(\overline x))\ra e
+\end{equation*}
+and let $V'$ be the image of $V$ in $\Gal(K^{\mathrm{sep}}/K)$; $V'$
+is open and we let the finite Galois extension $K'$ correspond to any such
+containing $V'$ and over which $Z$ is defined..
+
+(1.3) A unique $p$-Sylow is the same as a normal
+$p$-Sylow. A normal $p$-Sylow in a group $G$ is characteristic as it is the
+unique subgroup with its order (any $p$-subgroup of $G$ is contained in 
+it).
+
+(1.3.2) In proof of $1)\Rightarrow 4)$, the statement that `the unique
+open normal subgroup of $\pi_1(\mathbf G_{m,L},\overline x)$ of index 
+$N\geq1$ prime to $p$ is the one corresponding to the $N$th power covering 
+$[N]$ of $\GG_{m,L}$ by itself' is easily seen: denoting such a subgroup by
+$U$, $U$ corresponds to a finite étale connected torsor $T$ with group
+$\pi_1(\mathbf G_{m,L},\overline x)/U$, and the homomorphism from this
+group into the group opposite $\Aut T=\Aut T(\overline x)$ is an
+isomorphism \cite[5.11]{SGA1}. So $T$ is a cover of $\mathbf G_{m,L}$
+tamely ramified at 0 and $\infty$ since $p\nmid {|\Aut T(\overline x)|}$,
+and as in the \hyperref[laumon:2.2.2]{note to (2.2.2)},
+$\pi_1(\GG_{m,L},\overline\xi)^{\mathrm{mod}}\simeq\hat\ZZ(1)(L)$, so the
+statement is obvious.
+
+Given a special $E\ra\GG_{m,K}$, the preimage of the unique $p$-Sylow of
+the geometric monodromy of $E$ in $\pi_1(\GG_{m,K^{\mathrm{sep}}},\overline x)$
+is an open subgroup with index $N_1$ prime to $p$; by the above claim,
+$[N_1]^*E$ has geometric monodromy a $p$-group and is still at worst tamely
+ramified at 0 so that for some $N_2$, $[N_2]^*[N_1]^*E$ extends to an étale
+cover of $\A^1_K$; now let $N=N_1N_2$.
+
+The proof of $4) \Rightarrow 7)$ is self-evident after you observe that
+\begin{equation*}\begin{tikzcd}
+	&\GG_{m,K}\arrow[dl,"{[N]}"']\arrow[dr,"\operatorname{Trans}_b"] \\
+	\GG_{m,K}\arrow[dr,"\operatorname{Trans}_a"']&&\GG_{m,K}\arrow[dl,"{[N]}"] \\
+	&\GG_{m,K}
+\end{tikzcd}\end{equation*}
+commutes, since the left composition corresponds to
+$T\mapsto aT\mapsto aT^N$ as $[N]$ is $K$-linear, while the right 
+composition corresponds to $T\mapsto T^N\mapsto (bT)^N=aT^N$.
+
+(1.4) When Katz writes `an action of $G$ on $E$ covering its action on
+$\GG_{m,K'}$,' for example, `covering' means, in the language of
+\cite[XIII 1.1]{SGA7}, `compatible with.' Moreover the action of $G$ on $E$ 
+should be continuous.
+
+In the proof of the main theorem, once reduced to $(N,K')=(1,K)$ over the
+field $K'$, there is `nothing to prove' when $p=1$ since in this case the
+words `monodromy group a $p$-group' means `trivial monodromy group,' and
+so putting
+\begin{ceqn}\begin{align*}
+&\mathcal A := \text{category of finite étale coverings of $\A^1_{K'}$ 
+with trivial monodromy, \emph{and}} \\
+&\mathcal B := \text{category of finite étale coverings of
+$\Spec K'((T^{-1}))$ with trivial monodromy,}
+\end{align*}\end{ceqn}
+both $\mathcal A$ and $\mathcal B$ are isomorphic to the category of
+finite étale coverings of $\Spec K'$: in the case of $\mathcal A$, this 
+follows from the exact sequence ($\dagger$) in light of the fact that
+$\pi_1(\PP^1_{K^{\mathrm{sep}}})=1$;
+in the case of $\mathcal B$, this follows from the same exact sequence and
+the observation that $K^{\mathrm{sep}}((T^{-1}))$ is the function field of
+the strict henselization $\PP^1_{(\infty)}$ of $\PP^1_{K'}$ at $\infty$; in
+both cases, the condition `trivial mondromy' means that the revêtement
+étale extends over $\infty$
+(resp. the closed point of the strict henselization), and
+$\pi_1(\PP^1_{K^{\mathrm{sep}}})=1=\pi_1(\PP^1_{(\infty)})$ as any
+connected revêtement étale of the spectrum of a strictly henselian ring is 
+trivial.
+
+(1.4.2) If $R$ is a ring, the idempotents of $R[[x]]$ are in bijection with
+those of $R$, for, given an idempotent $f\in R[[x]]$, write 
+$f(x)=r_0+f_1(x)$ with $f_1(x)$ a power series with constant term 0;
+$r_0$ must be idempotent and if $f_1(x)\ne0$ it has a nonzero term of
+lowest degree, say $r_nx^n$. Then
+\begin{equation*}
+	r_0+f_1(x)=f(x)=f(x)^2=r+2r_0f_1(x)+f_1(x)^2
+\end{equation*}
+so that $2r_0r_n=r_n$ and therefore also $2r_0r_n=2r_0^2r_n=r_0r_n$ so
+$r_0r_n=0$, contradicting $r_n\ne0$.
+
+Using this fact, we find that the idempotents of $R$ are in bijection with
+those of $R[T]$; writing $R((T^{-1}))=R[T][[T^{-1}]]$ finds that the 
+idempotents of $R((T^{-1}))$ are in bijection with those of $R[T]$ and so
+also with those of $R$.
+
+(1.4.4) It's helpful to recall \emph{Arcata} II (2.1).
+
+(1.4.5) To see $\mathscr P$ is surjective on $T^{-1}R[[T^{-1}]]$, pick a
+power series in $T^{-1}$ with no constant term $b=\sum_{i>0}b_iT^{-i}$.
+To hit $b$ with an element $c$ of $T^{-1}R[[T^{-1}]]$, we proceed in the
+usual way: given $b$ at step $i>0$ with $b_j=0$ for $j<i$ and 
+$c_1,\ldots,c_j$ already fixed, put $c_i:=b_i$ and replace $b$ by
+$b-\mathscr P(c_iT^{-i})$. Then $c:=\sum_{i>0}c_iT^{-i}$ has
+$\mathscr P(c)=b$.
+
+(1.4.6) Recall Serre, \emph{Cohomologie Galoisienne} 2.3 Prop. 8 for
+\begin{equation*}
+	H^*(\varprojlim G_i,\varinjlim A_i)=\varinjlim H^*(G_i,A_i).
+\end{equation*}
+
+(1.4.8) As tensor product commutes with colimits, the assertion about
+$K^{\mathrm{sep}}\otimes_K K((T^{-1}))$ is clear from the isomorphism
+$K'\otimes_K K((T^{-1}))\xra\sim K'((T^{-1}))$ which in turn follows from 
+the basic fact that a finitely generated module $M$ over a noetherian local
+ring $A$ with maximal ideal $\mathfrak m$ has
+$\hat M\simeq M\otimes_A\hat A$ for the $\mathfrak m$-adic topology; in our
+case $A=K[T^{-1}]$, $M=K'[T^{-1}]$, and the isomorphism of fields above is
+the statement over the generic fiber; i.e.
+\begin{align*}
+	&K'\otimes_K K[[T^{-1}]]=K'[T^{-1}]\otimes_{K[T^{-1}]}K[[T^{-1}]] \xra\sim K'[[T^{-1}]]\quad\text{\emph{and}} \\
+	&K'\otimes_K K((T^{-1}))=K'[T^{-1}]\otimes_{K[T^{-1}]}K((T^{-1}))\xra\sim K'((T^{-1})).
+\end{align*}
+We see that the field $K'((T^{-1}))$ is the fraction field of the
+henselian d.v.r. $K'[[T^{-1}]]$ and the colimit of henselian local rings
+along local ring homomorphisms is henselian local, it suffices to observe
+that the colimit is also along étale, \emph{a fortiori} unramified ring
+maps that the colimit is a henselian a d.v.r.
+
+That the fraction field of a henselian d.v.r. has the same Galois
+theory as that of its completion is a result of Berkovich
+– \hyperref[pf:berkovich_lemma]{c.f. proof of the lemma in}
+\hyperref[laumon:2.4.1]{note to (2.4.1)}.
+This fact can also be obtained from the structure we have found for the
+Galois group: the unramified and tame parts are identical, and the free
+pro-p quotients can be shown to be mapped isomorphically: it amounts to
+showing that the map on étale $H^1(-,\ZZ/p)$ from the (spectra of the)
+maximal pro-p Galois extension of $K^{\mathrm{sep}}((T^{-1}))$ to that of $K^{\mathrm{sep}}\otimes_K K((T^{-1}))$ is an isomorphism.
+
+(1.4.10) The point is that the map of $\pi_1$s of (1.4.7) factors as
+\begin{ceqn}\begin{equation*}
+	\pi_1(\Spec(K^{\mathrm{sep}}((T^{-1})),\overline x_1)\ra
+	\pi_1(\GG_{m,K^{\mathrm{sep}}},\overline y_1)(\text{\emph{tame at 0}})
+	\twoheadrightarrow
+	\pi_1(\GG_{m,K^{\mathrm{sep}}},\overline y_1)(\text{\emph{special}})
+\end{equation*}\end{ceqn}
+by functoriality of the inverse image. This composite is an isomorphism
+and its inverse, preceded by the (tame-at-0)-to-(special) quotient, 
+provides the retraction. Why is the retraction unique?
+Identifying $\pi_1(\Spec(K^{\mathrm{sep}}((T^{-1})),\overline x_1)$ with
+its image under the canonical injection, retractions are in bijection with 
+complements to $\pi_1(\Spec(K^{\mathrm{sep}}((T^{-1})),\overline x_1)$:
+closed normal subgroups $N$ of
+$\pi_1(\GG_{m,K^{\mathrm{sep}}},\overline y_1)(\text{\emph{tame at 0}})$
+such that
+\begin{align*}
+	&N\cap\pi_1(\Spec(K^{\mathrm{sep}}((T^{-1})),\overline x_1)=\{1\}
+	\quad\text{\emph{and}} \\
+	&N\cdot\pi_1(\Spec(K^{\mathrm{sep}}((T^{-1})),\overline x_1)= \pi_1(\GG_{m,K^{\mathrm{sep}}},\overline y_1)(\text{\emph{tame at 0}}).
+\end{align*}
+Recall that
+$\pi_1(\GG_{m,K^{\mathrm{sep}}},\overline y_1)(\text{\emph{special}})$
+is the maximal pro-`group with unique $p$-Sylow subgroup' quotient of
+$\pi_1(\GG_{m,K^{\mathrm{sep}}},\overline y_1)(\text{\emph{tame at 0}})$.
+In the language of \emph{Profinite Groups} by Ribes \& Zalesskii, the class
+$\mathcal C$ of finite groups with unique $p$-Sylow subgroup is
+a \emph{variety} of finite groups, hence \emph{a fortiori} a 
+\emph{formation} of finite groups. Putting
+\begin{ceqn}\begin{align*}
+	R_{\mathcal C}:=\bigcap\{N:\ &N\text{ open normal subgroup of }
+	\pi_1(\GG_{m,K^{\mathrm{sep}}},\overline y_1)(\text{\emph{tame at 0}}),
+	\\
+	&\pi_1(\GG_{m,K^{\mathrm{sep}}},\overline y_1)(\text{\emph{tame at 0}})/N\in\mathcal C\},
+\end{align*}\end{ceqn}
+(3.4) of \emph{op. cit.} says that $R_{\mathcal C}$ is a characteristic subgroup, the sequence
+\begin{ceqn}\begin{equation*}
+	1\ra R_{\mathcal C}\ra
+	\pi_1(\GG_{m,K^{\mathrm{sep}}},\overline y_1)(\text{\emph{tame at 0}})\ra
+	\pi_1(\GG_{m,K^{\mathrm{sep}}},\overline y_1)(\text{\emph{special}})\ra1
+\end{equation*}\end{ceqn}
+is exact, and given any closed normal subgroup $K$ of
+$\pi_1(\GG_{m,K^{\mathrm{sep}}},\overline y_1)(\text{\emph{tame at 0}})$
+such that
+$\pi_1(\GG_{m,K^{\mathrm{sep}}},\overline y_1)(\text{\emph{tame at 0}})/K$
+is pro-$\mathcal C$, then $K$ is a subgroup of $R_{\mathcal C}$.
+This last point implies that the only $N$ as above is $R_{\mathcal C}$,
+hence the retraction is unique.
+
+Since specialness is geometric, the following diagram of profinite groups
+and continuous homomorphisms is commutative with exact rows and columns 
+(compare 1.3.3).
+\begin{ceqn}\begin{equation*}\begin{tikzcd}[column sep=small]
+	&1\arrow[d]& 1\arrow[d] \\
+	&R_{\mathcal C}\arrow[r,equals]\arrow[d]
+	&R_{\mathcal C}\arrow[d] \\
+	1\arrow[r]&\pi_1(\GG_{m,K^{\mathrm{sep}}},\overline y_1)(\text{\emph{tame at 0}})\arrow[r]\arrow[d]
+	&\pi_1(\GG_{m,K},\overline y_1)(\text{\emph{tame at 0}})\arrow[r]\arrow[d]&\Gal(K^{\mathrm{sep}}/K)\arrow[d,equals]\arrow[r]&1 \\
+	1\arrow[r]&\pi_1(\GG_{m,K^{\mathrm{sep}}},\overline y_1)(\text{\emph{special}})\arrow[r]\arrow[d]
+	&\pi_1(\GG_{m,K},\overline y_1)(\text{\emph{special}})\arrow[r]\arrow[d]
+	&\Gal(K^{\mathrm{sep}}/K)\arrow[r]&1 \\
+	&1&1
+\end{tikzcd}\end{equation*}\end{ceqn}
+In more words, clearly the kernel of the tame-to-special quotient for $K$
+contains that for $K^{\mathrm{sep}}$ (the functor of restriction to 
+geometric monodromy corresponds to the functor `reciprocal image along
+$\Spec K^{\mathrm{sep}}\ra\Spec K$'); to see it is no larger, note that
+the special coverings of $G_{m,K_i}$ are special coverings of $G_{m,K}$ for
+all Galois extensions $K_i$ of $K$; therefore an element of the kernel must
+fix all the special coverings of $G_{m,K_i}$ for each $i$, and
+$K^{\mathrm{sep}}=\cup_i K_i$.
+
+This diagram implies the uniqueness of the retraction for $K$ restricting
+to the given one for $K^{\mathrm{sep}}$.
+In more words, as before, retractions of
+\begin{equation*}
+	\pi_1(\GG_{m,K},\overline y_1)(\text{\emph{tame at 0}})
+	\twoheadrightarrow
+	\pi_1(\GG_{m,K},\overline y_1)(\text{\emph{special}})
+\end{equation*}
+are in bijection with closed normal subgroups $N$ satisfying the same
+conditions as before with $K^{\mathrm{sep}}$ replaced by $K$ and
+$\overline x_1$ replaced by $\overline x$. The condition that the 
+retraction must restrict to the given one for $K^{\mathrm{sep}}$ implies
+that $N$ must contain $R_{\mathcal C}$. But as seen in the diagram above,
+$N=R_{\mathcal C}$. Therefore, as before, there is only one possible choice
+for $N$.
+
+(1.6.4) Finitely presented since constructible – \emph{Th. finitude}.
+
+(1.6.6) See Katz, \emph{Gauss Sums, Kloosterman Sums, and Monodromy Groups} 
+(2.1.1) \& (2.3.3).
+
+(1.6.8) There are 3 claims to verify: (1) that the isomorphism class of a
+projective $\ZZ_\ell[G]$-module can be deduced by character; (2) that
+$\chi(\A^1_K,-)=\chi_c(\A^1_K,-)$, and (3) that
+$\chi_c(\GG_{m,K},\mathcal F^{\mathrm{can}})=-\operatorname{swan}_\infty(\mathcal F)$.
+
+(1)
+Referring to Serre, \emph{Linear Representations of Finite Groups},
+(14.4) gives that for a mixed-characteristic local field $K$ with valuation
+ring $A$ with residue field $A/\mathfrak m=:k$ and $G$ a finite group,
+every projective $A[G]$-module is a direct sum of projective indecomposable
+$A[G]$-modules unique up to isomorphism so that two projective
+$A[G]$-modules are isomorphic iff their images in the Grothendieck group of
+the category of projective $A[G]$-modules coincide. (16.1) gives that two
+projective $A[G]$-modules $P,P'$ are isomorphic if the $K[G]$-modules
+$P\otimes K,P'\otimes K$ are.
+Let $R_K(G)$ denote the Grothendieck group of finite-dimensional
+$K[G]$-modules. (14.5) gives that $\langle E,F\rangle=\dim\Hom^G(E,F)$ on
+$K[G]$-modules $E,F$ induces a bilinear form
+\begin{equation*}
+	R_K(G)\times R_K(G)\ra\ZZ
+\end{equation*}
+and (14.6) shows that it is compatible with extension of field
+$K\subset K'$, which induces an injection $R_K(G)\ra R_{K'}(G)$.
+Over a large enough field (e.g. the algebraic closure of $K$), the above
+bilinear form is nondegenerate and induces an isomorphism of $R_K(G)$ onto
+its dual. The identity
+\begin{equation*}
+	\Hom_G(E,F)\simeq\check E\otimes_G F
+\end{equation*}
+and the fact that the Swan representation is self-dual
+\cite[Exp. X (3.8) \& (4.4)]{SGA5} show that indeed it suffices to show
+that
+\begin{equation*}
+	\dim_{\overline\QQ_\ell}(H^1(\A^1_K,j_!\mathcal F^{\mathrm{can}}))
+	=\operatorname{swan}_\infty(\mathcal F),
+\end{equation*}
+where the latter is the Swan conductor $b(M)$ of Serre (19.3), in light of
+the isomorphism
+\begin{equation*}
+	H^1(\A^1_K,j_!((\operatorname{Reg}_{G;\ZZ_\ell})^{\mathrm{can}}))\otimes_{\ZZ_\ell[G]}M\xra\sim H^1(\A^1_K,j_!\mathcal F^{\mathrm{can}}).
+\end{equation*}
+
+(2)
+The equality $\chi(X,\mathcal F)=\chi_c(X,\mathcal F)$ for a proper smooth
+curve $X$ over an algebraically closed field $k$ was proven by Grothendieck
+\cite[Exp. X (7.12)]{SGA5}, and later by Laumon for any $X$ separated and
+finite type over $k$ algebraically closed in his 1981 article
+\emph{Comparaison de caractéristiques d'Euler-Poincaré en cohomologie l-adique}.
+
+(3) The formula
+$\chi_c(\GG_{m,K},\mathcal F^{\mathrm{can}})=-\operatorname{swan}_\infty(\mathcal F)$
+can be deduced from the Grothendieck-Ogg-\v Savarevi\v c formula as appears
+in Laumon (2.2.1.2). Laumon's Swan conductor coincides with Serre's
+Swan conductor $b(M)$ after passing from upper to lower numbering
+\begin{multline*}
+	s(M)=\sum_{\Lambda\in\Lambda(M)}\lambda.r(V_\lambda)
+	=\int_0^\infty\codim M^{G^\lambda}\;d\lambda \\
+	=\int_0^\infty\frac{\codim M^{G_r}}{[G_0:G_r]}\;dr
+	=\sum_{i=1}^\infty\frac{\codim M^{G_i}}{[G_0:G_i]}=b(M).
+\end{multline*}
+Incidentally, if $a(M)$ denotes the Artin conductor, putting
+\begin{equation*}
+	t(M):=\int_{-1}^0\codim M^{G^\lambda}\;d\lambda=\int_{-1}^0\frac{\codim M^{G_r}}{[G_0:G_r]}\;dr=\codim M^{G_0}=\codim M^{I_\infty}
+\end{equation*}
+allows us to write $a(M)=t(M)+s(M)$, expressing the Artin conductor as the
+sum of the tame conductor $t(M)$ and the Swan (or wild) conductor $s(M)$.
+
+
+\subsection*{2.3.1}\label{laumon:2.3.1}
+(2.3.1.1) The negative sign before $\chi_c$ is due to the shift $[1]$ in
+the formula for Fourier transform. The contribution in the formula of
+Grothendieck-Ogg-\v Safarevi\v c from $a_\infty(K)$ is
+$r(K)-s(F_{\overline\eta_\infty}\otimes\mathscr L(x.s')_{\overline\eta_\infty})$
+and of course $r_\infty(K')=0$ as our $K$ on $\PP^1$ is obtained as 
+extension by zero of $K$ on $A$. The Swan conductor $s_\infty$ doesn't 
+care about the stalk of $K$ at $\infty$ but only about the 
+restriction of $K$ to the generic point $\eta_{\infty}$ of the henselian
+trait $(\PP^1_k)_{(\infty)}$. As $\mathscr L$ is locally constant on $A$,
+$a_s(K\otimes\mathscr L(x.s'))=a_s(K)$ for $s\in S$.
+
+To understand $\mathscr L(x.a')_{\overline\eta_\infty}$ when $a'\ne0$,
+let's again write the Artin-Schreier covering
+\begin{equation*}
+	0\ra\FF_p\ra\GG_{a,k}\xra{t^p-t}\GG_{a,k}\ra0.
+\end{equation*}
+The induced map $k[t_1]\ra k[t_2]$ on coordinate rings is
+$t_1\mapsto t_2^p-t_2$, as can be readily seen by remembering what $F^*$
+and $+$ do on the coordinate ring of $\GG_{a,k}$. The Artin-Schreier sheaf
+$\mathcal A$ is the sheaf of local sections of this covering.
+It is an $\FF_p$-torsor on $\GG_{a,k}=\Spec k[t_1]$. As the above map on
+coordinates makes $t_2$ integral over $k[t_1]$ with equation of integral
+dependence $t_2^p-t_2=t_1$, $\mathcal A$ is represented over
+$\GG_{a,k}=\Spec k[t_1]$ by the revêtement étale
+$\Spec k[t_1,t_2]/(t_2^p-t_2-t_1)$.
+Pushing $\mathcal A$ by the character $\psi^{-1}$ gives $\mathscr L_{\psi}$
+but it is conceptually easier to keep working with $\mathcal A$.
+The pullback of $\mathcal A$ to $A$ via $A\times a'\ra A\times A'\ra\GG_a$
+corresponds to the revêtement étale of $A=\Spec k[x]$ given by
+$\Spec k[x,t]/(t^p-t-xa')$, this is the one-parameter family of
+Artin-Schreier coverings
+\begin{equation*}
+	t^p-t=xa',\qquad a'\in\overline k.
+\end{equation*}
+Let $\FF=\overline\FF_p$.
+Given $x\in A(\FF),x'\in A'(\FF)$, we can consider 
+$x,x'$ as elements of $\FF_q$ for some $q=p^n$,
+$\mathscr L(xx')=\psi^{-1}(N_{\FF_q/\FF_p}(xx'))$.
+When $k$ is merely a perfect field of characteristic $p$, $\mathscr L(x.a')$
+corresponds to the push of the above $\FF_p$-torsor $\mathcal A$ by
+$\psi^{-1}:\FF_p\ra\overline\QQ_\ell^\times$. The sheaf
+$\mathcal A$ corresponds to the representation of $\Gal(\eta'/\eta)$
+discussed in \hyperref[laumon:2.1.2]{the note to (2.1.2.8)};
+likewise $\mathscr L(x.a')_{\overline\eta_\infty}$ corresponds to
+$L_{\psi}(1/xa')$; here $xa'$ corresponds to $\pi$ and indeed
+$1/xa'$ is a uniformizer for the strictly henselian trait
+$(\PP^1_{\overline k})_{(\infty)}$.
+So $\mathscr L(x.a')_{\overline\eta_\infty}$ has slope 1.
+
+If there is an $a'_1\in\overline k$ such that
+\begin{equation*}
+	((F_{\overline\eta_\infty})_1\otimes\mathscr L(x.a'_1)_{\overline\eta_\infty})^{I_\infty^{(1)}}\ne0,
+\end{equation*}
+then for all $a_2'\ne a_1'\in\overline k$,
+\begin{equation*}
+	((F_{\overline\eta_\infty})_1\otimes\mathscr L(x.a'_2)_{\overline\eta_\infty})^{I_\infty^{(1)}}
+	=((F_{\overline\eta_\infty})_1\otimes\mathscr L(x.a'_1)_{\overline\eta_\infty}\otimes\mathscr L(x.(a'_2-a'_1))_{\overline\eta_\infty})^{I_\infty^{(1)}}=0,
+\end{equation*}
+as $\mathscr L(x.(a'_2-a'_1))_{\overline\eta_\infty}$ has slope 1.
+
+Formula (i): in light of the above discussion, (2.1.2.7) gives that for
+almost all $a'\in\overline k$,
+\begin{equation*}
+s(F_{\overline\eta_\infty}\otimes\mathscr L(x.a')_{\overline\eta_\infty})
+=r((F_{\overline\eta_\infty})_{[0,1[})+r((F_{\overline\eta_\infty})_1)+ s((F_{\overline\eta_\infty})_{]1,\infty[}).
+\end{equation*}\
+By (2.2.1.1), $r(K')=r_{s'}(K')$ for all but the finitely many $s'\in S'$.
+Combining these two facts with the Grothendieck-Ogg-\v Safarevi\v c formula for $r_{s'}(K')$ gives
+\begin{align*}
+	r(K')&=r(F_{\overline\eta_\infty})+\sum_{s\in S}\deg(s).a_s(K)-(r((F_{\overline\eta_\infty})_{[0,1[})+r((F_{\overline\eta_\infty})_1)+ s((F_{\overline\eta_\infty})_{]1,\infty[})) \\
+	&=\sum_{s\in S}\deg(s).a_s(K)+r((F_{\overline\eta_\infty})_{]1,\infty[})-s((F_{\overline\eta_\infty})_{]1,\infty[}).
+\end{align*}
+
+The difference between formul\ae\ (i) and (ii) is in
+$s((F_{\overline\eta_\infty})_1\otimes\mathscr L(x.s')_{\overline\eta_\infty})$;
+in the generic formula (i) we could discard the finitely many geometric
+points of $A'$ where this differs from $r((F_{\overline\eta_\infty})_1)$.
+Therefore,
+\begin{equation*}
+	r_{s'}(K')-r(K')=-s((F_{\overline\eta_\infty})_1\otimes\mathscr L(x.s')_{\overline\eta_\infty})+r((F_{\overline\eta_\infty})_1).
+\end{equation*}
+The difference between formul\ae\ (i) and (iii) is that in (i) we applied
+(2.1.2.7) while in (iii) we cannot, so that
+\begin{align*}
+	r(K')_{0'}-r(K')
+	&=-s(F_{\overline\eta_\infty})
+	+(r((F_{\overline\eta_\infty})_{[0,1[})+r((F_{\overline\eta_\infty})_1)+ s((F_{\overline\eta_\infty})_{]1,\infty[})) \\
+	&=-s((F_{\overline\eta_\infty})_{[0,1[})+ r((F_{\overline\eta_\infty})_{[0,1[}).
+\end{align*}
+
+\subsection*{Intermezzo II: SGA 7 Exposé XIII}\label{sga7:XIII}
+\S1 In the definition of a compatible action of $G$ on a sheaf of sets
+$\mathcal F$ on $\overline Y$, to an étale $a:U\ra\overline Y$ and $g\in G$
+we must associate an isomorphism
+\begin{equation*}\begin{tikzcd}
+	\overline Y\times_{u(g),a}U\simeq &[-35pt]U\arrow[r,"u(g)"]\arrow[d,"a"]\arrow[dr,phantom,"\ulcorner",near start]&U\arrow[d,"a"] \\
+	&\overline Y\arrow[r,"u(g)"]& \overline Y
+\end{tikzcd}\rightsquigarrow
+\begin{tikzcd}
+	\mathcal F(U\xra{u(g)}U\xra{a}\overline Y)\xra{\sigma(g)(U)}\mathscr F(U\xra a\overline Y)
+\end{tikzcd}\end{equation*}
+% 	\mathcal F(U\ra\overline Y\xra{u(g)}\overline Y)\xra{\sigma(g)(U)}\mathscr F(U\ra\overline Y)
+so as to induce morphisms of sheaves
+$\sigma(g):u(g)^*\mathcal F\ra\mathcal F$ in a compatible way so that
+$\sigma(gh)=\sigma(g)\sigma(h)$.
+In effect, there is an obvious choice: $\mathcal F(u(g))$, and this choice
+explains why, given $\mathcal G$ on $Y$, the action of
+$\Gal(\overline k,k)$ on $\overline{\mathcal G}$ by transport of structure
+is compatible with the action of the same group on $\overline Y$
+(action `by transport of structure' means the above action).
+\emph{A priori} the compatible action of $G$ on $\mathcal F$ need not even
+factor through $u$.
+
+(1.2.7) Let $f:S'\ra S$ be a surjective morphism of henselian traits.
+Then $\eta'\mapsto\eta,s'\mapsto s$, and we can choose
+$\overline s',\overline s,\overline\eta',\overline\eta$ so that
+$\overline s'\ra s$ factors through $\overline s$ and likewise
+$\overline\eta'\ra\overline\eta\ra\eta$ so that the diagram below commutes.
+\begin{equation*}\begin{tikzcd}
+	Y\times_s\overline s'\arrow[d,"\overline s'"]\arrow[r,"f"]
+	&Y\times_s\overline s\arrow[d,"\overline s"] \\
+	Y\times_s s'\arrow[r,"f"]&Y
+\end{tikzcd}\end{equation*}
+This implies that for $\mathcal F$ a sheaf on $Y$,
+$f^*\mathcal F_{\overline s}:=f^*\overline s^*\mathcal F=\overline s'^*f^*\mathcal F$,
+so that $\Gal(\overline s'/s')$ acts on
+$f^*\mathcal F_{\overline s}$ \emph{via} the homomorphism
+\begin{equation*}\Gal(\overline s'/s')\ra\Gal(\overline s/s)
+\qquad\text{induced by the restriction of $f$ to $s'$;}\end{equation*}
+likewise, $\Gal(\overline\eta'/\eta')$ acts on $f^*\mathcal F_{\overline\eta}$ \emph{via} the homomorphism
+\begin{equation*}\Gal(\overline\eta'/\eta')\ra\Gal(\overline\eta/\eta)
+\qquad\text{induced by the restriction of $f$ to $\eta'$.}\end{equation*}
+
+(1.3) Typo: $\overline X:=X\times_S\overline S$.
+Recall that $\overline S$ is the normalization of $S$ in
+$\overline\eta$, which is the spectrum of a strictly henselian d.v.r.; 
+its separably closed residue field may be
+an inseparable extension of $k(s)$, but we take $\overline s$ to denote the
+spectrum of this separably closed field, which can be considered as the
+closed point of $\overline S$ or, by light abuse of notation (0.2.4), as
+defining a geometric point of $S$.
+
+It is perhaps worth comparing $i^*j_*j^*$ with
+$\overline i^*\overline j_*\overline j^*$ in the definition of $\Psi_\eta$.
+Let $\mathcal F$ be a sheaf on $Y\ra S$;
+then $\mathcal F_{\overline\eta}$ carries action of
+$\Gal(\overline\eta/\eta)$. In effect, the stalk of
+$i^*j_*j^*\mathcal F$ is $\mathcal F_{\overline\eta}^I$, 
+while $\overline i^*\overline j_*\overline j^*\mathcal F=\mathcal F_{\overline\eta}$ endowed with continuous action of
+$\Gal(\overline\eta/\eta)$ compatible with the action of the latter on
+$Y_{\overline s}$. In galoisian terms of (1.2.2), this is the 
+observation that $\Gal(\overline\eta/\overline\eta)=\{e\}$.
+
+In (1.3.6.2), the $\psi$ is omitted on the left hand side because it
+induces an equivalence (see note to (2.1.8) below).
+The $X_s\times_s\eta$-component of both sides is readily computed from
+the definitions, keeping in mind that $\psi_{\overline\eta}$ is a sheaf
+on $X_{\overline s}$; namely,
+\begin{equation*}
+	\Psi_{\eta}(f_*\mathcal F)
+	=\overline i^*\overline j_*(f_*(F)_{\overline\eta})
+	=\overline i^*\overline j_*\Gamma(X_{\overline\eta},\mathcal F),
+\end{equation*}
+which, as $\Gal(\overline\eta/\eta)$-module, is simply
+$\Gamma(X_{\overline\eta},\mathcal F)$ (sitting on $\overline s$).
+With $f:X_{\overline s}\ra\overline s$,
+\begin{equation*}
+	f_*\Psi_{\eta}(\mathcal F)
+	=\Gamma(X_{\overline s},\Psi_{\overline\eta}(\mathcal F)).
+\end{equation*}
+
+
+(1.3.8) The commutativity of $f_!$ with change of base does not require
+that $f$ be quasi-finite, only separated and locally of finite type
+\cite[Exp. XVII 6.1.4]{SGAA}.
+The morphism $f_!\overline j_*\ra\overline j_*f_!$ follows from
+the definition of $f_!$ \cite[Exp. XVII 6.1.2]{SGAA} and the observation
+that the sections of $\overline j_*f_!$ over $X'$ are the sections of
+$\overline j_*f_*$ over $X_{\overline\eta}$ with support proper over 
+$X'_{\overline\eta}$ while the sections of $f_!\overline j_*$ are the same,
+only they must now have support proper over the larger space $\overline X'$. Therefore the map is induced simply by the inclusion
+$\overline\eta\hookrightarrow\overline S$.
+When $f$ is finite it is proper and all these maps are isomorphisms.
+
+(1.3.9) Commute with direct image $\rightsquigarrow$
+\cite[Exp. XVIII 3.1.12.3]{SGAA}.
+
+$\overline i^*f^!\ra f^!\overline i^*\rightsquigarrow$
+\cite[Exp. XVIII 3.1.14.2]{SGAA}.
+
+$f$ étale $\rightsquigarrow$ \cite[Exp. XVIII 3.1.8]{SGAA}.
+
+(1.3.10) The definition of this arrow is clarified with a diagram in
+\cite[3.7]{thfin}, where the derived version of this map is shown to be an
+isomorphism, provided you assume $\mathcal F$ is of torsion prime to the
+residual characteristic of $S$.
+
+(1.4) The business of securing the injectivity of $\varphi'$ is the usual 
+trick (SGA V Exp. XV p.\,479). Namely, the cone of $\spe^*K_s$
+(where here $\spe=\spe\circ j$ in the sense of (1.2.2))
+is the cone of the identity map on this complex; i.e. the complex
+$C(\spe^*K_s)^i:=(\spe^*K_s)^i\oplus(\spe^*K_s)^{i-1}$ with differential
+$d^i(x,y)=(d^ix,x-d^{i-1}y)$. The identity map on this complex is homotopic
+to 0 via the homotopy $h(x,y)=(y,0)$, so it is acyclic and
+$K'_\eta=K_\eta\oplus C(\spe^*K_s)$ is homotopic to $K_\eta$.
+Replacing $\varphi$ by $\varphi':=(\varphi,\id,0)$
+(as $\spe^*K_s$ coincides with $K_{\overline s}$ with action of
+$\Gal(\overline\eta/\eta)$ factoring through $\Gal(\overline s/s)$ so that
+$\varphi'$ remains equivariant), $\varphi'$ is now a termwise split 
+injection with termwise splitting given by projection to the second factor.
+In (1.4.2.2) $\spe$ again coincides with $\spe\circ j$ (1.2.2).
+En termes imagés, $\Phi(K)$ keeps track of the sections of $K_\eta$ which 
+do not come from residual extension of sections of $K_s$; bref, the
+discrepancy between $K_\eta$ and $K_s$.
+
+(2.1.2) `l'image réciproque $F_{\overline\eta}$ est acyclique'
+$\rightsquigarrow$ \cite[VII 5.7]{SGAA}.
+
+(2.1.3) $S_{\mathrm{nr}}$ is a strictly henselian trait 
+coinciding with the normalization of $S$ in $\eta_{\mathrm{nr}}$.
+
+Claim: $\overline X_{(\overline x)}\simeq
+X_{(\overline x)}\times_{S_{\mathrm{nr}}}\overline S$. As
+$\overline X=X\times_SS_{\mathrm{nr}}\times_{S_{\mathrm{nr}}}\overline S$
+and $X_{(\overline x)}$ coincides with the strict henselization of
+$X\times_SS_{\mathrm{nr}}$ at $\overline x$,
+$X_{(\overline x)}\times_{S_{\mathrm{nr}}}\overline S$ is pro-étale over
+$\overline X$.
+On the other hand, let $\eta'$ be a finite separable extension of
+$\eta_{\mathrm{nr}}$ and $S'$ the normalization of $S_{\mathrm{nr}}$ in
+$\eta'$. Then $X_{(\overline x)}\times_{S_{\mathrm{nr}}}S'$ is finite over
+$X_{(\overline x)}$, so splits as a disjoint union of henselian local ring
+spectra indexed by the points in the closed fiber
+$\overline x\times_{S_{\mathrm{nr}}}S'$.
+As the closed fiber of the map $S'\ra S_{\mathrm{nr}}$ is radicial,
+the map $\overline x\times_{S_{\mathrm{nr}}}S'\ra\overline x$ is injective
+and hence we see that $\overline x\times_{S_{\mathrm{nr}}}S'$ is one point
+(\href{https://stacks.math.columbia.edu/tag/01S2}{Stacks tag \texttt{01S2}})
+so that $X_{(\overline x)}\times_{S_{\mathrm{nr}}}S'$, and hence by passage 
+to the limit $X_{(\overline x)}\times_{S_{\mathrm{nr}}}\overline S$ too,
+are strictly henselian local
+(\href{https://stacks.math.columbia.edu/tag/04GI}{Stacks tag \texttt{04GI}}).
+It is now immediate that the generic fiber of the strict henselization of
+$\overline X$ at $\overline x$ coincides with
+\begin{equation*}
+	(X_{(\overline x)}\times_{S_{\mathrm{nr}}}\overline S)_{\overline\eta}=
+	X_{(\overline x)}\times_{\eta_{\mathrm{nr}}}\overline\eta.
+\end{equation*}
+
+(2.1.5) Considering $\mathcal F$ as concentrated in degree 0, then so too
+is $\spe^*i^*\mathcal F$. We write the
+long exact sequence of cohomology associated to the stalk at $\overline x$ 
+(technically the stalk at the point $(\overline x,\overline\eta)$ of the
+topos $X_s\times_s\eta$) of the distinguished triangle (2.1.2.4)
+\begin{equation*}
+	0\ra\mathcal F_{\overline x}\xra\sim
+	(\overline j_*\overline j^*\mathcal F)_{\overline x}\ra
+	R^0\Phi(\mathcal F)\ra0\ra
+	R^1\Psi(\mathcal F_\eta)_{(\overline x,\overline\eta)}
+	\ra R^1\Phi(\mathcal F)\ra\cdots
+\end{equation*}
+with the second arrow an isomorphism as $\mathcal F$ is lisse
+(c.f. \hyperref[laumon:reprise]{Reprise}).
+(2.1.3) gives that 
+\begin{equation*}
+	R^i\Psi(\mathcal F_\eta)_{(\overline x,\overline\eta)}\simeq
+	H^i(X_{(\overline x)}\times_{\eta_{\mathrm{nr}}}\overline\eta,\mathcal F)
+\end{equation*}
+and the note to (2.1.3) above shows that
+$X_{(\overline x)}\times_{\eta_{\mathrm{nr}}}\overline\eta$ is a variety of
+vanishing cycles of $f$ at the point $\overline x$ in the sense of
+Arcata V 1.3 (more properly it should be called a variety of nearby 
+cycles); as $f$ is smooth hence (universally) locally acyclic
+(Arcata V 2.1) and the restriction of $\mathcal F$ to $X_{(\overline x)}$
+is constant, this same definition 1.3 gives that
+$R\Psi(\mathcal F)_{(\overline x,\overline\eta)}$ is
+connective (i.e. acyclic in degrees $>0$) so that
+$R\Phi(\mathcal F)_{(\overline x,\overline\eta)}=0$.
+
+In the case of a complex $K$ in $D^+(X,\Lambda)$ with $f$ smooth and
+the $\mathscr H^i(K)$ lisse, we can reduce to the previous paragraph with
+the help of the spectral sequence
+\begin{equation*}
+	E_{II}^{p,q}=R^p\Psi_\eta(\mathscr H^q(K_s))
+	\Rightarrow\mathscr H^{p+q}\Psi_\eta(K_s)
+\end{equation*}
+which finds that the map $\spe^*i^*K\ra R\Psi_\eta(K_s)$ is a
+quasi-isomorphism.
+
+See also \cite[2.12]{thfin}.
+
+(2.1.6) $Rf_*$ is described as a functor
+$D^+(Y\times_sS,\Lambda)\ra D^+(Y'\times_sS,\Lambda)$.
+
+c) $f$ quasi-fini $\Rightarrow f_!$ exact $\rightsquigarrow$ \cite[XVII 6.1.4]{SGAA}.
+
+d) $f$ quasi-fini $\Rightarrow Rf^!$ is the right derived functor of
+$f^!\rightsquigarrow$ \cite[XVIII 3.1.8 (i)]{SGAA}.
+
+(2.1.7) Climbing to the highest heights of pedantry, to derive (1.3.6.1),
+start by representing our $K$ in $D^+(X,\Lambda)$ by a complex of
+injectives $I_1$; as $f_*$ preserves injectives, 
+$R\Psi\;Rf_*K=\Psi\;f_*I_1$. By (1.3.6.1) we find a morphism of complexes
+$\Psi\;f_*I_1\ra f_*\;\Psi I_1$. Taking a quasi-isomorphism
+$\Psi I_1\ra I_2$ into a complex of injectives $I_2$ composes to give
+\begin{equation*}
+	R\Psi\;Rf_*K=\Psi\;f_*I_1\ra f_*\,\Psi I_1\ra f_* I_2=Rf_*\;R\Psi K.
+\end{equation*}
+The same method gives (2.1.7.2) and the first arrow in the below for
+(2.1.7.3).
+\begin{equation*}
+	Rf_!\;R\Psi=R\tilde f_*\;j_!\;R\Psi\ra R\tilde f_*\;R\Psi\;j_!\ra
+	R\Psi\;R\tilde f_*\;j_!=R\Psi\;Rf_!.
+\end{equation*}
+For $f$ quasi-finite, $f^!$ is right adjoint to the exact functor $f_!$
+and so preserves injectives.
+
+Deligne shows \cite[3.7]{thfin} that the formation of nearby cycles $R\Psi$
+commutes with change of trait; i.e. the base-change morphism (2.1.7.5) is
+an isomorphism (for sheaves of torsion prime to the residual characteristic 
+of $S$).
+(Confusingly, he calls $R^i\Psi_\eta$ vanishing cycles. This is surely 
+because, according to Illusie, \emph{Grothendieck and vanishing cycles},
+ when Grothendieck introduced the functors $R\Psi$, $R\Phi$, he
+called both these `functors of vanishing cycles.')
+
+(2.1.8)
+Typo: $K$ belongs in $D^+(X,\Lambda)$.
+When $X'=S$, $\Psi$ induces an equivalence of sheaves on $S$ with sheaves
+on the topos $s\times_s S$ (1.2.2 b)) and is therefore omitted.
+The $X_s\times_s\eta$-component of the left-hand side of (2.1.8.1) is
+\begin{equation*}
+	\R\Psi_\eta\;Rf_*K=\overline i^*\overline j_*\overline j^*Rf_*K
+	=\overline i^*\overline j_*(Rf_*K)_{\overline\eta}
+	=\overline i^*\overline j_*R\Gamma(X_{\overline\eta},K).
+\end{equation*}
+As in the note to (1.3) above, as $\Gal(\overline\eta/\eta)$-module,
+$\overline i^*\overline j_*R\Gamma(X_{\overline\eta},K)
+=R\Gamma(X_{\overline\eta},K)$, but the left-hand side can be considered
+as sitting on $\overline s$ while the right-hand side sits on
+$\overline\eta$. This is pedantry.
+In any event, the $X_s\times_s\eta$-component of the right-hand side of
+(2.1.8.1) coincides with the right-hand side of (2.1.8.3) in light of
+(2.1.6.2), which in itself is pedantic and simply recognizes that the 
+object $R\Psi_{\overline\eta}(K)$ sits on $X_{\overline s}$, and we take
+the stalk at the point $(\overline x,\overline\eta)$ of $X_s\times_s\eta$
+as in (2.1.3). In other words, with $f:X_{\overline s}\ra\overline s$,
+\begin{equation*}
+	Rf_*\;R\Psi_{\eta}(K)
+	=Rf_*\overline i^*\overline j_*(K_{\overline\eta})
+	=R\Gamma(X_{\overline s},\overline i^*\overline j_*(K_{\overline\eta})
+	=R\Gamma(X_{\overline s},R\Psi_{\overline\eta}(K)).
+\end{equation*}
+The long exact sequence (2.1.8.9) exists when $f$ is proper because in that
+case (2.1.8.3) is an isomorphism.
+
+\subsection*{2.3.2}
+The translation of \hyperref[laumon:2.2.1]{the note to (2.2.1.1)} into
+$G_{s'}$-modules is that
+\begin{equation*}
+	\mathscr H^{-1}(K'_{\overline s'})\subset
+	F'^{I_{s'}}_{\overline\eta_{s'}},
+\end{equation*}
+confirming the exactness on the left of the exact sequence of
+$G_{s'}$-modules.
+
+(2.3.2.1)
+(i) The point is that the Artin-Schreier $\FF_p$-torsor $\mathcal A$
+(c.f. \hyperref[laumon:2.3.1]{note to 2.3.1}) is trivialized by
+the base change $\GG_{a,k}\xra{t^p-t}\GG_{a,k}$ by the Lang isogeny for
+$\GG_{a,k}$, which is a revêtement étale.
+Pulling back to $A\times_k A'\ra\GG_{a,k}$ trivializes $\mathscr L(x.x')$
+over this revêtement étale and reduces to the stated theorem
+(see also \hyperref[sga7:XIII]{note to (2.1.5) in Intermezzo II}).
+
+(In galoisian terms, if $\overline x$ is a geometric point of $\GG_{a,k}$,
+$\mathscr L_\psi$ is defined by
+\begin{equation*}
+	\pi_1(\GG_{a,k},\overline x)\ra\FF_p\xra{\psi^{-1}}\overline\QQ_\ell^\times
+\end{equation*}
+The Artin-Schreier covering $\GG_{a,k}\xra{t^p-t}\GG_{a,k}$ corresponds to
+the open subgroup of $\pi_1(\GG_{a,k},\overline x)$ which coincides with
+the kernel of this representation.)
+
+(ii) Use (1.4.1.1) and \cite[Exp. XIII 2.1.7.1]{SGA7} for $R\Psi$;
+proper base change for $\spe^*i^*$ and (TR3) gives the desired isomorphism
+\begin{equation*}\begin{tikzcd}
+	\spe^*i^* R\overline\pr'_*\arrow[r]\arrow[d,"\sim"]&
+	R\Psi_{\eta_{s'}} R\overline\pr'_*\arrow[r]\arrow[d,"\sim"]&
+	R\Phi R\overline\pr'_*\arrow[r]\arrow[d]&\ \\
+	R\overline\pr'_*\spe^*i^*\arrow[r]&
+	R\overline\pr'_*R\Psi_{\eta_{s'}}\arrow[r]&
+	R\overline\pr'_*R\Phi\arrow[r]&\ 
+\end{tikzcd}\end{equation*}
+Let $M:=\overline\pr^*(\alpha_!K)\otimes\overline{\mathscr L}(x.x')[1]$.
+As $R\overline\pr'_*\spe^*=\spe^*R\overline\pr'_*$, this diagram 
+computes to
+\begin{equation*}\begin{tikzcd}
+	\spe^*K'_{\overline s'}\arrow[r]\arrow[d,"\sim"]&
+	R\Psi_{\eta_{s'}}(K')\arrow[r]\arrow[d,"\sim"]&
+	R\Phi(K')\arrow[r]\arrow[d]&\ \\
+	\spe^*R\Gamma(D_{\overline s'},i^*(M))\arrow[r]&
+	R\Gamma(D_{\overline s'},R\Psi_{\overline\eta_{s'}}(M))\arrow[r]&
+	R\Phi(M)_{(\overline\infty,\overline s')}\arrow[r]&\ 
+\end{tikzcd}\end{equation*}
+where here $R\Gamma(D_{\overline s'},i^*(M))=R\overline\pr'_*(i^*M)_{\overline s'}$
+for $\overline\pr':D\times_k s'\ra s'$.
+En effet, (i) gives that $R\Phi(M)$ is supported on
+$\infty\times_k\eta_{s'}$ (the topos; literally as a sheaf it sits on
+$\infty\times_k\overline s'\hookrightarrow D_{\overline s'}$);
+if $k$ denotes the inclusion of this point into $D\times_k\eta_{s'}$,
+$R\Phi(M)=k_*L$ so that
+$R\overline\pr'_*R\Phi(M)=R\Gamma(D_{\overline s'},k_*L)=L_{(\overline\infty,\overline s')}$.
+Compare with \cite[Exp. XIII 2.1.8]{SGA7} and note to (2.1.8) in \hyperref[sga7:XIII]{Intermezzo II}.
+
+(2.3.2.3) = (2.3.2.1) (iii) + the exact sequence at the top of the
+page + (2.3.1.1).
+
+(2.3.3.1) Typos: in the first displayed equation of (ii) the stalk is at
+$(\overline s,\overline\infty')$ not $(\overline s,\overline\infty)$.
+In the first displayed equation of the proof obviously it is 
+$D\times_k\overline\infty'$ not $D\otimes_k\overline\infty'$.
+
+In the proof of (iii), the point is that as the support of
+$R\Psi_{\overline\eta_{\infty'}}=R\Phi_{\overline\eta_{\infty'}}$
+is contained in $(S\cup\infty)\times_k\eta_{\infty'}$.
+Let $M_s$ denote the restriction of
+$R\Psi_{\overline\eta_{\infty'}}(\overline\pr^*(\alpha_!K)\otimes\overline{\mathscr L}(x.x')[1])$
+to $s\times_k\overline\infty'$
+(it is the fiber at $\overline\eta_{\infty'}$ of a sheaf on the topos
+$s\times_k\eta_{\infty'}$, hence literally a sheaf on
+$s\times_k\overline\infty'$), and put
+$s:s\times_kD'_{(\infty')}\hookrightarrow D\times_kD'_{(\infty')}\xra{\pr'}D'_{(\infty')}$
+($s\in S\cup\infty$). Then
+\begin{equation*}
+	R^{-1}\Gamma(D\times_k\overline\infty',R\Psi_{\overline\eta_{\infty'}}(\overline\pr^*(\alpha_!K)\otimes\overline{\mathscr L}(x.x')[1]))
+	=\bigoplus_{s\in S\cup\infty}s_{\overline\infty'*}(M_s)
+\end{equation*}
+with the notation of \cite[2.1.6]{SGA7}. Fix some $s\in S\cup\infty$.
+$s_{\infty'}:s\times_k\infty'\ra\infty'$ is a
+revêtement étale that realizes
+$G_{s\times_k\infty'}\hookrightarrow G_{\infty'}$ as an open subgroup,
+and $s\times_k\overline\infty'$ is topologically a disjoint union of copies
+of $\overline\infty'$ indexed by the (algebraic) geometric points centered
+on $s$ (there are $\deg(s)$ many). As $G_{\infty'}$-module,
+\begin{equation*}
+	s_{\overline\infty'*}(M_s)
+	=G_{\infty'}\otimes_{G_{s\times_k\infty'}}M_s
+	=:\operatorname{Ind}^{G_{\infty'}}_{G_{s\times_k\infty'}}(M_s).
+\end{equation*}
+
+The proof of (i) is given by (1.3.1.2), the proof of which is relegated to
+the paper of Katz-Laumon \emph{Transformation de Fourier et Majoration de
+Sommes Exponentiels} and is discussed next.
+
+\subsection*{Intermezzo III: Katz-Laumon (2.4)}
+All notation and references in this section are to
+\emph{Transformation de Fourier et Majoration de Sommes Exponentiels}
+unless otherwise noted.
+Let us first discuss how their proof of (2.4.1) gives the theorem (2.4.4)
+about universal strong local acyclicity.
+With the notation of the proof of (2.4.1), and letting $M$ throughout 
+denote constant sheaf with value the $A$-module $M$,
+the translation trick allows us to replace $\PP^1\times\A^1$ by
+$\PP^1\times\GG_m$.
+The claim is trivial away from $\infty\times\GG_m$.
+It suffices to show that $\widetilde\pr_1$ is universally locally acyclic
+rel. $M\otimes^L j_!\mu^*\mathscr L_\psi$. By (2.4.2), this will be true
+iff the same is true rel. $M\otimes^L\tilde f_*A_{\tilde X}$.
+By the projection formula for $\tilde f$ \& Leray, this is the same as
+$\widetilde\pr_1\circ\tilde f$ being universally locally acyclic
+rel. $M$. As proven, there is a neighborhood of $\infty\times\GG_m$ over
+which $\widetilde\pr_1\circ\tilde f$ factors as a surjective radicial
+morphism followed by a smooth morphism; hence by universal local acyclicity
+of a smooth morphism, $\widetilde\pr_1\circ\tilde f$ is universally locally
+acyclic rel. any locally constant sheaf, in particular rel. $M$.
+
+In the proof itself, the formula for $[a]^*\mu^*\mathscr L_{\psi}$
+depends on \cite[1.7.1]{Trig}. The extension of the Artin-Schreier covering
+$\tilde X$ is defined as the finite covering of $\PP^1\times\GG_m$ defined
+by $X_0T_1^q-X_0T_1T_0^{q-1}=X_1T_0^qy$. It suffices to verify the various
+properties of $\tilde X$ when $S=\FF_q$.
+Note that $\tilde X$ is integral as $t^q-t-xy$ doesn't have a root over
+$k(x,y)$, and $\FF_q$ acts transitively on the roots by
+$t\mapsto t+\gamma,\gamma\in\FF_q$.
+Pick any point $\Spec\FF_q(y)$ of $\GG_{m,\FF_q}$, corresponding to a
+choice of 
+$y\in\overline\FF_q^\times$ or $y$ as a transcendental generator of
+$\FF_q(y)/\FF_q$. 
+On one hand, the point $\infty\in\PP^1_{\FF_q(y)}$ has one point of
+$\tilde X\times_{\GG_m}\Spec\FF_q(y)$ lying over it, since when $X_0=0$,
+$T_0$ is nilpotent.
+On the other, $T_0=0$ implies $X_0=0$ as then $T_1$ is a unit.
+Therefore $T_0$ generates the maximal ideal of the local ring of the point
+of $\tilde X\times_{\GG_m}\Spec\FF_q(y)$ lying over
+$\infty\times_{\FF_q}\FF_q(y)$, which 
+shows that every point of $\tilde f^{-1}(\infty\times_{\FF_q}\FF_q(y))$ is
+totally ramified over $\infty\times_{\FF_q}\FF_q(y)$, and also shows that
+regardless of whether or not we extend scalars to $\FF:=\overline\FF_q$,
+the following is true: The points of $\tilde f^{-1}(\infty\times\GG_m)$
+are in bijection with the points of $\infty\times\GG_m$, hence also with
+the points of $\GG_m$; given a point $a\in\GG_m$,
+the maximal ideal $\mathfrak m$ of the corresponding point of $\tilde X$ is 
+generated by $1+\operatorname{codim} a$ elements: if $a$ is closed,
+$\mathfrak m$ is generated by $T_0$ and the minimal polynomial of $y$, and
+if $a$ is the generic point, $\mathfrak m$ is generated by $T_0$ only.
+This implies that $\tilde f^{-1}(\infty\times_{\FF_q}\GG_{m,\FF_q})$ is
+geometrically regular over $\FF_q$, hence, in light of the lemma in
+\hyperref[BBD:2.2.10]{the note to \cite[2.2.1.0]{BBD}},
+smooth over $\FF_q$.
+
+Checking that $\tilde X$ is étale over $\A^1\times\GG_m$ amounts to showing
+that for any choice of $x\in\FF,y\in\FF^\times$, the closed subscheme 
+$Q\hookrightarrow\PP^1_{\FF_q(x,y)}$ cut out by
+$T_1^q-T_1T_0^{q-1}=T_0^qxy$ is étale over $\FF_q(x,y)$.
+The subscheme $Q$ has empty intersection with $T_0=0$, and away from
+$T_0=0$, $Q$ is defined by the separable polynomial $t^q-t=xy$, and as
+above, $\FF_q$ acts transitively on the roots, so that $Q$ either is the
+disjoint union of $q$ copies of $\Spec k(x,y)$ or is the spectrum of a 
+separable field extension of $k(x,y)$. In any event: étale,
+and $\tilde f^{-1}(\A^1\times\GG_m)$ is smooth over $\FF_q$.
+
+The proof of (2.4.2) hits a snag when it is only assumed, as stated, that
+there exists a nontrivial additive character $\psi:\FF_q\ra A^\times$.
+The representation $f_*A_X$ coincides with the regular $A[\FF_q]$-module
+$A[\FF_q]$. If we write multiplicatively, this is the ring $A[x]/(x^q-1)$
+acting on itself as a free module of rank 1. The point is that of course
+the separable polynomial $x^q-1$ need not split into linear factors over 
+$A$ if it has one root distinct from 1 in $A$. What is needed is a 
+primitive root of this polynomial; i.e. a root which is not a root of any 
+polynomial $x^{p^m}-1$, $m<n$ (suppose $q=p^n$). (Actually, $x^q-1$ splits 
+as a product of $n$ polynomials each of degree $p$, as
+$(x^{p^m}-1)|(x^{p^{m+1}}-1)$.)
+The existence of such a root in $A^\times$ implies that
+$A[\FF_q]$ decomposes completely into $q$ $A$-modules of rank 1 indexed by
+the $q$ distinct characters $\FF_q\ra A^\times$; conversely, if such a root
+fails to exist, there will be irreducible factors of $x^q-1$ of degree 
+$d>1$ corresponding to irreducible factors of $A[\FF_q]$ free of rank $d$
+as $A$-module.
+
+With this proviso, the decomposition of $f_*A_X$ is achieved, and all
+that is left to note for the decomposition of $\tilde f_*A_{\tilde X}$
+is that the stalk over a point of the base of the latter are free
+$A$-modules of rank which coincides with the number of points in the 
+geometric fiber \cite[VIII 5.5]{SGAA}, and we have shown that every 
+geometric point of $\infty\times\GG_m$ has precisely one point of
+$\tilde X$ lying over it, so that the stalk of $\tilde f_*A_{\tilde X}$ is
+free of rank 1 at every geometric point of $\infty\times\GG_m$.
+As the direct image of a constant sheaf on the generic point of a normal
+integral scheme is constant
+(c.f. remark at the end of \hyperref[laumon:reprise]{Reprise}),
+\begin{equation*}
+	\tilde f_*A_{\tilde X}=\tilde f_*j'_*A_X=j_*f_*A_X
+	=A_{\PP^1\times\GG_m}\oplus\big(\bigoplus_{\psi'\ne1}j_*\mu^*\mathscr L_{\psi'}\big)),
+\end{equation*}
+and by rank considerations we must have 
+$j_*\mu^*\mathscr L_{\psi'}=j_!\mu^*\mathscr L_{\psi'}$ for all
+nontrivial $\psi$.
+
+To see this last fact directly, observe that given a geometric point 
+$\overline x$ centered on a point $x\in\tilde X$ with image
+$y\in\infty\times\GG_m$, and letting $\overline y$ denote the image of
+$\overline x$, let $\tilde X_{(\overline x)}$, resp.
+$Y_{(\overline y)}$ denote the strict henselizations of $\tilde X$, resp.
+$Y=\PP^1\times\GG_m$ at $\overline x$ and $\overline y$, respectively.
+They are regular local rings.
+The map on generic points $\eta_{\overline x}\ra\eta_{\overline y}$ is
+still given by $t^q-t=xy$, as this still gives a finite extension of degree 
+$q$ of $Y_{(\overline y)}$ so that if $\xi$ denotes the generic point of
+$\GG_m$, the uniformizer of $Y_{(\overline y)}\times_{\GG_m}\xi$ is the
+$q^{\text{th}}$ power of that of $X_{(\overline x)}\times_{\GG_m}\xi$.
+It follows that provided $\psi'\ne1$,
+$\Gal(\overline\eta_y/\eta_{\overline y})$ acts nontrivially on the 
+reciprocal image of $\mathscr L_{\psi'}$ to $Y_{(\overline y)}$,
+as $\Gal(\eta_{\overline x}/\eta_{\overline y})$ does.
+As the stalk of $j_*\mathscr L_{\psi'}$ at $\overline y$ coincides with
+the invariants of the $\Gal(\overline\eta_y/\eta_{\overline y})$-module
+$A$, $j_*(\mathscr L_{\psi'})_{\overline y}=0$.
+
+In the last paragraph of the proof, we can do all this assuming $S=\FF_q$. 
+Fix coordinates $(\tau,y)$ on
+$\tilde f^{-1}(U)$ via
+\begin{equation*}
+	\FF_q[\tau,y,y^{-1}]\ra\FF_q[\tau,\xi,y,y^{-1}]/(\xi(1-\tau^{q-1})-\tau^qy).
+\end{equation*}
+The fiber of this map over the closed subscheme of $\A^1\times\GG_m$ 
+defined by $\tau^{q-1}$ is empty. Therefore $(\tau,y)$ factors through
+the complement $U'\times\GG_m$ of this closed subscheme, which corresponds
+to inverting $(1-\tau^{q-1})$, after which the above map on functions 
+becomes an isomorphism. As $\xi=\tau^qy/(1-\tau^{q-1})$ in $(\tau,y)$
+coordinates, $\tilde\pr_1\circ\tilde f$ takes the stated form.
+The following diagram commutes.
+\begin{ceqn}\begin{equation*}\begin{tikzcd}
+	&&[50pt]\tilde f^{-1}(U)\arrow[d,"{(\tau,y)}"',"{\rotatebox{-90}{\text{$\sim$}}}"]\arrow[dll,"\tilde\pr_1\circ\tilde f"',bend right=10] \\
+	\A^1&U'\times\GG_m\arrow[l,"\upsilon"']&U'\times\GG_m\arrow[l,"\kappa"'] \\
+	\FF_q[\xi]\arrow[r,"\xi\mapsto\tau'y'"]
+	&\FF_q[\tau',y',y'^{-1},(1-\tau'^{q-1})^{-1}]\arrow[r,"{(\tau',y')\mapsto(\tau^q,y/(1-\tau^{q-1}))}"]
+	&\FF_q[\tau,y,y^{-1},(1-\tau^{q-1})^{-1}]
+\end{tikzcd}\end{equation*}\end{ceqn}
+The map $\upsilon:U'\times\GG_m\ra\A^1$ is smooth since the coordinate ring 
+of the former can be written as
+$S:=\FF_q[\xi,y',a,b]/(ay'-1,b(1-\xi a)-1)$, and
+\begin{equation*}
+	\det\begin{pmatrix}y'&-b\xi \\ 0 & 1-\xi a \end{pmatrix}
+	=y'(1-\xi a)
+\end{equation*}
+is invertible in $S$ with inverse $ab$, so that $\FF_q[\xi]\ra S$ is
+standard smooth and hence smooth
+(Stacks tags
+\href{https://stacks.math.columbia.edu/tag/00T6}{\texttt{00T6}} \&
+\href{https://stacks.math.columbia.edu/tag/00T7}{\texttt{00T7}}).
+
+To verify that $\kappa$ is radicial and surjective, it suffices to show
+$\kappa$ is bijective and induces purely inseparable residual extensions.
+This can be done by verifying that for each $x\in U'\times\GG_m$,
+the scheme-theoretic fiber $\kappa^{-1}(x)$ is isomorphic to the spectrum
+of an artinian local ring with purely inseparable residual extension.
+
+Picking a point $x$ amounts to choosing a field
+$\FF_q(\alpha,\beta)$ such that $\alpha^{q-1}\ne1$;
+as this is trivially satisfied when $\alpha$ is transcendental and
+Frobenius is an isomorphism $\FF_q(\alpha)$ when $\alpha$ is algebraic,
+$\alpha^{q-1}\ne1$ is equivalent to the condition that $\alpha\not\in\FF_q$.
+The fiber $\kappa^{-1}(x)$ in this case is isomorphic to the spectrum of 
+the finite $\FF_q(\alpha,\beta)$-algebra
+\begin{align*}
+	A:=\;&\FF_q(\alpha,\beta)[\tau,y,y^{-1},(1-\tau^{q-1})^{-1}]/(\tau^q-\alpha,y-\beta(1-\tau^{q-1})) \\
+	\simeq\; &\FF_q(\alpha,\beta)[\tau,(1-\tau^{q-1})^{-1}]/(\tau^q-\alpha);
+\end{align*}
+$\alpha$ (resp. $\beta$) is algebraic over $\FF_q$ iff $x$ does not
+map to the generic point of $U'$ (resp. $\GG_m$).
+If $\alpha$ is transcendental then
+\begin{equation*}
+	A\simeq\FF_q(\alpha,\beta)[\tau]/(\tau^q-\alpha)
+\end{equation*}
+is a field which is purely inseparable over $\FF_q(\alpha,\beta)$.
+If $\alpha$ is algebraic then Frobenius induces an isomorphism
+of $\FF_q(\alpha)$ and there exists a
+$\sqrt[\uproot{4}q]\alpha\in\FF_q(\alpha)$ so that
+$\tau^q-\alpha=(\tau-\sqrt[\uproot{4}q]\alpha)^q$;
+$A$ is therefore isomorphic to a localization of a local Artinian ring with
+trivial residual extension, and we need check only that $\kappa^{-1}(x)$
+is nonempty; i.e. that $A\ne0$.
+This is true iff $1-\tau^{q-1}$ is not nilpotent, in which case it's 
+already a unit in $A$. As $\alpha\not\in\FF_q$ by assumption and
+$\alpha\ne \sqrt[\uproot{4}q]\alpha$ so that
+$(\sqrt[\uproot{4}q]\alpha)^{q-1}\ne1$ and $1-\tau^{q-1}$ indeed
+doesn't go to zero under $\tau\mapsto\sqrt[\uproot{4}q]\alpha$.
+
+\subsection*{2.4.1}\label{laumon:2.4.1} Back to Laumon.
+The point is that $\pi/\pi'$, $\pi'/\pi$, and $1/\pi\pi'$
+determine three distinct rational maps $T\times_kT'\ra\GG_{a,k}$
+(regular over $T\times\eta',\eta\times T',\eta\times\eta'$, respectively), 
+and $\mathscr L_\psi(\pi/\pi')$, $\mathscr L_\psi(\pi'/\pi)$, and
+$\mathscr L_\psi(1/\pi\pi')$ are the reciprocal images of $\mathscr L_\psi$
+defined over these open loci of $T\times T$ via these various maps.
+
+By way of preface, it would seem from the discussion below that $T$
+implicitly is assumed to coincide with $\Spec k\{x\}$.
+Certainly it would seem that Néron desingularization should not be 
+necessary for the result (2.4.2.1) cited as `immediate,' or a somewhat
+esoteric result about the Galois group of generic points of henselian 
+d.v.r.s to connect (2.4.2.2) to the discussion in (2.2.2).
+Perhaps there is an implicit assumption I've missed, or far simple ways to
+obtain these results with no assumption on $T$ other than
+$k\{\pi\}\subset R\subset k[[x]]$.
+As remarked in \hyperref[laumon:2.1.1]{the note to (2.1.1)}, one must
+assume $k\subset R$; in contrast with an equicharacteristic complete 
+d.v.r., an equicharacteristic henselian d.v.r. need not contain a
+coefficient field.
+
+(2.4.2.1) As (i), (ii), and (iii) are interchangeable, we dissect (i)
+as an example.
+The map $\pi':\eta'\ra\eta_{\infty'}$ is specified by
+$\pi'\mapsto1/x'$. As $1/x'$ is a uniformizer for the local ring of $D'$
+at $\infty'$ (and also its henselization $D'_{(\infty')}$), from the data 
+of $\pi'\mapsto1/x'$ we get a morphism $T'\ra\Spec\mathcal O_{D',\infty'}$
+and by the universal property of henselization
+(Raynaud, \emph{Anneaux Locaux Henséliens}, VIII Déf. 1) a unique
+factorization of this morphism to a commutative triangle
+\begin{equation*}\begin{tikzcd}
+	\Spec\mathcal O_{D',\infty'}&D'_{(\infty')}\arrow[l] \\
+	&T'\arrow[ul]\arrow[u,"\pi'"']
+\end{tikzcd}\end{equation*}
+which recovers $\pi'$ on the generic fiber.
+Note that $R\Psi_{\eta_{\infty'}}=R\Phi_{\eta_{\infty'}}$ as in (2.3.3.1).
+It is asserted that the base-change morphism
+\begin{equation*}
+	(\pi\times\pi')^*R\Psi_{\eta_{\infty'}}\ra
+	R\Psi_{\eta'}(\pi\times\pi')^*
+\end{equation*}
+is an isomorphism. As $\pi\times\pi'=(1\times\pi')\circ(\pi\times1)$, we
+first deal with $(1\times\pi')^*$, which is the morphism induced by change
+of trait $\pi':T'\ra D'_{(\infty')}$ and is an isomorphism by
+\cite[3.7]{thfin}.
+On the other hand, letting $V_0:=k[\pi]_{(\pi)}$ and $T_0:=\Spec V_0$, the
+morphism $\pi:T\ra A$ factors as $T\xra{\pi_1}T_0\ra A$ where the second
+morphism is ind-étale and therefore commutes with base change by passage to 
+the limit. It doesn't seem `immediate' to me that
+\begin{equation*}
+	(\pi_1\times1)^*R\Psi_{\eta'}\ra
+	R\Psi_{\eta'}(\pi_1\times1)^*
+\end{equation*}
+is an isomorphism. The cleanest way I know to show this is to
+invoke Néron desingularisation in the form \cite[I 0.5.1]{SGA7}.
+In the paragraphs following the statement of this lemma (0.5.1),
+it's explained how the conditions of the lemma are satisfied in the case of
+$\pi_1:T\ra T_0$. The residual extension is trivial in our case; to see
+that the extension $\eta/\eta_0$ is separable, it suffices to show that
+$k(\eta)/k(\pi)$ is separable. For this one need only show that
+$k(\pi^{1/p})\otimes_{k(\pi)}k(\eta)\simeq k(\eta)[t]/(t^p-\pi)$ is
+separable. Assuming $p>1$, this is true iff $\pi$ does not have a
+$p^{\text{th}}$ root in $k(\eta)$, which is true as $\pi$ is a uniformizer.
+Néron says that $\pi_1$ is a limit of smooth morphisms and therefore
+commutes with $R\Psi$.
+
+On a related note, I know of a funny way to show the more general
+\begin{lemma*}
+	Let $f:T\ra T_0$ be a surjective morphism of henselian traits and suppose
+	\begin{enumerate}[label=(\greek*)]
+	\item the special fiber $T\times_{T_0}s_0$ is reduced,
+	\item $k(s_0)\subset k(s)$ is purely inseparable, and
+	\item the maximal purely inseparable extension of the completion $\widehat{k(\eta_0)}$ is dense in $\widehat{k(\eta_1)}$.
+	\end{enumerate}
+	Then for every scheme $X_0\ra T_0$,
+	$f$ induces an equivalence of topoi
+	$\widetilde X_{\acute{\mathrm{e}}\mathrm t}\ra \widetilde{(X_{0})}_{\acute{\mathrm{e}}\mathrm t}$, where $X:=X_0\times_{T_0}T$.
+\end{lemma*}
+This applies in the situation where $T_0=\Spec R_0$ is equicharacteristic
+and $R_0$ contains a coefficient field mapping isomorphically onto its 
+residue field, which is assumed perfect, as assumed in (2.4.1),
+because of the inclusion $k\{\pi\}\subset R_0\subset k[[\pi]]$.
+\begin{proof}\label{pf:berkovich_lemma}
+By (2.4.1–2.4.3) in  Berkovich,
+\emph{Étale cohomology for non-Archimedean analytic spaces},
+Publ. Math. IHES 78,
+reciprocal image $L\mapsto L\otimes_{k(\eta_0)}k(\eta)$ induces an
+equivalence of categories of finite separable extensions of $k(\eta_0)$ and
+$k(\eta)$, and hence induces an isomorphism
+$\Gal(\overline\eta/\eta)\xra\sim\Gal(\overline\eta/\eta_0)$.
+The same is true for the closed fiber (replacing $\eta$ by $s$) if we
+restrict to finite Galois extensions by e.g.
+\href{https://stacks.math.columbia.edu/tag/030M}{Stacks tag \texttt{030M}}.
+Recall \cite[IV 9.5.4]{SGAA}, which says in our case that the category of 
+sheaves on $X\ra T$ is equivalent to the category of triples
+\begin{equation*}
+	(\mathcal F_s,\mathcal F_\eta,\varphi:\mathcal F_s\ra i^*j_*\mathcal F_\eta)
+	\qquad\text{where}
+\begin{tikzcd}\eta\arrow[r,hook,"j"]&T&s,\arrow[l,hook',"i"']\end{tikzcd}
+\end{equation*}
+($\mathcal F_s$ a sheaf on $X\times_T s$,
+$\mathcal F_\eta$ a sheaf on $X\times_T \eta$)
+via the functor $\mathcal F\mapsto(\mathcal F_s,\mathcal F_\eta,\varphi)$
+where
+\begin{equation*}
+	\varphi:\mathcal F_s=i^*\mathcal F\ra i^*j_*j^*\mathcal F
+	=\operatorname{sp}_*\mathcal F_\eta,
+\end{equation*}
+with quasi-inverse the functor which associates to 
+$(\mathcal F_s,\mathcal F_\eta,\varphi)$ the object $W$ defined by the
+cartesian square
+\begin{equation*}\begin{tikzcd}
+	W\arrow[d]\arrow[r]\arrow[dr,phantom,"\ulcorner" near start]&j_*\mathcal F_\eta\arrow[d] \\
+	i_*\mathcal F_s\arrow[r,"i_*\varphi"]&i_*i^*j_*\mathcal F_\eta.
+\end{tikzcd}\end{equation*}
+Decorating everything with a subscript 0, the same is true for
+$X_0\ra T_0$.
+Last, recall \cite[XIII 1.3.3 (ii)]{SGA7}, which says that $Y\ra\Spec k$
+with separable closure $\overline k$ and a sheaf $\mathcal F$ on $Y$,
+the functor $\mathcal F\mapsto\overline{\mathcal F}$ induces an equivalence
+between the category of sheaves of sets on $Y$ with that of sheaves of sets
+on $\overline Y$ equipped with a continuous action of $\Gal(\overline k/k)$
+compatible with the action of $\Gal(\overline k/k)$ on $\overline Y$.
+\end{proof}
+
+(2.4.2.2) By the Berkovich result in the proof of the previous lemma,
+we may assume $T=\Spec k\{x\}$; now invoke not (2.2.2.1) but rather the
+discussion following (2.2.2.2). A choice of retraction for $i_*$ (in the
+notation of (2.2.2)) corresponds to an extension of $V$ to a lisse
+$\overline\QQ_\ell$-sheaf $\mathcal F$ on $\GG_{m,k}$.
+Let $j:\GG_{m,k}\hookrightarrow A$; for (i) put $K:=j_!\mathcal F$ and for
+(ii) and (iii) put $\alpha_!j_!\mathcal F[1]$. In all three cases,
+$K$ is a perverse sheaf \cite[4.1.3]{BBD} and $\pi^*K=V_![1]$.
+
+\subsection*{2.5}
+In order to complete the proof (4.4) of Deligne's main theorem in Weil II,
+it is only necessary to have (2.5.3.1) (i) (Kummer does not make an 
+appearance). The proof of (2.5.3.1) (i) is an elegant synthesis of
+(2.3.2)–(2.4.2), and the only necessary auxiliary computation is that of
+$\mathscr F(\overline\QQ_{\ell,A-\{0\}})|\eta_{\infty'}$. There is an exact sequence of
+perverse sheaves on $A$ \cite[4.1.10]{BBD}
+\begin{equation*}
+	0\ra\overline\QQ_{\ell,\{0\}}
+	\ra\overline\QQ_{\ell,A-\{0\}}[1]
+	\ra\overline\QQ_{\ell,A}[1]\ra0.
+\end{equation*}
+Applying $\mathscr F$ gives the exact sequence of perverse sheaves on $A'$
+\begin{equation*}
+	0\ra\overline\QQ_{\ell,A'}[1]
+	\ra\mathscr F(\overline\QQ_{\ell,A-\{0\}})[1]
+	\ra\overline\QQ_{\ell,\{0'\}}(-1)\ra0
+\end{equation*}
+which finds
+$\mathscr F(\overline\QQ_{\ell,A-\{0\}})|\eta_{\infty'}= \overline\QQ_{\ell,\eta_{\infty'}}$ and completes the proof of (i).
+
+
+\subsection*{4.2.2}
+(4.2.2.2) Write $\mathscr F:=F$ to harmonize with Deligne's notation.
+The condition that `the action of $I_s$ be unipotent of echelon 2.'
+corresponds, in the vocabulary of \cite[1.7.2]{weilii}, to the property that
+the filtration of local monodromy on $\mathscr F_{\overline\eta}$ has at
+most 3 nonzero graded pieces; i.e. if $I$ does not act trivially on
+$\mathscr F_{\overline\eta}$, then the nilpotent operator $N$ arising from
+the logarithm of the unipotent part of the local monodromy has $N\ne0$ but
+$N^2=0$. In this case, as described in \cite[1.6.1]{weilii}, the filtration
+has $M_1=\mathscr F_{\overline\eta}$, $M_0=F_{\overline\eta}^I$, and
+$M_{-1}=\im N$, and $\Gr_1^M=F_{\overline\eta}/F_{\overline\eta}^I$, which
+\cite[1.8.4]{weilii} says is $\iota$-pure of weight $w+1$.
+
+(4.2.2.3) Recall the decomposition (1.6.14.3) of Weil II and the fact that
+there is a typo in it (c.f. \hyperref[weilii:1.6.14]{note to 1.6.14}).
+Recall that, as in the proof of \cite[1.8.4]{weilii}, if $s\in S$, the fiber
+$(j_*\mathscr F)_{\overline s}$ coincides with
+$\ker N=\mathscr F^I_{\overline\eta}$, where $N$ is the logarithm of the
+local monodromy (we can assume that all of $I$ acts unipotently).
+Recall that $N$ is compatible with the filtration of local monodromy,
+that $\Gr_i^M(\ker N)\xra\sim P_i$ \cite[1.6.6]{weilii}, and that
+$P_i=0$ for $i>0$ \cite[1.6.4]{weilii}. The eigenvalues of $F_s$ on
+$j_*(\mathscr F)_{\overline s}$ are in bijection with the eigenvalues of 
+$F$ on the $P_i(\mathscr F_{\overline\eta})$, where $F$ is the
+conjugation class of liftings of Frobenius in the Weil group
+(or one such \cite[1.7.4]{weilii}). Now Laumon's proof goes through after
+you correct all the typos: $P_{-i}(\mathscr F_{\overline\eta})$ is
+$\iota$-pure of weight $w+i$ \cite[1.8.4]{weilii},
+\begin{equation*}
+	P_{-i}(\check{\mathscr F}_{\overline\eta})
+	\simeq P_{-i}(\mathscr F_{\overline\eta})^\vee(i),
+\end{equation*}
+and $\alpha$ is an eigenvalue of Frobenius on some
+$P_{-i}(\mathscr F_{\overline\eta})$ (for this you need to know that the filtration of local monodromy is stable under the action of $W(\overline\eta,\eta)$, which is true by \cite[1.7.5, 1.8.5]{weilii}).
+
+\subsection*{4.3.1}
+(4.3.1.1) It is implicitly claimed that
+$H^0(U,\mathscr F)=0$, which is a consequence of the fact that $\mathscr F$
+is assumed irredudible and not geometrically constant.
+If $\overline u$ is a geometric point of $\overline U=U\times_{\FF_q}\FF$,
+there is an exact sequence
+\begin{equation*}
+	e\ra\pi_1(\overline U,\overline u)\ra\pi_1(U,\overline u)\ra\Gal(\FF/\FF_q)\ra e
+\end{equation*}
+(SGA 1 6.1), and $\mathscr F$ is not geometrically constant if
+$\pi_1(\overline U,\overline u)$ does not act trivially on $\mathscr F_{u}$;
+i.e. the reciprocal image of $\mathscr F$ on $\overline U$ is not constant.
+As $\mathscr F_{\overline u}^{\pi_1(\overline U,\overline u)}$ is stable
+under $\pi_1(U,\overline u)$, it must be 0, as $\mathscr F$ is assumed
+irreducible, so $\Gamma(U,\mathscr F)=0$.
+
+\subsection*{4.3.2}\label{laumon:4.3.2}
+Following Deligne, we decorate with a subscript 0
+those objects over $\FF_q$ and remove this subscript to indicate the
+extension of scalars to $\FF$.
+
+(4.3.2.1) Reduction to $X_0=D_0$. We notate $j_0:U_0\hookrightarrow X_0$ 
+and $\mathscr F_0$ lisse on $U_0$.
+The choice of a nonconstant meromorphic function on $X_0$ gives rise to a
+finite morphism $f_0:X_0\ra D_0$.
+The only condition on the function is that it induce a morphism with 
+nonempty étale locus. As $X_0$ is smooth, this is easy: just pick a point
+$x\in X_0$ and a generator of the local ring $\mathscr O_{X,x}$
+(SGA 1 I 9.11). Leray gives
+\begin{equation*}
+	R\Gamma(D,f_{0*}j_*\mathscr F_0)\simeq R\Gamma(X,j_*\mathscr F_0).
+\end{equation*}
+It suffices to find some open $j'_0:U_0'\hookrightarrow D_0$ a lisse
+$\overline\QQ_\ell$-sheaf $\mathscr F'_0$ on $U_0'$, $\iota$-pure of weight 
+$w$, and an identification
+$f_{0*}j_{0*}\mathscr F_0\simeq j_{0*}'\mathscr F_0'$ on $D_0$.
+\begin{lemma*}
+	Let $\mathscr F$ be a lisse sheaf on a normal connected curve $S$ and
+	$j:U\hookrightarrow S$ an open immersion.
+	The unit of adjunction $\mathscr F\ra j_*j^*\mathscr F$ is an 
+	isomorphism.
+\end{lemma*}
+Admitting the lemma, pick some nonempty $U'_0$ such that
+$X_0\times_{D_0}U_0'\ra U_0'$ is étale, and let
+$u_0:V_0:=U_0\cap(X_0\times_{D_0}U_0')\hookrightarrow U_0$.
+As the diagram
+\begin{equation*}\begin{tikzcd}
+	V_0\arrow[r,"u_0"]\arrow[d,"f_0|V_0"]
+	&U_0\arrow[r,"j_0"]&X_0\arrow[d,"f_0"] \\
+	U_0'\arrow[rr,"j_0'"]&&D_0
+\end{tikzcd}\end{equation*}
+commutes,
+\begin{equation*}
+	j'_{0*}(f_0|V_0)_*(u_0^*\mathscr F_0)
+	=f_{0*}j_{0*}u_{0*}u_0^*\mathscr F_0
+	\simeq f_{0*}j_{0*}\mathscr F_0,
+\end{equation*}
+and the sheaf $(f_0|V_0)_*(u_0^*\mathscr F_0)$ is lisse. More precisely,
+if $\overline\eta$ denotes a geometric generic point of $V_0$
+(and its image in $U_0'$), and $u_0^*\mathscr F_0$ is defined by the 
+monodromy representation
+$\pi_1(V_0,\overline\eta)\ra\Aut\mathscr F_{\overline\eta}$, the étale
+$f_0|V_0$ induces a morphism
+\begin{equation*}
+	\pi_1(V_0,\overline\eta)\ra\pi_1(U_0',\overline\eta)
+\end{equation*}
+which is an injection of the former group onto the open subgroup of the
+latter corresponding to the revêtement étale $f_0|V_0$.
+The sheaf $(f_0|V_0)_*(u_0^*\mathscr F_0)$ is defined by the induced
+representation
+\begin{equation*}
+	\mathscr F_{\overline\eta}\otimes_{\pi_1(V_0,\overline\eta)}\pi_1(U_0',\overline\eta).
+\end{equation*}
+Therefore we take $\mathscr F_0':=(f_0|V_0)_*(u_0^*\mathscr F_0)$.
+\begin{proof}[Proof of lemma]
+	The lemma can be recovered as a corollary of
+	\hyperref[laumon:reprise]{the \emph{reprise} below},
+	and, perhaps more cheekily, from \cite[4.3.2]{BBD} in light of
+	\hyperref[laumon:1.4.2]{the note to 1.4.2} above.
+	A simple direct proof goes as follows.
+	Checking the statement fiberwise at a geometric point $\overline s$
+	centered on a point $s\in S-U$ reduces us to the setting of
+	a henselian trait $(S,\eta,s,\overline\eta,\overline s)$
+	\cite[0.6]{weilii} and
+	$\mathscr F$ a lisse sheaf on $S$. We have the usual exact sequence
+	\begin{equation*}
+		e\ra I\ra\Gal(\overline\eta/\eta)\ra\Gal(\overline s/s)\ra e.
+	\end{equation*}
+	where by SGA 1 V 8.2 \& Arcata IV 2.2 the map
+	$\Gal(\overline\eta/\eta)\twoheadrightarrow\Gal(\overline s,s)$
+	factors as
+	\begin{equation*}
+		\Gal(\overline\eta/\eta)\twoheadrightarrow\pi_1(S,\overline\eta)
+		\xra\sim\pi_1(S,\overline s)
+		\xra\sim\pi_1(s,\overline s)\simeq\Gal(\overline s,s).
+	\end{equation*}
+	The stalk $(\eta_*\eta^*\mathscr F)_{\overline s}$ can be identified
+	with $\mathscr F_{\overline\eta}^I$, where here
+	$\mathscr F_{\overline\eta}$ is the
+	$\Gal(\overline\eta,\eta)$-representation defined by
+	$\Gal(\overline\eta,\eta)\ra\pi_1(S,\overline\eta)$.
+	The factorization above shows that $I$ dies in this quotient and 
+	therefore acts trivially.
+\end{proof}
+Returning to the proof of (4.3.2.1), Poincaré duality on $D$ as stated rests
+on
+\begin{theorem*}[Deligne, SGA 4$\frac12$ \emph{Dualité} 1.3]
+	Let $j:U\hookrightarrow S$ be a dense open of a regular scheme $S$ purely
+	of dimension 1 and $\mathscr F$ a locally constant constructible sheaf
+	of $\ZZ/n$-modules on $U$. One has $Dj_*\mathscr F=j_*D\mathscr F$,
+	i.e. $\underline\Hom(j_*\mathscr F,\ZZ/n)=j_*\underline\Hom(F,\ZZ/n_U)$
+	and $\underline\Ext^i(j_*\mathscr F,\ZZ/n)=0$ for $i>0$.
+\end{theorem*}
+Let $\overline A:=A\otimes_{\FF_q}\overline k$ and $\overline D$ likewise.
+To calculate $H^i_c(\overline A,j_*\mathscr F)$, the perfect pairing
+\begin{equation*}
+	H^i_c(\overline A,j_*\mathscr F)\otimes H^{2-i}(\overline A,j_*\check{\mathscr F})\ra\overline\QQ_\ell(-1)
+\end{equation*}
+and Artin's theorem give $H^0_c(\overline A,j_*\mathscr F)\simeq0$ and
+$H^2_c(\overline A,j_*\mathscr F)\simeq M(-1)$,
+as $H^0(\overline A,j_*\check{\mathscr F})=\check M$.
+The exact sequence
+\begin{equation*}
+	0=H_c^0(\overline A,j_*\mathscr F)\ra H^0(\overline D,j_*\mathscr F)
+	\ra\mathscr F_{\overline\infty}\xra\partial H_c^1(\overline A,j_*\mathscr F)
+	\ra H^1(\overline D,j_*\mathscr F)\ra0
+\end{equation*}
+reduces the calculation of $H^1_c(\overline A,j_*\mathscr F)$ to that of
+$H^1(\overline D,j_*\mathscr F)$, as $\partial=0$.
+Relative purity (Arcata V 3.4) gives that 
+$j_*\mathscr F$ is constant on $\overline A$, and the standard computation
+$H^1(\overline X,\ZZ/\ell^n(1))\simeq\underline{\operatorname{Pic}}(\overline X/\overline k)_{\ell^n}$ for a smooth connected curve
+$\overline X$ over $\overline k$ shows that $H^1(\overline D,\ZZ/\ell^n)=0$
+and hence the same is true for $H^1(\overline D,j_*\mathscr F)$
+(Arcata III 3.1, IV 6.2).
+
+
+
+
+
+
+
+
+\subsection*{Reprise: le sorite des faisceaux localement constants}\label{laumon:reprise}
+	The action of local inertia on a normal curve $S$ determines the net
+	locus (and therefore the étale locus by SGA 1 I 9.11) of the 
+	normalization of $S$ in a finite separable extension of its function 
+	field in the following way.
+	Let $\overline\eta$ be a geometric point centered on the generic point
+	$\eta$ of $S$, $L$ a finite Galois extension of the function field of
+	$S$, and $S'$ the normalization of $S$ in $L$.
+	Let $\overline s$ be a geometric point centered on a closed point of $S$,
+	$S_{(s)}$ and $S_{(\overline s)}$ the spectra of the henselization and
+	strict henselization, respectively of the local ring of $S$ at $s$.
+	Both are henselian traits.
+	Let $S'_{(s)}:=S'\times_SS_{(s)}$; $S'_{(s)}\ra S_{(s)}$ is generically
+	étale.
+	As $S_{(s)}$ is a henselian local ring, $S'_{(s)}$ splits as a disjoint
+	union of henselian local rings $S'_{(s_i')}$ indexed by
+	$\xi_i\in\Spec L\otimes_{k(\eta)}k(\eta_s)$ (in bijection with the
+	scheme-theoretic fiber of $S'\ra S$ over $s$)
+	Let $s'_i$ denote the corresponding closed point of $S'_{(s_i')}$
+	(and by abuse of notation the corresponding point in the scheme-theoretic
+	fiber of $S'\ra S$ over $s$).
+	$S'_{(s_i')}$ is pro-étale over $S'$ and henselian, with the same residue
+	field as $\mathscr O_{S',s_i'}$, therefore coincides with the
+	henselization of $\mathscr O_{S',s_i'}$, hence is also normal.
+	$S'_{(s_i')}$ is finite and generically étale over $S_{(s)}$,
+	\emph{a fortiori} integral. Hence $S'_{(s_i')}$ coincides with the
+	normalization of $S_{(s)}$ in $k(\xi_i)$.
+	Considering $s_i'$ as a point in the scheme-theoretic fiber over $s$,
+	$S'\ra S$ is étale at $s_i'$ iff $S_{(s_i')}\ra S_{(s)}$ by faithfully
+	flat descent
+	(\href{https://stacks.math.columbia.edu/tag/02VN}{Stacks tag \texttt{02VN}}).
+	Fixing some $i$ and letting $s':=s_i',\xi:=\xi_i$ we reduce to studying
+	the normalization of the henselian trait $S_{(s)}$ in a finite separable
+	extension $k(\xi)$ of its function field.
+	Let $\overline\eta_s$ be a geometric point centered on the generic
+	point $\eta_s$ of $S_{(s)}$.
+	The local inertia at $s$ is defined by the exact sequence
+	\begin{equation*}
+		e\ra I_{s}\ra\Gal(\overline\eta/\eta_s)\ra\Gal(\overline s/s)\ra e.
+	\end{equation*}
+	Compare the following lemma to \cite[Exp.\,V \S2]{SGA1}.
+	\begin{lemma*}
+		$S_{(s')}\ra S_{(s)}$ is étale iff $I_s$ acts trivially on $S_{(s')}$.
+	\end{lemma*}
+	\begin{proof}
+	`$\Rightarrow$' Arcata IV 2.2.
+	`$\Leftarrow$' $k(\xi)$ is a finite separable extension of $k(\eta_s)$;
+	let $K$ denote the Galois closure of $k(\xi)$ in $k(\overline\eta)$,
+	$S_{(s)}=:\Spec A,S_{(s')}=:\Spec A'$, and $B$ the normalization of $A$ 
+	in $K$. $A\subset (A')^{I_s}=A'\subset B^{I_s}$ and $A\subset B^{I_s}$ is
+	étale (\href{https://stacks.math.columbia.edu/tag/09EH}{Stacks tag \texttt{09EH}}),
+	so $S_{(s')}\ra S_{(s)}$ is étale.
+	\end{proof}
+
+
+	A question that should be easy is: describe the category of lisse sheaves
+	on a normal connected curve in terms of the Galois group of the function
+	field. More precisely, given a lisse sheaf on an open subscheme $S$
+	of a smooth complete curve $\overline S$, describe the locus of
+	$\overline S$ over which the sheaf can be extended to a lisse sheaf.
+	In the case of finite coefficients, the answer goes like this.
+	Let $\eta$ be a geometric point centered on the generic point $\eta$
+	of the curve $S$. A l.c.c. sheaf $\mathscr F$ on $S$ is the same as a
+	revêtement étale $X\ra S$; i.e. an open subgroup of
+	$\pi_1(S,\overline\eta)$.
+	$S$ in turns corresponds to a closed subgroup $Q$ of
+	$\Gal(\overline\eta,\eta)$ via the exact sequence
+	\begin{equation*}
+		e\ra Q\ra\Gal(\overline\eta,\eta)\ra\pi_1(S,\overline\eta)\ra e.
+	\end{equation*}
+	To each point $s\in S$ we attach an inertia subgroup $I_s$ which is a
+	subgroup of $\Gal(\overline\eta/\eta_s)$, where $\eta_s$ is the generic
+	point of $S_{(s)}$. As $S_{(s)}$ is a projective limit of revêtements
+	étales of $S$, $I_s$ embeds into
+	$\Gal(\overline\eta/\eta)$ via
+	\begin{equation*}
+		I_s\subset\Gal(\overline\eta/\eta_s)\subset\Gal(\overline\eta/\eta).
+	\end{equation*}
+	We must have that each $I_s$ be contained in $Q$, since as we saw above,
+	the map $\Gal(\overline\eta/\eta_s)\twoheadrightarrow\Gal(\overline s/s)$
+	factors through the projection
+	$\Gal(\overline\eta/\eta_s)\twoheadrightarrow\pi_1(S,\overline\eta)$.
+	On the other hand, there may be other points in $\overline S-S$ with
+	nontrivial monodromy; i.e. the corresponding inertia acts nontrivially.
+	This means that the direct image along $S\hookrightarrow\overline S$ of
+	the sheaf on $S$ represented by $X$ is not locally constant on a
+	neighborhood of such a point.
+	Geometrically, we can take the normalization $X'$ of $\overline S$ in the
+	function field of $X$; $X'\times_{\overline S}S\simeq X$ (SGA 1 I 10.2).
+	$X'$ is étale at a point if it is net there (SGA 1 I 9.11), so
+	$\mathscr F$ extends to a lisse sheaf over $U\hookrightarrow\overline S$
+	iff $X'\times_{\overline S}U\ra U$ is net.
+	By the lemma above, this is true iff the inertia at each point $u\in U$
+	acts trivially on the $\Gal(\overline\eta/\eta_u)$-representation
+	corresponding to the sheaf on $\overline S_{(u)}$ represented by
+	$X'\times_{\overline S}\overline S_{(u)}$.
+	Properly said, $I_u$ acts on the fiber of this sheaf at $\overline\eta$.
+	If $I_u$ acts trivially, then $X'$ is net in the fiber over $u$ and $X$ 
+	extends (via $X'$) to a revêtement étale of
+	$S\cup\{u\}$. (By the above lemma, is isomorphic to the direct image
+	of $\mathscr F$ under $S\hookrightarrow S\cup\{u\}$.)
+	Thinking about $I_u$ as a subgroup of $\Gal(\overline\eta,\eta)$,
+	the condition that $I_u$ act trivially on
+	$X'\times_{\overline S}\overline S_{(u)}$ is equivalent to that $I_u$
+	act trivially on the
+	$\Gal(\overline\eta/\eta)$-representation $\mathscr F_{\overline\eta}$.
+	Therefore, the locus of $\overline S$ over which $\mathscr F$ can be
+	extended to a lisse sheaf coincides with the union of the
+	$s\in\overline S$ such that $I_s$ acts trivially on
+	$\mathscr F_{\overline\eta}$. This justifies the
+\begin{proposition*}
+	Let $S$ be a normal connected curve with generic point $\eta$ 
+	and $\mathscr C$ the category with objects pairs $(\mathscr F,U)$ with 
+	$U$ a nonempty open of $S$ and $\mathscr F$ a l.c.c. sheaf on $U$,
+	modulo the equivalence relation $(\mathscr F,U)\sim(\mathscr G,V)$ if
+	$\mathscr F|U\cap V\simeq\mathscr G|U\cap V$, and morphisms
+	\begin{equation*}
+		\Hom_{\mathscr C}((\mathscr F,U)\ra(\mathscr G,V))
+		=\varinjlim_{W\subset U\cap V}\Hom(\mathscr F|W,\mathscr G|W),
+	\end{equation*}
+	limit taken over nonempty opens $W$ contained in $U\cap V$.
+	$\mathscr C$ is equivalent to the category of finite separable extensions
+	of the function field $k(\eta)$ of $S$ and $k(\eta)$-algebra morphisms.
+	By Grothendieck's Galois theory, this category is in turn equivalent to
+	the category of finite sets with continuous $\Gal(\overline\eta/\eta)$
+	action.
+	Given such an extension $L$ of $k(\eta)$, the normalization $X$ of $S$ in
+	$L$ is étale over a nonempty open $U\subset S$ and represents a l.c.c.
+	sheaf on $U$. The maximal $U\subset S$ such that $X\times_SU\ra U$ 
+	is étale coincides with the open subscheme of $S$ with closed points
+	\begin{equation*}
+		|U|=\{s\in S:I_s\text{ acts trivially on }L\}
+	\end{equation*}
+	where here $I_s$ acts via
+	$I_s\subset\Gal(\overline\eta/\eta_s)\subset\Gal(\overline\eta/\eta)$,
+	$\eta_s$ the generic point of $S_{(s)}$.
+	If $\mathscr F$ is the sheaf of local sections for $X$ over this $U$,
+	the pair $(\mathscr F,U)$ is distinguished in its class by
+	the property that $U$ is maximal for the filtered partial order given
+	by inclusion. Given $j:V\hookrightarrow U$ and
+	$(\mathscr G,V)\sim(\mathscr F,U)$, $\mathscr F\xra\sim j_*\mathscr G$.
+\end{proposition*}
+\begin{corollary*}
+	Given a lisse ($\ZZ_\ell,\QQ_\ell,R,E_\lambda,\overline\QQ_{\ell}$)-sheaf
+	$\mathscr F$ on a nonempty open subscheme $U$ of a normal connected curve 
+	$S$ with geometric generic point $\eta$, the maximal locus $U'\subset S$ 
+	over which $\mathscr F$ extends to a lisse sheaf $\mathscr F'$ is defined
+	by its set of closed points
+	\begin{equation*}
+		|U'|=\{s\in S:I_s\text{ acts trivially on }\mathscr F_{\overline\eta}\}.
+	\end{equation*}
+	If $j:U\hookrightarrow U'$ denotes the open immersion,
+	$\mathscr F'\xra\sim j_*\mathscr F$.
+\end{corollary*}
+\begin{proof}
+	Disregrading the module structure, the sheaf $\mathscr F$ is represented
+	by a projective system of revêtements étales, to each of which the
+	proposition compatibly applies.
+\end{proof}
+\begin{corollary*}
+	Let $\mathscr F$ be a lisse sheaf on a normal connected curve $S$ and
+	$j:U\hookrightarrow S$ an open immersion.
+	The unit of adjunction $\mathscr F\ra j_*j^*\mathscr F$ is an 
+	isomorphism.
+\end{corollary*}
+\begin{corollary*}
+	Let $A\in\{\ZZ_\ell,\QQ_\ell,R,E_\lambda,\overline\QQ_{\ell}\}$.
+	The category $\mathscr C$ as above with l.c.c. sheaves replaced by lisse
+	$A$-sheaves on a normal connected curve $S$ is equivalent to the full 
+	subcategory of $A$-modules of finite type with continuous action of
+	$\Gal(\overline\eta/\eta)$ generated by those $A$-modules $V$ with
+	the property that $I_s$ acts trivially on $V$ for all but finitely many
+	$s\in|S|$.
+\end{corollary*}
+\begin{proof}
+	By SGA 5 Exp. VI
+	(c.f. \hyperref[sec:st1.2]{note to \emph{Sommes trig.} 1.2}),
+	such a sheaf is equivalent the data of its monodromy
+	representation, which is equivalent to a projective system of 
+	representations. Each representation in the projective system corresponds
+	to a revêtement étale of some nonempty open $U\subset S$ together with
+	the appropriate module structure on its fiber. By the proposition, each
+	revêtement étale is unramified over an open set which can be calculated
+	from the action of the local inertia. In order that there exist a
+	nonempty open $U\subset S$ over which all the revêtements étales in the
+	projective system are unramified (so that the corresponding projective
+	system defines a lisse sheaf on $U$) it is necessary and sufficient that
+	the local inertia at all but finitely many points act trivially on all
+	the revêtements étales in the projective system. This is true for 
+	some $I_s$ iff $I_s$ acts trivially on the fiber of the lisse sheaf
+	considered as $A$-module.
+\end{proof}
+\begin{corollary*}
+	The kernel of the map
+	\begin{equation*}
+		\Gal(\overline\eta/\eta)\twoheadrightarrow\pi_1(U,\overline\eta)
+	\end{equation*}
+	is topologically generated by the subgroups $\{I_s:s\in|U|\}$.
+\end{corollary*}
+\begin{proof}
+	On one hand, the category of l.c.c. sheaves on $U$ is a Galois category
+	with group $\pi_1(U,\overline\eta)$. On the other, it is equivalent to
+	the category of finite $\Gal(\overline\eta/\eta)$-sets on which
+	$I_s$ acts trivially for all $s\in U$.
+\end{proof}
+\begin{remark}
+	The same argument can be used to extend a lisse sheaf on a normal scheme
+	over the generic point of a divisor. If the scheme is moreover smooth,
+	the sheaf can be extended over the points of codimension $>1$ by the
+	purity theorem of Zariski-Nagata (SGAA XVI 3.3).
+\end{remark}
+\begin{remark}
+It is a simple exercise to see that if $g:\eta\ra X$ is the inclusion
+of the generic point to a normal integral scheme $X$, and $M_\eta$
+is a constant sheaf on $\eta$ with constant value $M$, then
+$g_*M$ is likewise constant. Let $M_X$ denote the constant 
+sheaf on $X$ with constant value $M$. We need to show
+\begin{equation*}
+	M_X\rightarrow g_*g^*M_X=g_*M_\eta\tag{$\dagger$}.
+\end{equation*}
+is an isomorphism. Fix a geometric point $x$ of $X$ and let $X_{(x)}$ denote the (spectrum of the) strict henselization of $X$ at $x$; $X_{(x)}$ is a normal domain as $X$ is normal. The map on stalks is
+\begin{equation*}
+	M\rightarrow\Gamma(\eta\times_X X_{(x)},M_\eta).
+\end{equation*}
+$\eta_x:=\eta\times_X X_{(x)}$ is the spectrum of the field of fractions of 
+the strict henselization of $X$ at $x$, which is separable algebraic over
+$k(\eta)$.
+Letting $I_x:=\operatorname{Gal}(\overline\eta/\eta_x)$,
+\begin{equation*}
+	\Gamma(\eta\times_X X_{(x)},M_\eta)=M^{I_x},
+\end{equation*}
+where here we have identified $M$ with the stalk of $M_\eta$ at a geometric point centered on $\eta$. So the condition that the map ($\dagger$) be an isomorphism at the geometric point $x$ is the same as $I_x$ acting trivially on $M$, considered as $\operatorname{Gal}(\overline\eta/\eta)$-module. In particular, this condition is satisfied by the constant sheaf, which corresponds to $M$ with trivial action of Galois.
+
+(We implicitly use here the description of étale morphism with normal integral target in EGA $\text{IV}_4$ 18.10.7.)
+\end{remark}
+
+\subsection*{4.4}
+The short exact sequence in the second paragraph is the exact sequence of
+the first paragraph of (2.3.2) in light of the fact that $j'_*F'=j'_{!*}F'$
+is concentrated in degree $-1$. The computation
+\begin{equation*}
+	\mathscr H^{-1}(\mathscr F(j_*F[1])_{\overline 0'})
+	=H^1_c(A\otimes_{\FF_q}\overline k,j_*F)
+\end{equation*}
+follows from proper base change along the closed immersion
+$\{0'\}\hookrightarrow A'$ applied to either (1.4.1.1), yielding
+\begin{equation*}
+	\mathscr H^{-1}(\mathscr F(j_*F[1])_{\overline 0'})
+	=H^1(\alpha_!j_*F\otimes\overline{\mathscr L}(x.0))
+	=H^1_c(A\times_{\FF_q}\overline0,j_*F)
+\end{equation*}
+or simply from (1.3.1.1) directly, yielding
+\begin{align*}
+	\mathscr H^{-1}(\mathscr F(j_*F[1])_{\overline 0'})
+	&=\mathscr H^{-1}(R\pr_!'(\pr^*j_*F[1]\otimes\mathscr L(x.x'))_{\overline 0'}[1]) \\
+	&=H^1_c(A\times_{\FF_q}\overline0,j_*F\otimes\mathscr L(x.0))
+	=H^1_c(A\times_{\FF_q}\overline k,j_*F).
+\end{align*}
+In any event, this $G_{0'}$-module coincides with the stalk of $j'_*F'$ at
+$\overline 0'$, which is what is expressed by the equation
+\begin{equation*}
+	(F'_{\overline\eta_{0'}})^{I_{0'}}
+	=H^1_c(A\times_{\FF_q}\overline k,j_*F).
+\end{equation*}
+For the rightmost term of the short exact sequence, $I_{0'}$ acts trivially
+on $F_{\overline\infty}$ as $F$ is by assumption unramified at infinity.
+let $\pi:\Spec k\{\pi\}:=T\ra D$ and $\pi':\Spec k\{\pi'\}:=T'\ra A_{(0')}$
+be defined by $\pi\mapsto 1/x$ and $\pi'\mapsto x'$. We have
+\begin{align*}
+	R^{-1}\Phi_{\overline\eta_{0'}}(j_*'F')
+	&=R^{-1}\Phi_{\overline\eta_{0'}}(\overline\pr^*(\alpha_!j_*F)
+	\otimes\overline{\mathscr L}(x.x')[1])_{(\overline\infty,\overline0')}
+	\tag{2.3.2.1) (iii} \\
+	&=(\pi\times\pi')^*R^{-1}\Phi_{\overline\eta_{0'}}(\overline\pr^*(\alpha_!j_*F)\otimes\overline{\mathscr L}(x.x')[1]) \\
+	&=R^1\Phi_{\overline \eta_{0'}}(\pr^*(F_{\overline\infty!})\otimes{\mathscr L}(\pi'/\pi))_{(\overline t,\overline t')}
+	\tag{2.4.2.1) (ii} \\
+	&=\mathscr F^{(\infty,0')}(F_{\overline\infty}) \tag{2.4.2.3} \\
+	&=F_{\overline\infty}\otimes\mathscr F^{(\infty,0')}(\overline\QQ_\ell)
+	=F_{\overline\infty}(-1). \tag{2.5.3.1) (i}
+\end{align*}
+The second-to-last equality is true because $F$ is assumed unramified at
+infinity, so that the action of
+$G_\infty:=\Gal(\overline\eta_{\infty}/\eta_{\infty})$
+on $F_{\overline\infty}$ factors through
+$G_\infty\twoheadrightarrow G_\infty/I_\infty=\Gal(\FF/\FF_q)$, which is
+procyclic generated by Frobenius, and by Schur's lemma
+$F_{\overline\infty}$ splits as a direct sum of 1-dimensional torsion
+sheaves (in the sense of \cite[1.2.7]{weilii}) so that we may assume
+$F_{\overline\infty}\simeq\overline\QQ_\ell^{(b)}$ for 
+$b\in\overline\QQ_\ell^\times$ an $\ell$-adic unit, which is the reciprocal
+image of a sheaf on $\Spec\FF_p$. As twisting by such a sheaf induces an
+exact autoequivalence of the category (or derived category) of
+$\overline\QQ_\ell$-sheaves, we find that
+$\overline\QQ_\ell^{(b)}\otimes\mathscr F^{(\infty,0')}(V)=\mathscr F^{(\infty,0')}(\overline\QQ_\ell^{(b)}\otimes V)$
+for any $G_\infty$-module $V$.
+
+A few words on the application of the Deligne lemmata: it is used here that
+$F$ is not ramified at infinity, so that if $\alpha$ denotes simultaneously 
+$A\hookrightarrow D$ and $U\hookrightarrow U\cup\{\infty\}$ (depending on
+the context), $\alpha_*F$ is a lisse sheaf on $U\cup\{\infty\}$.
+This is not necessary to conclude by (4.2.2.1) that for each eigenvalue of
+Frobenius $\beta$ on $F_{\overline\infty}$,
+\begin{equation*}
+	w_{q}(\beta)\leq w,
+\end{equation*}
+but it is necessary to connect the corresponding statement for $F^\vee$ to
+that for $F$ in the following way.
+Namely, we find that for each eigenvalue of Frobenius $\gamma$ on
+$(F^\vee)_{\overline\infty}$,
+\begin{equation*}
+	w_{q}(\gamma)\leq -w,
+\end{equation*}
+and as $\alpha_*F$ and $\alpha_*F^\vee$ are both lisse,
+$(\alpha_*F)^\vee=\alpha_*(F^\vee)$ and
+\begin{ceqn}\begin{equation*}
+	(F^\vee)_{\overline\infty}:=(\alpha_*F^\vee)_{\overline\infty}
+	=(\alpha_*\underline\Hom(F,\overline\QQ_\ell))_{\overline\infty}
+	=\underline\Hom(\alpha_*F,\overline\QQ_\ell)_{\overline\infty}
+	=\Hom(F_{\overline\infty},\overline\QQ_\ell)
+	=(F_{\overline\infty})^\vee,
+\end{equation*}\end{ceqn}
+which allows us to conclude from $w_{N(\infty)}(\gamma)\leq -w$ that
+\begin{equation*}
+	w_{q}(\beta)\geq w.
+\end{equation*}
+This shows in our application that $F'$ is $\iota$-pure of $\iota$-weight
+$w$ and (4.2.2.1) gives that for each eigenvalue $\nu$ of $F_{0'}$ on
+$(j_*'F')_{\overline0'}=H^1_c(A\times_{\FF_q}\overline k,j_*F)$,
+\begin{equation*}
+	w_{q}(\nu)\leq w+1.
+\end{equation*}
+In the effort to show that $F'$ is $\iota$-pure, since $F$ is unramified
+at infinity, the $P_\infty$-module
+$(F\oplus\check F(-w))_{\overline\eta_\infty}$ is trivial; i.e. purely of
+slope 0, so that $\mathscr F_{\psi}(j_*(F\oplus\check F(-w))[1])$
+is of the form $j'_*G'_1[1]$ and
+$\mathscr F_{\psi^{-1}}(j_*(F\oplus\check F(-w))[1])$ is of the form
+$j'_*G'_2[1]$ and their direct sum is of the form $j'_*G'[1]$ for
+the lisse $\QQ_\ell$-sheaf $G':=G'_1\oplus G'_2$ on $A'-\{0\}$.
+
+For the \emph{coup de grâce}, it would be better to refer to (1.1.1),
+especially (1.1.1.3), and (1.2.1.2) than to (3.1). The point is that we
+can follow \emph{Rapport sur la formula des traces} (1.6) and (3.1) (with
+$t^f$ replaced by $t$ so that degree is measured over $\FF_q$, not $\FF_p$,
+and shifting by $[-1]$ to cancel the shift of $[1]$ on $G$ and
+in the definition of $\mathscr F$)
+to find that
+\begin{align*}
+	&\det(1-t\; F_{x'}^*,G') \\
+	=&\det(1-t\; F_{x'}^*,H_c^0(A\times_{\FF_q}\overline x',j_*(F\oplus\check F(-w))\otimes\mathscr L_\psi(x.x')[1])) \\
+	&\times\det(1-t\; F_{x'}^*,H_c^0(A\times_{\FF_q}\overline x',j_*(F\oplus\check F(-w))\otimes\mathscr L_{\psi^{-1}}(x.x')[1]))
+\end{align*}
+Now the point is that as $G'$ is concentrated in degree zero,
+letting $\mathscr L=\mathscr L_\psi$ or $\mathscr L_{\psi^{-1}}$,
+\begin{ceqn}\begin{equation*}
+	R\Gamma(A\times_{\FF_q}\overline x',j_*(F\oplus\check F(-w))\otimes\mathscr L(x.x'))
+	=H^1_c(A\times_{\FF_q}\overline x',j_*(F\oplus\check F(-w))\otimes\mathscr L(x.x'))[-1].
+\end{equation*}\end{ceqn}
+Grothendieck's trace formula gives therefore that
+$\iota\det(1-t\; F_{x'}^*,G')$ can be computed as stated in terms of the
+polynomials $Q_{x,x'}$ in light of \cite[1.7.6 \& 1.7.7]{Trig}
+(compare (1.1.1.2) and (1.1.3.3)), which allow us
+to write for each $x\in|A\times_k x'|$
+\begin{equation*}
+	F_x^*|(j_*(F\oplus\check F(-w))\otimes\mathscr L_\psi(x.x'))_{\overline x}
+	=\psi(\Tr_{k(x)/\FF_p}(x.x'))\;F_x^*|(j_*(F\oplus\check F(-w)))_{\overline x}.
+\end{equation*}
+If $P(t)\in\RR[t]$ and $\alpha=e^{i\theta}$, then
+$P(\alpha t)P(\alpha^{-1}t)\in\RR[t]$ as well, since
+$P(\alpha t)P(\overline\alpha t)$ is fixed by complex conjugation.
+% If $P(t)=\sum_{i=0}^np_it^i$, the coefficient of the term of degree
+% $0\leq m\leq 2n$ in $P(\alpha t)P(\alpha^{-1}t)$ is
+% \begin{equation*}
+% 	\sum_{i=\max\{m-n,0\}}^{\min\{m,n\}}
+%	p_ip_{m-i}\alpha^i\overline\alpha^{m-i}.
+% \end{equation*}
+% If $i=m-i$, $\alpha^i\overline\alpha^{m-i}\in\RR$.
+% Otherwise $i\ne m-i$ and
+% $p_ip_{m-i}\alpha^i\overline\alpha^{m-i}+p_{m-i}p_i\alpha^{m-i}\overline\alpha^i\in\RR$.
+\vfill\flushright Q.E.D.
+
+
+
+
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\begin{thebibliography}{Sommes trig.}
+	\bibitem[Weil II]{weilii} Deligne, Weil II.
+	\bibitem[Laumon]{Laumon} Laumon, \emph{Transformation de Fourier, constants d'équations fonctionnelles et conjecture de Weil}.
+	\bibitem[SGA 1]{SGA1} SGA 1.
+	\bibitem[SGA 7]{SGA7} SGA 7.
+	\bibitem[Sommes trig.]{Trig} \textit{Application de la formule des traces aux sommes trigonométriques}
+	dans SGA $4\frac12$.
+	\bibitem[Th. finitude]{thfin} \textit{Théorèmes de finitude en cohomologie $\ell$-adique}
+	dans SGA $4\frac12$.
+\end{thebibliography}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+\end{document}
