@@ -1,0 +1,1003 @@
+\documentclass[deligne.tex]{subfiles}
+
+\begin{document}
+\subsection*{0. Introduction}
+We use the notation
+$\begin{tikzcd}\GG_{m,k}\arrow[r,hook,"j"]&\A^1_k&\{0\}\arrow[l,hook',"i"']\end{tikzcd}$.
+The nearby cycles functor $\Psi_f$ is relative to the morphism 
+$f:X\ra\A^1_k$; let $Y:=f^{-1}(0)$ and $U:=X-Y$.
+We use the setup of (2.2.2) in Laumon's Fourier transform
+article: write $\A^1_k=\Spec(k[u])$ with generic point $\eta=\Spec(k(u))$
+and Zariski trait $(\A^1_k)_{0}:=\Spec(k[u]_{(u)})$ at 0;
+let $k\{u\}$ denote the henselization of the local ring $k[u]_{(u)}$, 
+let $(\A^1_k)_{(0)}:=\Spec(k\{u\})$ with generic point
+$\xi=\Spec(k\{u\}[u^{-1}])$, so
+that the inclusion $k[u,u^{-1}]\hookrightarrow k\{u\}[u^{-1}]$
+induces a morphism of schemes $\iota:\xi\ra\GG_{m,k}$.
+We also use $i,j$ to denote the inclusion of the closed and generic points
+to $(\A^1_k)_{(0)}$.
+
+Fix a geometric point $\rho:\overline\xi\ra\xi$, which via $\xi\ra\eta$
+we also consider to be centered on $\eta$.
+% if $\pi_1(\GG_{m,k},\overline\xi)^{\text{mod}.\infty}$ is the quotient of
+% the étale fundamental group classifying the finite revêtements étales of
+% $\GG_{m,k}$ which are tamely ramified at $\infty$, we have a commutative
+% diagram
+% \begin{equation*}\begin{tikzcd}
+%	&\pi_1(\GG_{m,k},\overline\xi)\arrow[d,twoheadrightarrow] \\
+%	\pi_1(\xi,\overline\xi)\arrow[r,"{\iota_*^{\text{mod}.\infty}}"]\arrow[ur,"\iota_*"]
+%	&\pi_1(\GG_{m,k},\overline\xi)^{\text{mod}.\infty}.
+% \end{tikzcd}\end{equation*}
+% \begin{theorem*}
+%	The natural morphism $i_*^{\text{mod}.\infty}$ is injective and admits a
+%	continuous retraction $r$.
+%\end{theorem*}
+Given an object $K$ of $D_c^b(X_\xi)$, 
+$\Gal(\overline\xi,\xi)$ acts on the nearby cycles
+$R\Psi_\xi(K)[-1]$ of \cite[Exp. XIII]{sga7} relative to the morphism $f$ 
+(abusively letting $\iota$ also denote the inclusion of $\xi$ into
+$\A^1_k$).
+(See \hyperref[BBD:AppendixA]{the note to BBD Appendix A} for a detailed
+comparison of two ways of writing $R\Psi_\xi$.)
+
+Let $S$ denote $(\A^1_k)_{(0)}$ with closed point $0$.
+Let $\tilde\xi$ denote the maximal tamely ramified extension of $\xi$ and
+let $\overline\A^1_k,\GG_{m,k},\overline S$ denote the normalisations of
+$\A^1_k,\GG_{m,k}$, and $S$, respectively, in $\overline\xi$.
+Likewise for tildes.
+Note that $\tilde 0$ is the spectrum of the separable closure of $k$
+and % $\tilde S$ is the strict henselisation of $S$ at $\tilde 0$ while
+$\tilde S$ is the spectrum of a valuation ring with value group
+$\ZZ_{(p)}$ (the localization of $\ZZ$ at the prime $(p)$) while
+$\overline S$ is the spectrum of a valuation ring with value group $\QQ$
+and with residue field a purely inseparable extension of $k(\tilde s)$.
+The commutative diagram on the right is obtained by localising the one
+on the left near $0$.
+\begin{equation*}\begin{tikzcd}
+	\overline 0\arrow[d]\arrow[r,"\overline i"]&
+	\overline\A^1_k\arrow[d]&\overline\GG_{m,k}\arrow[l,"\overline j"']\arrow[d] \\
+	\tilde 0\arrow[d]\arrow[r,"\tilde i"]&
+	\tilde\A^1_k\arrow[d,"\tilde\pi"]&\tilde\GG_{m,k}\arrow[l,"\tilde j"']\arrow[d,"\tilde\pi"] \\
+	0\arrow[r,"i"]&\A^1_k&\GG_{m,k}\arrow[l,"j"'].
+\end{tikzcd}\qquad\qquad
+\begin{tikzcd}
+	\overline 0\arrow[d]\arrow[r,"\overline i"]&
+	\overline S
+	\arrow[d]&\overline\xi\arrow[l,"\overline j"']\arrow[d] \\
+	\tilde 0\arrow[d]\arrow[r,"\tilde i"]&
+	\tilde S\arrow[d,"\tilde\pi"]&\tilde\xi\arrow[l,"\tilde j"']\arrow[d] \\
+	0\arrow[r,"i"]& S&\xi\arrow[l,"j"'].
+\end{tikzcd}\end{equation*}
+Let $\pi$ denote the composition
+$\overline\A^1_k\ra\tilde\A^1_k\xra{\tilde\pi}\A^1_k$ and its various base
+extensions to morphisms landing in $\GG_{m,k}$ or $S$.
+To get $\pi_1(\GG_{m,k},1)$ to act on nearby cycles, make the 
+\begin{definition*}
+	For $K$ in $D_c^b(U)$, set 
+	$\Psi_f:=\overline i^*\overline j_*\pi^*K[-1]$.
+	% $\Psi_f:=i^*j_*\pi_*\pi^*K$.
+\end{definition*}
+(We notate also by $i,j$ etc. the corresponding base extensions via
+the morphism $f$.)
+
+As $i$ factors as $\{0\}\ra(\A^1_k)_{(0)}\ra\A^1_k$,
+$\overline i$ factors as $\{\overline 0\}\ra\overline S\ra\overline\A^1_k$
+so that $\Psi_f[1]$ coincides with the usual $R\Psi_\xi$ for the henselian 
+trait $S$. As $i$ also factors as $\{0\}\ra(\A^1_k)_0\ra\A^1_k$,
+$\Psi_f$ also coincides with
+$\overline i^*\overline j_*K_{\overline\xi}[-1]$
+which carries an action of $\Gal(\overline\xi/\eta)$.
+(`Coincide,' means in this case `coincide' in $D_c^b(Y_{\overline k})$, but
+these various ways of writing $\Psi_f$ endow it with actions by different
+groups; in this case, one is a subgroup of the other.)
+When $\mathscr L$ is a lisse sheaf on $\GG_{m,k}$, this action of
+factors through the quotient
+$\Gal(\overline\xi/\eta)\twoheadrightarrow\pi_1(\GG_{m,k},1)$.
+For an arbitrary $\QQ_\ell$-sheaf, the lisse locus may be a proper subscheme 
+of $\GG_{m,k}$ in which case the action of $\Gal(\overline\xi/\eta)$ may not
+factor through the stated quotient, but rather will factor through one with
+a smaller kernel.
+Regardless, Remark 0.2 about a local system $\mathscr L$ is now obvious.
+
+
+% Let $\pi_1(\GG_{m,k},1)$ act on $\Psi_f(K)$ via
+% \begin{equation*}
+%	\pi_1(\GG_{m,k},1)\xra\sim\pi_1(\GG_{m,k},\overline\xi)
+%	\twoheadrightarrow\pi_1(\GG_{m,k},\overline\xi)\xra r
+%	\pi_1(\xi,\overline\xi),
+% \end{equation*}
+% the last group acting naturally on the nearby cycles by the definition of
+% the topos $X\times_s\xi$, where $s$ denotes the closed point of
+% $(\A^1_k)_{(0)}$.
+
+On the functorial exact triangle $\Psi_f\xra{T-1}\Psi_f\ra i^*j_*\ra$:
+this is discussed with more detail in the proof of t-exactness of (shifted) 
+nearby and vanishing cycles in \cite[Appendix A]{BBD}.
+The point is, with $X\ra S$ of finite type over a strictly henselian trait
+$(S,\eta,s)$ which is essentially of finite type over a field $k$ of 
+characteristic $\ne\ell$, starting with $K\in D_c^b(X_\xi)$ and
+letting $G:=\Gal(\overline\xi/\xi)$, $K\xra\sim R\Gamma(G,\rho_*\rho^*K)$
+and therefore
+\begin{equation*}
+	i^*j_*K=i^*j_*R\Gamma(G,\rho_*\rho^*K).
+\end{equation*}
+Writing $G$ as an extension of $\ZZ_\ell(1)$ by a pro-group $Q$
+of order prime to $\ell$, since invariants by $Q$ is an exact functor,
+$R\Gamma(G,-)$ is represented on $D_c^b(X_\xi\times BG)$ by
+\begin{equation*}
+	K\mapsto\operatorname{Cone}(K^Q\xra{T-1}K^Q)[-1]
+\end{equation*}
+(an explication of why can be found in \cite[10.7]{Modular}; in short, it
+is because a $\ZZ_\ell(1)$-module admits a 2-step acyclic resolution by
+coinduced modules),
+so, keeping in mind $\Psi_f:=R\Psi_\xi[-1]$, in order to see that the triangle
+\begin{equation*}
+	\Psi_f(K^Q)\xra{T-1}\Psi_f(K^Q)\ra i^*j_*(K^Q)\ra
+\end{equation*}
+is distinguished, it suffices to see that $i^*j_*(K^Q)=(i^*j_*K)^Q$, which
+is clear, and then simply use functoriality.
+
+When $S$ is no longer strictly henselian, the situation is situation is the
+same, except of course $\Gal(\overline k/k)$ could be nontrivial, so
+$R\Gamma(\pi_1(\GG_{m,\overline k},1),\Psi_f(K))=i^*j_*(K)$, `packaged' as
+a sheaf on $Y_{\overline k}$ with action of $\Gal(\overline k/k)$
+(recall \cite[XIII 1.1.3]{SGA7}: the functor
+$\mathcal F\mapsto\{\overline{\mathcal F}$ endowed with action of
+$\Gal(\overline k/k)\}$ is an equivalence of categories).
+This is why in the notes Morel writes `the last term should be base changed
+from $Y$ to $Y_{\overline k}$,' but this is a distinction without a
+difference.
+
+Morel takes $T$ to be a topological generator of the prime-to-$p$
+quotient of $\pi_1(\GG_{m,\overline k},1)$, while in the above $T$ is a
+topological generator of the maximal pro-$\ell$ quotient $\ZZ_\ell(1)$ of
+$\Gal(\overline\xi/\xi)$.
+This is insignificant: the invariants under $Q$ functor is exact on a
+pro-$\ell$ module provided $Q$ has order prime to $\ell$ so we could take
+$T$ to be a topological generator of the prime-to-$p$ quotient and take
+invariants under the maximal pro-$p$ subgroup (which is a normal Sylow)
+or take $T$ to be a topological generator of the maximal pro-$\ell$ quotient
+and take invariants under everything else (which is the approach taken 
+above).
+Let's first analyse the maximal prime-to-$p$ quotient of both groups; we
+will see that they coincide, which will imply that the maximal pro-$\ell$
+quotients also coincide.
+The maximal prime-to-$p$ quotient of $\pi_1(\GG_{m,\overline k},1)$
+coincides with $\pi_1(\GG_{m,\overline k},1)^{\text{mod}}$,
+and, after base changing to $\overline k$, the maximal prime-to-$p$ quotient
+of $\Gal(\overline\xi,\xi\otimes_k\overline k)$ coincides with
+$\Gal(\overline\xi,\xi\otimes_k\overline k)^{\text{mod}}$, the tame quotient
+of $\Gal(\overline\xi,\xi\otimes_k\overline k)$. Both these groups are
+isomorphic to $\hat\ZZ(1)(\overline k)$; c.f. \cite[2.2.2.1]{Laumon} and
+\hyperref[laumon:2.2.2.2]{the note to 2.2.2.2}.
+To see that the prime-to-$p$ quotient of $\pi_1(\GG_{m,\overline k},1)$
+coincides with $\pi_1(\GG_{m,\overline k},1)^{\text{mod}}$, simply recall
+that $\Gal(\overline\xi,\eta\otimes_k\overline k)\twoheadrightarrow\pi_1(\GG_{m,\overline k},1)$
+and the former group admits a dévissage
+\begin{equation*}
+	1\ra P_0\ra\Gal(\overline\xi,\eta\otimes_k\overline k)\ra\hat\ZZ(1)(\overline k)\ra1
+\end{equation*}
+where the wild inertia $P_0$ is a $p$-group so that the maximal prime-to-$p$ 
+quotient of $\Gal(\overline\xi,\eta\otimes_k\overline k)$ is
+$\hat\ZZ(1)(\overline k)$; moreover the same is true of the maximal
+prime-to-$p$ quotient of the subgroup
+$\Gal(\overline\xi,\xi\otimes_k\overline k)\subset\Gal(\overline\xi,\eta\otimes_k\overline k)$, and this subgroup surjects onto
+$\Gal(\overline\xi,\xi\otimes_k\overline k)^{\text{mod}}\simeq\hat\ZZ(1)(\overline k)$. We have a commutative diagram \cite[2.2.2]{Laumon}
+\begin{equation*}\begin{tikzcd}
+	\Gal(\overline\xi,\eta\otimes_k\overline k)\arrow[r,twoheadrightarrow]
+	&\pi_1(\GG_{m,\overline k},1)\arrow[r,twoheadrightarrow]
+	&\pi_1(\GG_{m,\overline k},1)^{\text{mod}}
+	\\
+	&\Gal(\overline\xi,\xi\otimes_k\overline k)
+	\arrow[u,hook]
+	\arrow[r,twoheadrightarrow]
+	&\Gal(\overline\xi,\xi\otimes_k\overline k)^{\text{mod}}
+	\arrow[u, phantom,"\text{\rotatebox{-90}{$\simeq$}}"]\arrow[r,phantom,"\simeq"]
+	&\hat\ZZ(1)(\overline k)
+\end{tikzcd}\end{equation*}
+and from the description of $\Gal(\overline\xi,\eta\otimes_k\overline k)$
+it follows that
+$\pi_1(\GG_{m,\overline k},1)^{\text{mod}}\simeq\hat\ZZ(1)(\overline k)$ is
+the maximal prime-to-$p$ quotient of $\pi_1(\GG_{m,\overline k},1)$.
+Moreover, a topological generator of either the maximal prime-to-$p$ or
+pro-$\ell$ quotients of $\Gal(\overline\xi,\xi\otimes_k\overline k)$
+is carried onto the same in $\pi_1(\GG_{m,\overline k},1)$.
+
+Regardless of whether one takes $T$ to be a topological generator of the
+maximal pro-$\ell$ quotient or the maximal prime-to-$p$ quotient (we will
+choose the latter to conform to Morel's notes), there is still the issue 
+that after extending scalars $k\hookrightarrow\overline k$ the triangle
+\begin{equation*}
+	\Psi_f(K^Q)\xra{T-1}\Psi_f(K^Q)\ra i^*j_*(K^Q)\ra
+\end{equation*}
+is distinguished, where we have taken $Q$-invariants, whereas Morel doesn't
+mention taking $Q$-invariants when she writes this triangle.
+This is most likely because she is using tamely-ramified nearby cycles
+$\tilde\Psi_f$ to begin with.
+\begin{definition*}
+	For $K\in D_c^b(U)$, let
+	$\tilde\Psi_f(K):=\tilde i^*\tilde j_*\tilde\pi^*K[-1]$ denote tame 
+	nearby cycles.
+\end{definition*}
+(Compare \cite[Exp.\,I 2.7]{SGA7}.)
+Note that $\tilde\Psi_f(K)=R\Gamma(Q,\Psi_f(K))=\Psi_f(K)^Q=\Psi_f(K^Q)$,
+where $Q$ is the wild inertia of $\Gal(\overline\xi,\xi)$.
+Therefore, when Morel writes $\Psi_f$, she is probably implicitly writing
+$\tilde\Psi_f$, and we will do the same in what follows.
+
+
+\subsection*{1. Unipotent nearby cycles}
+We retain the notation from the previous section.
+We write $\FF_\ell$ for Morel's $F$. Now $\FF_\ell$ can be
+$\QQ_\ell$, $E_\lambda$, $\overline\QQ_\ell$, etc.
+
+(1.1) We construct the unipotent nearby cycles.
+To find that the endomorphism ring is finite over $\FF_\ell$, simply
+use the fact that $R\underline\Hom$ preserves constructibility and write
+\begin{equation*}
+	\End_{D_c^b}(\Psi_f K)=H^0R\Hom(\Psi_f K,\Psi_f K).
+\end{equation*}
+Let $P:=\Psi_fK$ and $E=\End P$. We have $\FF_\ell[T]\ra E$ with kernel
+$a(T)$, a nonconstant polynomial as $\dim_{\FF_\ell}E<\infty$.
+Write $a=bc$ with $(T-1)\nmid b$ and $c=(T-1)^m$ for some $m\in\NN$.
+As $(b,c)=1$, there exist $x,y\in\FF_\ell[T]$ s.t. $1=xb+yc$ ($1=\id_P$).
+As $a=0$ in $E$, we have $(xb)(yc)=xya=0$,
+\begin{align*}
+	&xb=xb(xb+yc)=(xb)^2+xya=(xb)^2,
+\end{align*}
+and similarly $(yc)^2=yc$, all in $E$. Let $e_1=xb$ and $e_2=yc$.
+We have found a pair of orthogonal idempotents $e_1$ and $e_2$ with
+$e_1+e_2=1:=\id_P$, and by
+\hyperref[BBD:2.2.18]{the note to BBD 2.2.18}, the triangulated category
+$D_c^b(Y)$ is Karoubi complete: every idempotent splits. More precisely,
+given an object $P$ of this category and an idempotent $e:P\ra P$, there is
+an object $P_e$ and a retraction $P_e\xra i P\xra p P_e$ with $pi=\id_{P_e}$
+and $ip=e$. In particular, this means that $i$ is a monomorphism, $p$ an
+epimorphism, and $P_e$ is simultaneously a limit and colimit of the diagram
+$P\rightrightarrows P$, where the parallel morphisms are $\id_P$ and $ip=e$,
+via the morphisms $i$ and $p$, respectively. Moreover, $P_e$ is an absolute
+(co)limit, i.e. preserved by every functor. 
+
+Therefore from the $e_i$ we get $P_i,i_i,p_i$ ($i=1,2$), and to verify that
+$P=P_1\oplus P_2$ it only remains
+(\hyperref[https://stacks.math.columbia.edu/tag/0103]{\texttt{0103}})
+to check that $p_2\circ i_1=0=p_1\circ i_2$. As $i_2$ is a monomorphism and
+$p_1$ an epimorphism, in order to show $p_2\circ i_1=0$ it suffices to write
+\begin{equation*}
+	i_2\circ p_j\circ i_1\circ p_1=e_2\circ e_1=0.
+\end{equation*}
+Therefore $P=P_1\oplus P_2$.
+Given any polynomial $q(T)$, we consider $q(T)$ as endomorphism of $P$.
+As $i_2\circ p_2\circ q(T)\circ i_1 \circ p_1=e_2 q(T) e_1=q(T)e_2e_1=0$,
+in fact $p_2\circ q(T)\circ i_1=0$ and similarly $p_1\circ q(T)\circ i_2=0$.
+This means that $q(T)$ descends to endomorphisms of $P_1$ and $P_2$, and
+the decomposition $P=P_1\oplus P_2$ is $\FF_\ell[T]$-equivariant.
+Moreover, to calculate $q(T)$ on $P_1$, it suffices to know
+$p_1\circ q(T)\circ i_1$.
+
+We see that as $(T-1)^m=c$ and $a=bc=0$ as
+endomorphism of $P$, $(T-1)^me_1=cxb=xa=0$.
+Therefore $p_1\circ (T-1)^m\circ i_1=0$ ($p_1$ is an epimorphism) and
+$(T-1)^m=0$ on $P_1$.
+On the other hand,
+$p_2\circ (T-1)(y(T-1)^{m-1})\circ i_2=p_2\circ e_2\circ i_2=\id_{P_2}$
+shows that $(T-1)$ is invertible as endomorphism of $P_2$.
+This shows that $T-1$ is nilpotent on $P_1$ and an automorphism of $P_2$.
+
+We set $\Psi_f^{\mathrm{un}}K:=P_1$ and $\Psi_f^{\mathrm{nu}}K:=P_2$,
+call the former the unipotent nearby cycles, and the latter the
+non-unipotent nearby cycles. We have proved a $\FF_\ell[T]$-linear 
+decomposition 
+\begin{equation*}
+	\Psi_fK=\Psi_f^{\mathrm{un}}K\oplus\Psi_f^{\mathrm{nu}}K.
+\end{equation*}
+Nothing in the above discussion changes if we replace
+$\Psi_f$ by $\tilde \Psi_f$, so we have similarly
+\begin{equation*}
+	\tilde\Psi_f(K)=\tilde\Psi_f^{\text{un}}(K)\oplus\tilde\Psi_f^{\text{nu}}(K)
+\end{equation*}
+and a distinguished triangle
+\begin{equation*}
+	\tilde\Psi_f^{\text{un}}\xra{T-1}\tilde\Psi_f^{\text{un}}\ra i^*j_*\ra.
+\end{equation*}
+(That $\tilde\Psi_f^{\mathrm{un}}$ preserves constructibility is deduced
+trivially from the fact that $\Psi_f^{\mathrm{un}}$ does, and as
+taking $Q$-invariants is an exact functor on $\ell$-adic sheaves,
+$H^i\tilde\Psi_f^{\mathrm{un}}=H^i(\Psi_f^{\mathrm{un}})^Q= (H^i\Psi_f^{\mathrm{un}})^Q$; now recall that every subsheaf of a
+constructible sheaf of modules over a noetherian ring on a noetherian scheme
+is constructible.)
+
+\subsection*{2. Some local systems on $\GG_{m,k}$}
+The local systems $\mathcal L_a$ appear to
+be stand-ins for Sasha's $\Gr I^{a,b}$, which, by the way, come with the 
+pairing $\langle\;,\,\rangle$. Let's look more closely at the analogy.
+The action of $\pi_1(\GG_{m,k},1)$ on $I^{a,b}$ is also via the 
+projection onto the maximal pro-$\ell$ quotient $\ZZ_\ell(1)$, and
+$t\in\ZZ_\ell(1)$ acts on $I^{a,b}$ by $\tilde t=\exp(\log\tilde t)$.
+The point is that $\log\tilde t\in A^{1*}$ in Sasha's notation; i.e.
+$A^\circ\simeq\FF_\ell[[\log\tilde t]]$, and therefore $\log\tilde t$
+acts on $\Gr I^{-a,0}$ by Morel's $N$.
+Therefore indeed Morel's $\mathcal L_a\simeq\Gr I^{-a,0}$.
+Morel claims an isomorphism $\mathcal L_a^\vee\simeq\Gr I^{0,a}$, but
+if we want to upgrade the naïve isomorphism of sheaves on $\Spec k$ to one
+on $\GG_{m,k}$ we run into the issue that the logarithm of geometric 
+monodromy acts on $\mathcal L_a^\vee$ by $-\log\tilde t$, not $\log\tilde t$
+and so $t$ acts by $\exp(-\log\tilde t)$. Therefore a
+$\pi_1(\GG_{m,k},1)$-equivariant isomorphism is not provided by the identity
+morphism but rather by the isomorphism
+\begin{equation*}\begin{tikzcd}[column sep=tiny]
+	I^{0,a}\arrow[d,"\text{\scalebox{1.5}{\rotatebox{-90}{$\sim$}}}"]\arrow[r,equals]
+	&F\arrow[r,phantom,"\oplus"]\arrow[d,"\id"]
+	&F(1)\arrow[r,phantom,"\oplus"]\arrow[d,"-\id"]
+	&\cdots\arrow[r,phantom,"\oplus"]
+	&F(a)\arrow[d,"(-1)^a\id"] \\
+	\mathcal L_a^\vee\arrow[r,equals]
+	&F\arrow[r,phantom,"\oplus"]
+	&F(1)\arrow[r,phantom,"\oplus"]
+	&\cdots\arrow[r,phantom,"\oplus"]
+	&F(a).
+\end{tikzcd}\end{equation*}
+In Sasha's notation, $(\Gr I^{-a,0})^\vee\simeq\Gr I^{0,a}$, and the maps
+$\alpha,\beta$ are just the $\Gr$ of maps $I^{-a,0}\hookrightarrow I^{-b,0}$
+and $I^{-b,0}\twoheadrightarrow I^{-b,a-b}$. To obtain the statement about
+$D(\alpha_{a,b})$, we see before passing to $\Gr$ that
+$D(\alpha_{a,b})(-1)[-2]:I^{0,b}\ra I^{0,a}$ is just reduction modulo $I^a$.
+Passing to $\Gr$, this is the same as
+\begin{equation*}
+	\beta_{a,b}(b):\mathcal L_b(b)=(\Gr I^{-b,0})(b)\twoheadrightarrow
+	(\Gr I^{-a,0})(a)=\mathcal L_a(a).
+\end{equation*}
+
+\subsection*{3. Beilinson's construction of $\Psi^{\mathrm{un}}_f$}
+Everything is clear except perhaps at first glance the expression
+$\ker(N^a,\Psi_f^{\mathrm{un}} K)$, as $N$ is not an endomorphism of
+$\Psi_f^{\mathrm{un}}$ but rather sends it to $\Psi_f^{\mathrm{un}}(-1)$.
+Write $N$ as a linear map
+$\Psi_f^{\mathrm{un}}(1)\ra\Psi_f^{\mathrm{un}}$; what this means is that
+$N$ assigns, linearly in $\FF_\ell$, an endomorphism of
+$\Psi_f^{\mathrm{un}}$ to an element of $\FF_\ell(1)$.
+Therefore there is an unambiguous meaning to
+$\ker(N^a,\Psi_f^{\mathrm{un}} K)$: if $t_1,\ldots,t_a$ are $a$ nonzero
+elements of $\FF_\ell(1)$, $\ker(Nt_a\ldots Nt_1,\Psi_f^{\mathrm{un}} K)$ is
+independent of the choice of $t_i$.
+
+(3.3) Returning to the various ways of defining $\Psi_f$, we settled upon
+$\tilde\Psi_f^{\mathrm{un}}$. This functor with $f=\id$, as a direct factor
+of tame cycles, no longer has the the property of sending every shifted 
+local system $\mathcal L[1]$ on $\GG_{m,k}$ to $L_{\{0\}}$
+(where $L$ the representation of $\pi_1(\GG_{m,k},1)$ corresponding to
+$\mathcal L$). But it still does for these $\mathcal L_a$, as 
+$\pi_1(\GG_{m,\overline k},1)$ acts on $\mathcal L_a$ through the tame
+quotient, and moreover $T$ acts unipotently by construction.
+
+(3.4) is indeed obvious, but it appears to have a typo.
+Start with $\Psi_f^{\mathrm{un}}(K)$, express the latter as
+$\ker(N^{a+1},\Psi_f^{\mathrm{un}}(K))$ for $a\gg0$ and then via the 
+isomorphism $\gamma$ as $\ker(N,\Psi_f^{\mathrm{un}}(K\otimes\mathcal L_a))$;
+i.e. for $a\gg0$ the map
+\begin{align*}
+	\Psi_f^{\mathrm{un}}(K)&\ra\ker(N,\Psi_f^{\mathrm{un}}(K\otimes\mathcal L_a)) \\
+	x&\mapsto(x,-Nx,\ldots,(-N)^ax)
+\end{align*}
+is an embedding. The target is identified with
+$^pH^{-1}i^*j_*(K\otimes\mathcal L_a))$, which now has $N$ acting only by
+$1\otimes N=1\otimes(\beta_{a,a+1}\circ\alpha_{a,a+1})$; i.e. by
+\begin{equation*}
+	(x,-Nx,\ldots,(-N)^ax)\mapsto(-Nx,\ldots,(-N)^ax,0);
+\end{equation*}
+via the above embedding, this means that
+$1\otimes N=1\otimes(\beta_{a,a+1}\circ\alpha_{a,a+1})$ acts by
+$-N$, not $N$, on $\Psi_f^{\mathrm{un}}(K)$.
+
+(3.5) Sasha's construction of
+$\Psi_f^{\mathrm{un}}$ has the merit of behaving simply with respect to
+duality and admitting a description in terms of basic functors, but, as
+remarked above, whether it lands in $Y$ or $Y_{\overline k}$ is 
+insignificant since it lands in $Y_{\overline k}$ with action of
+$\Gal(\overline k/k)$ coming from the split-exact arithmetic-geometric
+sequence of $\pi_1$, and therefore can be regarded as a sheaf on $Y_k$ to
+begin with.
+
+\subsection*{4. Duality} As before,
+$\FF_\ell=\QQ_\ell,E_\lambda,\overline\QQ_\ell$, etc.
+\begin{lemma*}
+	Let $f:X\ra S$ be a separated morphism of finite type between schemes of
+	finite type over $k$ and $\mathcal L$ a lisse $\FF_\ell$-sheaf on $S$.
+	Then $f^!(\mathcal L)\xleftarrow\sim f^*\mathcal L\otimes f^!\FF_\ell$.
+\end{lemma*}
+\begin{proof}
+The counit of adjunction $f_!f^!\ra\id$ defines an arrow in the $H^0$ of
+\begin{ceqn}\begin{equation*}
+	R\Hom(\mathcal L\otimes f_!f^!\FF_\ell,\mathcal L)
+	=R\Hom(f_!(f^*\mathcal L\otimes f^!\FF_\ell),\mathcal L)
+	=R\Hom(f^*\mathcal L\otimes f^!\FF_\ell,f^!(\mathcal L))
+\end{equation*}\end{ceqn}
+which is evidently locally an isomorphism.
+\end{proof}
+The lemma allows one to write, for $K\in D_c^b(X,\FF_\ell)$,
+\begin{multline*}
+	D(K\otimes f^*\mathcal L_a)
+	=R\Hom(K,D(f^*\mathcal L_a^\vee))
+	=R\Hom(K,f^!D(\mathcal L_a^\vee)) \\
+	=R\Hom(K,f^*\mathcal L_a^\vee\otimes f^!\FF_\ell))
+	=D(K)\otimes f^*\mathcal L_a^\vee
+	\simeq D(K)\otimes f^*\mathcal L_a(a).
+\end{multline*}
+
+(4.1) As $D$ is involutive and $D(X(a))=D(X)(-a)$, the diagram
+\begin{small}\begin{ceqn}\begin{equation*}\mathclap{\begin{tikzcd}[ampersand replacement=\&,column sep=50pt]
+	^pH^0i^*j_*(K\otimes\mathcal L_a) \arrow[r,"\alpha_{a,a+b+1}"]
+	\& ^pH^0i^*j_*(K\otimes\mathcal L_{a+b+1}) \arrow[r,"\beta_{b,a+b+1}"]
+	\&[25pt] ^pH^0i^*j_*(K\otimes\mathcal L_b) \\
+	\coker_a(K)\arrow[r,"\alpha_{a,a+b+1}"]\arrow[d,equals]
+	\arrow[u,"\rsim"]
+	\&\coker_{a+b+1}(K)\arrow[r,"\beta_{b,a+b+1}"]\arrow[d,equals]
+	\arrow[u,"\rsim"]
+	\&\coker_b(K)(-a-1)\arrow[d,equals]
+	\arrow[u,"\rsim"] \\
+	D(\ker_a(DK)(a))\arrow[r,"{D(\beta_{a,a+b+1}(a))}"]
+	\&D(\ker_{a+b+1}(DK)(a))(-b-1)\arrow[r,"D(\alpha_{b,a+b+1}(a))(-b-1)"]
+	\&D(\ker_b(DK)(a))(-b-1) \\
+	D(\Psi_f^{\mathrm{un}}(DK))(-a)\arrow[r,"D(N^{b+1})(-a)"]
+	\arrow[u,"\rsim"]
+	\&D(\Psi_f^{\mathrm{un}}(DK))(-a-b-1)\arrow[r,"D(\id)(-a-b-1)"]
+	\arrow[u,"\rsim"]
+	\&D(\Psi_f^{\mathrm{un}}(DK))(-a-b-1)
+	\arrow[u,"\rsim"]
+\end{tikzcd}}\end{equation*}\end{ceqn}\end{small}
+commutes, where the first line is isomorphic to the second by
+\cite[4.1.12.4]{BBD}, and we have used that the map $\alpha_{a,b}$ induces
+the map $\mathcal L_b^\vee=\mathcal L_b(b)\xra{\beta_{a,b}(b)}\mathcal L_a(a)=\mathcal L_a^\vee$
+and vice versa. We need that $N^{b+1}=0$ on $\Psi_f^{\mathrm{un}}(DK)$, and
+I don't see why this is secured if $N^{b+1}=0$ on $\Psi_f^{\mathrm{un}}(K)$,
+so let's modify the hypothesis to say `$N^{a+1}=0$ on
+$\Psi_f^{\mathrm{un}}(K)$ and $N^{b+1}=0$ on $\Psi_f^{\mathrm{un}}(DK)$.'
+
+\subsection*{5. The maximal extension functor}
+The $\beta$s in the commutative diagram defining $\gamma_{a,a-1}$
+are $\beta_{a-1,a}$, not $\beta_{a,a+1}$.
+
+(5.1) It is of course the map
+$\beta_{a-1,a}:\mathcal L_a\ra\mathcal L_{a-1}(-1)$
+that is surjective. The snake lemma gives an isomorphism
+\begin{equation*}
+	\coker\gamma_{a,a-1}\simeq i_* ^pH^0i^*j_*(K\otimes\mathcal L_{a-1})(-1).
+\end{equation*}
+To see that the last vertical arrow in the last commutative diagram of the 
+proof is an isomorphism, it is easier to identify it with
+\begin{multline*}
+	i_*\Psi_f^{\mathrm{un}}K(-1)
+	=\ker(j_!(K\otimes f^*\mathcal L_{a-1}(-1))\ra j_*(K\otimes f^*\mathcal L_{a-1}(-1))) \\
+	\xra{\alpha_{a-1,a}(-1)}
+	\ker(j_!(K\otimes f^*\mathcal L_a(-1))\ra j_*(K\otimes f^*\mathcal L_a(-1)))
+	=i_*\Psi_f^{\mathrm{un}}K(-1),
+\end{multline*}
+which is the identity by the results of \S3, noting that the square below
+commutes
+\begin{equation*}\begin{tikzcd}
+	\mathcal L_a\arrow[r,"\alpha_{a,a+1}"]\arrow[d,"\beta_{a-1,a}"]
+	&\mathcal L_{a+1}\arrow[d,"\beta_{a,a+1}"] \\
+	\mathcal L_{a-1}(-1)\arrow[r,"\alpha_{a-1,a}(-1)"]
+	&\mathcal L_a(-1).
+\end{tikzcd}\end{equation*}
+The remaining claims are now clear; given
+$0\ra K_1\ra K_2\ra K_3\ra0$ exact, one deduces exactness of
+$0\ra \Xi_fK_1\ra \Xi_fK_2\ra \Xi_fK_3$ by finding an integer $a$ such that
+$\ker(j_!(K_i\otimes f^*\mathcal L_a)\xra{\gamma_{a,a-1}}j_*(K_i\otimes f^*\mathcal L_{a-1})(-1))=\Xi_f K_i$ for $i=1,2,3$ and then applying the
+snake lemma to the following commutative diagram with exact rows
+\begin{ceqn}\begin{equation*}\begin{tikzcd}
+	0\arrow[r]
+	&j_!(K_1\otimes f^*\mathcal L_a)\arrow[r]\arrow[d,"\gamma_{a,a-1}"]
+	&j_!(K_2\otimes f^*\mathcal L_a)\arrow[r]\arrow[d,"\gamma_{a,a-1}"]
+	&j_!(K_3\otimes f^*\mathcal L_a)\arrow[r]\arrow[d,"\gamma_{a,a-1}"]
+	&0 \\
+	0\arrow[r]
+	&j_*(K_1\otimes f^*\mathcal L_a)\arrow[r]
+	&j_*(K_2\otimes f^*\mathcal L_a)\arrow[r]
+	&j_*(K_3\otimes f^*\mathcal L_a)\arrow[r]
+	&0.
+\end{tikzcd}\end{equation*}\end{ceqn}
+
+(5.4) Typo: it should read
+\begin{ceqn}\begin{equation*}
+	\coker(j_!(K\otimes f^*\mathcal L_b)(1)\ra j_*(K\otimes f^*\mathcal L_{b-1}))
+	=\coker(j_!(K\otimes f^*\mathcal L_{b-1})\ra j_*(K\otimes f^*\mathcal L_{b-1}))
+\end{equation*}\end{ceqn}
+The point is, writing
+\begin{equation*}
+	\gamma_{a,a+1}=j_!(K\otimes\mathcal L_a)\ra j_*(K\otimes\mathcal L_a)\xra{\alpha_{a,a+1}}j_*(K\otimes\mathcal L_{a+1})
+\end{equation*}
+shows that $\ker\gamma_{a,a+1}=\ker(j_!(K\otimes\mathcal L_a)\ra j_*(K\otimes\mathcal L_a))=\Psi_f^{\mathrm{un}}(K)$ and the snake lemma
+begins with
+\begin{equation*}
+	0\ra\Psi_f^{\mathrm{un}}\xra{\alpha_{a,a+b+1}}\Psi_f^{\mathrm{un}}\ra
+	\ker(\gamma_{b,b-1})(-a-1)\ra\cdots
+\end{equation*}
+where $\alpha_{a,a+b+1}$ induces an isomorphism of $\Psi_f^{\mathrm{un}}$.
+The dual statement about cokernels, after writing
+\begin{ceqn}\begin{equation*}
+	\gamma_{b,b-1}(a-1)=j_!(K\otimes\mathcal L_b)(a-1)\xra{\beta_{b,b-1}(a-1)}j_!(K\otimes\mathcal L_{b-1})(a-2)\ra j_*(K\otimes\mathcal L_{b-1})(a-2),
+\end{equation*}\end{ceqn}
+finds that
+\begin{align*}
+	\coker\gamma_{b,b-1}(a-1)
+	&\simeq\coker(j_!(K\otimes\mathcal L_{b-1})(-a-2)\ra j_*(K\otimes\mathcal L_{b-1})(a-2)) \\
+	&\simeq\Psi_f^{\mathrm{un}}K(-a-2)(-b+1)
+\end{align*}
+so that, denoting
+$\coker(j_!(K\otimes\mathcal L_{a+b+1})\ra j_*(K\otimes\mathcal L_{a+b+1}))$
+by $\coker(j_!\ra j_*)$, the snake lemma ends in
+\begin{ceqn}\begin{equation*}\begin{tikzcd}
+	\coker(\gamma_{a,a+1})\arrow[r]\arrow[d,equals]
+	&\underset{a+b+1}{\coker}(j_!\ra j_*)
+	\arrow[r,"\beta_{b,a+b+1}"]\arrow[d,equals]
+	&[15pt]\coker(\gamma_{b,b-1}(-a-1))\arrow[d,"\rsim"]\ra0 \\
+	\coker(\gamma_{a,a+1})\arrow[r]\arrow[d,equals]
+	&\underset{a+b+1}{\coker}(j_!\ra j_*)
+	\arrow[r,"\beta_{b-1,a+b+1}"]\arrow[d,"\rsim"]
+	&[15pt]\underset{b-1}{\coker}(j_!\ra j_*)(-a-1)\arrow[d,"\rsim"]\ra0 \\
+	\coker(\gamma_{a,a+1})\arrow[r]
+	&\Psi_f^{\mathrm{un}}K(-a-b-1)
+	\arrow[r,"\sim"]
+	&\Psi_f^{\mathrm{un}}K(-a-2)(-b+1)\ra0,
+\end{tikzcd}\end{equation*}\end{ceqn}
+using (4.1). Of course
+\begin{equation*}
+	\beta_{b-1,a+b+1}:\underset{a+b+1}{\coker}(j_!\ra j_*)\xra\sim
+	\underset{b-1}{\coker}(j_!\ra j_*)(-a-1)
+\end{equation*}
+is an isomorphism from the dual statement about $\alpha$.
+
+(5.6) Just apply $\beta_{a,a+1}$ to the exact sequence of (5.5) for $a\gg0$.
+
+(5.7) If we denote the map $i_*\Psi_f^{\mathrm{un}}\ra\Xi_f$ by $\upsilon$,
+then the composition coincides with
+\begin{gather*}
+	i_*\Psi_f^{\mathrm{un}}D\xra\upsilon\Xi_fD=D\Xi_f\xra{D\upsilon}Di_*\Psi_f^{\mathrm{un}}=i_*\Psi_f^{\mathrm{un}}(-1)D,\qquad\text{so that}\\
+	D(D\upsilon\circ\upsilon)=D\upsilon\circ DD\upsilon=D\upsilon\circ\upsilon.
+\end{gather*}
+The morphism $\Xi_f\ra i_*\Psi_f^{\mathrm{un}}(-1)$ is
+induced by
+$\beta_{a-1,a}:j_!(K\otimes\mathcal L_a)\ra j_!(K\otimes\mathcal L_{a-1})(-1)$
+for $a\gg0$.
+The dual morphism fits into a commutative diagram ($a\gg0$)
+\begin{equation*}\begin{tikzcd}
+	\coker(j_!(K\otimes\mathcal L_{a-1})(a)\ra j_*(K\otimes\mathcal L_{a-1})(a))\arrow[r,"\alpha_{a-1,a}(a)"]
+	&[10pt]\coker(\gamma_{a-1,a}(a)) \\
+	\ker(j_!(K\otimes\mathcal L_{a-1})\ra j_*(K\otimes\mathcal L_{a-1}))
+	\arrow[u,"\rsim"]\arrow[r,"\alpha_{a-1,a}"]
+	&\ker(\gamma_{a,a-1})\arrow[u,"\rsim"] \\
+	i_*\Psi_f^{\mathrm{un}}(K)\arrow[u,"\rsim"]\arrow[r,hook]
+	&\Xi_f(K).\arrow[u,"\rsim"]
+\end{tikzcd}\end{equation*}
+To see that the upper square commutes, it helps to recall that both
+vertical arrows are coboundaries in the snake lemma applied to two similar
+diagrams, and a morphism between these two diagrams can be built on
+$\alpha_{a-1,a}$ (applied to the upper right corners of the diagrams) and
+its twist (applied to the lower left corners).
+Therefore
+$D\upsilon\circ\upsilon=N:i_*\Psi_f^{\mathrm{un}}\ra\Psi_f^{\mathrm{un}}(-1)$ 
+and $DN=N$.
+
+We can also study the composition
+$\Xi_f\ra i_*\Psi_f^{\mathrm{un}}(-1)\ra\Xi_f(-1)$.
+The first map is induced by $\beta_{a,a-1}$ and the second by
+$\alpha_{a-1,a}(-1)$, as already remarked.
+We have (5.2) that
+\begin{equation*}
+	\ker(\gamma_{a,a-1})\xra{\beta_{a-1,a}}\ker(\gamma_{a-1,a-2}(-1))
+\end{equation*}
+induces $N$ on $\Xi_f$ for $a\gg0$. Since $\gamma_{a,a-1}$ factors as
+$\beta_{a-1,a}$ followed by
+$j_!(K\otimes\mathcal L_{a-1})(-1)\ra j_*(K\otimes\mathcal L_{a-1})(-1)$,
+$\beta_{a-1,a}$ applied to $\ker(\gamma_{a,a-1})$ must actually factor as
+\begin{ceqn}\begin{equation*}
+	\ker(\gamma_{a,a-1})\xra{\beta_{a-1,a}}
+	\ker(j_!(K\otimes\mathcal L_{a-1})\ra j_*(K\otimes\mathcal L_{a-1}))(-1)
+	\hookrightarrow
+	\ker(\gamma_{a-1,a-2}(-1)).
+\end{equation*}\end{ceqn}
+The middle is $i_*\Psi_f^{\mathrm{un}}(K)(-1)$, and if we postcompose the
+above morphism by $\alpha_{a-1,a}(-1)$ we don't change it, as
+$\alpha_{a-1,a}$ induces an isomorphism $\Xi_fK\xra\sim\Xi_fK$ for $a\gg0$.
+We have shown that $N:\Xi_f\ra \Xi_f$ factors as
+\begin{equation*}
+	\Xi_f\twoheadrightarrow i_*\Psi_f^{\mathrm{un}}(-1)
+	\hookrightarrow \Xi_f(-1)
+\end{equation*}
+and the former map induces via the inclusion
+$i_*\Psi_f^{\mathrm{un}}\hookrightarrow\Xi_f$ 
+the morphism $N$ on $i_*\Psi_f^{\mathrm{un}}$; i.e.
+\begin{equation*}
+	i_*\Psi_f^{\mathrm{un}}\hookrightarrow\Xi_f\twoheadrightarrow
+	i_*\Psi_f^{\mathrm{un}}(-1)\qquad\text{also composes to $N$.}
+\end{equation*}
+Last, it is clear that the square
+\begin{equation*}\begin{tikzcd}[row sep=small, column sep=small]
+	j_!\arrow[rr,hook]\arrow[dr]\arrow[dd]
+	&&[-25pt]\ker(\gamma_{a-1,a-2})\arrow[dd,"\rsim"]\arrow[dl,equals] \\
+	&\Xi_f\arrow[dr,equals]\arrow[dl] \\
+	j_*&&\coker(\gamma_{a-1,a}(a))\arrow[ll,twoheadrightarrow]
+\end{tikzcd}\end{equation*}
+commutes, where the leftmost down arrow is the canonical morphism, which
+shows that this morphism is also sent to itself by $D$.
+
+\subsection*{6. The unipotent vanishing cycles functor}\label{sec:MorelPhi}
+\begin{remark}
+The first paragraph discusses the construction of vanishing cycles.
+However, (6.2) shows that the functor $\Phi_f^{\mathrm{un}}$ constructed
+is a direct factor of the the tame vanishing cycles which appears in the
+distinguished triangle
+\begin{equation*}
+	\Psi_f^{\mathrm{un}}j^*\xra{\mathrm{can}}\Phi^{\mathrm{un}}_f\ra i^*\ra
+\end{equation*}
+where as before $\Psi_f^{\mathrm{un}}=\tilde\Psi_f^{\mathrm{un}}$.
+\end{remark}
+
+In light of \cite[4.1.10.1]{BBD}, $\Psi_f^{\mathrm{un}}$ sends $M(X)$ to
+$M(Y)$ because it has support in $Y$.
+(5.6) $\rightsquigarrow\vep(-1)\circ N=0$.
+(5.2) $\rightsquigarrow N\circ\delta=0$.
+It is easy to see that $\can(-1)\circ\var$ induces the map
+$\Xi_f\twoheadrightarrow\Psi_f^{\mathrm{un}}(-1)\hookrightarrow\Xi_f$.
+We studied this composition in the note to the previous section and showed
+that it coincides with $N$.
+
+(6.2) There is an error in the second part of the proof that doesn't change
+the conclusion. The following diagram is commutative with exact rows and
+columns.
+\begin{equation*}\begin{tikzcd}\tag{$\dagger$}\label{morel:6diag}
+	&&0\arrow[r]\arrow[d]
+	&i_*\ ^pH^{-1}i^*K\arrow[d] \\
+	&&j_!j^*K\arrow[r,equals]\arrow[d,"d^{-1}"]
+	&j_!j^*K\arrow[d,"\adj"] \\
+	0\arrow[r]&i_*\Psi_f^{\mathrm{un}}j^*K\arrow[r]\arrow[d,"\kappa"]
+	&\ker d^0\arrow[d]\arrow[r]
+	&K\arrow[d]\arrow[r]&0 \\
+	0\arrow[r]&\ker v\arrow[r]\arrow[d]
+	&i_*\Phi_f^{\mathrm{un}}K\arrow[r,dashed,"v"]\arrow[d]
+	&i_*\ ^pH^0i^*K\arrow[r]\arrow[d]&0 \\
+	&0&0&0
+\end{tikzcd}\end{equation*}
+The snake lemma gives the exact sequence
+\begin{equation*}
+	0\ra\ker\kappa\ra j_!j^*K\ra j_!j^*K/i_*\ ^pH^{-1}i^*K\ra\coker\kappa\ra0
+\end{equation*}
+so that $\kappa$ is surjective and $\ker\kappa=i_*\ ^pH^{-1}i^*K$.
+This doesn't change the conclusion that
+$i_*\coker\can\xra\sim i_*\ ^pH^0i^*K$.
+Moreover these conclusions for $\ker(i_*\can)$, $i_*\coker\can$ imply the 
+results without the $i_*$ because $i_*$ is t-exact and fully faithful.
+
+\subsection*{7. The functor $\Omega_f$}
+$\Omega_f$ can be defined as $\ker(\vep+\adj)$ or as $\ker(\vep-\adj)$,
+and the isomorphism of complexes $C^\dotp K\xra\sim C'^\dotp K$ (6.1)
+carries the latter isomorphically onto the former.
+In particular, this gives an isomorphism $\Omega_f\simeq\ker d^0$, and, in
+light of the middle row of the diagram \eqref{morel:6diag} above, the
+second short exact sequence. The first short exact sequence is (6.1) on the 
+nose.
+
+The argument that gives the quasi-isomorphism
+$(\Psi_f^{\mathrm{un}}j^*\xra\can\Phi_f^{\mathrm{un}})\ra i^*$
+actually establishes the existence of a distinguished triangle
+\begin{equation*}
+	\Psi_f^{\mathrm{un}}j^*\xra\can\Phi_f^{\mathrm{un}}\ra i^*\ra
+\end{equation*}
+which is the one we expect from the `usual' definition of
+$\Phi_f^{\mathrm{un}}$. But while the first two functors take perverse 
+sheaves to perverse sheaves, $i^*$ has perverse amplitude in $[-1,0]$.
+It is strange to phrase this as a `quasi-isomorphism,' since
+$\Psi_f^{\mathrm{un}}j^*\xra\can\Phi_f^{\mathrm{un}}$ is not in
+$D^b_c(Y)$, while $i^*K$ is usually not a perverse sheaf.
+I prefer just to say that we have the distinguished triangle above.
+
+\subsection*{8. Gluing}
+$D^\dotp (c)$ is a complex because the composition of the two differentials
+gives $N-N=0$.
+
+(8.1) Both directions of the proof are wrong. The first part doesn't work
+because $\Phi_f^{\mathrm{un}}D^\dotp(c)$ does not have the stated form.
+Note that the form that is claimed has $b\circ a=0$ but this should instead
+give $N$. The second part doesn't work because the square on the right in
+the morphism of exact sequences doesn't commute: tracing it down-right
+gives the canonical $\Omega_f\ra i_*\Psi_f^{\mathrm{un}}j^*K(-1)$ while
+tracing it right-down gives the null morphism.
+
+Fortunately, Sasha developed a clever device in his appendix on diads that
+gets the job done.
+Conforming to the language of the next section, we consider a category 
+$M(X)_1^\sharp$ of diads of perverse sheaves on $X$.
+An object of this category is a diagram
+\begin{equation*}
+	C_-\xhookrightarrow{\alpha_-=(\alpha_-^1,\alpha_-^2)}
+	A\oplus B\xtwoheadrightarrow{\alpha_+=(\alpha_+^1,\alpha_+^2)}C_+
+\end{equation*}
+in which $\alpha_-^1$ is a monomorphism and $\alpha_+^1$ an epimorphism.
+Morphisms are defined pointwise and such a morphism of diads is a
+(mono/epi/iso)morphism if it is pointwise; one has
+$(M(X)_1^\sharp)^\circ=(M(Y)^\circ)_1^\sharp$ and exact functors
+$M(X)\ra M(Y)$ induce exact functors $M(X)_1^\sharp\ra M(Y)_1^\sharp$.
+The category $M(X)_1^\sharp$ is endowed with an involutive autoequivalence
+$r$ called the reflection functor, which we compute explicitly
+\hyperref[sec:reflection]{in the next section}.
+The category of perverse sheaves embeds into
+$M(X)_1^\sharp$ via the functor $C:M(X)\hookrightarrow M(X)_1^\sharp$ which
+sends a perverse sheaf $K$ to the diad
+\begin{equation*}
+	j_!j^*K\xra{\delta\oplus\adj}\Xi j^*K\oplus K\xra{\vep-\adj}j_*j^*K.
+\end{equation*}
+Likewise the category of gluing data embeds into $M(X)_1^\sharp$ via the 
+functor $D$ which sends a gluing datum $c=(K_U,K_V,u,v)$ to the diad
+\begin{equation*}
+	i_*\Psi_f^{\mathrm{un}}K_U\xra{\can\oplus u}\Xi_fK_U\oplus i_*K_Y\xra{\can-v}i_*\Psi_f^{\mathrm{un}}K_U(-1).
+\end{equation*}
+Identifying the category of perverse sheaves and the category of gluing 
+data with their respective essential images in $M(X)_1^\sharp$ via $C$
+(resp. $D$), $r$ exchanges these two subcategories of $M(X)_1^\sharp$, and
+in doing so coincides with the functors $F$ and $G$. To verify this, we use
+\hyperref[sec:reflection]{our explicit computation of $r$ in the next section}
+to check that
+\begin{align*}
+	&r(C(K))=i_*\Psi_f^{\mathrm{un}}j^*K\xra{\can\oplus\can}\Xi_fj^*K\oplus i_*\Psi_f^{\mathrm{un}}K\xra{\can-\var}i_*\Psi_f^{\mathrm{un}}j^*K(-1), \\
+	&r(D(c))=j_!K_U\xra{\delta\oplus\adj}\Xi_fK_U\oplus H^0(D(c))
+	\xra{\vep-\adj}j_*K_U.
+\end{align*}
+As $r$ is an involution, it induces an equivalence between
+the category of perverse sheaves and the category of gluing data, embedded
+as subcategories of $M(X)_1^\sharp$, completing the proof.
+
+We now provide details of the proofs of the
+statements of Sasha's appendix on monads and diads. Reich provides details
+for the key statement about the equivalence of diads of type $A_1^\#$ and
+$A_2^\#$ but his proof is wrong (he claims certain maps obtained from a diad
+of type $A_2^\#$ should yield an exact sequence when they don't even form a
+complex).
+
+\subsection*{Sasha's Appendix A1 \& A2}
+Let $\mathcal A$ denote an exact category.
+\begin{proof}[Proof of Sasha's Lemma A1]
+Let $\mathcal A^\flat=:\mathcal A_0^\flat$ denote the category of 
+monads and $\mathcal A^\flat_i$ Sasha's $A_i^\sim$.
+Let $T_i:\mathcal A^\flat_i\ra\mathcal A^\flat_{i+1}$ be the functors
+described, where $i\in\ZZ/3\ZZ$.
+	
+Define the functor $T_0^{-1}:\mathcal A^\flat_1\ra\mathcal A^\flat_0$ by
+\begin{equation*}
+	(P_{-1}\xhookrightarrow{\gamma_{-1}}P_0\xhookrightarrow{\gamma_0}P_1)
+	\mapsto(P_{-1}\xhookrightarrow{\gamma_0\circ\gamma_{-1}}P_1\twoheadrightarrow P_1/P_0).
+\end{equation*}
+$T_0^{-1}$ is clearly an inverse to $T_0$.
+
+Turning to $\mathcal A^\flat_2$, first note that the following square is a
+pushout and pullback square, and therefore $\vep_-$ is an admissible
+epimorphism and $\vep_+$ an admissible monomorphism.
+\begin{equation*}\begin{tikzcd}
+	L_-\arrow[r,twoheadrightarrow,"\vep_-"]\arrow[d,hook,"\delta_-"]
+	&B\arrow[d,hook,"-\vep_+"] \\
+	A\arrow[r,twoheadrightarrow,"\delta_+"]&L_+
+\end{tikzcd}\end{equation*}
+This is true because to give a morphism to $A$ and $B$ which agrees on
+$L_+$ via $\delta_+$ and $-\vep_+$ is the same as giving a kernel for 
+$A\oplus B\xra{\delta_++\vep_+}L_+$, and dually. We therefore have a
+commutative diagram in which the right square is bicartesian, and claim that
+the dashed arrow is an isomorphism.
+\begin{equation*}\begin{tikzcd}
+	\ker\vep_-\arrow[r,hook]\arrow[d,dashed]
+	&L_-\arrow[r,twoheadrightarrow,"\vep_-"] \arrow[d,hook,"\delta_-"]
+	&B\arrow[d,hook,"-\vep_+"] \\
+	\ker \delta_+\arrow[r,hook]&A\arrow[r,twoheadrightarrow,"\delta_+"]&L_+
+\end{tikzcd}\end{equation*}
+To give a morphism to $A$ which $\delta_+$ sends to zero is (since $\vep_+$
+is a monomorphism) the same as giving a morphism to $A\oplus B$ which is in
+the kernel of $\delta_++\vep_+$ and with null projection to $B$.
+This is the same as giving a morphism to $L-$ which $\vep_-$ sends to zero,
+which is the same as giving a morphism to $\ker\vep_-$. Therefore every 
+monad in $\mathcal A^\flat_2$ has $\vep_-$ an admissible epimorphism and
+$\vep_+$ an admissible monomorphism, and
+\begin{equation*}
+	(L_-\xhookrightarrow{(\delta_-,\vep_-)}
+	A\oplus B\xtwoheadrightarrow{(\delta_+,\vep_+)}L_+)
+	\simeq
+	(L_-\xhookrightarrow{(\delta_-,\vep_-)}A\oplus
+	L_-/\ker\vep_-\xtwoheadrightarrow{(\delta_+,\vep_+)}A/\ker\vep_-),
+\end{equation*}
+where $\vep_+$ is induced by $\delta_-$. The composition of functors
+$T_0\circ T_2$ sends
+\begin{equation*}
+	(L_-\xhookrightarrow{(\delta_-,\vep_-)}
+	A\oplus B\xtwoheadrightarrow{(\delta_+,\vep_+)}L_+)
+	\mapsto
+	(\ker\vep_-\hookrightarrow L_-\hookrightarrow A),
+\end{equation*}
+and by the above isomorphism is clearly an equivalence with inverse
+\begin{equation*}
+	T_1:(\ker\vep_-\hookrightarrow L_-\hookrightarrow A)\mapsto
+	(L_-\hookrightarrow A\oplus
+	L_-/\ker\vep_-\twoheadrightarrow A/\ker\vep_-).
+\end{equation*}
+Therefore $T_1$ is also an equivalence with inverse $T_0\circ T_2$
+and $T_2$ is an equivalence with inverse $T_1\circ T_0$:
+\begin{equation*}\begin{tikzcd}
+	\mathcal P:=P_-\hookrightarrow P\xtwoheadrightarrow{\alpha_+} P_+
+	\arrow[d,rightsquigarrow,"T_0"] \\
+	P_-\hookrightarrow\ker\alpha_+\hookrightarrow P
+	\arrow[d,rightsquigarrow,"T_1"] \\
+	\ker\alpha_+\hookrightarrow P\oplus H(\mathcal P)\twoheadrightarrow P/P_-
+	\arrow[d,rightsquigarrow,"T_2"] \\
+	\mathcal P.
+\end{tikzcd}\end{equation*}
+\end{proof}
+In {\S}A2 the arrows $A\oplus B^i\ra D_+$ are admissible epimorphisms, not
+monomorphisms.
+\begin{proof}[Proof of Sasha's Lemma A2]
+Let $\mathcal A^\sharp=:\mathcal A^\sharp_0$ denote the category of diads
+and $\mathcal A^\sharp_i$ the related categories.
+Let $T_0^\sharp:\mathcal A^\sharp_0\ra\mathcal A^\sharp_1$ and
+$T_1^\sharp:\mathcal A^\sharp_1\ra\mathcal A^\sharp_2$ be as described; $T_0^\sharp$ is obviously an equivalence.
+Note that $\mathcal A_1^\sharp$ is a full subcategory of
+$\mathcal A_0^\flat$ and $\mathcal A_2^\sharp$ is a full subcategory of
+$\mathcal A_2^\flat$. Therefore $T_1^\sharp$ is just the restriction of
+$T_1\circ T_0$ to $\mathcal A_1^\sharp$. We have to check that $T_1^\sharp$ 
+actually lands in $\mathcal A_2^\sharp\subset\mathcal A_2^\flat$. Once that
+is established, if we can show that $T_2$ (the inverse of $T_1\circ T_0$),
+restricted to $\mathcal A_2^\sharp$, lands in $\mathcal A_1^\sharp$,
+Lemma A1 then implies that $T_1^\sharp$ is an equivalence with inverse
+$T_2|_{\mathcal A_2^\sharp}$.
+We have
+\begin{equation*}\begin{tikzcd}[%
+    column sep=-10pt
+    ,/tikz/column 1/.append style={anchor=base east}
+    ,/tikz/column 3/.append style={anchor=base west}
+    ]
+	\mathcal Q:=C_-\xhookrightarrow{\alpha_-=(\alpha_-^1,\alpha_-^2)}
+	A&\oplus \arrow[d,rightsquigarrow,"T_1\circ T_0=T_1^\sharp"] 
+	&B\xtwoheadrightarrow{\alpha_+=(\alpha_+^1,\alpha_+^2)}C_+
+	\\
+	\ker(\alpha_+)\hookrightarrow A\oplus B&\oplus H&(\mathcal Q)
+	\twoheadrightarrow (A\oplus B)/C_-
+\end{tikzcd}\end{equation*}
+and to show that $T_1^\sharp$ lands in $\mathcal A_2^\sharp$ we must secure
+that $\ker(\alpha_+)\hookrightarrow A\oplus H(\mathcal Q)$ and
+$A\oplus H(\mathcal Q)\twoheadrightarrow(A\oplus B)/C-$.
+The commutative diagram below has exact rows.
+\begin{equation*}\begin{tikzcd}
+	C-\arrow[r,hook]\arrow[d,hook]
+	&\ker(\alpha_+)\arrow[r,twoheadrightarrow]\arrow[d]
+	&H(\mathcal Q)\arrow[d,equals] \\
+	A\arrow[r,leftrightarrow]\arrow[d,twoheadrightarrow]
+	&A\oplus H(\mathcal Q)\arrow[r, leftrightarrow]\arrow[d]
+	&H(\mathcal Q)\arrow[d,equals] \\
+	C_+&(A\oplus B)/C_-\arrow[l,twoheadrightarrow]
+	&\ker(\alpha_+)/C_-\arrow[l,hook']
+\end{tikzcd}\end{equation*}
+Both claims follow from the five lemma for exact categories.
+
+It remains only to show that $T_2|_{\mathcal A_2^\sharp}$ lands in
+$\mathcal A_1^\sharp\subset\mathcal A_0^\flat$; then it will be an inverse
+to $T_1^\sharp$. We have
+\begin{equation*}\begin{tikzcd}[%
+    column sep=-10pt
+    ,/tikz/column 1/.append style={anchor=base east}
+    ,/tikz/column 3/.append style={anchor=base west}
+    ]
+	D_-\xhookrightarrow{(\gamma_-,\delta_-^1,\delta_-^2)}
+	A\oplus &B^1\arrow[d,rightsquigarrow,"T_2"]&\oplus B^2
+	\xtwoheadrightarrow{(\gamma_+,\delta_+^1,\delta_+^2)}D_+ \\
+	\ker(\delta_-^2)\hookrightarrow A&\oplus &B^1
+	\twoheadrightarrow\coker((\gamma_-,\delta_-^1):D_1\ra A\oplus B^1)
+\end{tikzcd}\end{equation*}
+and we need to verify that $\ker\delta_-^2\ra A$ is admissible
+monomorphism and $A\ra\coker((\gamma_-,\delta_-^1):D_1\ra A\oplus B^1)$
+is admissible epimorphism. We know from A1 that $\delta_-^1$ and
+$\delta_-^2$ are admissible epimorphisms while $\delta_+^1$ and $\delta_+^2$
+are admissible monomorphisms. If $\ker\delta_-^2\ra A$ admitted a cokernel, 
+then it would follow from the obscure axiom applied to the commutative 
+diagram with exact rows
+\begin{equation*}\begin{tikzcd}
+	\ker\delta_-^2\arrow[d]\arrow[r,hook]
+	&D_-\arrow[d,hook]\arrow[r,twoheadrightarrow]
+	&B^2\arrow[d,equals] \\
+	A\arrow[r,hook]&A\oplus B^2\arrow[r,twoheadrightarrow]&B^2
+\end{tikzcd}\end{equation*}
+that $\ker\delta_-^2\ra A$ would be an admissible monomorphism.
+En effet,
+\begin{equation*}
+	\coker(\ker\delta_-^2\ra A)
+	=\coker(D_-\xhookrightarrow{(\gamma_-,\delta_-^2)}A\oplus B^2),
+\end{equation*}
+as both can be described as the colimit of the following diagram.
+\begin{equation*}\begin{tikzcd}
+	D_-\arrow[r,twoheadrightarrow,"-\delta_-^2"]\arrow[d,"\gamma_-"]&B^2 \\ A
+\end{tikzcd}\end{equation*}
+This identification additionally shows that the diagram
+\begin{equation*}\begin{tikzcd}
+	\ker\delta_-^2\arrow[r,hook]\arrow[d,hook]
+	&A\arrow[d,hook]\arrow[r,twoheadrightarrow]
+	&\coker(\ker\delta_-^2\ra A)\arrow[d,equals] \\
+	D_-\arrow[r,hook]&A\oplus B^1\arrow[r,twoheadrightarrow]
+	&\coker((\gamma_-,\delta_-^1):D_-\ra A\oplus B^1)
+\end{tikzcd}\end{equation*}
+commutes so that
+$A\twoheadrightarrow\coker((\gamma_-,\delta_-^1):D_-\ra A\oplus B^1)$ is
+an admissible epimorphism.
+(Moreover the square to the left in this diagram is bicartesian \cite[2.12]{buhler}.)
+We've proved that the functors
+\begin{equation*}\begin{tikzcd}
+	\mathcal A_1^\sharp\arrow[r,"T_1^\sharp",shift left]
+	&\mathcal A_2^\sharp\arrow[l,"T_2|_{\mathcal A_2^\sharp}",shift left]
+\end{tikzcd}\end{equation*}
+are mutually inverse equivalences.
+\end{proof}
+\subsubsection*{The reflection functor}\label{sec:reflection}
+We wish to compute $T_2|_{\mathcal A_2^\sharp}\circ r\circ T_1^\sharp$, 
+which is an involution of the category $\mathcal A_1^\sharp$ 
+(since $r$ is an involution of $\mathcal A_2^\sharp$ and
+$T_2|_{\mathcal A_2^\sharp}=(T_1^\sharp)^{-1}$) that we will also
+denote by $r$; the diagram below illustrates the composition.
+\begin{equation*}\begin{tikzcd}
+	\mathcal Q:=C_-\xhookrightarrow{\alpha_-=(\alpha_-^1,\alpha_-^2)}
+	A\oplus B\xtwoheadrightarrow{\alpha_+=(\alpha_+^1,\alpha_+^2)}C_+
+	\arrow[d,rightsquigarrow,"T_1\circ T_0=T_1^\sharp"] \\
+	\ker(\alpha_+)\xhookrightarrow{(\gamma_-,\delta_-^1,\delta_-^2)}
+	A\oplus B\oplus H(\mathcal Q)
+	\xtwoheadrightarrow{(\gamma_+,\delta_+^1,\delta_+^2)}
+	(A\oplus B)/C_-
+	\arrow[d,leftrightsquigarrow,"r"] \\
+	\ker(\alpha_+)\xhookrightarrow{(\gamma_-,\delta_-^2,\delta_-^1)}
+	A\oplus H(\mathcal Q)\oplus B
+	\xtwoheadrightarrow{(\gamma_+,\delta_+^2,\delta_+^1)} (A\oplus B)/C_-
+	\arrow[d,rightsquigarrow,"T_2"] \\
+	\ker(\delta_-^1)\hookrightarrow A\oplus H(\mathcal Q)\twoheadrightarrow
+	\coker(\ker\alpha_+\hookrightarrow A\oplus H(\mathcal Q))
+\end{tikzcd}\end{equation*}
+It is easy to see that $\ker(\delta_-^1:\ker\alpha_+\ra B)=\ker(\alpha_+^1)$
+because to give a morphism to $\ker(\alpha_+)$ which goes to zero
+under $\ker\alpha_+\hookrightarrow A\oplus B\twoheadrightarrow B$ is the
+same as giving a morphism to $A$ which goes to zero under $\alpha_+^1$.
+As for $\coker(\ker\alpha_+\hookrightarrow A\oplus H(\mathcal Q))$, to give
+a map from $A\oplus H(\mathcal Q)$ that kills $\ker(\alpha_+)$ is to give a
+map $a_1$ from $A$ and $a_2$ from $H(\mathcal Q)$ such that $a_1-a_2$ kills
+$\ker(\alpha_+)$; as
+$C_-\hookrightarrow\ker(\alpha_+)\twoheadrightarrow H(\mathcal Q)$ is
+short exact, to give a map from $A$ which coincides on $\ker(\alpha_+)$ with
+a map from $H(\mathcal Q)$ is to give a map from $A$ which annihilates
+$C_-$. Therefore
+$\coker(\ker\alpha_+\hookrightarrow A\oplus H(\mathcal Q))=\coker(C-\hookrightarrow A)$, so
+\begin{equation*}
+	r(\mathcal Q)=\ker(\alpha_+^1)\xhookrightarrow{} A\oplus H(\mathcal Q)
+	\twoheadrightarrow \coker(\alpha_-^1)=A/C_-.
+\end{equation*}
+The map $\ker(\alpha_+^1)\hookrightarrow A$ is the natural inclusion
+and $A\twoheadrightarrow A/C_-$ the natural projection;
+the map $\ker(\alpha_+^1)\ra H(\mathcal Q)$ coincides with $a$ in the
+below commutative diagram (with rows that are not exact)
+\begin{equation*}\begin{tikzcd}
+	\ker(\alpha_+^1)\arrow[rr,bend left,"a"]\arrow[r,hook]\arrow[d,hook]
+	&\ker(\alpha_+)\arrow[r,twoheadrightarrow]\arrow[d,hook]
+	&H(\mathcal Q)\arrow[d,hook,"\iota"]\arrow[dd,bend left=60pt,"b"] \\
+	A\arrow[r,hook]&A\oplus B\arrow[r,twoheadrightarrow]
+	&(A\oplus B)/C_-\arrow[d,"\pi"] \\
+	&&A/C_-.
+\end{tikzcd}\end{equation*}
+Finally, the map $H(\mathcal Q)\ra A/C_-$ coincides with $-b$ in the diagram
+above, the negative sign appearing because we have
+$-\gamma_0:P_0/P_{-1}\ra P_1/P_{-1}$ in the definition of the functor $T_1$
+so that $\delta_+^2:H(\mathcal Q)\ra(A\oplus B)/C_-$
+coincides with $-\iota$ in the composition
+\begin{equation*}
+	H(\mathcal Q)\xra{\delta_+^2}(A\oplus B)/C_-\ra A/C_-.
+\end{equation*}
+
+
+
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\begin{thebibliography}{BBD}
+	\bibitem[B]{glue} \emph{How to glue perverse sheaves} par Beilinson
+	\bibitem[BBD]{BBD} \textit{Faisceaux Pervers}
+	par Beilinson, Bernstein, Deligne (\& Gabber!)
+	\bibitem[M]{M} \emph{Beilinson's construction of nearby cycles and gluing} par Sophie Morel
+\end{thebibliography}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+\end{document}

@@ -15,7 +15,7 @@
 	cohomological dimension of the function field of strict localizations
 	of points of $X$.
 	
-	\subsection*{1.6}
+	\subsection*{1.6}\label{thfin:1.6}
 	Given a morphism of schemes $f:X\ra Y$ and sheaves $\mathcal F,\mathcal G$
 	on $Y$, there is always a morphism
 	\begin{equation*}
@@ -32,14 +32,18 @@
 	\begin{equation*}
 		\Hom(A,\mathcal I(U))=\Hom(j_!\underline A,\mathcal I),
 	\end{equation*}
-	and $j_!$ is left exact.
+	and $j_!$ is exact.
 	The restriction $\mathcal I_U$ is also an injective sheaf, since for
 	$\mathcal F$ on $U$
 	\begin{equation*}
 		\Hom(\mathcal F,\mathcal I_U)=\Hom(j_!\mathcal F,\mathcal I).
 	\end{equation*}
 	Likewise, for any (geometric) point $x\in X$, $\mathcal I_x$ is an
-	injective object, by forming constant sheaves on $X$ and taking stalks.
+	injective object, from the general fact that a inductive limit of 
+	injective modules over a noetherian ring is injective: this follows from
+	Baer's criterion in an obvious way and holds not only for injective
+	abelian sheaves but also for injective sheaves of $\Lambda$-modules
+	for $\Lambda$ a noetherian ring.
 	
 	All this to say that $R\underline\Hom(\mathcal F,\mathcal G)|_U=
 	R\underline\Hom(\mathcal F|_U,\mathcal G|_U)$, and when $\mathcal F$

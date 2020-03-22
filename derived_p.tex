@@ -1,0 +1,363 @@
+\documentclass[deligne.tex]{subfiles}
+
+\begin{document}
+\section{Constructible sheaves in characteristic $p$}
+\subsection{Finite coefficients}
+\begin{theorem*}[Achinger]
+	Every connected affine $\FF_p$-scheme $X$ is a $K(\pi,1)$-scheme; i.e.
+	if $\overline x$ is a geometric point of $X$ and $\mathcal F$ a locally
+	constant étale sheaf of finite abelian groups on $X$, the natural maps
+	\begin{equation*}
+	H^*(\pi_1(X,\overline x),\mathcal F_{\overline x})\ra H^*(X,\mathcal F)
+	\end{equation*}
+	are isomorphisms, where $\pi_1(X,\overline x)$ denotes the étale 
+	fundamental group.
+\end{theorem*}
+Let $k$ be a field of characteristic $p$ and $\Lambda$ a finite local
+$\ZZ/\ell^n$-algebra.
+\begin{corollary*}
+	The derived category of the abelian category of constructible sheaves of
+	$\Lambda$-modules on a separated scheme $X$ of finite type over $k$
+	coincides with $D_c^b(X,\Lambda)$.
+\end{corollary*}
+\begin{proof}
+	It will suffice by Madhav's paper to efface the higher cohomology of a 
+constructible sheaf $\mathcal F$ on an affine $X$.
+More precisely, let $\zeta\in H^i(X,\mathcal F)$.
+It will suffice to find a monomorphism $\mathcal F\hookrightarrow\mathcal G$
+with $\mathcal G$ constructible so that the induced map on cohomology
+annihilates $\zeta$. We may assume the field $k$ to be perfect.
+Let $j:U\subset X$ be a nonempty smooth connected Zariski open locus
+of $X$ so that $\mathcal F_U$ is locally constant and
+$i:X-U\hookrightarrow X$.
+As $\mathcal F$ includes into $i_*i^*\mathcal F\oplus j_*\mathcal F_U$, by
+noetherian induction it will suffice to annihilate the image of $\zeta$ in
+$H^i(X,j_*\mathcal F_U)$. For this we can replace $X$ by the closure of $U$
+and assume $X$ moreover integral.
+There is a finite connected étale $q_U:U'\ra U$ such that
+$q_U^*\mathcal F_U$ is constant; let $q:X'\ra X$ be the normalization of $X$
+in the field of fractions of $U'$ ($U'$ is integral as $U$ is normal),
+and $j':U'\hookrightarrow X'$.
+The sheaf $\mathcal F':=j'_*q_U^*\mathcal F_U$ is constant on $X'$ and
+$j_*\mathcal F_U\hookrightarrow j_*q_{U*}q_U^*\mathcal F_U=q_*\mathcal F'$,
+so it would  suffice to kill the image of $\zeta$ in $H^i(X',\mathcal F')$.
+Since $X'$ is a $K(\pi,1)$ and $\mathcal F'$ is locally constant,
+there exists a finite étale $p:X''\ra X'$ so that the image of 
+$\zeta$ in $H^i(X'',p^*\mathcal F')$ is null; i.e. the monomorphism
+$j_*\mathcal F_U\hookrightarrow q_*p_*p^*\mathcal F'$ effaces $\zeta$.
+\end{proof}
+
+\subsection{$\ell$-adic coefficients}
+Coefficients: $\QQ_\ell$, $E_\lambda$ a finite extension of $\QQ_\ell$,
+$\overline\QQ_\ell$, $k$ an algebraically closed field of characteristic 
+$p$. `Variety' means $k$-scheme of finite type.
+\begin{proposition}\label{prop:efface_lisse}
+	Let $X$ be a smooth variety and $\mathcal F$ a
+	lisse sheaf on $X$. There exists a monomorphism
+	$\mathcal F\hookrightarrow G$ with $\mathcal G$ a lisse sheaf on $X$
+	so that the induced map $H^i(X,\mathcal F)\ra H^i(X,\mathcal G)$ is null
+	for all $i>0$.
+\end{proposition}
+\begin{lemma}\label{lem:constant_presheaf}
+	If $\mathcal F$ is a lisse étale sheaf on a normal scheme $X$, then 
+	$\mathcal F$, considered as a sheaf for the Zariski topology on $X$,
+	is constant.
+\end{lemma}
+\begin{proof}
+Assume $X$ connected with generic point $\xi$, and note that if $U$ is a
+Zariski open of $X$ and $\overline\xi$ is a geometric point centered on
+$\xi$, then the morphisms $\overline\xi\ra\xi\ra U\ra X$ define continuous surjective homomorphisms
+\begin{equation*}
+	\Gal(\overline\xi/\xi)=\pi_1(\xi,\overline\xi)\twoheadrightarrow
+	\pi_1(U,\overline\xi)\twoheadrightarrow\pi_1(X,\overline\xi).
+\end{equation*}
+If $V_\mathcal F:=\mathcal F_{\overline\xi}$ is the monodromy 
+representation of $\pi_1(X,\overline\xi)$, then it carries an action of
+$\pi_1(U,\overline\xi)$ by restriction, and
+$H^0(U,\mathcal F)=V_\mathcal F^{\pi_1(U,\overline\xi)}=V_\mathcal F^{\pi_1(X,\overline\xi)}=H^0(X,\mathcal F)$.
+A constant presheaf on an irreducible space is a constant sheaf.
+\end{proof}
+	Say that a lisse sheaf on a connected scheme $X$ with geometric point 
+$\overline x$ has no $p$-monodromy if the monodromy representation of
+$\pi_1(X,\overline x)$ factors through its maximal prime-to-$p$ quotient.
+Say that a lisse sheaf on a scheme $X$ has no $p$-monodromy if none of its
+restrictions to any of the connected components of $X$ has $p$-monodromy.
+\begin{lemma}\label{lem:extend_mono}
+	Let $\mathcal F$ be a lisse sheaf on a normal scheme $X$, $U\subset X$ a
+	Zariski open, and $\iota:\mathcal F_U\hookrightarrow \mathcal G$ a 
+	monomorphism into a constructible sheaf $\mathcal G$ on $U$. There exists 
+	a monomorphism of lisse sheaves $\mathcal F\hookrightarrow\mathcal G'$ on
+	$X$ which restricts over $U$ to a morphism factoring through $\iota$.
+	If $\mathcal F$ has no $p$-monodromy, $\mathcal G'$ can be taken to have
+	no $p$-monodromy.
+\end{lemma}
+\begin{proof}
+Assume $X$ connected with generic point $m:\xi\ra X$ and let 
+$j:U\hookrightarrow X$ denote the open immersion.
+The stalk at $\overline\xi$, a geometric point centered on $\xi$, of
+$\iota:\mathcal F_U\hookrightarrow\mathcal G$ gives a monomorphism
+$V_{\mathcal F}=V_{\mathcal F_U}\hookrightarrow V_{\mathcal G}$ of
+$\Gal(\overline\xi,\xi)$-representations, so that, considering these
+representations as sheaves on $\xi$, we have $\mathcal F=m_*V_{\mathcal F}$.
+Let $\Gamma:=\ker(\Gal(\overline\xi/\xi)\ra\Aut V_{\mathcal F})$ be
+the closed subgroup.
+For an $\ell$-adic $\Gal(\overline\xi,\xi)$-representation $V$ (continuous
+for the $\ell$-adic topology on $V$), $V_\Gamma$ means 
+`coinvariants with respect to $\Gamma$.' The composition
+\begin{equation*}
+	m_*V_\mathcal F\xra{j_*\iota} j_*\mathcal G\twoheadrightarrow m_*[(V_\mathcal G)_\Gamma]=:\mathcal G'
+\end{equation*}
+is a monomorphism and $\mathcal G'$ is a lisse sheaf on $X$ with no
+$p$-monodromy if $\mathcal F$ has none, and
+the restriction to $U$ of the monomorphism
+$\mathcal F\hookrightarrow\mathcal G'$ factors through $\iota$.
+\end{proof}
+\subsubsection{}\label{sec:elementary_fibration}
+Recall \cite[XI 3.1]{SGAA} that an \emph{elementary fibration} is a morphism
+of schemes $f:X\ra X$ that can be plunged into a commutative diagram of the 
+form
+\begin{equation*}\begin{tikzcd}[row sep=large,column sep=large]
+	X\arrow[r,"j"]\arrow[dr,"f"']
+	&\overline X\arrow[d,"\overline f"]
+	&Y\arrow[l,"i"']\arrow[dl,"g"] \\
+	&S
+\end{tikzcd}\end{equation*}
+satisfying the following conditions:
+\begin{enumerate}[label=(\roman*)]
+	\item $j$ is an open immersion dense in each fiber, and $X=\overline X-Y$.
+	\item $\overline f$ is smooth and projective, with geometrically irreducible fibers of dimension 1.
+	\item $g$ is a revêtement étale, and each fiber of $g$ is nonempty.
+\end{enumerate}
+Given an $S$-morphism $g:X\ra Y$ and $E$ an object of $D^+(X)$, the pair
+$(g,E)$ is called \emph{cohomologically proper relative
+to $S$} if the formation of $Rg_*E$ commutes with arbitrary base change
+$S'\ra S$. Recall that the formation of $Rg_*E$ commutes with arbitrary base
+change if for every base change $S'\ra S$, the formation of $Rg'_*E$ 
+commutes with finite base change $S''\ra S'$ \cite[1.3]{Illusie}.
+\begin{lemma}\label{lem:coh_proper}
+	Assume that $f:X\ra S$ is an elementary fibration of varieties and
+	$\mathcal F$ is a lisse sheaf on $X$ at worst tamely ramified along $Y$.
+	Then $(f,\mathcal F)$ is cohomologically proper relative to $S$, and both
+	$f_*\mathcal F$ and $R^1f_*\mathcal F$ are lisse.
+\end{lemma}
+\begin{proof}
+With the notation of \eqref{sec:elementary_fibration}, $(j,\mathcal F)$
+is cohomologically proper rel. $S$ \cite[1.3.3]{Illusie}. The rest of the
+proof is Madhav's argument \cite[1.3A]{Nori}. Namely, fix a geometric point
+$\overline s\ra S$ and let
+$j_{\overline s}:X_{\overline s}\hookrightarrow\overline X_{\overline s}$
+denote the open immersion of the geometric fibers.
+\begin{equation*}
+	(Rf_*\mathcal F)_{\overline s}
+	=(R\overline f_*Rj_*\mathcal F)_{\overline s}
+	=R\Gamma(\overline X_{\overline s},Rj_*\mathcal F|_{\overline X_{\overline s}})
+	=R\Gamma(\overline X_{\overline s},Rj_{\overline s*}\mathcal F)
+	=R\Gamma(X_{\overline s},\mathcal F|_{X_{\overline s}}),
+\end{equation*}
+where the second-to-last equality holds because $(j,\mathcal F)$ is
+cohomologically proper rel. $S$.
+This is enough to conclude that the formation of $Rf_*\mathcal F$ commutes
+with finite base change, and therefore also for arbitrary base change, since
+the hypotheses of the lemma are themselves stable under base change.
+
+The statement about $f_*\mathcal F$ and $R^1f_*\mathcal F$ is
+\cite[XIII 1.14, 1.16]{SGA1}.
+\end{proof}
+\begin{remark}\begin{enumerate}
+	\item One can conclude that the sheaves $R^nf_*\mathcal F$ are lisse for
+	all $n\geq0$ if one assumes only that the Swan conductor is a constant
+	function on the divisor $Y$ in the setting of \eqref{lem:coh_proper}:
+	one obtains that the $R^nf_!\mathcal F$ are lisse by Deligne-Laumon
+	\emph{Semi-continuité du conducteur de Swan} (2.1.2), (2.1.3),
+	and in turn, taking Verdier duals, that the $R^nf_*\mathcal F$ are lisse.
+	\item One finds that $(f,\mathcal F)$ is still cohomologically proper
+	if $\mathcal F$ is a constructible sheaf which is lisse with no
+	$p$-monodromy when restricted to an open locus
+	$U\subset X$ so that $X-U$ is finite over $S$, because in this case
+	$V:=\overline X-(X-U)$ is a Zariski open neighborhood of $Y$ on which
+	$\mathcal F$ is lisse, so that if $j':V-Y\hookrightarrow V$ denotes the
+	open immersion, $(j',\mathcal F_{V-Y})$ is cohomologically proper rel. 
+	$S$. The rest of the proof of \eqref{lem:coh_proper} can now be repeated
+	with essentially no modification.
+\end{enumerate}
+\end{remark}
+\begin{proof}[Proof of~\eqref{prop:efface_lisse} when $X$ is a smooth affine curve]
+We only have to efface $H^1(X,\mathcal F)$; as the dimension of this vector
+space is finite, it will suffice to efface a single element
+$\zeta\in H^1(X,\mathcal F)$ coming from an extension
+\begin{equation*}
+	0\ra\mathcal F\ra\mathcal G\ra\QQ_\ell\ra0
+\end{equation*}
+of sheaves on $X$. Then $\mathcal G$ is lisse and
+the monomorphism $\mathcal F\hookrightarrow\mathcal G$ effaces $\zeta$.
+\end{proof}
+
+\begin{proof}[Proof of~\eqref{prop:efface_lisse}]
+We proceed by induction on dimension and assume the conclusion for 
+dimensions strictly less than $\dim X$.
+It will suffice to prove the claim one $i$ at a time, so fix $i>0$.
+We may assume $X$ connected.
+Let $q:X_1\ra X$ be a finite étale galois covering (\emph{a fortiori} 
+connected) so that $q^*\mathcal F$ has no
+$p$-monodromy; i.e. so that, fixing a geometric point $\overline x$ of 
+$X_1$, $\pi_1(X_1,\overline x)$ acts on $\mathcal F_{q(\overline x)}$ via
+its maximal prime-to-$p$ quotient.
+As $\mathcal F\hookrightarrow q_*q^*\mathcal F$, it will 
+suffice to efface $q^*\mathcal F$ on $X_1$; therefore, we replace $X$ by 
+$X_1$ and $\mathcal F$ by $q^*\mathcal F$, and assume that
+$\mathcal F$ has no $p$-monodromy.
+
+Let $\xi$ denote the generic point of $X$ and let $K$ denote a hypercover of 
+$X$ by good neighborhoods with spectral
+sequence
+\begin{equation*}
+	E_2^{p,q}=\check H^p(K,\underline H^q(\mathcal F))\Rightarrow H^{p+q}(X,\mathcal F)
+\end{equation*}
+functorial in $\mathcal F$
+(\href{https://stacks.math.columbia.edu/tag/01GY}{\texttt{01GY}});
+$\underline H^q(\mathcal F)$ denotes the étale presheaf
+$(U\ra X\text{ étale})\mapsto H^q(U,\mathcal F)$.
+Let $E_\infty^{p,q}$ denote the stable values of this spectral sequence.
+There is a finite decreasing filtration $F$ on $H^{p+q}(X,\mathcal F)$
+for which $E_\infty^{p,q}=\Gr_F^pH^{p+q}(X,\mathcal F)$.
+Moreover $E_\infty^{p,q}$ is a subquotient of $E_2^{p,q}$, so if we can find
+a monomorphism $\mathcal F\hookrightarrow\mathcal G_0$ with $\mathcal G_0$ 
+lisse effacing $E_2^{0,i}$, the same morphism will efface $E_\infty^{0,i}$,
+and therefore the image of $H^i(X,\mathcal F)$ will land in
+$F^1H^i(X,\mathcal G_0)$. A $\mathcal G_0\hookrightarrow\mathcal G_1$
+effacing $E_2^{1,i-1}$ will likewise send $F^1H^i(X,\mathcal G_0)$ to
+$F^2H^i(X,\mathcal G_1)$. Continuing in this way we find that we can efface
+$H^i(X,\mathcal F)$ if we can efface the sections of
+$\underline H^q(\mathcal F)$ on a disjoint union of good neighborhoods, and
+if we can efface $\check H^p(K,\underline H^0(\mathcal F))$.
+As good neighborhoods are Zariski open neighborhoods, $X$ is normal 
+hence a disjoint union of its irreducible components, constant Zariski
+sheaves on a disjoint union of irreducible schemes are flasque, 
+$\underline H^0(\mathcal F)$ is a constant Zariski sheaf 
+by~\eqref{lem:constant_presheaf} (recall
+\href{https://stacks.math.columbia.edu/tag/01GV}{\texttt{01GV}}), and the
+\v Cech cohomology of a flasque abelian Zariski sheaf relative to a Zariski
+hypercovering vanishes in strictly positive degrees,
+$\check H^p(K,\underline H^0(\mathcal F))=0$ for $p>0$.
+
+Suppose $j:U\hookrightarrow X$ is a good neighborhood and we can efface
+$H^i(U,\mathcal F_U)$ by a monomorphism
+$\iota:\mathcal F_U\hookrightarrow\mathcal G$.
+By~\eqref{lem:extend_mono}, we can find a monomorphism
+$\iota':\mathcal F\hookrightarrow\mathcal G'$ with $\mathcal G'$ 
+lisse on $X$ with no $p$-monodromy so that $\iota'_U$ factors 
+through $\iota$.
+Therefore it suffices to efface the cohomology of a lisse sheaf with
+no $p$-monodromy on a good neighborhood.
+
+We now assume we are in the situation of the diagram 
+\eqref{sec:elementary_fibration}, and our goal is to efface
+$H^i(X,\mathcal F)$. Since $\mathcal F$ has no $p$-monodromy, it is at worst
+tamely ramified along $Y$, so that $(f,\mathcal F)$ is cohomologically 
+proper by~\eqref{lem:coh_proper}, and both $f_*\mathcal F$ and
+$R^1f_*\mathcal F$ are lisse. As the fibers of $f$ are affine curves,
+$R^qf_*\mathcal F=0$ for $q\ne0,1$. The Leray spectral sequence
+\begin{equation*}
+	E^{p,q}_2=H^p(S,R^qf_*\mathcal F)\Rightarrow H^{p+q}(X,\mathcal F)
+\end{equation*}
+and~\eqref{lem:extend_mono} together imply that it will suffice to efface 
+$H^i(S,f_*\mathcal F)$ and $H^{i-1}(S,R^1f_*\mathcal F)$ separately.
+Let $\eta$ denote the generic point of $S$; we can efface
+$H^1(X_\eta,\mathcal F|_{X_\eta})$ with a monomorphism
+$\iota_\eta:\mathcal F|_{X_\eta}\hookrightarrow\mathcal G_0$ on $X_\eta$.
+As $\xi\in X_\eta$, if
+$\Gamma:=\ker(\Gal(\overline\xi/\xi)\ra\Aut V_{\mathcal F})$
+and $V_{\mathcal F}:=\mathcal F_{\overline\xi},V_{\mathcal G_0}:=(\mathcal G_0)_{\overline\xi}$
+as in the proof of~\eqref{lem:extend_mono}, the morphism
+\begin{equation*}
+	\mathcal F=m_*V_{\mathcal F}\hookrightarrow
+	m_*V_{\mathcal G_0}\twoheadrightarrow
+	m_*[(V_{\mathcal G_0})_\Gamma]:=\mathcal G_1
+\end{equation*}
+composes to a monomorphism of lisse sheaves on $X$
+which restricts over $X_\eta$ to a morphism factoring through $\iota_\eta$,
+with $\mathcal G_1$ lisse with no $p$-monodromy and $R^1f_*\mathcal G_1$ 
+lisse. As the morphism $R^1f_*\mathcal F\ra R^1f_*\mathcal G_1$ vanishes
+at $\eta$, and both sheaves are lisse, the morphism is itself null.
+
+It remains only to efface $H^i(S,f_*\mathcal F)$. As $f_*\mathcal F$ is 
+lisse, the induction hypothesis gives a monomorphism
+$\iota_S:f_*\mathcal F\hookrightarrow\mathcal G_S$ of lisse sheaves on $S$
+so that the map $H^i(S,f_*\mathcal F)\ra H^i(S,\mathcal G_S)$ is null. Form
+$\mathcal F\hookrightarrow\mathcal G'$ by pushout
+\begin{equation*}\begin{tikzcd}
+	0\arrow[r]&
+	f^*f_*\mathcal F\arrow[r]\arrow[d]\arrow[dr,phantom,"\lrcorner",near end]
+	&f^*\mathcal G_S\arrow[d] \\
+	0\arrow[r]&\mathcal F\arrow[r]&\mathcal G'.
+\end{tikzcd}\end{equation*}
+As $f$ is surjective with geometrically connected fibers, $f$ is 0-acyclic 
+\cite[XV 1.16]{SGAA}; i.e. $\mathcal F\ra f_*f^*\mathcal F$ is an 
+isomorphism for every sheaf $\mathcal F$. It follows that every arrow marked 
+with $\sim$ is an isomorphism in the diagram below.
+\begin{equation*}\begin{tikzcd}
+	f_*\mathcal F\arrow[r,hookrightarrow,"\iota_S"]\arrow[d,"\rsim"]
+	&\mathcal G_S\arrow[d,"\rsim"] \\
+	f_*f^*f_*\mathcal F\arrow[r,hook]\arrow[d,"\rsim"]
+	&f_*f^*\mathcal G_S\arrow[d] \\
+	f_*\mathcal F\arrow[r,hook]&f_*\mathcal G'
+\end{tikzcd}\end{equation*}
+Therefore the morphism $f_*\mathcal F\ra f_*\mathcal G'$ factors through
+$\iota_S$, and $H^i(S,f_*\mathcal F)\ra H^i(S,f_*\mathcal G')$ is null.
+\end{proof}
+\begin{remark}\begin{enumerate}
+	\item Achinger's $\A^n$-trick obtains~\eqref{prop:efface_lisse} in case
+	$X=\A^n_k$ or $X$ admits a hypercovering by open subschemes 	isomorphic to $\A^n_k$. Let $U\supset \{0\}$ be an open neighborhood of
+	the zero section of the projection $\pi:\A^n_k\ra\A^{n-1}_k$,
+	$j:U-\{0\}\hookrightarrow U$, and $\mathcal F$ a lisse sheaf on $U-\{0\}$
+	with constant Swan numbers along $\{0\}$. (The last condition can be 
+	arranged by modifying $\pi$ so that the fibers of $\pi$ meet the zero
+	section transversally and with sufficiently good tangent directions
+	with respect to the singular support of $\mathcal F$ as Achinger does in
+	his article.) If the constancy of the Swan numbers along $\{0\}$ implies
+	that $(j,\mathcal F)$ is cohomologically proper relative to $\A^{n-1}_k$
+	(as is the case when $\mathcal F$ is tamely ramified along $\{0\}$), then
+	one can extend Madhav's proof of his theorem on constructible sheaves to
+	also cover the case of characteristic $p$. I don't know whether this
+	implication holds, however.
+	\item One could try to adapt the proof of~\eqref{prop:efface_lisse} to 
+	constructible sheaves.
+	Given a constructible sheaf $\mathcal F$ on $X$ and a point $x$ of $X$,
+	it is possible to choose a good neighborhood $x$ with the property that
+	the restriction of the projection $f$ to the complement of the lisse
+	locus of $\mathcal F$ is a finite morphism. In this way, one could choose
+	one good neighborhood $U$ depending on $\mathcal F$, find an effacement
+	$\mathcal F_U\hookrightarrow G$ on $U$, extend this effacement to a
+	monomorphism $\mathcal F\hookrightarrow\mathcal G'$ on all of $X$, and
+	then choose the next good neighborhood depending on $\mathcal G'$.
+	In this way, one reduces the problem to that of a good neighborhood $X$ 
+	with $f$ still cohomologically proper.
+	However, the $R^1\pi_*\mathcal F$ are no longer lisse sheaves in general,
+	and in contrast with the projection $\A^n_k\ra\A^{n-1}_k$, which is
+	acyclic, the projection $f$ of an elementary fibration needn't be 
+	acyclic, as the genus of its fibers can be strictly positive.
+	Therefore, while one can efface $R^1\pi_*\mathcal F$ at the generic point
+	of $S$ with a monomorphism $\mathcal F\hookrightarrow\mathcal G$, I don't
+	know how to efface the stalks of $R^1\pi_*\mathcal F$ at points of $S$ of
+	strictly positive codimension with a monomorphism
+	$\mathcal F\hookrightarrow\mathcal G$ on all of $X$.
+\end{enumerate}
+\end{remark}
+
+
+
+
+
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\begin{thebibliography}{Illusie}
+\bibitem[Nori]{Nori} Nori, \emph{Constructible Sheaves}
+\bibitem[SGA1]{SGA1} SGA 1
+\bibitem[SGAA]{SGAA} SGA 4
+\bibitem[Illusie]{Illusie} Illusie, Appendice à \textit{Théorèmes de finitude en cohomologie $\ell$-adique} dans SGA $4\frac12$
+
+
+\end{thebibliography}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
+\end{document}
+

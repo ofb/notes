@@ -1056,6 +1056,23 @@ twisting by $N^{-j}$:
 	P_{-j}(V)^\ast\ra P_{-j}(V^\ast)(-j).
 \end{equation*}
 
+\subsection*{1.7.2}
+Note that in this case $V$ is a $\overline\QQ_\ell$-vector space.
+The claim about the existence of $\overline\rho$ satisfying
+\begin{equation*}
+	\rho(\sigma)=\exp(\overline\rho t_\ell(\sigma))\quad\text{for}\quad
+	\sigma\in I_1\subset I
+\end{equation*}
+in particular implies that $P\cap I_1$ acts trivially on $V$.
+Let's recall why this is the case.
+As $p\ne\ell$, $\rho(P)$ is finite. As $\overline\QQ_\ell$ has 
+characteristic zero, by Maschke's theorem, the action of $P$ on $V$ is 
+semisimple. As $\overline\QQ_\ell$ is algebraically closed and $V$ is
+finite-dimensional, this implies that each element in $V$ is 
+diagonalizable. A diagonalizable element of $\GL(V)$ is unipotent iff it is
+the identity. This proves our claim. (Recall also the Jordan-Chevalley
+decomposition.)
+
 \subsection*{1.7.3} `Il commute à l'action de
 $W(\overline K,K)$'$\rightsquigarrow$ this statement is somewhat opaque.
 Which action(s)? When you let $W(\overline K,K)$ act on $V$ via $\rho$ and
@@ -1074,11 +1091,12 @@ $\Gal(\overline K,K)$ acts on the inertia character $t$ by the formula
 \end{equation*}
 where on the right $\tau$ acts through $\Gal(\overline k,k)$, so if
 we assume $I_1$ is a normal subgroup of $I$ and take $\sigma\in I_1$,
-\begin{equation*}
+\begin{multline*}
 	\exp(\rho(\tau)\;N\,t_\ell(\sigma)\;\rho(\tau^{-1}))
-	=\rho(\tau\sigma\tau^{-1})=\exp(N\,t_\ell(\tau\sigma\tau^{-1}))
+	=\rho(\tau\sigma\tau^{-1}) \\
+	=\exp(N\,t_\ell(\tau\sigma\tau^{-1}))
 	=\exp(N\,(\deg\tau)t_\ell(\sigma)).
-\end{equation*}
+\end{multline*}
 
 
 \subsection*{1.7.4} A normal unipotent subgroup of an algebraic group

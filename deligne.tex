@@ -1,14 +1,19 @@
+% force-texpad-dependency: 
+
 \documentclass[12pt, fleqn, oneside, reqno]{amsbook}
 \usepackage{newtxtext}
 \usepackage[frenchmath]{newtxmath}
 \usepackage{eucal}
 \usepackage{mathrsfs}
 \usepackage{tikz-cd}
+\usetikzlibrary{decorations.pathmorphing}
 \usepackage{microtype}
 \usepackage{hyperref}
 \usepackage{subfiles}
 \usepackage{nccmath}
 \usepackage{setspace}
+
+\graphicspath{ {assets/} }
 
 \usepackage{pdflscape}
 
@@ -30,26 +35,67 @@
 \newcommand{\Dparf}{D_{\text{parf}}}
 \newcommand{\sep}[1]{{#1}^{\mathrm{sep}}}
 \newcommand{\alg}[1]{{#1}^{\mathrm{alg}}}
+\newcommand{\xtwoheadrightarrow}[2][]{%
+  \xrightarrow[#1]{#2}\mathrel{\mkern-14mu}\rightarrow
+}
 
 \usepackage{enumitem,moreenum}
-\usepackage{amssymb,amsmath,amsthm}
+\usepackage{amsmath,amsthm}
+% \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage[utf8]{inputenc}
 \usepackage{accents}
+% \usepackage[normalem]{ulem}
 % \setlength\parindent{0pt}
 \setlength{\parskip}{.5em}
 \renewcommand{\baselinestretch}{1.25}
 
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \normalfont
+  \topsep6\p@\@plus6\p@ \trivlist
+  \item[\hskip\labelsep\itshape
+    #1\@addpunct{.\enspace\textemdash}]\ignorespaces
+}{%
+  \qed\endtrivlist
+}
 
-\newtheorem{theorem}{Theorem}
-\newtheorem*{theorem*}{Theorem}
+\def\@secnumfont{\bfseries}
+\makeatother
+
+\newtheoremstyle{bfth}% ⟨name ⟩
+{}% ⟨Space above ⟩ If these arguments are left empty, the current defaults are used.
+{}% ⟨Space below ⟩ If these arguments are left empty, the current defaults are used.
+{\itshape}% ⟨Body font ⟩
+{\parindent}% ⟨Indent amount: empty = no indent, \parindent = normal paragraph indent⟩
+{\itshape}% ⟨Theorem head font: \itshape, \bfseries etc.⟩
+{\textbf{.}\hspace{.5em}\textemdash}% ⟨Punctuation after theorem head ⟩
+{.5em}% ⟨Space after theorem head: { } = normal interword space; \newline = line break⟩
+{{\thmname{#1}\upshape\thmnumber{ \textbf{(#2)}}\thmnote{ (\textit{#3})}}}% ⟨Theorem head spec (can be left empty, meaning ‘normal’)⟩
+
+% The only difference in the below is that \textbf{.} is replaced by .
+\newtheoremstyle{bfthstar}% ⟨name ⟩
+{}% ⟨Space above ⟩ If these arguments are left empty, the current defaults are used.
+{}% ⟨Space below ⟩ If these arguments are left empty, the current defaults are used.
+{\itshape}% ⟨Body font ⟩
+{\parindent}% ⟨Indent amount: empty = no indent, \parindent = normal paragraph indent⟩
+{\itshape}% ⟨Theorem head font: \itshape, \bfseries etc.⟩
+{.\hspace{.5em}\textemdash}% ⟨Punctuation after theorem head ⟩
+{.5em}% ⟨Space after theorem head: { } = normal interword space; \newline = line break⟩
+{{\thmname{#1}\upshape\thmnumber{ \textbf{(#2)}}\thmnote{ (\textit{#3})}}}% ⟨Theorem head spec (can be left empty, meaning ‘normal’)⟩
+
+\theoremstyle{bfth}
+\newtheorem{theorem}{Theorem}[subsubsection]
 \newtheorem{corollary}{Corollary}[theorem]
-\newtheorem*{corollary*}{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{proposition-definition}[theorem]{Proposition-Definition}
+
+\theoremstyle{bfthstar}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{corollary*}{Corollary}
 \newtheorem*{lemma*}{Lemma}
-\newtheorem{proposition}{Proposition}
 \newtheorem*{proposition*}{Proposition}
-\newtheorem{proposition-definition}{Proposition-Definition}
 \newtheorem*{proposition-definition*}{Proposition-Definition}
 
 \theoremstyle{definition}
@@ -58,6 +104,7 @@
  
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
+\newtheorem*{perv}{Perversity}
 
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Tr}{Tr}
@@ -87,7 +134,18 @@
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\coker}{coker}
 \DeclareMathOperator{\spe}{sp}
+\DeclareMathOperator{\real}{real}
 \DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\Dec}{Dec}
+\DeclareMathOperator{\Fil}{Fil}
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\colim}{colim}
+\DeclareMathOperator{\can}{can}
+\DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\Sh}{Sh}
+\DeclareMathOperator{\charac}{char}
+
 \renewcommand{\div}{\operatorname{div}}
 \newcommand{\et}[1]{{#1}_{\text{ét}}}
 \newcommand{\sh}[1]{\underline{#1}}
@@ -101,6 +159,13 @@
 \newcommand{\pAR}{p_{\mathrm{AR}}}
 \newcommand{\pARn}{\pAR^\mathrm{n}}
 \newcommand{\PAR}{P_{\mathrm{AR}}}
+\newcommand{\proind}{\displaystyle\lim_{\leftrightarrow}}
+\newcommand{\Filz}{\Fil_\ZZ}
+\newcommand{\Aet}{A_{\text{\'et}}}
+\newcommand{\Iet}{I_{\text{\'et}}}
+\newcommand{\rsim}{\text{\rotatebox{-90}{$\sim$}}}
+
+\long\def\comment#1{}
 
 \makeatletter
 \newcommand*\dotp{{\mathpalette\dotp@{.5}}}
@@ -111,7 +176,7 @@
 
 \title{Notes}
 %\author{Owen Barrett}
-\date{September 2019}
+\date{March 2020}
 
 \setcounter{tocdepth}{1}
 %\pagestyle{plain}
@@ -146,8 +211,27 @@
 \section{Laumon, \emph{Transformation de Fourier}}
 \label{sec:laumon}
 \subfile{laumon}
+
 \newpage
 \section{\emph{Théorèmes de finitude en
 cohomologie $\ell$-adique}}\label{sec:thfin}
 \subfile{th_finitude}
+
+\newpage
+\section{The derived category of perverse sheaves}
+\subfile{sasha_derived}
+
+\newpage
+\section{How to glue perverse sheaves}
+\subfile{sasha_glue}
+
+\newpage
+\section{Morel's notes}\label{morel}
+\subfile{morel_gluing}
+
+\newpage
+\section{The derived category of constructible sheaves}\label{derived_p}
+\subfile{derived_p}
+
+
 \end{document}

@@ -333,7 +333,7 @@ and $\alpha$ is symmetric if $B$ is; equivalently,
 	\langle \alpha^{-1}(e'),\alpha(e)\rangle=\langle e,e'\rangle.
 \end{equation*}
 This allows the easy verification of the identity
-\begin{equation*}\tag{$\dagger$}
+\begin{equation*}\label{laumon:identity}\tag{$\dagger$}
 	q(e)+\langle e,2e'\rangle=q(e+\alpha^{-1}(e'))-q'(e').
 \end{equation*}
 The cartesian square
@@ -360,8 +360,8 @@ $E\times_SE'$.
 	&q(e)\longleftrightarrow\pr^*\mathscr L(q) \\
 	&\langle e,2e'\rangle\longleftrightarrow(\id\times[2])^*\mathscr L(\langle\enskip,\enskip\rangle)=:\mathscr L(\langle\enskip,2\enskip\rangle).
 \end{align*}
-Disposing of this dictionary, the identity $(\dagger)$ gives an isomorphism
-of sheaves on $E\times_SE'$
+Disposing of this dictionary, the identity \eqref{laumon:identity} gives an 
+isomorphism of sheaves on $E\times_SE'$
 \begin{equation*}
 	\pr^*\mathscr L(q)\otimes\mathscr L(\langle\enskip,2\enskip\rangle)
 	\simeq\pr'^*\mathscr L(-q')\otimes f^*\mathscr L(q)).
@@ -857,7 +857,7 @@ isomorphism in light of the short exact sequence of $\pi_1$ (SGA 1 6.11)
 which expresses the fundamental group as extension of $\Gal(\overline k/k)$ 
 by the geometric fundamental group.
 
-(2.2.2.2) This mysterious theorem is found in Katz,
+(2.2.2.2)\label{laumon:2.2.2.2} This mysterious theorem is found in Katz,
 \emph{Local-to-global extensions of representations of fundamental groups,}
 where he also proves a cohomological formula for the $\ell$-adic Swan
 representation.
@@ -928,7 +928,7 @@ $Z$, where of course $G=\pi_1(X\times_KK^{\mathrm{sep}},\overline x)/U$.
 Pulling back to $Z$ kills the monodromy on $E$ (i.e. $E$ `splits').
 Now the point is that in the exact sequence
 ($\overline X:=X\times_K K^{\mathrm{sep}}$)
-\begin{equation*}\tag{$\dagger$}
+\begin{equation*}\label{laumon:pi1ext}\tag{$\dagger$}
 	e\ra\pi_1(\overline X,\overline x)\ra\pi_1(X,\overline x)\ra\Gal(K^{\mathrm{sep}}/K)\ra e,
 \end{equation*}
 the surjection is a quotient map, \emph{a fortiori} open. Let $V$ be 
@@ -992,8 +992,8 @@ $\Spec K'((T^{-1}))$ with trivial monodromy,}
 \end{align*}\end{ceqn}
 both $\mathcal A$ and $\mathcal B$ are isomorphic to the category of
 finite étale coverings of $\Spec K'$: in the case of $\mathcal A$, this 
-follows from the exact sequence ($\dagger$) in light of the fact that
-$\pi_1(\PP^1_{K^{\mathrm{sep}}})=1$;
+follows from the exact sequence \eqref{laumon:pi1ext} in light of the fact 
+that $\pi_1(\PP^1_{K^{\mathrm{sep}}})=1$;
 in the case of $\mathcal B$, this follows from the same exact sequence and
 the observation that $K^{\mathrm{sep}}((T^{-1}))$ is the function field of
 the strict henselization $\PP^1_{(\infty)}$ of $\PP^1_{K'}$ at $\infty$; in
@@ -1360,18 +1360,19 @@ likewise, $\Gal(\overline\eta'/\eta')$ acts on $f^*\mathcal F_{\overline\eta}$ \
 
 (1.3) Typo: $\overline X:=X\times_S\overline S$.
 Recall that $\overline S$ is the normalization of $S$ in
-$\overline\eta$, which is the spectrum of a strictly henselian d.v.r.; 
-its separably closed residue field may be
-an inseparable extension of $k(s)$, but we take $\overline s$ to denote the
-spectrum of this separably closed field, which can be considered as the
-closed point of $\overline S$ or, by light abuse of notation (0.2.4), as
-defining a geometric point of $S$.
+$\overline\eta$, which is the spectrum of a strictly henselian valuation
+ring with value group $\QQ$ so that the stalk at the closed point of
+$\overline S$ coincides with global sections; its separably closed residue
+field may be an inseparable extension of $k(s)$, but we take $\overline s$
+to denote the spectrum of this separably closed field, which can be 
+considered as the closed point of $\overline S$ or, by light abuse of 
+notation (0.2.4), as defining a geometric point of $S$.
 
 It is perhaps worth comparing $i^*j_*j^*$ with
 $\overline i^*\overline j_*\overline j^*$ in the definition of $\Psi_\eta$.
 Let $\mathcal F$ be a sheaf on $Y\ra S$;
 then $\mathcal F_{\overline\eta}$ carries action of
-$\Gal(\overline\eta/\eta)$. In effect, the stalk of
+$\Gal(\overline\eta/\eta)$. In effect,
 $i^*j_*j^*\mathcal F$ is $\mathcal F_{\overline\eta}^I$, 
 while $\overline i^*\overline j_*\overline j^*\mathcal F=\mathcal F_{\overline\eta}$ endowed with continuous action of
 $\Gal(\overline\eta/\eta)$ compatible with the action of the latter on
@@ -2426,7 +2427,7 @@ of the generic point to a normal integral scheme $X$, and $M_\eta$
 is a constant sheaf on $\eta$ with constant value $M$, then
 $g_*M$ is likewise constant. Let $M_X$ denote the constant 
 sheaf on $X$ with constant value $M$. We need to show
-\begin{equation*}
+\begin{equation*}\label{laumon:acyc}
 	M_X\rightarrow g_*g^*M_X=g_*M_\eta\tag{$\dagger$}.
 \end{equation*}
 is an isomorphism. Fix a geometric point $x$ of $X$ and let $X_{(x)}$ denote the (spectrum of the) strict henselization of $X$ at $x$; $X_{(x)}$ is a normal domain as $X$ is normal. The map on stalks is
@@ -2440,7 +2441,12 @@ Letting $I_x:=\operatorname{Gal}(\overline\eta/\eta_x)$,
 \begin{equation*}
 	\Gamma(\eta\times_X X_{(x)},M_\eta)=M^{I_x},
 \end{equation*}
-where here we have identified $M$ with the stalk of $M_\eta$ at a geometric point centered on $\eta$. So the condition that the map ($\dagger$) be an isomorphism at the geometric point $x$ is the same as $I_x$ acting trivially on $M$, considered as $\operatorname{Gal}(\overline\eta/\eta)$-module. In particular, this condition is satisfied by the constant sheaf, which corresponds to $M$ with trivial action of Galois.
+where here we have identified $M$ with the stalk of $M_\eta$ at a geometric 
+point centered on $\eta$. So the condition that the map \eqref{laumon:acyc} 
+be an isomorphism at the geometric point $x$ is the same as $I_x$ acting 
+trivially on $M$, considered as $\operatorname{Gal}(\overline\eta/\eta)$-
+module. In particular, this condition is satisfied by the constant sheaf, 
+which corresponds to $M$ with trivial action of Galois.
 
 (We implicitly use here the description of étale morphism with normal integral target in EGA $\text{IV}_4$ 18.10.7.)
 \end{remark}
@@ -2588,7 +2594,7 @@ $P(\alpha t)P(\overline\alpha t)$ is fixed by complex conjugation.
 % If $i=m-i$, $\alpha^i\overline\alpha^{m-i}\in\RR$.
 % Otherwise $i\ne m-i$ and
 % $p_ip_{m-i}\alpha^i\overline\alpha^{m-i}+p_{m-i}p_i\alpha^{m-i}\overline\alpha^i\in\RR$.
-\vfill\flushright Q.E.D.
+\hfill Q.E.D.
 
 
 
