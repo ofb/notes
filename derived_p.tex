@@ -104,7 +104,7 @@ For an $\ell$-adic $\Gal(\overline\xi,\xi)$-representation $V$ (continuous
 for the $\ell$-adic topology on $V$), $V_\Gamma$ means 
 `coinvariants with respect to $\Gamma$.' The composition
 \begin{equation*}
-	m_*V_\mathcal F\xra{j_*\iota} j_*\mathcal G\twoheadrightarrow m_*[(V_\mathcal G)_\Gamma]=:\mathcal G'
+	m_*V_\mathcal F\xra{j_*\iota} j_*\mathcal G\ra m_*[(V_\mathcal G)_\Gamma]=:\mathcal G'
 \end{equation*}
 is a monomorphism and $\mathcal G'$ is a lisse sheaf on $X$ with no
 $p$-monodromy if $\mathcal F$ has none, and
@@ -113,7 +113,7 @@ $\mathcal F\hookrightarrow\mathcal G'$ factors through $\iota$.
 \end{proof}
 \subsubsection{}\label{sec:elementary_fibration}
 Recall \cite[XI 3.1]{SGAA} that an \emph{elementary fibration} is a morphism
-of schemes $f:X\ra X$ that can be plunged into a commutative diagram of the 
+of schemes $f:X\ra S$ that can be plunged into a commutative diagram of the 
 form
 \begin{equation*}\begin{tikzcd}[row sep=large,column sep=large]
 	X\arrow[r,"j"]\arrow[dr,"f"']
@@ -181,6 +181,7 @@ The statement about $f_*\mathcal F$ and $R^1f_*\mathcal F$ is
 \end{enumerate}
 \end{remark}
 \begin{proof}[Proof of~\eqref{prop:efface_lisse} when $X$ is a smooth affine curve]
+Madhav told me the following argument.
 We only have to efface $H^1(X,\mathcal F)$; as the dimension of this vector
 space is finite, it will suffice to efface a single element
 $\zeta\in H^1(X,\mathcal F)$ coming from an extension
