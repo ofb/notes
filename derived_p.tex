@@ -2,7 +2,7 @@
 
 \begin{document}
 \subsection{Finite coefficients}
-\begin{theorem*}[Achinger]
+\begin{theorem*}[{\cite[1.1]{Achinger}}]
 	Every connected affine $\FF_p$-scheme $X$ is a $K(\pi,1)$-scheme; i.e.
 	if $\overline x$ is a geometric point of $X$ and $\mathcal F$ a locally
 	constant étale sheaf of finite abelian groups on $X$, the natural maps
@@ -48,8 +48,10 @@ $j_*\mathcal F_U\hookrightarrow q_*p_*p^*\mathcal F'$ effaces $\zeta$.
 
 \subsection{$\ell$-adic coefficients}
 Coefficients: $\QQ_\ell$, $E_\lambda$ a finite extension of $\QQ_\ell$,
-$\overline\QQ_\ell$, $k$ an algebraically closed field of characteristic 
-$p$. `Variety' means $k$-scheme of finite type.
+$\overline\QQ_\ell$
+(I will write $\QQ_\ell$ below but it can be replaced by any of these),
+$k$ an algebraically closed field of characteristic $p$.
+`Variety' means $k$-scheme of finite type in the below.
 \begin{proposition}\label{prop:efface_lisse}
 	Let $X$ be a smooth variety and $\mathcal F$ a
 	lisse sheaf on $X$. There exists a monomorphism
@@ -58,9 +60,9 @@ $p$. `Variety' means $k$-scheme of finite type.
 	for all $i>0$.
 \end{proposition}
 \begin{lemma}\label{lem:constant_presheaf}
-	If $\mathcal F$ is a lisse étale sheaf on a normal scheme $X$, then 
-	$\mathcal F$, considered as a sheaf for the Zariski topology on $X$,
-	is constant.
+	If $\mathcal F$ is a locally constant constructible sheaf on a normal
+	scheme $X$, then $\mathcal F$, considered as a sheaf for the Zariski
+	topology on $X$, is constant.
 \end{lemma}
 \begin{proof}
 Assume $X$ connected with generic point $\xi$, and note that if $U$ is a
@@ -233,11 +235,17 @@ if we can efface $\check H^p(K,\underline H^0(\mathcal F))$.
 As good neighborhoods are Zariski open neighborhoods, $X$ is normal 
 hence a disjoint union of its irreducible components, constant Zariski
 sheaves on a disjoint union of irreducible schemes are flasque, 
-$\underline H^0(\mathcal F)$ is a constant Zariski sheaf 
-by~\eqref{lem:constant_presheaf} (recall
-\href{https://stacks.math.columbia.edu/tag/01GV}{\texttt{01GV}}), and the
-\v Cech cohomology of a flasque abelian Zariski sheaf relative to a Zariski
-hypercovering vanishes in strictly positive degrees,
+$\underline H^0(\mathcal F)=\mathcal F$, considered as a sheaf for the
+Zariski topology,\footnote{This is imprecise: $\mathcal F$ is a lisse étale
+sheaf, i.e. $\mathcal F=``\varprojlim"\ \mathcal F_n$ with each
+$\mathcal F_n$ a locally constant constructible étale sheaf.
+\eqref{lem:constant_presheaf} gives that each $\mathcal F_n$, considered as
+a Zariski sheaf, is constant, and therefore has vanishing higher \v Cech
+cohomology. The spectral sequences for the hypercovering $K$ and sheaves 
+$\mathcal F_n$ form a projective system in $n$ with transition maps given by 
+reduction of coefficients.} is constant~\eqref{lem:constant_presheaf}, and 
+the \v Cech cohomology of a flasque abelian Zariski sheaf relative to a 
+Zariski hypercovering vanishes in strictly positive degrees,
 $\check H^p(K,\underline H^0(\mathcal F))=0$ for $p>0$.
 
 Suppose $j:U\hookrightarrow X$ is a good neighborhood and we can efface
@@ -251,19 +259,20 @@ Therefore it suffices to efface the cohomology of a lisse sheaf with
 no $p$-monodromy on a good neighborhood.
 
 We now assume we are in the situation of the diagram 
-\eqref{sec:elementary_fibration}, and our goal is to efface
-$H^i(X,\mathcal F)$. Since $\mathcal F$ has no $p$-monodromy, it is at worst
-tamely ramified along $Y$, so that $(f,\mathcal F)$ is cohomologically 
-proper by~\eqref{lem:coh_proper}, and both $f_*\mathcal F$ and
-$R^1f_*\mathcal F$ are lisse. As the fibers of $f$ are affine curves,
-$R^qf_*\mathcal F=0$ for $q\ne0,1$. The Leray spectral sequence
+\eqref{sec:elementary_fibration} with $S$ (hence also $X$) smooth and 
+connected, and our goal is to efface $H^i(X,\mathcal F)$. Since $\mathcal F$
+has no $p$-monodromy, it is at worst tamely ramified along $Y$, so that
+$(f,\mathcal F)$ is cohomologically proper by~\eqref{lem:coh_proper}, and
+both $f_*\mathcal F$ and $R^1f_*\mathcal F$ are lisse. As the fibers of $f$
+are affine curves, $R^qf_*\mathcal F=0$ for $q\ne0,1$.
+The Leray spectral sequence
 \begin{equation*}
 	E^{p,q}_2=H^p(S,R^qf_*\mathcal F)\Rightarrow H^{p+q}(X,\mathcal F)
 \end{equation*}
 and~\eqref{lem:extend_mono} together imply that it will suffice to efface 
 $H^i(S,f_*\mathcal F)$ and $H^{i-1}(S,R^1f_*\mathcal F)$ separately.
-Let $\eta$ denote the generic point of $S$; we can efface
-$H^1(X_\eta,\mathcal F|_{X_\eta})$ with a monomorphism
+Let $\eta$ denote the generic point of $S$ and $X_\eta:=X\times_S\eta$;
+we can efface $H^1(X_\eta,\mathcal F|_{X_\eta})$ with a monomorphism
 $\iota_\eta:\mathcal F|_{X_\eta}\hookrightarrow\mathcal G_0$ on $X_\eta$.
 As $\xi\in X_\eta$, if
 $\Gamma:=\ker(\Gal(\overline\xi/\xi)\ra\Aut V_{\mathcal F})$
@@ -277,8 +286,9 @@ as in the proof of~\eqref{lem:extend_mono}, the morphism
 composes to a monomorphism of lisse sheaves on $X$
 which restricts over $X_\eta$ to a morphism factoring through $\iota_\eta$,
 with $\mathcal G_1$ lisse with no $p$-monodromy and $R^1f_*\mathcal G_1$ 
-lisse. As the morphism $R^1f_*\mathcal F\ra R^1f_*\mathcal G_1$ vanishes
-at $\eta$, and both sheaves are lisse, the morphism is itself null.
+lisse. As the morphism $R^1f_*\mathcal F\ra R^1f_*\mathcal G_1$ induces the
+null map on stalks at $\eta$, and both sheaves are lisse, the morphism is
+itself null.
 
 It remains only to efface $H^i(S,f_*\mathcal F)$. As $f_*\mathcal F$ is 
 lisse, the induction hypothesis gives a monomorphism
@@ -350,7 +360,8 @@ $\iota_S$, and $H^i(S,f_*\mathcal F)\ra H^i(S,f_*\mathcal G')$ is null.
 
 
 \addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
-\begin{thebibliography}{Illusie}
+\begin{thebibliography}{Achinger}
+\bibitem[Achinger]{Achinger} Achinger, Wild ramification and $K(\pi,1)$ spaces
 \bibitem[Nori]{Nori} Nori, \emph{Constructible Sheaves}
 \bibitem[SGA1]{SGA1} SGA 1
 \bibitem[SGAA]{SGAA} SGA 4
