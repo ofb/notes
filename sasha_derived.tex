@@ -199,6 +199,14 @@ with $\P^*K_Y^*$ instead of $\P^*K_Y$ and $M_{U_Y},N_{U_Y}$ in lieu of
 $M_U,N_U$. Finally, $P_{U_Y}$ is defined by an extension of
 $\P^*K_Y^*\otimes M_{U_Y}$, not $\P_*K_Y\otimes M_{U_Y}$, by $N_{U_Y}$.
 
+The point is that, localizing about any point of the base $Y$, the sheaves
+$L^{1*}$ and $K_Y$ become constant so that along any fiber,
+$L^{1*}\hookrightarrow K_Y$ admits a complement splitting $K_Y$.
+Therefore the monomorphism $N_{U_Y}\hookrightarrow P_{U_Y}$ killing
+$\varphi(\alpha)$ also kills $\alpha$ since it does so along every fiber,
+and it does so along every fiber because along any fiber there is a 
+retraction to $\alpha\mapsto\varphi(\alpha)$.
+
 Explanation of proof: our objective is to find an injection
 $N_{U_Y}\hookrightarrow P_{U_Y}$ such that the corresponding arrow
 $R^1\P_{Y*}(\underline\Hom(M_{U_Y},N_{U_Y})\ra R^1\P_{Y*}(M_{U_Y},P_{U_Y})$
@@ -381,7 +389,7 @@ with every map the identity.
 \subsection*{2.2.2}
 Let's show that given an adjunction of exact functors $F\dashv G$ between
 abelian categories 
-$\begin{tikzcd}\mathcal A\arrow[r,"G",shift left]&\mathcal B\arrow[l,"F",shift left]\end{tikzcd}$, we have
+$\begin{tikzcd}[cramped]\mathcal A\arrow[r,"G",shift left]&\mathcal B\arrow[l,"F",shift left]\end{tikzcd}$, we have
 \begin{equation*}
 	\Hom_{D(\mathcal A)}(FB,A)=\Hom_{D(\mathcal B)}(B,GA).
 \end{equation*}
@@ -392,17 +400,17 @@ descends to an adjunction $K(\mathcal A)\leftrightarrows K(\mathcal B)$.
 As the functors are both exact, they preserve quasi-isomorphisms, so to
 conclude on derived categories we write
 {\small\begin{ceqn}\begin{equation*}
-\begin{tikzcd}[column sep=10pt,row sep=10pt]
+\begin{tikzcd}[cramped,column sep=10pt,row sep=10pt]
 	&C\arrow[dl,"\sim"']\arrow[dr,"f"] \\
 	B&&GA
 \end{tikzcd}
 \rightsquigarrow
-\begin{tikzcd}[column sep=10pt,row sep=10pt]
+\begin{tikzcd}[cramped,column sep=10pt,row sep=10pt]
 	&FC\arrow[dl,"\sim"']\arrow[dr,"Ff"] \\
 	FB&&FGA\arrow[r,"\vep A"]&[10pt]A
 \end{tikzcd}
 \rightsquigarrow
-\begin{tikzcd}[column sep=10pt,row sep=10pt]
+\begin{tikzcd}[cramped,column sep=10pt,row sep=10pt]
 	&[10pt]C\arrow[drrr,dashed,bend left,"f"]\arrow[r,"\eta C"']\arrow[dl,"\sim"']&[10pt]GFC\arrow[dl,"\sim"]\arrow[dr,"GFf"] \\
 	B\arrow[r,"\eta B"']&GFB&&GFGA\arrow[r,"\vep A"]&[10pt]GA
 \end{tikzcd}
@@ -410,17 +418,17 @@ conclude on derived categories we write
 (the dashed arrow coincides with $f$ since it coincides with applying
 the adjunction isomorphism backwards and forwards to $f$), and
 {\small\begin{ceqn}\begin{equation*}
-\begin{tikzcd}[column sep=10pt,row sep=10pt]
+\begin{tikzcd}[cramped,column sep=10pt,row sep=10pt]
 	&D\arrow[dl,"\sim"']\arrow[dr,"g"] \\
 	FB&&A
 \end{tikzcd}
 \rightsquigarrow
-\begin{tikzcd}[column sep=10pt,row sep=10pt]
+\begin{tikzcd}[cramped,column sep=10pt,row sep=10pt]
 	&[10pt]&GD\arrow[dl,"\sim"']\arrow[dr,"Gg"] \\
 	B\arrow[r,"\eta B"]&GFB&&GA
 \end{tikzcd}
 \rightsquigarrow
-\begin{tikzcd}[column sep=10pt,row sep=10pt]
+\begin{tikzcd}[cramped,column sep=10pt,row sep=10pt]
 	&[10pt]&[10pt]&FGA\arrow[r,"\vep A"]&[10pt]A \\
 	&&FGD\arrow[dl,"\sim"']\arrow[r,"\vep D"]\arrow[ur,"FGg"]
 	&D\arrow[dl,"\sim"]\arrow[ur,"g"'] \\
@@ -687,158 +695,57 @@ $k$ by its perfect closure, as the extension is radicial and doesn't affect
 the étale topos. We may also take the reduced scheme structure on $X$ for 
 the same reason so that $X$ becomes geometrically reduced
 (\hyperref[https://stacks.math.columbia.edu/tag/035U]{\texttt{035U}}).
-A geometrically reduced scheme over a field has the property
-(EGA $IV_2$ 4.6.1) that given any irreducible component with generic point
-$\eta$, the field extension $k(\eta)/k$ is separable.
-We give $Z_1$ and $Z_2$ their reduced scheme structures and
-take $U'=\Spec B'$ to have all the stated properties and additionally
-that $U'\cap Z_1=\Spec A'$ be nonempty irreducible with generic point
-$\eta$; $U'\cap Z_1$ is also geometrically reduced over $k$.
-We find a separating transcendence base $x_1,\ldots,x_d$ for $k(\eta)/k$ and
-find some $f\in A'$ such that $x_1,\ldots,x_d$ are elements of $A'_f$,
-defining a morphism $\Spec A'_f\ra\A^d$ which is generically étale
-(but possibly neither finite nor surjective).
-We lift $f$ to some element of $B'$ also called $f$, replace $U'$ by the
-smaller affine open $\Spec B'_f$, and lift the above map to $h':U'\ra\A^d$.
-As $h'|_{U'\cap Z_1}$ is a dominant and generically finite map of integral
-schemes, there is a nonempty Zariski open of $W\subset \A^d$ over which 
-$h'|_{U'\cap Z_1}^{-1}(W)\ra W$ is finite (Hartshorne II.3 Ex.\,3.7);
-shrinking $W$ further, this map becomes a revêtement étale.
+Then the map $U'\cap Z_1\ra\A^d$ can be chosen to be generically finite 
+étale. There is a nonempty Zariksi open of $\A^d$ over which the map is 
+finite étale (Hartshorne II.3 Ex.\,3.7).
 
-\newpage
-\subsection*{Madhav's theorem in characteristic $p$}
-\begin{theorem*}[Achinger]
-	Every connected affine $\FF_p$-scheme $X$ is a $K(\pi,1)$-scheme; i.e.
-	if $\overline x$ is a geometric point of $X$ and $\mathcal F$ a locally
-	constant étale sheaf of finite abelian groups on $X$, the natural maps
-	\begin{equation*}
-	H^*(\pi_1(X,\overline x),\mathcal F_{\overline x})\ra H^*(X,\mathcal F)
-	\end{equation*}
-	are isomorphisms, where $\pi_1(X,\overline x)$ denotes the étale 
-	fundamental group.
-\end{theorem*}
-Let $k$ be a field of characteristic $p$ and $\Lambda$ a finite local
-$\ZZ/\ell^n$-algebra.
-\begin{corollary*}
-	The derived category of the abelian category of constructible sheaves of
-	$\Lambda$-modules on a separated scheme $X$ of finite type over $k$
-	coincides with $D_c^b(X,\Lambda)$.
-\end{corollary*}
-\begin{proof}
-	It will suffice by Madhav's paper to efface the higher cohomology of a 
-constructible sheaf $\mathcal F$ on an affine $X$.
-More precisely, let $\zeta\in H^i(X,\mathcal F)$.
-It will suffice to find a monomorphism $\mathcal F\hookrightarrow\mathcal G$
-with $\mathcal G$ constructible so that the induced map on cohomology
-annihilates $\zeta$. We may assume the field $k$ to be perfect.
-Let $j:U\subset X$ be a nonempty smooth connected Zariski open locus
-of $X$ so that $\mathcal F_U$ is locally constant and
-$i:X-U\hookrightarrow X$.
-As $\mathcal F$ includes into $i_*i^*\mathcal F\oplus j_*\mathcal F_U$, by
-noetherian induction it will suffice to annihilate the image of $\zeta$ in
-$H^i(X,j_*\mathcal F_U)$. For this we can replace $X$ by the closure of $U$
-and assume $X$ moreover integral.
-There is a finite connected étale $q_U:U'\ra U$ such that
-$q_U^*\mathcal F_U$ is constant; let $q:X'\ra X$ be the normalization of $X$
-in the field of fractions of $U'$ ($U'$ is integral as $U$ is normal),
-and $j':U'\hookrightarrow X'$.
-The sheaf $\mathcal F':=j'_*q_U^*\mathcal F_U$ is constant on $X'$ and
-$j_*\mathcal F_U\hookrightarrow j_*q_{U*}q_U^*\mathcal F_U=q_*\mathcal F'$,
-so it would  suffice to kill the image of $\zeta$ in $H^i(X',\mathcal F')$.
-Since $X'$ is a $K(\pi,1)$ and $\mathcal F'$ is locally constant,
-there exists a finite étale $p:X''\ra X'$ so that the image of 
-$\zeta$ in $H^i(X'',p^*\mathcal F')$ is null; i.e. the monomorphism
-$j_*\mathcal F_U\hookrightarrow q_*p_*p^*\mathcal F'$ effaces $\zeta$.
-\end{proof}
 
-% The following section is wrong for the reason given in the last sentence.
+\subsection*{Nori's theorem for finite coefficients in characteristic $p$}
+We wish to show that any constructible sheaf $\mathcal F$ is admissible.
+By dévissage one reduces to $\mathcal F=j_!\mathcal F'$ for $j$ the
+immersion of a locally closed stratum, and thereby (Nori 3.8\,(a)) to the
+case $\mathcal F$ locally constant on $X$.
+By~\cite[VI 5.8]{SGAA}, $\Ext^q(\mathcal F,-)$ commutes with filtered 
+inductive limits for all $q$ (in the language there, $\mathcal F$ is
+`de $q$-présentation finie' for all $q$).
+Embedding $\mathcal G$ as a subsheaf of an injective sheaf $\mathcal I$ 
+and passing to the limit along constructible subsheaves of $\mathcal I$
+containing $\mathcal G$, one finds a constructible
+$\mathcal G\hookrightarrow\mathcal G'$ effacing 
+$\Ext^q(\mathcal F,\mathcal G)$ for $q>0$.
+
+
 \comment{
-\subsection*{Proving Madhav's theorem from Sasha's generic lemma}
-Let $X$ be a separated scheme of finite type over a field $k$.
-Let $\Lambda$ be either a finite local $\ZZ/\ell^n$-algebra, $\QQ_\ell$, or
-$\overline\QQ_\ell$, with $\ell\ne\charac k$.
-In the case $\Lambda$ is infinite, assume $k$ algebraically closed.
-Let $C(X)$ denote constructible sheaves on $X$, $D(X):=D^b_c(X,\Lambda)$,
-and for constructible sheaves $\mathcal F,\mathcal G$ on $X$, let
-$\Ext^i_{D(X)}(\mathcal F,\mathcal G):=\Hom_{D(X)}(\mathcal F,\mathcal G[i])$.
-\begin{theorem*}[Nori]
-	$\real:D^b(C(X))\ra D(X)$ is an equivalence.
-\end{theorem*}
-\begin{proof}
-It will suffice to show that for each $i>0$, the restriction of the functor
-$\Ext^i_{D(X)}(\mathcal F,-)$ to $C(X)$ can be effaced by a monomorphism in 
-$C(X)$. Call such an $\mathcal F$ admissible.
-We assume $\real$ is an equivalence for varieties of dimension $<\dim X$,
-and, thanks to Sasha, at the generic point.
-
-Let $X_i$ denote the irreducible components of $X$ of dimension equal to
-$\dim X$ and let $U=\coprod_iU_i\subset X$ be the disjoint union of nonempty 
-open loci $U_i\subset X_i$; let $Y=X-U$ and define immersions $i,j$ by the
-diagram
-$\begin{tikzcd} U\arrow[r,hook,"j"]&X&Y\arrow[l,"i"',hook']\end{tikzcd}$.
-Given any constructible sheaf $\mathcal K$ on $Y$, $i_*\mathcal K$ is
-admissible, so that
-$\Ext^i_{C(X)}(i_*\mathcal K,\mathcal G)=\Ext^i_{D(X)}(i_*\mathcal K,\mathcal G)$
-for any constructible sheaf $\mathcal G$ on $X$
-(this is proved in the next paragraph).
-Given any constructible $\mathcal F$ on $X$, we consider the morphism from
-the long exact sequence of $\Ext$ for $C(X)$ to that for $D(X)$ coming from
-\begin{equation*}
-	0\ra j_!\mathcal F_U\ra\mathcal F\ra i_*\mathcal F_Y\ra0.
-\end{equation*}
-Recalling that
-$\Ext^i(j_!\mathcal F_U,\mathcal G)=\Ext^i(\mathcal F_U,\mathcal G_U)$
-for both $C$ and $D$, we find
-$\Ext^i_{C(X)}(\mathcal F,\mathcal G)\ra\Ext^i_{D(X)}(\mathcal F,\mathcal G)$
-is an isomorphism by doing the same diagram chase that proves the five 
-lemma, shrinking $U$ along the way and using Sasha's generic lemma.
-
-It remains to show that given constructible $\mathcal K$ on $Y$ a proper 
-closed subscheme of $X$, $i_*\mathcal K$ is admissible. Since
-$i_*\dashv i^!$ is an adjoint pair of functors $C(Y)\leftrightarrows C(X)$
-and $i_*$ is exact, Madhav's Remark 3.8 gives that
-$\Ext^i_{D(X)}(\mathcal K,i^!(-))$ is effaceable on $C(X)$ if
-$\Ext^i_{D(Y)}(\mathcal K,-)$ is effaceable on $C(Y)$,
-which is true by the inductive hypothesis.
-As $i^!$ sends injectives to injectives,
-$\Ext^i_{D(X)}(i_*\mathcal K,-)=\Ext^i_{D(Y)}(\mathcal K,i^!(-))$ is 
-effaceable on $C(X)$.
-\end{proof}
-
-\newpage
-$\begin{tikzcd} U\arrow[r,hook,"j"]&X&Y\arrow[l,"i"',hook']\end{tikzcd}$.
-Let $\Sh(X)$ denote the abelian category of all étale sheaves and
-$C(X)\subset\Sh(X)$ the full subcategory of constructible sheaves.
-We have the left-exact functor $i^!:\Sh(X)\ra\Sh(Y)$ which restricts to a
-functor $i^!:C(X)\ra C(Y)$. We have the adjunction
-\begin{equation*}
-	\Hom_{\Sh(X)}(i_*\mathcal F,\mathcal G)
-	=\Hom_{\Sh(Y)}(\mathcal F,i^!\mathcal G)
-\end{equation*}
-for any $\mathcal F\in\ob\Sh(Y),\mathcal G\in\ob\Sh(X)$.
-In particular we have the same adjunction when $\mathcal F$ and $\mathcal G$
-are constructible so that $i_*\dashv i^!$ as functors
-$C(Y)\leftrightarrows C(X)$.
-By Madhav's Remark 3.8, given any functor $H:C(Y)\ra\mathcal C$
-which is effaceable in $C(Y)$ ($\mathcal C$ is any category),
-$H\circ i^!$ is effaceable in $C(X)$. Applying this in the case
-$H=\Ext^a_{\Sh(Y)}(\mathcal F,-)$, with $\mathcal F$ constructible and
-admissible on $Y$, finds that the functor
-$H\circ i^!=\Ext^a_{\Sh(Y)}(\mathcal F,i^!(-))$ is effaceable as a functor
-on $C(X)$. Given any $\mathcal G$ constructible on $X$, take a
-quasi-isomorphism $\mathcal G\ra\mathcal I^\dotp$ where $\mathcal I^\dotp$
-is a complex of injective sheaves.
-The problem is that $i^!\mathcal I^\dotp$ computes $Ri^!\mathcal G$, not
-$i^!\mathcal G$.
+% The below argument is the same as the one above, except it first 
+% trivializes the sheaf F over a finite étale cover. This is unnecessary, as
+% the definition of q-présentation finie is local. In particular, as the
+% coefficient ring is noetherian and F is locally constant constructible,
+% F is de q-présentation finie.
+Let $f:T\ra X$ be a finite étale map so that $f^*\mathcal F$ is constant.
+By~\cite[VI 5.8]{SGAA}, $\Ext^q(f^*\mathcal F,-)$ commutes with inductive
+limits for all $q$ (in the language there, $f^*\mathcal F$ is
+`de $q$-présentation finie' for all $q$).
+Embedding $f^*\mathcal G$ as a subsheaf of an injective sheaf $\mathcal I$ 
+and passing to the limit along constructible subsheaves of $\mathcal I$
+containing $f^*\mathcal G$, one finds a constructible
+$f^*\mathcal G\hookrightarrow\mathcal G'$ effacing 
+$\Ext^q(f^*\mathcal F,f^*\mathcal G)$ for $q>0$.
+This gives a monomorphism $\mathcal G\hookrightarrow f_*\mathcal G'$
+effacing $\Ext^q(\mathcal F,\mathcal G)$ for $q>0$.
 }
 
 
+
+
+
+
 \addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
-\begin{thebibliography}{BBD}
-	\bibitem[B1]{derived} \emph{On the derived category of perverse sheaves} par Beilinson
-	\bibitem[B2]{glue} \emph{How to glue perverse sheaves} par Beilinson
+\begin{thebibliography}{SGAA}
+	\bibitem[B1]{derived} \emph{On the derived category of perverse sheaves} by Beilinson
+	\bibitem[B2]{glue} \emph{How to glue perverse sheaves} by Beilinson
 	\bibitem[BBD]{BBD} \textit{Faisceaux Pervers}
-	par Beilinson, Bernstein, Deligne (\& Gabber!)
+	par Beilinson, Bernstein, Deligne \& Gabber
+	\bibitem[SGAA]{SGAA} SGA 4
 \end{thebibliography}
 \addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 \end{document}
