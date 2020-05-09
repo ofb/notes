@@ -389,7 +389,7 @@ with every map the identity.
 \subsection*{2.2.2}
 Let's show that given an adjunction of exact functors $F\dashv G$ between
 abelian categories 
-$\begin{tikzcd}[cramped]\mathcal A\arrow[r,"G",shift left]&\mathcal B\arrow[l,"F",shift left]\end{tikzcd}$, we have
+$\begin{tikzcd}\mathcal A\arrow[r,"G",shift left]&\mathcal B\arrow[l,"F",shift left]\end{tikzcd}$, we have
 \begin{equation*}
 	\Hom_{D(\mathcal A)}(FB,A)=\Hom_{D(\mathcal B)}(B,GA).
 \end{equation*}
@@ -400,17 +400,17 @@ descends to an adjunction $K(\mathcal A)\leftrightarrows K(\mathcal B)$.
 As the functors are both exact, they preserve quasi-isomorphisms, so to
 conclude on derived categories we write
 {\small\begin{ceqn}\begin{equation*}
-\begin{tikzcd}[cramped,column sep=10pt,row sep=10pt]
+\begin{tikzcd}[column sep=10pt,row sep=10pt]
 	&C\arrow[dl,"\sim"']\arrow[dr,"f"] \\
 	B&&GA
 \end{tikzcd}
 \rightsquigarrow
-\begin{tikzcd}[cramped,column sep=10pt,row sep=10pt]
+\begin{tikzcd}[column sep=10pt,row sep=10pt]
 	&FC\arrow[dl,"\sim"']\arrow[dr,"Ff"] \\
 	FB&&FGA\arrow[r,"\vep A"]&[10pt]A
 \end{tikzcd}
 \rightsquigarrow
-\begin{tikzcd}[cramped,column sep=10pt,row sep=10pt]
+\begin{tikzcd}[column sep=10pt,row sep=10pt]
 	&[10pt]C\arrow[drrr,dashed,bend left,"f"]\arrow[r,"\eta C"']\arrow[dl,"\sim"']&[10pt]GFC\arrow[dl,"\sim"]\arrow[dr,"GFf"] \\
 	B\arrow[r,"\eta B"']&GFB&&GFGA\arrow[r,"\vep A"]&[10pt]GA
 \end{tikzcd}
@@ -418,17 +418,17 @@ conclude on derived categories we write
 (the dashed arrow coincides with $f$ since it coincides with applying
 the adjunction isomorphism backwards and forwards to $f$), and
 {\small\begin{ceqn}\begin{equation*}
-\begin{tikzcd}[cramped,column sep=10pt,row sep=10pt]
+\begin{tikzcd}[column sep=10pt,row sep=10pt]
 	&D\arrow[dl,"\sim"']\arrow[dr,"g"] \\
 	FB&&A
 \end{tikzcd}
 \rightsquigarrow
-\begin{tikzcd}[cramped,column sep=10pt,row sep=10pt]
+\begin{tikzcd}[column sep=10pt,row sep=10pt]
 	&[10pt]&GD\arrow[dl,"\sim"']\arrow[dr,"Gg"] \\
 	B\arrow[r,"\eta B"]&GFB&&GA
 \end{tikzcd}
 \rightsquigarrow
-\begin{tikzcd}[cramped,column sep=10pt,row sep=10pt]
+\begin{tikzcd}[column sep=10pt,row sep=10pt]
 	&[10pt]&[10pt]&FGA\arrow[r,"\vep A"]&[10pt]A \\
 	&&FGD\arrow[dl,"\sim"']\arrow[r,"\vep D"]\arrow[ur,"FGg"]
 	&D\arrow[dl,"\sim"]\arrow[ur,"g"'] \\
